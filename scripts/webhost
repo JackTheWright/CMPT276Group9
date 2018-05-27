@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# *** IMPORTANT ***
+# This file must be called from the project root directory. That is, the git
+# root directory (the one with the 'scripts' and 'server' directories).
+
+
+METADATA='server/.webhost.pid'
+LOGFILE='server/.webhost.log'
+USAGE_STATEMENT='Usage: %s build | start | stop | view-logs | help\n'
+
+if [[ $# -ne 1 ]]; then
+    printf $"$USAGE_STATEMENT" $"$0"
+else
+    case $1 in
+        build)
+            cd server && swift build
+            ;;
+
+        start)
+            nohup server/.build/debug/server > $"$LOGFILE" 2>&1 &
+            echo $! > $"$METADATA"
+            ;;
+
+        stop)
+            if [ -f $"$METADATA" ]; then
+                kill $(cat $"$METADATA") && rm $"$METADATA" && echo Webhost terminated
+            else
+                echo Unable to locate web host metadata in file $METADATA
+                echo $'Use ps -ef | grep "server" to find process id and manually kill it.'
+            fi
+            ;;
+
+        view-logs)
+            cat  $"$LOGFILE"
+            ;;
+
+        clean)
+            echo Removing pid and log files.
+            rm -f server/.webhost.pid server/.webhost.log
+
+        *)
+            printf $"$USAGE_STATEMENT" $"$0"
+            ;;
+
+    esac    
+fi
+
