@@ -33,21 +33,31 @@ public class WebServer {
     
     /// Initializes member variables and defines the port number which the
     /// server will run on.
-    public init (onPort port: Int) {
+    ///
+    /// - parameters:
+    ///     - port: The TCP port to run the server on.
+    ///
+    ///     - ssl: A `SSLConfig` file containing information about the ssl
+    ///         certificate to use when hosting a 'https' server.
+    public init (onPort port: Int, withSSL ssl: SSLConfig? = nil) {
         self.port = port
         self.router = Router()
-        self.httpServer = Kitura.addHTTPServer(onPort: port, with: router)
-        
+        self.httpServer = Kitura.addHTTPServer(onPort: port,
+                                               with: router,
+                                               withSSL: ssl)
+        Console.log("[  OK  ] Kitura HTTP server init")
         router.get("/*") { request, response, next in
             let parsedUrl = request.parsedURL
             if let path = parsedUrl.path {
+                Console.log("[ HTTP ] Request on \(path)")
                 let sender = Sender(request: request, response: response)
                 guard var url = URL(string: path) else {
                     throw ServerError.InvalidPath
                 }
                 
                 if let listener = self.explicitListeners[url] {
-                    listener.onRequest(sender: sender)
+                    Console.log("[ HTTP ] Handled by explicit listener\n")
+                    try listener.onRequest(sender: sender)
                     next()
                 } else {
                     // If no explicit listener is defined, then search through
@@ -58,7 +68,10 @@ public class WebServer {
                     while url.pathComponents.count > 1 {
                         for kv in self.genericListeners {
                             if url == kv.key {
-                                kv.value.onRequest(sender: sender)
+                                Console.log(
+                                    "[ HTTP ] Handled by generic listener"
+                                )
+                                try kv.value.onRequest(sender: sender)
                                 next()
                                 return
                             }
@@ -69,7 +82,8 @@ public class WebServer {
                     // If this line is reached, then there are no matching
                     // generic listeners.
                     if let listener = self.fallbackListener {
-                        listener.onRequest(sender: sender)
+                        Console.log("[ HTTP ] Handled by fallback listener")
+                        try listener.onRequest(sender: sender)
                     }
                     next()
                 }

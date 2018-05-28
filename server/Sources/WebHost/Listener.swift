@@ -7,7 +7,7 @@ public protocol Listener {
     ///
     /// - parameter sender: A `Sender` object representing the client that
     ///     initiated the request.
-    func onRequest(sender: Sender)
+    func onRequest(sender: Sender) throws
     
 }
 
@@ -15,14 +15,14 @@ public protocol Listener {
 /// Wraps a closure/lambda statement into a `Listener` conformable class.
 internal class BasicListener : Listener {
     
-    let callback: (Sender) -> Void
+    let callback: (Sender) throws -> Void
     
-    init (_ callback: @escaping (Sender) -> Void) {
+    init (_ callback: @escaping (Sender) throws -> Void) {
         self.callback = callback
     }
     
-    func onRequest(sender: Sender) {
-        callback(sender)
+    func onRequest(sender: Sender) throws {
+        try callback(sender)
     }
     
 }

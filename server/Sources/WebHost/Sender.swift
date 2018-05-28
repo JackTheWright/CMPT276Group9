@@ -40,8 +40,7 @@ public class Sender {
     /// `www.youtube.com/watch?v=xxxxxxxxxx`
     ///
     /// is the key value pair `("v", "xxxxxxxxxxx")`. In youtube's case the
-    /// value would be a base 64
-    /// number representing the video id.
+    /// value would be a base 64 number representing the video id.
     public var query: (key: String, value: String)? {
         if request.queryParameters.count == 1 {
             return (request.queryParameters.keys.first!,
