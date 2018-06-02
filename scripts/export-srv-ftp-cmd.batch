@@ -1,0 +1,3 @@
+cd projects/server
+lcd /Users/Jeremy/Desktop/CMPT276Group9
+put -r server/*
