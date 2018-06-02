@@ -1,10 +1,3 @@
-//
-//  Log.swift
-//  Application
-//
-//  Created by Jeremy S on 2018-06-01.
-//
-
 #if os(Linux)
     import Glibc
 #else

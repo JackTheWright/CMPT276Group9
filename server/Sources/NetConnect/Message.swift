@@ -2,6 +2,9 @@ import Foundation
 
 public class Message : Datagram {
     
+   private var _size: Int
+    
+    
     /// The size of this message (including the 8-byte header) in bytes.
     ///
     /// If the `Use64BitSize` flag is set, then this value returns a 64-bit
@@ -18,14 +21,14 @@ public class Message : Datagram {
     
     /// A unique 16-bit identifier used by the server to determine which
     /// conversation this message belongs to.
-    public private(set) var threadId: UInt16
+    public var threadId: UInt16
     
     /// A complex of flags used to identify aspects about this message.
-    public private(set) var flags: FlagComplex<MessageFlags>
+    public var flags: FlagComplex<MessageFlags>
     
     /// A complex of flags used to determine how this message should be handled
     /// by the reciving system.
-    public private(set) var interpretationFlags: FlagComplex<MessageFlags>
+    public var interpretationFlags: FlagComplex<MessageFlags>
     
     
     private var _body = Data()
@@ -54,11 +57,38 @@ public class Message : Datagram {
     }
     
     
-    public required init(messageData data: Data) {
+    public init() {
         self.threadId = 0
         self.flags = FlagComplex<MessageFlags>()
         self.interpretationFlags = FlagComplex<MessageFlags>()
-        self.body = data
+        self._size = 0
+    }
+    
+    
+    /// Constructs a message object from an encoded chunk of data that is
+    /// recieved over the network.
+    public required init(messageData data: Data) throws {
+        self.threadId = 0
+        self.flags = FlagComplex<MessageFlags>()
+        self.interpretationFlags = FlagComplex<MessageFlags>()
+        self._size = 0
+        
+        
+        let header = data.subdata(in: 0..<8)
+        header.withUnsafeBytes { (ptr: UnsafePointer<UInt16>) in
+            self._size = Int(ptr.pointee)
+            self.threadId = ptr.advanced(by: 1).pointee
+            self.flags = FlagComplex<MessageFlags>(
+                rawValue: ptr.advanced(by: 2).pointee
+            )
+            self.interpretationFlags = FlagComplex<MessageFlags>(
+                rawValue: ptr.advanced(by: 4).pointee
+            )
+        }
+        self.body = data.subdata(in: 8..<data.count)
+        if _size != size {
+            throw MessagingError.MalformedMessage
+        }
     }
     
     

@@ -19,6 +19,8 @@ class NetConnectTests : XCTestCase {
     // Use XTCAssert function to ensure correct functionality.
     
     func testMessage() {
+        let str = "Hello World"
+        let msg = Message()
         
     }
 
