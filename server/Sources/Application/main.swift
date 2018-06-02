@@ -1,38 +1,82 @@
 import Foundation
-import WebHost
+import Socket
+import Dispatch
+import NetConnect
+
+var data = Data()
+
+data.append(bytes: UInt64(0x123456789))
+
+for byte in data {
+    print(String(format: "%02x", byte))
+}
 
 
-#if os(Linux)
-let certPath = "/tmp/Certs/Self-Signed/certificate.pem"
-let keyPath = "/tmp/Certs/Self-Signed/key.pem"
-let ssl = SSLConfig(withCACertificateDirectory: nil,
-                     usingCertificateFile: certPath,
-                     withKeyFile: keyPath,
-                     usingSelfSignedCerts: true)
-let server = WebServer(onPort: 8080, withSSL: ssl)
-#else
-let server = WebServer(onPort: 8080)
-#endif
+let port = 60011
 
-try! server.addListener(to: "/") { sender in
-    sender.reply("Root directory\n")
-    if let query = sender.query {
-        sender.reply("(\(query.key), \(query.value))")
-    } else {
-        sender.reply("No query")
+func server() {
+    var shouldContinue = true
+    guard let socket = try? Socket.create(family: .inet, type: .datagram, proto: .udp) else {
+        print("[FAILED] Unable to create socket")
+        return
+    }
+    
+    do {
+        try socket.udpBroadcast(enable: true)
+        print("[  OK  ] Socket created")
+        repeat {
+            var data = Data(capacity: 4096)
+            let client = try socket.listen(forMessage: &data, on: port)
+            print("[ INFO ] Read \(client.bytesRead) bytes")
+            let str = String(data: data, encoding: .utf8)
+            if let s = str {
+                print("[ DATA ] From client: \(s)")
+                if let addr = client.address {
+                    try socket.write(from: s, to: addr)
+                    print("[  OK  ] Sending msg to client")
+                } else {
+                    print("[FAILED] Unable to get client address")
+                }
+            }
+            
+            if str == "quit" {
+                print("[ INFO ] Shutting down server")
+                shouldContinue = false
+            }
+        } while shouldContinue
+    } catch let error {
+        print(error)
+        return
     }
 }
 
-try! server.addListener(to: "/test/*") { sender in
-    sender.reply("Testing page")
+func client() {
+    do {
+        let socket = try Socket.create(family: .inet, type: .datagram, proto: .udp)
+        try socket.udpBroadcast(enable: true)
+        let addr = Socket.createAddress(for: "app.trackitdiet.com", on: Int32(port))!
+        try socket.write(from: "Hello World", to: addr)
+        print("[  OK  ] Send message")
+        var data = Data(capacity: 4096)
+        _ = try socket.readDatagram(into: &data)
+        if let str = String(data: data, encoding: .utf8) {
+            print("[  OK  ] Message from server: \(str)")
+        } else {
+            print("[FAILED] Unable to create string")
+        }
+        try socket.write(from: "quit", to: addr)
+        var data2 = Data(capacity: 4096)
+        _ = try socket.readDatagram(into: &data2)
+        if let str = String(data: data2, encoding: .utf8) {
+            print("[  OK  ] Message from server: \(str)")
+        } else {
+            print("[FAILED] Unable to create string")
+        }
+        
+    } catch let error {
+        print(error)
+        return
+    }
 }
 
-server.defaultListener { sender in
-    sender.reply("Default page")
-}
 
-server.onFailure { error in
-    Console.log("[FAILED] \(error.localizedDescription)")
-}
-
-server.start()
