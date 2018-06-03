@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sftp -b ./scripts/export-srv-ftp-cmd.batch jeremy@192.168.10.24 
-
