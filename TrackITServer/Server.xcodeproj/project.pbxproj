@@ -44,26 +44,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3FADD71920C48B9600951B16 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Server::NetConnect";
-			remoteInfo = NetConnect;
-		};
-		3FADD71A20C48B9600951B16 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Server::NetConnect";
-			remoteInfo = NetConnect;
-		};
-		3FADD71B20C48B9600951B16 /* PBXContainerItemProxy */ = {
+		3FADD71E20C4900100951B16 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Server::NetConnectTests";
 			remoteInfo = NetConnectTests;
+		};
+		3FADD71F20C4900100951B16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Server::NetConnect";
+			remoteInfo = NetConnect;
+		};
+		3FADD72020C4900100951B16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Server::NetConnect";
+			remoteInfo = NetConnect;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -170,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				"Server::NetConnectTests::Product" /* NetConnectTests.xctest */,
-				"Server::NetConnect::Product" /* NetConnect.framework */,
 				"Server::Server::Product" /* Server */,
+				"Server::NetConnect::Product" /* NetConnect.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -354,17 +354,17 @@
 		OBJ_63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Server::NetConnect" /* NetConnect */;
-			targetProxy = 3FADD71A20C48B9600951B16 /* PBXContainerItemProxy */;
+			targetProxy = 3FADD71F20C4900100951B16 /* PBXContainerItemProxy */;
 		};
 		OBJ_72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Server::NetConnect" /* NetConnect */;
-			targetProxy = 3FADD71920C48B9600951B16 /* PBXContainerItemProxy */;
+			targetProxy = 3FADD72020C4900100951B16 /* PBXContainerItemProxy */;
 		};
 		OBJ_83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Server::NetConnectTests" /* NetConnectTests */;
-			targetProxy = 3FADD71B20C48B9600951B16 /* PBXContainerItemProxy */;
+			targetProxy = 3FADD71E20C4900100951B16 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
