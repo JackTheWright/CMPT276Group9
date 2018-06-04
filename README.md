@@ -1,17 +1,22 @@
 # TrackIT
 
-## Table of Contents
-- [Structure Overview](#structure-overview)
-- [NetConnect](#netconnet)
-- [TrackIT Client](#trackit-client)
-- [TrackIT Server](#trackit-server)
+TrackIT is a client/server iOS application desigend and built by Group 9 for CMPT 276 (Summer) at SFU.
 
-## Structure Overview
+Project website: [trackitdiet.com](https://www.trackitdiet.com)
+
+### Team Members
+  - Jack Wright (Project Manager, Frontend Dev)
+  - Keyi Huang (Database Manager, Backend Dev)
+  - Jeremy Schwartz (Network Administrator, Backend Dev)
+  - Siddharth Gupta (Researcher, Frontend Dev)
+  - Xin Yuan Dong (QA, Frontend Dev)
+
+## Project Structure Overview
 
 The *TrackIT* project is divided into 3 smaller, isolated projects:
+  - [NetConnect](#netconnect)
   - [TrackIT Client](#trackit-client)
   - [TrackIT Server](#trackit-server)
-  - [NetConnect](#netconnect)
   
 All of these projects are accessable from the `TrackIT.xcworkspace` Xcode workspace file. Work on any aspect of the project (except when working on NetConnect/TrackITServer from Linux) should be done from within this workspace file.
 
@@ -40,11 +45,68 @@ import NetConnect
 
 *Once the framework has been completed, usage instructions will be added here*
 
+### Building Sources
+
+All source files for the NetConnect library are located in `TrackITServer/Sources/NetConnect/`. NetConnect may be built either by using Xcode, using the specific build scheme or using Swift Package Manager (SPM) using:
+
+```
+swift build
+```
+
+The result of this build sequence is a an importable swift framework.
+
+### Unit Tests
+
+To easily test aspects of the library, NetConnect contains unit tests which are located in `TrackITServer/Tests/NetConnectTests/`. These tests may be run in Xcode by going to `NetConnectTests.swift` and running the desired test by clicking the run icon at the specific line number, or, using SPM, by running:
+
+```
+swift test
+```
+
+When writing unit tests use the following `XCTest` library function to assert that test results are as expected.
+
+``` swift
+XCAssert(_ expression: Bool)
+```
+
+Also note that each test function must be named `test<something>` and, for the tests to run on Linux, must be added to the static `allTests` array located at bottom of `NetConnectTests.swift`
+
+For example, if you wanted to ensure that encoding a decoding a message produced the same string then you could write a test like so.
+
+``` swift
+/// Test message encoding and decoding.
+func testMessage() {
+    // Wrap entire function in do-try-catch section to catch any exceptions thrown.
+    do {
+        let string = "Hello World"
+        let message: Message = Message(body: string)
+        
+        // Ensure message was constructed correctly
+        XCTAssert(message.body == message)
+        
+        let encodedMessage: Data = try message.encoded()
+        guard let decodedMessage: Message = Message(decoding: encodedMessage) else {
+            // If unable to decode, throw an exception.
+            throw MessagingError.UnableToDecode
+        }
+        
+        // Main check, ensure message boy is the same after encoding and decoding.
+        XCTAssert(message.body == decodedMessage.body)
+        
+    } catch {
+        // Test should fail if exception was thrown.
+        XCTAssert(false)  // Always fails.
+    }
+}
+```
+
 ## TrackIT Client
 
-TrackITClient is the working name for the end user iOS application which is the primary focus of the entire TrackIT project.
+TrackITClient is the working name for the end user iOS application which is the primary focus of the entire TrackIT project. Since this is an iOS project, TrackITClient is not buildable on Linux.
 
-For obvious reasons, this subproject is the only aspect of TrackIT that is not buildable on Linux.
+**IMPORTANT: DO NOT DELETE OR EDIT THE NetConect DIRECTORY LOCATED IN THE TrackITClient PROJECT**
+
+*More information to come once work has started on the app*
 
 ## TrackIT Server
 
@@ -61,12 +123,12 @@ The file `main.swift` located in `TrackITServer/Sources/Server/` is the entry po
 ### Compiling
 
 To compile both Server and NetConnect, run the following command from the `TrackITServer/` directory.
-``` bash
+```
 swift build
 ```
 
 Or alternativly, if you would like to run the created server executable.
-``` bash
+```
 swift run
 ```
 
