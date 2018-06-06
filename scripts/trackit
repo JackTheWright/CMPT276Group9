@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# $TRACKIT_ROOT must be set in ~/.bashrc or some other startup bash file
+
+USAGE_STATEMENT="Usage: %s build | run | test | clean  [-v]\n"
+
+if [ -z $TRACKIT_ROOT ]; then
+    echo Failed to run script.
+    echo TRACKIT_ROOT is undefined, have you ran the install script?
+    exit 1 
+fi
+
+if [[ $# -lt 1 ]]; then
+    printf $"$USAGE_STATEMENT" $"$0"
+fi
+
+if [[ $# -eq 2 ]]; then
+    if [ $2 == "-v" ]; then
+        VERBOSE=true
+    else
+        VERBOSE=false
+    fi
+else
+    VERBOSE=false
+fi
+
+case $1 in
+
+    build)
+        if $VERBOSE; then echo '[ BASH ]: Building server project'; fi
+        cd $TRACKIT_ROOT/TrackITServer && swift build
+        if $VERBOSE; then echo '[ BASH ]: Done'; fi
+        ;;
+    
+    run)
+        if $VERBOSE; then echo '[ BASH ]: Running server project'; fi
+        cd $TRACKIT_ROOT/TrackITServer && swift run
+        if $VERBOSE; then echo '[ BASH ]: Done'; fi
+        ;;
+
+    test)
+        if $VERBOSE; then echo '[ BASH ]: Testing server project'; fi
+        cd $TRACKIT_ROOT/TrackITServer && swift test
+        if $VERBOSE; then echo '[ BASH ]: Done'; fi
+        ;;
+
+    clean)
+        if $VERBOSE; then echo '[ BASH ]: Cleaning server project'; fi
+        cd $TRACKIT_ROOT/TrackITServer && swift package clean
+        if $VERBOSE; then echo '[ BASH ]: Done'; fi
+
+esac
+
