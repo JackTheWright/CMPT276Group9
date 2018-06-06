@@ -4,6 +4,10 @@ TrackIT is a client/server iOS application desigend and built by Group 9 for CMP
 
 Project website: [trackitdiet.com](https://www.trackitdiet.com)
 
+## Table of Contents
+  - [Project Structure Overview](#project-structure-overview)
+  - [TrackIT Command Line Tools](#trackit-command-line-tools)
+
 ### Team Members
   - Jack Wright (Project Manager, Frontend Dev)
   - Keyi Huang (Database Manager, Backend Dev)
@@ -133,3 +137,41 @@ swift run
 ```
 
 Once compiled the executable will be called `Server` and is located in `TrackITServer/.build/x86_64-apple-macosx10.10/` on macOS or under `TrackITServer/.build/x86_64-unknown-linux/` on Linux. Since this directory is quite long, one may simply use the `swift run` command to run the executable from the project root directory (`TrackITServer/`).
+
+## TrackIT Command Line Tools
+
+Along with the main project, a suite of unix command line tools have been created to help with building and maintaining the server aspect of the project.
+
+To install the `trackit` tool, run the following command from the project root (normally `CMPT276Group9/`:
+
+```
+scripts/install_tools.sh
+```
+
+This will run the `install_tools.sh` bash script located in the `scripts/` directory. All the installation does is simply append a few lines to `~/.bashrc` which add the `scripts/` directory to the `$PATH` variable and defines a new variable: `$TRACKIT_ROOT` which contains the path to the project root directory, wherever it is located on your system.
+
+Once this script is run, you may then use the following commands from any directory.
+
+Note that each command may be appended with `-v` to run the command in verbose mode (produce more output to the screen)
+
+To build the server executable:
+```
+trackit build
+```
+
+To build and run the server executable:
+```
+trackit run
+```
+
+To run unit tests:
+```
+trackit test
+```
+
+To clean the build files:
+```
+trackit clean
+```
+
+*More commands will be added latter to handle things like viewing server logs, starting and stoping the server service, etc.*
