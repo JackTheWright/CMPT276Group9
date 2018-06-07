@@ -2,7 +2,7 @@
 
 # $TRACKIT_ROOT must be set in ~/.bashrc or some other startup bash file
 
-USAGE_STATEMENT="Usage: %s build | run | test | clean  [-v]\n"
+USAGE_STATEMENT="Usage: trackit build | run | test | clean  [-v]"
 
 if [ -z $TRACKIT_ROOT ]; then
     echo Failed to run script.
@@ -48,6 +48,11 @@ case $1 in
         if $VERBOSE; then echo '[ BASH ]: Cleaning server project'; fi
         cd $TRACKIT_ROOT/TrackITServer && swift package clean
         if $VERBOSE; then echo '[ BASH ]: Done'; fi
+        ;;
+
+    *)
+        echo $USAGE_STATEMENT
+        ;;
 
 esac
 
