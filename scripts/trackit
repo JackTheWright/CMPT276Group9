@@ -1,45 +1,94 @@
 #!/bin/bash
 
-# $TRACKIT_ROOT must be set in ~/.bashrc or some other startup bash file
+# Usage statement shown via 'help' command.
+USAGE="
+USAGE: trackit command [options]
 
-USAGE_STATEMENT="Usage: trackit build | run | test | clean  [-v]"
+OPTIONS:
+    --suppress, -s      Decrease verbosity of information output
+    --output, -o        Explicitly define output executable file for 'build'
+                        and 'run' commands
+    --config, -c        Build with configuration (debug|release), default is
+                        debug; only for 'build' and 'run' commands
 
-if [ -z $TRACKIT_ROOT ]; then
-    echo Failed to run script.
-    echo TRACKIT_ROOT is undefined, have you ran the install script?
-    exit 1 
+COMMANDS:
+    build               Build server executable
+    run                 Build and run server executable
+    clean               Delete build artifacts
+    test                Run all unit tests
+    stats               Display project stats
+    dir                 Display project root directory
+    help                Display this message
+"
+
+# Argument parsing inspired by:
+# https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+
+if [[ $# -eq 0 ]]; then
+    printf "$USAGE\n"
+    exit 1
 fi
 
-if [[ $# -lt 1 ]]; then
-    printf $"$USAGE_STATEMENT" $"$0"
+VERBOSE=true
+CONFIG="debug"
+COMMAND=$1
+shift
+
+while [[ $# -gt 0 ]]; do
+    key="$1"
+    case $key in
+
+        -s|--suppress)
+            VERBOSE=false
+            shift
+            ;;
+
+        -o|--output)
+            OUTPUT="$2"
+            shift
+            shift
+            ;;
+
+        -c|--config)
+            CONFIG="$2"
+            shift
+            shift
+            ;;
+
+        *)
+            echo "Unkown option: $key"
+            exit 1
+            ;;
+
+    esac
+done
+
+# Ensure configuration is valid (either debug or release)
+if [[ ! ($CONFIG == "debug" || $CONFIG == "release") ]]; then
+    echo "Invalid configuration: $CONFIG"
+    exit 1
 fi
 
-if [[ $# -eq 2 ]]; then
-    if [ $2 == "-v" ]; then
-        VERBOSE=true
-    else
-        VERBOSE=false
-    fi
-else
-    VERBOSE=false
-fi
+HAS_BUILT=false
 
-case $1 in
-
+# Execute command
+case $COMMAND in
     build)
         if $VERBOSE; then echo '[ BASH ]: Building server project'; fi
-        cd $TRACKIT_ROOT/TrackITServer && swift build
+        cd $TRACKIT_ROOT/TrackITServer && swift build -c $CONFIG
+        HAS_BUILT=true
         if $VERBOSE; then echo '[ BASH ]: Done'; fi
         ;;
-    
+
     run)
         if $VERBOSE; then echo '[ BASH ]: Running server project'; fi
-        cd $TRACKIT_ROOT/TrackITServer && swift run
+        cd $TRACKIT_ROOT/TrackITServer && swift run -c $CONFIG
+        HAS_BUILT=true
         if $VERBOSE; then echo '[ BASH ]: Done'; fi
         ;;
 
     test)
-        if $VERBOSE; then echo '[ BASH ]: Testing server project'; fi
+        if $VERBOSE; then echo '[ BASH ]: Running unit tests'; fi
         cd $TRACKIT_ROOT/TrackITServer && swift test
         if $VERBOSE; then echo '[ BASH ]: Done'; fi
         ;;
@@ -50,9 +99,46 @@ case $1 in
         if $VERBOSE; then echo '[ BASH ]: Done'; fi
         ;;
 
+    stats)
+        line_num=0
+        file_num=0
+        for i in $(find $TRACKIT_ROOT/TrackITServer/Sources -name "*.swift")
+        do
+            (( line_num += $(wc -l $i | awk '{print $1}') ))
+            (( file_num += 1 ))
+        done
+        for i in $(find $TRACKIT_ROOT/TrackITClient/TrackITClient/TrackITClient -name "*.swift")
+        do
+            (( line_num += $(wc -l $i | awk '{print $1}') ))
+            (( file_num += 1 ))
+        done
+        echo "Lines:    $line_num"
+        echo "Files:    $file_num"
+        exit 0
+        ;;
+
+    dir)
+        echo $TRACKIT_ROOT
+        exit 0
+        ;;
+
+    help)
+        printf "$USAGE\n"
+        exit 0
+        ;;
+
     *)
-        echo $USAGE_STATEMENT
+        echo "Invalid command: $COMMAND"
+        exit 1
         ;;
 
 esac
+
+# Copy executable if -o flag has been specified
+if [[ -n $OUTPUT && $HAS_BUILT == true ]]; then
+    if $VERBOSE; then echo '[ BASH ]: Copying executable'; fi
+    bin_path="$(swift build --show-bin-path)"
+    cp $bin_path/Server $OUTPUT
+    if $VERBOSE; then echo '[ BASH ]: Done'; fi
+fi
 
