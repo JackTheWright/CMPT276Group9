@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"Server::ServerPackageTests::ProductTarget" /* ServerPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_80 /* Build configuration list for PBXAggregateTarget "ServerPackageTests" */;
+			buildConfigurationList = OBJ_242 /* Build configuration list for PBXAggregateTarget "ServerPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_83 /* PBXTargetDependency */,
+				OBJ_245 /* PBXTargetDependency */,
 			);
 			name = ServerPackageTests;
 			productName = ServerPackageTests;
@@ -21,97 +21,299 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		OBJ_39 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Data+Extensions.swift */; };
-		OBJ_40 /* Datagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Datagram.swift */; };
-		OBJ_41 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Decodable.swift */; };
-		OBJ_42 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Encodable.swift */; };
-		OBJ_43 /* FlagComplex.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* FlagComplex.swift */; };
-		OBJ_44 /* FlagSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* FlagSet.swift */; };
-		OBJ_45 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Log.swift */; };
-		OBJ_46 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Message.swift */; };
-		OBJ_47 /* MessageFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* MessageFlags.swift */; };
-		OBJ_48 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* MessagingError.swift */; };
-		OBJ_49 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Socket.swift */; };
-		OBJ_50 /* SocketProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* SocketProtocols.swift */; };
-		OBJ_51 /* SocketUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* SocketUtils.swift */; };
-		OBJ_52 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* String+Extensions.swift */; };
-		OBJ_59 /* NetConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* NetConnectTests.swift */; };
-		OBJ_60 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* XCTestManifests.swift */; };
-		OBJ_62 /* NetConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Server::NetConnect::Product" /* NetConnect.framework */; };
-		OBJ_69 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
-		OBJ_71 /* NetConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Server::NetConnect::Product" /* NetConnect.framework */; };
-		OBJ_78 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_115 /* AEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* AEAD.swift */; };
+		OBJ_116 /* AEADChaCha20Poly1305.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* AEADChaCha20Poly1305.swift */; };
+		OBJ_117 /* AES.Cryptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* AES.Cryptors.swift */; };
+		OBJ_118 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* AES.swift */; };
+		OBJ_119 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Array+Extension.swift */; };
+		OBJ_120 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* Authenticator.swift */; };
+		OBJ_121 /* BatchedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* BatchedCollection.swift */; };
+		OBJ_122 /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Bit.swift */; };
+		OBJ_123 /* BlockCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* BlockCipher.swift */; };
+		OBJ_124 /* BlockMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* BlockMode.swift */; };
+		OBJ_125 /* BlockModeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* BlockModeOptions.swift */; };
+		OBJ_126 /* BlockModeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* BlockModeWorker.swift */; };
+		OBJ_127 /* CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* CBC.swift */; };
+		OBJ_128 /* CFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* CFB.swift */; };
+		OBJ_129 /* CTR.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* CTR.swift */; };
+		OBJ_130 /* ECB.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* ECB.swift */; };
+		OBJ_131 /* GCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* GCM.swift */; };
+		OBJ_132 /* OFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* OFB.swift */; };
+		OBJ_133 /* PCBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* PCBC.swift */; };
+		OBJ_134 /* RandomAccessBlockModeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* RandomAccessBlockModeWorker.swift */; };
+		OBJ_135 /* Blowfish.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* Blowfish.swift */; };
+		OBJ_136 /* CMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* CMAC.swift */; };
+		OBJ_137 /* ChaCha20.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* ChaCha20.swift */; };
+		OBJ_138 /* Checksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Checksum.swift */; };
+		OBJ_139 /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Cipher.swift */; };
+		OBJ_140 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Collection+Extension.swift */; };
+		OBJ_141 /* CompactMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* CompactMap.swift */; };
+		OBJ_142 /* Cryptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Cryptors.swift */; };
+		OBJ_143 /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* Digest.swift */; };
+		OBJ_144 /* DigestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* DigestType.swift */; };
+		OBJ_145 /* AES+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* AES+Foundation.swift */; };
+		OBJ_146 /* Array+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Array+Foundation.swift */; };
+		OBJ_147 /* Blowfish+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Blowfish+Foundation.swift */; };
+		OBJ_148 /* ChaCha20+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* ChaCha20+Foundation.swift */; };
+		OBJ_149 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* Data+Extension.swift */; };
+		OBJ_150 /* HMAC+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* HMAC+Foundation.swift */; };
+		OBJ_151 /* Rabbit+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* Rabbit+Foundation.swift */; };
+		OBJ_152 /* String+FoundationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* String+FoundationExtension.swift */; };
+		OBJ_153 /* Utils+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* Utils+Foundation.swift */; };
+		OBJ_154 /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* Generics.swift */; };
+		OBJ_155 /* HKDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* HKDF.swift */; };
+		OBJ_156 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* HMAC.swift */; };
+		OBJ_157 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Int+Extension.swift */; };
+		OBJ_158 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* MD5.swift */; };
+		OBJ_159 /* NoPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* NoPadding.swift */; };
+		OBJ_160 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* Operators.swift */; };
+		OBJ_161 /* PBKDF1.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* PBKDF1.swift */; };
+		OBJ_162 /* PBKDF2.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* PBKDF2.swift */; };
+		OBJ_163 /* PKCS5.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* PKCS5.swift */; };
+		OBJ_164 /* PKCS7.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* PKCS7.swift */; };
+		OBJ_165 /* PKCS7Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* PKCS7Padding.swift */; };
+		OBJ_166 /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* Padding.swift */; };
+		OBJ_167 /* Poly1305.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* Poly1305.swift */; };
+		OBJ_168 /* Rabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* Rabbit.swift */; };
+		OBJ_169 /* RandomAccessCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* RandomAccessCryptor.swift */; };
+		OBJ_170 /* RandomBytesSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* RandomBytesSequence.swift */; };
+		OBJ_171 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* SHA1.swift */; };
+		OBJ_172 /* SHA2.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* SHA2.swift */; };
+		OBJ_173 /* SHA3.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* SHA3.swift */; };
+		OBJ_174 /* SecureBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* SecureBytes.swift */; };
+		OBJ_175 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* String+Extension.swift */; };
+		OBJ_176 /* UInt128.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* UInt128.swift */; };
+		OBJ_177 /* UInt16+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* UInt16+Extension.swift */; };
+		OBJ_178 /* UInt32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* UInt32+Extension.swift */; };
+		OBJ_179 /* UInt64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* UInt64+Extension.swift */; };
+		OBJ_180 /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* UInt8+Extension.swift */; };
+		OBJ_181 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* Updatable.swift */; };
+		OBJ_182 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Utils.swift */; };
+		OBJ_183 /* ZeroPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* ZeroPadding.swift */; };
+		OBJ_190 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* Package.swift */; };
+		OBJ_196 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Config.swift */; };
+		OBJ_197 /* FlagComplex.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* FlagComplex.swift */; };
+		OBJ_198 /* FlagSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* FlagSet.swift */; };
+		OBJ_199 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Log.swift */; };
+		OBJ_200 /* MessageFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* MessageFlags.swift */; };
+		OBJ_201 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* NetworkError.swift */; };
+		OBJ_203 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */; };
+		OBJ_204 /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Socket::Socket::Product" /* Socket.framework */; };
+		OBJ_213 /* NetConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* NetConnectTests.swift */; };
+		OBJ_214 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* XCTestManifests.swift */; };
+		OBJ_216 /* NetConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Server::NetConnect::Product" /* NetConnect.framework */; };
+		OBJ_217 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */; };
+		OBJ_218 /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Socket::Socket::Product" /* Socket.framework */; };
+		OBJ_227 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
+		OBJ_229 /* NetConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Server::NetConnect::Product" /* NetConnect.framework */; };
+		OBJ_230 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */; };
+		OBJ_231 /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Socket::Socket::Product" /* Socket.framework */; };
+		OBJ_240 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_250 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* Socket.swift */; };
+		OBJ_251 /* SocketProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_101 /* SocketProtocols.swift */; };
+		OBJ_252 /* SocketUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* SocketUtils.swift */; };
+		OBJ_259 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3FADD71E20C4900100951B16 /* PBXContainerItemProxy */ = {
+		3F6386D320CC724700CEC0EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteInfo = CryptoSwift;
+		};
+		3F6386D420CC724700CEC0EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Socket::Socket";
+			remoteInfo = Socket;
+		};
+		3F6386D520CC724800CEC0EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Server::NetConnectTests";
 			remoteInfo = NetConnectTests;
 		};
-		3FADD71F20C4900100951B16 /* PBXContainerItemProxy */ = {
+		3F6386D620CC724800CEC0EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Server::NetConnect";
 			remoteInfo = NetConnect;
 		};
-		3FADD72020C4900100951B16 /* PBXContainerItemProxy */ = {
+		3F6386D720CC724800CEC0EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteInfo = CryptoSwift;
+		};
+		3F6386D820CC724800CEC0EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Socket::Socket";
+			remoteInfo = Socket;
+		};
+		3F6386D920CC724800CEC0EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Server::NetConnect";
 			remoteInfo = NetConnect;
+		};
+		3F6386DA20CC724800CEC0EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteInfo = CryptoSwift;
+		};
+		3F6386DB20CC724800CEC0EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Socket::Socket";
+			remoteInfo = Socket;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		OBJ_11 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
-		OBJ_12 /* Datagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datagram.swift; sourceTree = "<group>"; };
-		OBJ_13 /* Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
-		OBJ_14 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
-		OBJ_15 /* FlagComplex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagComplex.swift; sourceTree = "<group>"; };
-		OBJ_16 /* FlagSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagSet.swift; sourceTree = "<group>"; };
-		OBJ_17 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		OBJ_18 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		OBJ_19 /* MessageFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFlags.swift; sourceTree = "<group>"; };
-		OBJ_20 /* MessagingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingError.swift; sourceTree = "<group>"; };
-		OBJ_22 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
-		OBJ_23 /* SocketProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketProtocols.swift; sourceTree = "<group>"; };
-		OBJ_24 /* SocketUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtils.swift; sourceTree = "<group>"; };
-		OBJ_25 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		OBJ_28 /* NetConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetConnectTests.swift; sourceTree = "<group>"; };
-		OBJ_29 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_100 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		OBJ_101 /* SocketProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketProtocols.swift; sourceTree = "<group>"; };
+		OBJ_102 /* SocketUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtils.swift; sourceTree = "<group>"; };
+		OBJ_103 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/Jeremy/Desktop/CMPT276Group9/TrackITServer/.build/checkouts/BlueSocket.git-3162807777605905816/Package.swift"; sourceTree = "<group>"; };
+		OBJ_11 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		OBJ_12 /* FlagComplex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagComplex.swift; sourceTree = "<group>"; };
+		OBJ_13 /* FlagSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagSet.swift; sourceTree = "<group>"; };
+		OBJ_14 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		OBJ_15 /* MessageFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFlags.swift; sourceTree = "<group>"; };
+		OBJ_16 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		OBJ_19 /* NetConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetConnectTests.swift; sourceTree = "<group>"; };
+		OBJ_20 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_25 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
+		OBJ_26 /* AEADChaCha20Poly1305.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEADChaCha20Poly1305.swift; sourceTree = "<group>"; };
+		OBJ_27 /* AES.Cryptors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.Cryptors.swift; sourceTree = "<group>"; };
+		OBJ_28 /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
+		OBJ_29 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_30 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		OBJ_31 /* BatchedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchedCollection.swift; sourceTree = "<group>"; };
+		OBJ_32 /* Bit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bit.swift; sourceTree = "<group>"; };
+		OBJ_33 /* BlockCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCipher.swift; sourceTree = "<group>"; };
+		OBJ_35 /* BlockMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockMode.swift; sourceTree = "<group>"; };
+		OBJ_36 /* BlockModeOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockModeOptions.swift; sourceTree = "<group>"; };
+		OBJ_37 /* BlockModeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockModeWorker.swift; sourceTree = "<group>"; };
+		OBJ_38 /* CBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBC.swift; sourceTree = "<group>"; };
+		OBJ_39 /* CFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFB.swift; sourceTree = "<group>"; };
+		OBJ_40 /* CTR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTR.swift; sourceTree = "<group>"; };
+		OBJ_41 /* ECB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECB.swift; sourceTree = "<group>"; };
+		OBJ_42 /* GCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCM.swift; sourceTree = "<group>"; };
+		OBJ_43 /* OFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFB.swift; sourceTree = "<group>"; };
+		OBJ_44 /* PCBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCBC.swift; sourceTree = "<group>"; };
+		OBJ_45 /* RandomAccessBlockModeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessBlockModeWorker.swift; sourceTree = "<group>"; };
+		OBJ_46 /* Blowfish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blowfish.swift; sourceTree = "<group>"; };
+		OBJ_47 /* CMAC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMAC.swift; sourceTree = "<group>"; };
+		OBJ_48 /* ChaCha20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaCha20.swift; sourceTree = "<group>"; };
+		OBJ_49 /* Checksum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checksum.swift; sourceTree = "<group>"; };
+		OBJ_50 /* Cipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
+		OBJ_51 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_52 /* CompactMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactMap.swift; sourceTree = "<group>"; };
+		OBJ_53 /* Cryptors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptors.swift; sourceTree = "<group>"; };
+		OBJ_54 /* Digest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digest.swift; sourceTree = "<group>"; };
+		OBJ_55 /* DigestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestType.swift; sourceTree = "<group>"; };
+		OBJ_57 /* AES+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AES+Foundation.swift"; sourceTree = "<group>"; };
+		OBJ_58 /* Array+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Foundation.swift"; sourceTree = "<group>"; };
+		OBJ_59 /* Blowfish+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blowfish+Foundation.swift"; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_60 /* ChaCha20+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChaCha20+Foundation.swift"; sourceTree = "<group>"; };
+		OBJ_61 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_62 /* HMAC+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMAC+Foundation.swift"; sourceTree = "<group>"; };
+		OBJ_63 /* Rabbit+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rabbit+Foundation.swift"; sourceTree = "<group>"; };
+		OBJ_64 /* String+FoundationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FoundationExtension.swift"; sourceTree = "<group>"; };
+		OBJ_65 /* Utils+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+Foundation.swift"; sourceTree = "<group>"; };
+		OBJ_66 /* Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generics.swift; sourceTree = "<group>"; };
+		OBJ_67 /* HKDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKDF.swift; sourceTree = "<group>"; };
+		OBJ_68 /* HMAC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
+		OBJ_69 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_70 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
+		OBJ_71 /* NoPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPadding.swift; sourceTree = "<group>"; };
+		OBJ_72 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		OBJ_74 /* PBKDF1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBKDF1.swift; sourceTree = "<group>"; };
+		OBJ_75 /* PBKDF2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBKDF2.swift; sourceTree = "<group>"; };
+		OBJ_76 /* PKCS5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCS5.swift; sourceTree = "<group>"; };
+		OBJ_77 /* PKCS7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCS7.swift; sourceTree = "<group>"; };
+		OBJ_78 /* PKCS7Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCS7Padding.swift; sourceTree = "<group>"; };
+		OBJ_79 /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
+		OBJ_80 /* Poly1305.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poly1305.swift; sourceTree = "<group>"; };
+		OBJ_81 /* Rabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rabbit.swift; sourceTree = "<group>"; };
+		OBJ_82 /* RandomAccessCryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCryptor.swift; sourceTree = "<group>"; };
+		OBJ_83 /* RandomBytesSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBytesSequence.swift; sourceTree = "<group>"; };
+		OBJ_84 /* SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA1.swift; sourceTree = "<group>"; };
+		OBJ_85 /* SHA2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA2.swift; sourceTree = "<group>"; };
+		OBJ_86 /* SHA3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA3.swift; sourceTree = "<group>"; };
+		OBJ_87 /* SecureBytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBytes.swift; sourceTree = "<group>"; };
+		OBJ_88 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_89 /* UInt128.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt128.swift; sourceTree = "<group>"; };
 		OBJ_9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_90 /* UInt16+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt16+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_91 /* UInt32+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt32+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_92 /* UInt64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt64+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_93 /* UInt8+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Extension.swift"; sourceTree = "<group>"; };
+		OBJ_94 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
+		OBJ_95 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		OBJ_96 /* ZeroPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroPadding.swift; sourceTree = "<group>"; };
+		OBJ_97 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/Jeremy/Desktop/CMPT276Group9/TrackITServer/.build/checkouts/CryptoSwift--5560562967812595289/Package.swift"; sourceTree = "<group>"; };
 		"Server::NetConnect::Product" /* NetConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Server::NetConnectTests::Product" /* NetConnectTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = NetConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Server::Server::Product" /* Server */ = {isa = PBXFileReference; lastKnownFileType = text; path = Server; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Socket::Socket::Product" /* Socket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Socket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_53 /* Frameworks */ = {
+		OBJ_184 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_61 /* Frameworks */ = {
+		OBJ_202 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_62 /* NetConnect.framework in Frameworks */,
+				OBJ_203 /* CryptoSwift.framework in Frameworks */,
+				OBJ_204 /* Socket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_70 /* Frameworks */ = {
+		OBJ_215 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_71 /* NetConnect.framework in Frameworks */,
+				OBJ_216 /* NetConnect.framework in Frameworks */,
+				OBJ_217 /* CryptoSwift.framework in Frameworks */,
+				OBJ_218 /* Socket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_228 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_229 /* NetConnect.framework in Frameworks */,
+				OBJ_230 /* CryptoSwift.framework in Frameworks */,
+				OBJ_231 /* Socket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_253 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,70 +323,172 @@
 		OBJ_10 /* NetConnect */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_11 /* Data+Extensions.swift */,
-				OBJ_12 /* Datagram.swift */,
-				OBJ_13 /* Decodable.swift */,
-				OBJ_14 /* Encodable.swift */,
-				OBJ_15 /* FlagComplex.swift */,
-				OBJ_16 /* FlagSet.swift */,
-				OBJ_17 /* Log.swift */,
-				OBJ_18 /* Message.swift */,
-				OBJ_19 /* MessageFlags.swift */,
-				OBJ_20 /* MessagingError.swift */,
-				OBJ_21 /* Socket */,
-				OBJ_25 /* String+Extensions.swift */,
+				OBJ_11 /* Config.swift */,
+				OBJ_12 /* FlagComplex.swift */,
+				OBJ_13 /* FlagSet.swift */,
+				OBJ_14 /* Log.swift */,
+				OBJ_15 /* MessageFlags.swift */,
+				OBJ_16 /* NetworkError.swift */,
 			);
 			name = NetConnect;
 			path = Sources/NetConnect;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_21 /* Socket */ = {
+		OBJ_104 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_22 /* Socket.swift */,
-				OBJ_23 /* SocketProtocols.swift */,
-				OBJ_24 /* SocketUtils.swift */,
+				"Socket::Socket::Product" /* Socket.framework */,
+				"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */,
+				"Server::NetConnectTests::Product" /* NetConnectTests.xctest */,
+				"Server::NetConnect::Product" /* NetConnect.framework */,
+				"Server::Server::Product" /* Server */,
 			);
-			path = Socket;
-			sourceTree = "<group>";
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_26 /* Tests */ = {
+		OBJ_17 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_27 /* NetConnectTests */,
+				OBJ_18 /* NetConnectTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_27 /* NetConnectTests */ = {
+		OBJ_18 /* NetConnectTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_28 /* NetConnectTests.swift */,
-				OBJ_29 /* XCTestManifests.swift */,
+				OBJ_19 /* NetConnectTests.swift */,
+				OBJ_20 /* XCTestManifests.swift */,
 			);
 			name = NetConnectTests;
 			path = Tests/NetConnectTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_30 /* Products */ = {
+		OBJ_21 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				"Server::NetConnectTests::Product" /* NetConnectTests.xctest */,
-				"Server::Server::Product" /* Server */,
-				"Server::NetConnect::Product" /* NetConnect.framework */,
+				OBJ_22 /* CryptoSwift 0.10.0 */,
+				OBJ_98 /* Socket 1.0.8 */,
 			);
-			name = Products;
-			sourceTree = BUILT_PRODUCTS_DIR;
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_22 /* CryptoSwift 0.10.0 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_23 /* CryptoSwift */,
+				OBJ_97 /* Package.swift */,
+			);
+			name = "CryptoSwift 0.10.0";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_23 /* CryptoSwift */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_24 /* AEAD */,
+				OBJ_27 /* AES.Cryptors.swift */,
+				OBJ_28 /* AES.swift */,
+				OBJ_29 /* Array+Extension.swift */,
+				OBJ_30 /* Authenticator.swift */,
+				OBJ_31 /* BatchedCollection.swift */,
+				OBJ_32 /* Bit.swift */,
+				OBJ_33 /* BlockCipher.swift */,
+				OBJ_34 /* BlockMode */,
+				OBJ_46 /* Blowfish.swift */,
+				OBJ_47 /* CMAC.swift */,
+				OBJ_48 /* ChaCha20.swift */,
+				OBJ_49 /* Checksum.swift */,
+				OBJ_50 /* Cipher.swift */,
+				OBJ_51 /* Collection+Extension.swift */,
+				OBJ_52 /* CompactMap.swift */,
+				OBJ_53 /* Cryptors.swift */,
+				OBJ_54 /* Digest.swift */,
+				OBJ_55 /* DigestType.swift */,
+				OBJ_56 /* Foundation */,
+				OBJ_66 /* Generics.swift */,
+				OBJ_67 /* HKDF.swift */,
+				OBJ_68 /* HMAC.swift */,
+				OBJ_69 /* Int+Extension.swift */,
+				OBJ_70 /* MD5.swift */,
+				OBJ_71 /* NoPadding.swift */,
+				OBJ_72 /* Operators.swift */,
+				OBJ_73 /* PKCS */,
+				OBJ_79 /* Padding.swift */,
+				OBJ_80 /* Poly1305.swift */,
+				OBJ_81 /* Rabbit.swift */,
+				OBJ_82 /* RandomAccessCryptor.swift */,
+				OBJ_83 /* RandomBytesSequence.swift */,
+				OBJ_84 /* SHA1.swift */,
+				OBJ_85 /* SHA2.swift */,
+				OBJ_86 /* SHA3.swift */,
+				OBJ_87 /* SecureBytes.swift */,
+				OBJ_88 /* String+Extension.swift */,
+				OBJ_89 /* UInt128.swift */,
+				OBJ_90 /* UInt16+Extension.swift */,
+				OBJ_91 /* UInt32+Extension.swift */,
+				OBJ_92 /* UInt64+Extension.swift */,
+				OBJ_93 /* UInt8+Extension.swift */,
+				OBJ_94 /* Updatable.swift */,
+				OBJ_95 /* Utils.swift */,
+				OBJ_96 /* ZeroPadding.swift */,
+			);
+			name = CryptoSwift;
+			path = ".build/checkouts/CryptoSwift--5560562967812595289/Sources/CryptoSwift";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_24 /* AEAD */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_25 /* AEAD.swift */,
+				OBJ_26 /* AEADChaCha20Poly1305.swift */,
+			);
+			path = AEAD;
+			sourceTree = "<group>";
+		};
+		OBJ_34 /* BlockMode */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_35 /* BlockMode.swift */,
+				OBJ_36 /* BlockModeOptions.swift */,
+				OBJ_37 /* BlockModeWorker.swift */,
+				OBJ_38 /* CBC.swift */,
+				OBJ_39 /* CFB.swift */,
+				OBJ_40 /* CTR.swift */,
+				OBJ_41 /* ECB.swift */,
+				OBJ_42 /* GCM.swift */,
+				OBJ_43 /* OFB.swift */,
+				OBJ_44 /* PCBC.swift */,
+				OBJ_45 /* RandomAccessBlockModeWorker.swift */,
+			);
+			path = BlockMode;
+			sourceTree = "<group>";
 		};
 		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_26 /* Tests */,
-				OBJ_30 /* Products */,
+				OBJ_17 /* Tests */,
+				OBJ_21 /* Dependencies */,
+				OBJ_104 /* Products */,
 			);
 			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_56 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_57 /* AES+Foundation.swift */,
+				OBJ_58 /* Array+Foundation.swift */,
+				OBJ_59 /* Blowfish+Foundation.swift */,
+				OBJ_60 /* ChaCha20+Foundation.swift */,
+				OBJ_61 /* Data+Extension.swift */,
+				OBJ_62 /* HMAC+Foundation.swift */,
+				OBJ_63 /* Rabbit+Foundation.swift */,
+				OBJ_64 /* String+FoundationExtension.swift */,
+				OBJ_65 /* Utils+Foundation.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -196,6 +500,18 @@
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
+		OBJ_73 /* PKCS */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_74 /* PBKDF1.swift */,
+				OBJ_75 /* PBKDF2.swift */,
+				OBJ_76 /* PKCS5.swift */,
+				OBJ_77 /* PKCS7.swift */,
+				OBJ_78 /* PKCS7Padding.swift */,
+			);
+			path = PKCS;
+			sourceTree = "<group>";
+		};
 		OBJ_8 /* Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,19 +521,71 @@
 			path = Sources/Server;
 			sourceTree = SOURCE_ROOT;
 		};
+		OBJ_98 /* Socket 1.0.8 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_99 /* Socket */,
+				OBJ_103 /* Package.swift */,
+			);
+			name = "Socket 1.0.8";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_99 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_100 /* Socket.swift */,
+				OBJ_101 /* SocketProtocols.swift */,
+				OBJ_102 /* SocketUtils.swift */,
+			);
+			name = Socket;
+			path = ".build/checkouts/BlueSocket.git-3162807777605905816/Sources/Socket";
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		"Server::NetConnect" /* NetConnect */ = {
+		"CryptoSwift::CryptoSwift" /* CryptoSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "NetConnect" */;
+			buildConfigurationList = OBJ_111 /* Build configuration list for PBXNativeTarget "CryptoSwift" */;
 			buildPhases = (
-				OBJ_38 /* Sources */,
-				OBJ_53 /* Frameworks */,
+				OBJ_114 /* Sources */,
+				OBJ_184 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = CryptoSwift;
+			productName = CryptoSwift;
+			productReference = "CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"CryptoSwift::SwiftPMPackageDescription" /* CryptoSwiftPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_186 /* Build configuration list for PBXNativeTarget "CryptoSwiftPackageDescription" */;
+			buildPhases = (
+				OBJ_189 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CryptoSwiftPackageDescription;
+			productName = CryptoSwiftPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"Server::NetConnect" /* NetConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_192 /* Build configuration list for PBXNativeTarget "NetConnect" */;
+			buildPhases = (
+				OBJ_195 /* Sources */,
+				OBJ_202 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_205 /* PBXTargetDependency */,
+				OBJ_206 /* PBXTargetDependency */,
 			);
 			name = NetConnect;
 			productName = NetConnect;
@@ -226,15 +594,17 @@
 		};
 		"Server::NetConnectTests" /* NetConnectTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_55 /* Build configuration list for PBXNativeTarget "NetConnectTests" */;
+			buildConfigurationList = OBJ_209 /* Build configuration list for PBXNativeTarget "NetConnectTests" */;
 			buildPhases = (
-				OBJ_58 /* Sources */,
-				OBJ_61 /* Frameworks */,
+				OBJ_212 /* Sources */,
+				OBJ_215 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_63 /* PBXTargetDependency */,
+				OBJ_219 /* PBXTargetDependency */,
+				OBJ_220 /* PBXTargetDependency */,
+				OBJ_221 /* PBXTargetDependency */,
 			);
 			name = NetConnectTests;
 			productName = NetConnectTests;
@@ -243,15 +613,17 @@
 		};
 		"Server::Server" /* Server */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_65 /* Build configuration list for PBXNativeTarget "Server" */;
+			buildConfigurationList = OBJ_223 /* Build configuration list for PBXNativeTarget "Server" */;
 			buildPhases = (
-				OBJ_68 /* Sources */,
-				OBJ_70 /* Frameworks */,
+				OBJ_226 /* Sources */,
+				OBJ_228 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_72 /* PBXTargetDependency */,
+				OBJ_232 /* PBXTargetDependency */,
+				OBJ_233 /* PBXTargetDependency */,
+				OBJ_234 /* PBXTargetDependency */,
 			);
 			name = Server;
 			productName = Server;
@@ -260,9 +632,9 @@
 		};
 		"Server::SwiftPMPackageDescription" /* ServerPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_74 /* Build configuration list for PBXNativeTarget "ServerPackageDescription" */;
+			buildConfigurationList = OBJ_236 /* Build configuration list for PBXNativeTarget "ServerPackageDescription" */;
 			buildPhases = (
-				OBJ_77 /* Sources */,
+				OBJ_239 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -270,6 +642,36 @@
 			);
 			name = ServerPackageDescription;
 			productName = ServerPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"Socket::Socket" /* Socket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_246 /* Build configuration list for PBXNativeTarget "Socket" */;
+			buildPhases = (
+				OBJ_249 /* Sources */,
+				OBJ_253 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Socket;
+			productName = Socket;
+			productReference = "Socket::Socket::Product" /* Socket.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"Socket::SwiftPMPackageDescription" /* SocketPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_255 /* Build configuration list for PBXNativeTarget "SocketPackageDescription" */;
+			buildPhases = (
+				OBJ_258 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocketPackageDescription;
+			productName = SocketPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -288,87 +690,497 @@
 				en,
 			);
 			mainGroup = OBJ_5 /*  */;
-			productRefGroup = OBJ_30 /* Products */;
+			productRefGroup = OBJ_104 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				"CryptoSwift::CryptoSwift" /* CryptoSwift */,
+				"CryptoSwift::SwiftPMPackageDescription" /* CryptoSwiftPackageDescription */,
 				"Server::NetConnect" /* NetConnect */,
 				"Server::NetConnectTests" /* NetConnectTests */,
 				"Server::Server" /* Server */,
 				"Server::SwiftPMPackageDescription" /* ServerPackageDescription */,
 				"Server::ServerPackageTests::ProductTarget" /* ServerPackageTests */,
+				"Socket::Socket" /* Socket */,
+				"Socket::SwiftPMPackageDescription" /* SocketPackageDescription */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_38 /* Sources */ = {
+		OBJ_114 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_39 /* Data+Extensions.swift in Sources */,
-				OBJ_40 /* Datagram.swift in Sources */,
-				OBJ_41 /* Decodable.swift in Sources */,
-				OBJ_42 /* Encodable.swift in Sources */,
-				OBJ_43 /* FlagComplex.swift in Sources */,
-				OBJ_44 /* FlagSet.swift in Sources */,
-				OBJ_45 /* Log.swift in Sources */,
-				OBJ_46 /* Message.swift in Sources */,
-				OBJ_47 /* MessageFlags.swift in Sources */,
-				OBJ_48 /* MessagingError.swift in Sources */,
-				OBJ_49 /* Socket.swift in Sources */,
-				OBJ_50 /* SocketProtocols.swift in Sources */,
-				OBJ_51 /* SocketUtils.swift in Sources */,
-				OBJ_52 /* String+Extensions.swift in Sources */,
+				OBJ_115 /* AEAD.swift in Sources */,
+				OBJ_116 /* AEADChaCha20Poly1305.swift in Sources */,
+				OBJ_117 /* AES.Cryptors.swift in Sources */,
+				OBJ_118 /* AES.swift in Sources */,
+				OBJ_119 /* Array+Extension.swift in Sources */,
+				OBJ_120 /* Authenticator.swift in Sources */,
+				OBJ_121 /* BatchedCollection.swift in Sources */,
+				OBJ_122 /* Bit.swift in Sources */,
+				OBJ_123 /* BlockCipher.swift in Sources */,
+				OBJ_124 /* BlockMode.swift in Sources */,
+				OBJ_125 /* BlockModeOptions.swift in Sources */,
+				OBJ_126 /* BlockModeWorker.swift in Sources */,
+				OBJ_127 /* CBC.swift in Sources */,
+				OBJ_128 /* CFB.swift in Sources */,
+				OBJ_129 /* CTR.swift in Sources */,
+				OBJ_130 /* ECB.swift in Sources */,
+				OBJ_131 /* GCM.swift in Sources */,
+				OBJ_132 /* OFB.swift in Sources */,
+				OBJ_133 /* PCBC.swift in Sources */,
+				OBJ_134 /* RandomAccessBlockModeWorker.swift in Sources */,
+				OBJ_135 /* Blowfish.swift in Sources */,
+				OBJ_136 /* CMAC.swift in Sources */,
+				OBJ_137 /* ChaCha20.swift in Sources */,
+				OBJ_138 /* Checksum.swift in Sources */,
+				OBJ_139 /* Cipher.swift in Sources */,
+				OBJ_140 /* Collection+Extension.swift in Sources */,
+				OBJ_141 /* CompactMap.swift in Sources */,
+				OBJ_142 /* Cryptors.swift in Sources */,
+				OBJ_143 /* Digest.swift in Sources */,
+				OBJ_144 /* DigestType.swift in Sources */,
+				OBJ_145 /* AES+Foundation.swift in Sources */,
+				OBJ_146 /* Array+Foundation.swift in Sources */,
+				OBJ_147 /* Blowfish+Foundation.swift in Sources */,
+				OBJ_148 /* ChaCha20+Foundation.swift in Sources */,
+				OBJ_149 /* Data+Extension.swift in Sources */,
+				OBJ_150 /* HMAC+Foundation.swift in Sources */,
+				OBJ_151 /* Rabbit+Foundation.swift in Sources */,
+				OBJ_152 /* String+FoundationExtension.swift in Sources */,
+				OBJ_153 /* Utils+Foundation.swift in Sources */,
+				OBJ_154 /* Generics.swift in Sources */,
+				OBJ_155 /* HKDF.swift in Sources */,
+				OBJ_156 /* HMAC.swift in Sources */,
+				OBJ_157 /* Int+Extension.swift in Sources */,
+				OBJ_158 /* MD5.swift in Sources */,
+				OBJ_159 /* NoPadding.swift in Sources */,
+				OBJ_160 /* Operators.swift in Sources */,
+				OBJ_161 /* PBKDF1.swift in Sources */,
+				OBJ_162 /* PBKDF2.swift in Sources */,
+				OBJ_163 /* PKCS5.swift in Sources */,
+				OBJ_164 /* PKCS7.swift in Sources */,
+				OBJ_165 /* PKCS7Padding.swift in Sources */,
+				OBJ_166 /* Padding.swift in Sources */,
+				OBJ_167 /* Poly1305.swift in Sources */,
+				OBJ_168 /* Rabbit.swift in Sources */,
+				OBJ_169 /* RandomAccessCryptor.swift in Sources */,
+				OBJ_170 /* RandomBytesSequence.swift in Sources */,
+				OBJ_171 /* SHA1.swift in Sources */,
+				OBJ_172 /* SHA2.swift in Sources */,
+				OBJ_173 /* SHA3.swift in Sources */,
+				OBJ_174 /* SecureBytes.swift in Sources */,
+				OBJ_175 /* String+Extension.swift in Sources */,
+				OBJ_176 /* UInt128.swift in Sources */,
+				OBJ_177 /* UInt16+Extension.swift in Sources */,
+				OBJ_178 /* UInt32+Extension.swift in Sources */,
+				OBJ_179 /* UInt64+Extension.swift in Sources */,
+				OBJ_180 /* UInt8+Extension.swift in Sources */,
+				OBJ_181 /* Updatable.swift in Sources */,
+				OBJ_182 /* Utils.swift in Sources */,
+				OBJ_183 /* ZeroPadding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_58 /* Sources */ = {
+		OBJ_189 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_59 /* NetConnectTests.swift in Sources */,
-				OBJ_60 /* XCTestManifests.swift in Sources */,
+				OBJ_190 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_68 /* Sources */ = {
+		OBJ_195 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_69 /* main.swift in Sources */,
+				OBJ_196 /* Config.swift in Sources */,
+				OBJ_197 /* FlagComplex.swift in Sources */,
+				OBJ_198 /* FlagSet.swift in Sources */,
+				OBJ_199 /* Log.swift in Sources */,
+				OBJ_200 /* MessageFlags.swift in Sources */,
+				OBJ_201 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_77 /* Sources */ = {
+		OBJ_212 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_78 /* Package.swift in Sources */,
+				OBJ_213 /* NetConnectTests.swift in Sources */,
+				OBJ_214 /* XCTestManifests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_226 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_227 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_239 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_240 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_249 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_250 /* Socket.swift in Sources */,
+				OBJ_251 /* SocketProtocols.swift in Sources */,
+				OBJ_252 /* SocketUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_258 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_259 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_63 /* PBXTargetDependency */ = {
+		OBJ_205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "CryptoSwift::CryptoSwift" /* CryptoSwift */;
+			targetProxy = 3F6386D320CC724700CEC0EB /* PBXContainerItemProxy */;
+		};
+		OBJ_206 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Socket::Socket" /* Socket */;
+			targetProxy = 3F6386D420CC724700CEC0EB /* PBXContainerItemProxy */;
+		};
+		OBJ_219 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Server::NetConnect" /* NetConnect */;
-			targetProxy = 3FADD71F20C4900100951B16 /* PBXContainerItemProxy */;
+			targetProxy = 3F6386D620CC724800CEC0EB /* PBXContainerItemProxy */;
 		};
-		OBJ_72 /* PBXTargetDependency */ = {
+		OBJ_220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "CryptoSwift::CryptoSwift" /* CryptoSwift */;
+			targetProxy = 3F6386D720CC724800CEC0EB /* PBXContainerItemProxy */;
+		};
+		OBJ_221 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Socket::Socket" /* Socket */;
+			targetProxy = 3F6386D820CC724800CEC0EB /* PBXContainerItemProxy */;
+		};
+		OBJ_232 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Server::NetConnect" /* NetConnect */;
-			targetProxy = 3FADD72020C4900100951B16 /* PBXContainerItemProxy */;
+			targetProxy = 3F6386D920CC724800CEC0EB /* PBXContainerItemProxy */;
 		};
-		OBJ_83 /* PBXTargetDependency */ = {
+		OBJ_233 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "CryptoSwift::CryptoSwift" /* CryptoSwift */;
+			targetProxy = 3F6386DA20CC724800CEC0EB /* PBXContainerItemProxy */;
+		};
+		OBJ_234 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Socket::Socket" /* Socket */;
+			targetProxy = 3F6386DB20CC724800CEC0EB /* PBXContainerItemProxy */;
+		};
+		OBJ_245 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Server::NetConnectTests" /* NetConnectTests */;
-			targetProxy = 3FADD71E20C4900100951B16 /* PBXContainerItemProxy */;
+			targetProxy = 3F6386D520CC724800CEC0EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		OBJ_112 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/CryptoSwift_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CryptoSwift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = CryptoSwift;
+			};
+			name = Debug;
+		};
+		OBJ_113 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/CryptoSwift_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CryptoSwift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = CryptoSwift;
+			};
+			name = Release;
+		};
+		OBJ_187 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_188 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/NetConnect_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NetConnect;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = NetConnect;
+			};
+			name = Debug;
+		};
+		OBJ_194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/NetConnect_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NetConnect;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = NetConnect;
+			};
+			name = Release;
+		};
+		OBJ_210 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/NetConnectTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = NetConnectTests;
+			};
+			name = Debug;
+		};
+		OBJ_211 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/NetConnectTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = NetConnectTests;
+			};
+			name = Release;
+		};
+		OBJ_224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/Server_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Server;
+			};
+			name = Debug;
+		};
+		OBJ_225 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/Server_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Server;
+			};
+			name = Release;
+		};
+		OBJ_237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_238 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_243 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_244 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/Socket_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Socket;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Socket;
+			};
+			name = Debug;
+		};
+		OBJ_248 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Server.xcodeproj/Socket_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Socket;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Socket;
+			};
+			name = Release;
+		};
+		OBJ_256 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -391,52 +1203,6 @@
 			};
 			name = Debug;
 		};
-		OBJ_36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Server.xcodeproj/NetConnect_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = NetConnect;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = NetConnect;
-			};
-			name = Debug;
-		};
-		OBJ_37 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Server.xcodeproj/NetConnect_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = NetConnect;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = NetConnect;
-			};
-			name = Release;
-		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -457,117 +1223,36 @@
 			};
 			name = Release;
 		};
-		OBJ_56 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Server.xcodeproj/NetConnectTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = NetConnectTests;
-			};
-			name = Debug;
-		};
-		OBJ_57 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Server.xcodeproj/NetConnectTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = NetConnectTests;
-			};
-			name = Release;
-		};
-		OBJ_66 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Server.xcodeproj/Server_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
-				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = Server;
-			};
-			name = Debug;
-		};
-		OBJ_67 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Server.xcodeproj/Server_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
-				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = Server;
-			};
-			name = Release;
-		};
-		OBJ_75 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		OBJ_76 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		OBJ_81 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_82 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		OBJ_111 /* Build configuration list for PBXNativeTarget "CryptoSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_112 /* Debug */,
+				OBJ_113 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_186 /* Build configuration list for PBXNativeTarget "CryptoSwiftPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_187 /* Debug */,
+				OBJ_188 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_192 /* Build configuration list for PBXNativeTarget "NetConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_193 /* Debug */,
+				OBJ_194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		OBJ_2 /* Build configuration list for PBXProject "Server" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -577,47 +1262,56 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_35 /* Build configuration list for PBXNativeTarget "NetConnect" */ = {
+		OBJ_209 /* Build configuration list for PBXNativeTarget "NetConnectTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_36 /* Debug */,
-				OBJ_37 /* Release */,
+				OBJ_210 /* Debug */,
+				OBJ_211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_55 /* Build configuration list for PBXNativeTarget "NetConnectTests" */ = {
+		OBJ_223 /* Build configuration list for PBXNativeTarget "Server" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_56 /* Debug */,
-				OBJ_57 /* Release */,
+				OBJ_224 /* Debug */,
+				OBJ_225 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_65 /* Build configuration list for PBXNativeTarget "Server" */ = {
+		OBJ_236 /* Build configuration list for PBXNativeTarget "ServerPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_66 /* Debug */,
-				OBJ_67 /* Release */,
+				OBJ_237 /* Debug */,
+				OBJ_238 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_74 /* Build configuration list for PBXNativeTarget "ServerPackageDescription" */ = {
+		OBJ_242 /* Build configuration list for PBXAggregateTarget "ServerPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_75 /* Debug */,
-				OBJ_76 /* Release */,
+				OBJ_243 /* Debug */,
+				OBJ_244 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_80 /* Build configuration list for PBXAggregateTarget "ServerPackageTests" */ = {
+		OBJ_246 /* Build configuration list for PBXNativeTarget "Socket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_81 /* Debug */,
-				OBJ_82 /* Release */,
+				OBJ_247 /* Debug */,
+				OBJ_248 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_255 /* Build configuration list for PBXNativeTarget "SocketPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_256 /* Debug */,
+				OBJ_257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
