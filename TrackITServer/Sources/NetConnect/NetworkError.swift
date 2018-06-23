@@ -6,4 +6,6 @@ public enum NetworkError : Error {
     
     case SocketWriteError(errmsg: String)
     
+    case InvalidPort(port: Int)
+    
 }

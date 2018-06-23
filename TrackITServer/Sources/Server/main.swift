@@ -1,18 +1,19 @@
 import Foundation
 import NetConnect
 import CryptoSwift
+import SwiftyJSON
 
-do {
-    
-    let aes = try AES(key: "keykeykeykeykeyk", iv: "drowssapdrowssap")
-    let msg = "Hello World"
-    let encrypted = try aes.encrypt(msg.bytes)
-    let decrypted = try aes.decrypt(encrypted)
-    let msg2 = String(bytes: decrypted, encoding: .utf8)
-    print(msg2 ?? "Error")
-    
-} catch {
-    print("An error occured")
+let jsonString =
+"""
+{
+    "name" : "Maya",
+    "age" : 18
 }
+"""
 
-//Log.event("build system", event: .ok)
+let data = jsonString.data(using: .utf8)!
+let json = try! JSON(data: data)
+let dic = json.dictionary!
+print(dic)
+print(dic["name"]?.string ?? "nil")
+print(dic["age"]?.int ?? "nil")
