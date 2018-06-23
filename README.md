@@ -4,6 +4,11 @@ TrackIT is a client/server iOS application desigend and built by Group 9 for CMP
 
 Project website: [trackitdiet.com](https://www.trackitdiet.com)
 
+## Project Dependencies
+  - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+  - [BlueSocket](https://github.com/IBM-Swift/BlueSocket)
+  - [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift)
+
 ## Table of Contents
   - [Project Structure Overview](#project-structure-overview)
   - [TrackIT Command Line Tools](#trackit-command-line-tools)
