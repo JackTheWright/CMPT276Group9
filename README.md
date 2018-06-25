@@ -8,6 +8,7 @@ Project website: [trackitdiet.com](https://www.trackitdiet.com)
   - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
   - [BlueSocket](https://github.com/IBM-Swift/BlueSocket)
   - [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift)
+  - [Threading](https://github.com/Miraion/Threading)
 
 ## Table of Contents
   - [Project Structure Overview](#project-structure-overview)
