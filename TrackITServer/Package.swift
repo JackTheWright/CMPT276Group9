@@ -9,13 +9,14 @@ let package = Package(
         .executable(name: "Server", targets: ["Server"])
     ],
     dependencies: [
+        .package(url: "https://github.com/Miraion/Threading.git", from: "1.0.0"),
         .package(url: "https://github.com/IBM-Swift/BlueSocket.git", from: "1.0.0"),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift", from: "0.0.0"),
         .package(url: "https://github.com/SwiftyJSON/SwiftyJSON.git", from: "4.0.0")
     ],
     targets: [
         .target(name: "NetConnect", dependencies: ["Socket", "CryptoSwift", "SwiftyJSON"]),
-        .target(name: "Server", dependencies: ["NetConnect"]),
+        .target(name: "Server", dependencies: ["NetConnect", "Threading"]),
         .testTarget(name: "NetConnectTests", dependencies: ["NetConnect"])
     ]
 )
