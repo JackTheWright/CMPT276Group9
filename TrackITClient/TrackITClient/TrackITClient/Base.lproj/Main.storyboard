@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m40-Sg-mBi">
-                                        <rect key="frame" x="-2" y="0.0" width="375" height="943"/>
+                                        <rect key="frame" x="-2" y="0.0" width="375" height="1000"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1000" id="gqV-Uv-bPS"/>
@@ -55,14 +55,14 @@
                                         <rect key="frame" x="19" y="268" width="332" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">Serving Guide
+                                        <string key="text">Serving Guide
     Vegetables: 4-5 servings
     Fruit: 4-5 servings
     Grains (mainly whole grains): 7-8 servings
     Low  Fat or No-Fat Dairy Foods: 2-3 servings
     Lean meats, poultry and fish:  2 servings or less
     Nuts, seeds and dry beans: 4-5 servings per week
-    Fats and oils:  2-3 servings</mutableString>
+    Fats and oils:  2-3 servings</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -88,6 +88,12 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fIX-rY-OIK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RQG-lN-krt"/>
+                            <constraint firstItem="fIX-rY-OIK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VG5-rp-ahv"/>
+                            <constraint firstItem="fIX-rY-OIK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="g7S-eN-iVe"/>
+                            <constraint firstItem="fIX-rY-OIK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i9F-IY-I7o"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
