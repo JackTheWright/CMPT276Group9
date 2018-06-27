@@ -1,28 +1,30 @@
 import XCTest
+import Socket
 @testable import NetConnect
 
 final class NetConnectTests: XCTestCase {
     
-    func testMessage() {
+    func testSocket() {
         do {
-            let msg = Message()
-            msg.body = Data(raw: "Hello World")
-            let encodedMsg = msg.encoded()
-            let decodedMsg = try Message(messageData: encodedMsg)
-            let originalStr = "Hello World"
-            if let decodedStr = String(bytes: decodedMsg.body) {
-                print(originalStr)
-                print(decodedStr)
-                XCTAssert(decodedStr == originalStr)
+            print()
+            let socket = try UDPSocket()
+            let rt = socket.setReadTimeout(3)
+            print(rt ? "Timeout Set" : "Timeout not set")
+            let _ = try socket.listen(on: 60000)
+        } catch NetworkError.Timeout {
+            print("Exception: Connection Timed Out")
+        } catch let e {
+            if let se = e as? Socket.Error {
+                print(se.errorCode)
+                print(se.errorReason ?? "nil")
             } else {
-                XCTAssert(false)
+                print(e.localizedDescription)
             }
-        } catch {
-            XCTAssert(false)
         }
+        print()
     }
 
     static var allTests = [
-        ("testMessage", testMessage),
+        ("testSocket", testSocket),
     ]
 }

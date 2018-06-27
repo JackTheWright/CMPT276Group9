@@ -29,6 +29,7 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
+
 VERBOSE=true
 CONFIG="debug"
 COMMAND=$1
@@ -100,6 +101,8 @@ case $COMMAND in
         ;;
 
     stats)
+        IFSBAK=$IFS
+        IFS=$(echo -en "\n\b")
         line_num=0
         file_num=0
         for i in $(find $TRACKIT_ROOT/TrackITServer/Sources -name "*.swift")
@@ -114,6 +117,7 @@ case $COMMAND in
         done
         echo "Lines:    $line_num"
         echo "Files:    $file_num"
+        IFS=$IFSBAK
         exit 0
         ;;
 
