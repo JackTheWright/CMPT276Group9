@@ -7,7 +7,6 @@
 //
 //
 import UIKit
-import NetConnect
 
 class ViewController: UIViewController {
 
