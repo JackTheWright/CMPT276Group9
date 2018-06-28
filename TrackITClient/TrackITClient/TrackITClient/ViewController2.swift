@@ -8,8 +8,46 @@
 
 import UIKit
 
-class ViewController2: UIViewController {
+var name = ""
+var gender = ""
+var age = ""
+var weight = ""
 
+class ViewController2: UIViewController {
+    
+    @IBOutlet weak var nameOutlet: UITextField!
+    @IBOutlet weak var genderOutlet: UITextField!
+    @IBOutlet weak var ageOutlet: UITextField!
+    @IBOutlet weak var weightOutlet: UITextField!
+    
+    @IBAction func nameAction(_ sender: AnyObject) {
+        if (nameOutlet.text != "")
+        {
+            name = nameOutlet.text!
+        }
+    }
+    
+    @IBAction func genderAction(_ sender: AnyObject) {
+        if (genderOutlet.text != "")
+        {
+            gender = genderOutlet.text!
+        }
+    }
+    
+    @IBAction func ageAction(_ sender: AnyObject) {
+        if (ageOutlet.text != "")
+        {
+            age = ageOutlet.text!
+        }
+    }
+    
+    @IBAction func weightAction(_ sender: Any) {
+        if (weightOutlet.text != "")
+        {
+            weight = weightOutlet.text!
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
