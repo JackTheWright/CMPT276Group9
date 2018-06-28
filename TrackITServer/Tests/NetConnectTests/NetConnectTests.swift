@@ -1,3 +1,12 @@
+//
+// File         : NetConnectTests.swift
+// Module       : NetConnectTests
+//
+// Team Name    : Group 9
+// Created By   : Jeremy Schwartz
+// Created On   : 2018-06-23
+//
+
 import XCTest
 import Socket
 @testable import NetConnect

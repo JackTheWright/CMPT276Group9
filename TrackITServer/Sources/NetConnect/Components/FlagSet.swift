@@ -1,3 +1,12 @@
+//
+// File         : FlagSet.swift
+// Module       : NetConnect
+//
+// Team Name    : Group 9
+// Created By   : Jeremy Schwartz
+// Created On   : 2018-06-23
+//
+
 import Foundation
 
 /// A generic protocol that defines the framework for a set of flags that may

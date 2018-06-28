@@ -1,3 +1,12 @@
+//
+// File         : UDPSocket.swift
+// Module       : NetConnect
+//
+// Team Name    : Group 9
+// Created By   : Jeremy Schwartz
+// Created On   : 2018-06-26
+//
+
 import Foundation
 import Socket
 

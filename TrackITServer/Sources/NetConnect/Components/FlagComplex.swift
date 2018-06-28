@@ -1,3 +1,12 @@
+//
+// File         : FlagComplex.swift
+// Module       : NetConnect
+//
+// Team Name    : Group 9
+// Created By   : Jeremy Schwartz
+// Created On   : 2018-06-23
+//
+
 import Foundation
 
 /// A structure containg a collection of modifiable bits which represent boolean
