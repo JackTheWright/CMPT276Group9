@@ -10,6 +10,9 @@ import UIKit
 
 class viewControl: UIViewController {
     
+    let package = ServingPackage()
+    let time = DateAttributes()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,11 +36,38 @@ class viewControl: UIViewController {
                 grainsStepper.wraps = false
                 grainsStepper.autorepeat = true
                 grainsStepper.maximumValue = 15
-
-
-
         
+        
+
+//        let daydict:[String:[String]]
+//        UserDefaults.standard.set(daydict, forKey: "daydict")
+//        if GlobalStates.quickAddRefresh == false {
+//             let yesterday = time.getYesterdaysDate()
+//            daydict = package.packageItemsWithDate(date: yesterday, meat: meatCount.text!, vegetable: vegetableCount.text!, fruit: fruitCount.text!, dairy: dairyCount.text!, grains: grainsCount.text!)
+//        }
+        
+        meatCount.text = UserDefaults.standard.string(forKey: "meatTotal")
+        vegetableCount.text = UserDefaults.standard.string(forKey: "vegetableTotal")
+        fruitCount.text = UserDefaults.standard.string(forKey: "fruitTotal")
+        dairyCount.text = UserDefaults.standard.string(forKey: "dairyTotal")
+        grainsCount.text = UserDefaults.standard.string(forKey: "grainsTotal")
+        
+        if GlobalStates.quickAddRefresh == false {
+            //let yesterday = time.getYesterdaysDate()
+       
+            meatCount.text = "0"
+            vegetableCount.text = "0"
+            fruitCount.text = "0"
+            dairyCount.text = "0"
+            grainsCount.text = "0"
+            GlobalStates.quickAddRefresh = true
+            
+            
         }
+            
+    }
+
+    
     
     
 
@@ -59,22 +89,27 @@ class viewControl: UIViewController {
 
             @IBAction func meatStepperChanged(_ sender: UIStepper) {
                 meatCount.text = Int(sender.value).description
+                UserDefaults.standard.set(meatCount.text, forKey: "meatTotal")
             }
 
             @IBAction func vegetableStepperChanged(_ sender: UIStepper) {
                 vegetableCount.text = Int(sender.value).description
+                UserDefaults.standard.set(vegetableCount.text, forKey: "vegetableTotal")
             }
 
             @IBAction func dairyStepperChanged(_ sender: UIStepper) {
                 dairyCount.text = Int(sender.value).description
+                UserDefaults.standard.set(dairyCount.text, forKey: "dairyTotal")
             }
 
             @IBAction func fruitStepperChanged(_ sender: UIStepper) {
                 fruitCount.text = Int(sender.value).description
+                UserDefaults.standard.set(fruitCount.text, forKey: "fruitTotal")
             }
 
             @IBAction func grainsStepperChanged(_ sender: UIStepper) {
                 grainsCount.text = Int(sender.value).description
+                UserDefaults.standard.set(grainsCount, forKey: "grainsTotal")
             }
 
 }

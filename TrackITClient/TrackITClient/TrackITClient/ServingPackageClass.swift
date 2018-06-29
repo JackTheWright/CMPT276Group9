@@ -16,7 +16,7 @@ class ServingPackage {
     
     var dateFuncs = DateAttributes()
     
-    var currentDayDictionary = [String: [String]]()
+    
     var weeklyDictionary = [String: [String: [String]]]()
     
     func packageItemsWithDate(date: String, meat: String, vegetable: String, fruit: String, dairy: String, grains: String ) -> Dictionary<String, [String]> {
@@ -25,25 +25,21 @@ class ServingPackage {
         
         servingsPacked = [meat,vegetable,fruit,dairy,grains]
         
-        currentDayDictionary[date] = servingsPacked
+        GlobalStates.currentDayDictionary[date] = servingsPacked
         
-        if currentDayDictionary.count == 7 {
+        if GlobalStates.currentDayDictionary.count == 7 {
             
             let startofWeek = dateFuncs.getFirstDayOfWeek()
             
             
-            weeklyDictionary[startofWeek] = currentDayDictionary
-            currentDayDictionary.removeAll()
+            weeklyDictionary[startofWeek] = GlobalStates.currentDayDictionary
+        GlobalStates.currentDayDictionary.removeAll()
             
             
         }
         
-        return currentDayDictionary
+        return GlobalStates.currentDayDictionary
     }
-    
-    
-    //MARK: Set Time for Dictionary Key Functions
-    //THis Function will allow us to have the first day of each week be the key for the Dictionary containing 7 days.
-    
+
     
 }
