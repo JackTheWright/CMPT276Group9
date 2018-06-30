@@ -17,6 +17,11 @@ struct GlobalStates {
     static var foreGroundDate = String()
     static var backGroundDate = String()
     static var quickAddRefresh = Bool()
+    static var meaties = "0"
+    static var veggies = "0"
+    static var fruities = "0"
+    static var dairies = "0"
+    static var grainies = "0"
     
 }
 
@@ -39,12 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
-        let yesterday = dateAttributes.getFirstDayOfWeek()
-        print(yesterday)
-        GlobalStates.backGroundDate = dateAttributes.currentDateToString()
-        
-        
-        
+//        let yesterday = dateAttributes.getFirstDayOfWeek()
+//        print(yesterday)
+//        GlobalStates.backGroundDate = dateAttributes.currentDateToString()
+//
+//
+//
         
         
         
@@ -59,10 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         
         
-        GlobalStates.foreGroundDate = dateAttributes.currentDateToString()
-        
-        GlobalStates.quickAddRefresh = dateAttributes.isSameDates(date1: GlobalStates.backGroundDate, date2: GlobalStates.foreGroundDate)
-        
+//        GlobalStates.foreGroundDate = dateAttributes.currentDateToString()
+//
+//        GlobalStates.quickAddRefresh = dateAttributes.isSameDates(date1: GlobalStates.backGroundDate, date2: GlobalStates.foreGroundDate)
+//
         
         
     }

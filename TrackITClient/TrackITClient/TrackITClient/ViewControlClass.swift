@@ -20,22 +20,28 @@ class viewControl: UIViewController {
                 meatStepper.wraps = false
                 meatStepper.autorepeat = true
                 meatStepper.maximumValue = 15
+                meatCount.text = GlobalStates.meaties
 
                 vegetableStepper.wraps = false
                 vegetableStepper.autorepeat = true
                 vegetableStepper.maximumValue = 15
+                vegetableCount.text = GlobalStates.veggies
 
                 fruitStepper.wraps = false
                 fruitStepper.autorepeat = true
                 fruitStepper.maximumValue = 15
+                fruitCount.text = GlobalStates.fruities
 
                 dairyStepper.wraps = false
                 dairyStepper.autorepeat = true
                 dairyStepper.maximumValue = 15
+                dairyCount.text = GlobalStates.dairies
 
                 grainsStepper.wraps = false
                 grainsStepper.autorepeat = true
                 grainsStepper.maximumValue = 15
+                grainsCount.text = GlobalStates.grainies
+        
         
         
 
@@ -46,11 +52,11 @@ class viewControl: UIViewController {
 //            daydict = package.packageItemsWithDate(date: yesterday, meat: meatCount.text!, vegetable: vegetableCount.text!, fruit: fruitCount.text!, dairy: dairyCount.text!, grains: grainsCount.text!)
 //        }
         
-        meatCount.text = UserDefaults.standard.string(forKey: "meatTotal")
-        vegetableCount.text = UserDefaults.standard.string(forKey: "vegetableTotal")
-        fruitCount.text = UserDefaults.standard.string(forKey: "fruitTotal")
-        dairyCount.text = UserDefaults.standard.string(forKey: "dairyTotal")
-        grainsCount.text = UserDefaults.standard.string(forKey: "grainsTotal")
+//        meatCount.text = UserDefaults.standard.string(forKey: "meatTotal")
+//        vegetableCount.text = UserDefaults.standard.string(forKey: "vegetableTotal")
+//        fruitCount.text = UserDefaults.standard.string(forKey: "fruitTotal")
+//        dairyCount.text = UserDefaults.standard.string(forKey: "dairyTotal")
+//        grainsCount.text = UserDefaults.standard.string(forKey: "grainsTotal")
         
         if GlobalStates.quickAddRefresh == false {
             //let yesterday = time.getYesterdaysDate()
@@ -89,27 +95,32 @@ class viewControl: UIViewController {
 
             @IBAction func meatStepperChanged(_ sender: UIStepper) {
                 meatCount.text = Int(sender.value).description
-                UserDefaults.standard.set(meatCount.text, forKey: "meatTotal")
+                GlobalStates.meaties = meatCount.text!
+//               UserDefaults.standard.set(meatCount.text, forKey: "meatTotal")
             }
 
             @IBAction func vegetableStepperChanged(_ sender: UIStepper) {
                 vegetableCount.text = Int(sender.value).description
-                UserDefaults.standard.set(vegetableCount.text, forKey: "vegetableTotal")
+                GlobalStates.veggies = vegetableCount.text!
+//                UserDefaults.standard.set(vegetableCount.text, forKey: "vegetableTotal")
             }
 
             @IBAction func dairyStepperChanged(_ sender: UIStepper) {
                 dairyCount.text = Int(sender.value).description
-                UserDefaults.standard.set(dairyCount.text, forKey: "dairyTotal")
+                GlobalStates.dairies = dairyCount.text!
+//                UserDefaults.standard.set(dairyCount.text, forKey: "dairyTotal")
             }
 
             @IBAction func fruitStepperChanged(_ sender: UIStepper) {
                 fruitCount.text = Int(sender.value).description
-                UserDefaults.standard.set(fruitCount.text, forKey: "fruitTotal")
+                GlobalStates.fruities = fruitCount.text!
+//                UserDefaults.standard.set(fruitCount.text, forKey: "fruitTotal")
             }
 
             @IBAction func grainsStepperChanged(_ sender: UIStepper) {
                 grainsCount.text = Int(sender.value).description
-                UserDefaults.standard.set(grainsCount, forKey: "grainsTotal")
+                GlobalStates.grainies = grainsCount.text!
+//                UserDefaults.standard.set(grainsCount, forKey: "grainsTotal")
             }
 
 }
