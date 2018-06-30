@@ -41,7 +41,7 @@ class ViewController2: UIViewController {
         }
     }
     
-    @IBAction func weightAction(_ sender: Any) {
+    @IBAction func weightAction(_ sender: AnyObject) {
         if (weightOutlet.text != "")
         {
             weight = weightOutlet.text!
