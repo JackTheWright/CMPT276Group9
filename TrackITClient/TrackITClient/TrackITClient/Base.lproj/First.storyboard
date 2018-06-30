@@ -23,8 +23,12 @@
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDC-MX-Kmj">
                                         <rect key="frame" x="21" y="90" width="332" height="118"/>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uxo-Dr-72B">
                                         <rect key="frame" x="19" y="268" width="332" height="187"/>
+=======
+
+>>>>>>> c569f41eb90be696ac6ed24feb779c34b93502e7:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">trackIT is an application that can help tracking the DASH diet. DASH diet stands for Dietary Approaches to Stopping Hypertension. And it has been proven that following a DASH diet can help lower and maintain blood pressure.</string>
@@ -39,8 +43,15 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cwx-Kt-Hk8">
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                                         <rect key="frame" x="19" y="216" width="332" height="378"/>
                                         <rect key="frame" x="19" y="108" width="332" height="152"/>
+=======
+
+                                        <rect key="frame" x="19" y="216" width="332" height="378"/>
+
+
+>>>>>>> c569f41eb90be696ac6ed24feb779c34b93502e7:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">DASH Food Groups:
