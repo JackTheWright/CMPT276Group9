@@ -21,8 +21,19 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIX-rY-OIK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDC-MX-Kmj">
+                                        <rect key="frame" x="21" y="90" width="332" height="118"/>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uxo-Dr-72B">
+                                        <rect key="frame" x="19" y="268" width="332" height="187"/>
+=======
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uxo-Dr-72B">
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                                         <rect key="frame" x="19" y="376" width="332" height="187"/>
+>>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+                                        <rect key="frame" x="19" y="268" width="332" height="187"/>
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Serving Guide
@@ -44,7 +55,16 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cwx-Kt-Hk8">
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+                                        <rect key="frame" x="19" y="216" width="332" height="378"/>
+                                        <rect key="frame" x="19" y="108" width="332" height="152"/>
+=======
                                         <rect key="frame" x="19" y="216" width="332" height="152"/>
+>>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+                                        <rect key="frame" x="19" y="108" width="332" height="152"/>
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">DASH Food Groups:
@@ -74,6 +94,7 @@
                                             <segue destination="F6g-dV-Fkc" kind="show" id="5jU-ls-7Uh"/>
                                         </connections>
                                     </button>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0u-uC-y84">
                                         <rect key="frame" x="139" y="41" width="97" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -81,6 +102,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+                                        <state key="normal" title="Continue"/>
+                                        <connections>
+                                            <segue destination="F6g-dV-Fkc" kind="show" id="5jU-ls-7Uh"/>
+                                        </connections>
+                                    </button>
+=======
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDC-MX-Kmj">
                                         <rect key="frame" x="21" y="90" width="332" height="118"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,6 +117,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+>>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -104,6 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
             <point key="canvasLocation" x="-82.400000000000006" y="105.69715142428787"/>
         </scene>
         <!--View Controller-->
@@ -137,7 +169,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cB-Ep-3a7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+            <point key="canvasLocation" x="1303" y="106"/>
+            <point key="canvasLocation" x="-34.399999999999999" y="139.880059970015"/>
+=======
             <point key="canvasLocation" x="560.79999999999995" y="105.69715142428787"/>
+>>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+            <point key="canvasLocation" x="-34.399999999999999" y="139.880059970015"/>
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
         </scene>
         <!--View Controller2-->
         <scene sceneID="TIf-Eo-oZG">
@@ -182,6 +222,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-6L-CNd">
 
                                 <rect key="frame" x="120" y="115" width="203" height="30"/>
@@ -193,6 +234,8 @@
                                     <action selector="name:" destination="F6g-dV-Fkc" eventType="editingDidEnd" id="87d-R3-T6v"/>
                                 </connections>
                             </textField>
+=======
+>>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Male or Female" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axp-vJ-MGy">
                                 <rect key="frame" x="120" y="158" width="203" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -232,12 +275,14 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-6L-CNd">
                                 <rect key="frame" x="120" y="115" width="203" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxU-In-iYO">
                                 <rect key="frame" x="96" y="435" width="174" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Tracking"/>
                             </button>
+=======
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -245,6 +290,7 @@
                                     <action selector="name:" destination="F6g-dV-Fkc" eventType="editingDidEnd" id="87d-R3-T6v"/>
                                 </connections>
                             </textField>
+>>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0df-RT-J5I"/>
@@ -253,7 +299,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUj-Q1-1lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+
+            <point key="canvasLocation" x="1961" y="106"/>
+
+=======
             <point key="canvasLocation" x="1202" y="106"/>
+>>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+            <point key="canvasLocation" x="799.20000000000005" y="139.880059970015"/>
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
         </scene>
     </scenes>
 </document>
