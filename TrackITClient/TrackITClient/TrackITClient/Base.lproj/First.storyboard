@@ -28,8 +28,12 @@
                                         <rect key="frame" x="19" y="268" width="332" height="187"/>
 =======
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uxo-Dr-72B">
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                                         <rect key="frame" x="19" y="376" width="332" height="187"/>
 >>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+                                        <rect key="frame" x="19" y="268" width="332" height="187"/>
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Serving Guide
@@ -52,11 +56,15 @@
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cwx-Kt-Hk8">
 <<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                                         <rect key="frame" x="19" y="216" width="332" height="378"/>
                                         <rect key="frame" x="19" y="108" width="332" height="152"/>
 =======
                                         <rect key="frame" x="19" y="216" width="332" height="152"/>
 >>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+                                        <rect key="frame" x="19" y="108" width="332" height="152"/>
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">DASH Food Groups:
@@ -81,12 +89,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPG-3u-W6B">
                                         <rect key="frame" x="137" y="610" width="96" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Continue"/>
                                         <connections>
-                                            <segue destination="daz-W8-OTB" kind="show" id="NUR-Y4-S0x"/>
+                                            <segue destination="F6g-dV-Fkc" kind="show" id="5jU-ls-7Uh"/>
                                         </connections>
                                     </button>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0u-uC-y84">
                                         <rect key="frame" x="139" y="41" width="97" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -110,6 +118,8 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
 >>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -125,6 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
             <point key="canvasLocation" x="-82.400000000000006" y="105.69715142428787"/>
         </scene>
         <!--View Controller-->
@@ -164,6 +175,9 @@
 =======
             <point key="canvasLocation" x="560.79999999999995" y="105.69715142428787"/>
 >>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+            <point key="canvasLocation" x="-34.399999999999999" y="139.880059970015"/>
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
         </scene>
         <!--View Controller2-->
         <scene sceneID="TIf-Eo-oZG">
@@ -286,12 +300,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUj-Q1-1lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
 <<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
+<<<<<<< HEAD:TrackITClient/TrackITClient/TrackITClient/Base.lproj/First.storyboard
 
             <point key="canvasLocation" x="1961" y="106"/>
 
 =======
             <point key="canvasLocation" x="1202" y="106"/>
 >>>>>>> parent of 9bfc6cd... updates:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
+=======
+            <point key="canvasLocation" x="799.20000000000005" y="139.880059970015"/>
+>>>>>>> parent of 7f0c8f6... update:TrackITClient/TrackITClient/TrackITClient/Base.lproj/Main.storyboard
         </scene>
     </scenes>
 </document>
