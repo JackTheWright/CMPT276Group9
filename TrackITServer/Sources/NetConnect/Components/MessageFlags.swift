@@ -4,11 +4,10 @@
 //
 // Team Name    : Group 9
 // Created By   : Jeremy Schwartz
-// Created On   : 2018-06-23
+// Created On   : 2018-06-01
 //
 
 import Foundation
-
 
 /// Enumeration of possible values for the `Message.flags` attribute. These
 /// flags may be combined together using a bitwise or to create more complex
@@ -34,22 +33,28 @@ public enum MessageFlags : UInt16, FlagSet {
     
     /// Combination of `Handshake` and `Confirmation` flags. Sent as a reply to
     /// a handshake request along with a new thread identifier.
-    case HSComfirm      = 0b0000_0000_0000_0111
+    case HSConfirm      = 0b0000_0000_0000_0111
+    
+    /// Deny response to a handshake request.
+    case HSDeny         = 0b0010_0000_0000_0001
     
     /// Flag denoting whether the sender is expecting a reply back. If this flag
     /// is active then the reciever must send back a message, even if it is only
     /// a confirmation message.
     case ExpectingReply = 0b0000_0000_0000_0100
     
-    /// If the size of the message is too large to express in 16 unsigned bits
-    /// then this flag is triggered and the 64-bits that come after the header
-    /// are used to express the size of the message.
-    case Use64BitSize   = 0b0000_0000_0000_1000
-    
     /// Flag which tells the reciver to resend the previous message. A message
     /// with this flag set will be automatically sent back if a corrupted
     /// datagram is recived.
     case ResendRequest  = 0b0000_0000_0000_1100
+    
+    /// Flag denoted whether or not the message body is encrypted. If active,
+    /// the receiver will attempt to decrypt the message body with its
+    /// cryptographer delegate.
+    case Encrypted      = 0b0000_0000_0001_0000
+    
+    /// Flag denoting the rejection of the previous request.
+    case Deny           = 0b0010_0000_0000_0000
     
     /// Flag denoting the end of the conversation. Sent by the client to the
     /// server to close the conversation, the server will reply with a message

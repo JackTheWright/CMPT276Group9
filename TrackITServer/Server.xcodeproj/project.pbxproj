@@ -22,6 +22,12 @@
 
 /* Begin PBXBuildFile section */
 		3F1E469C20E1CA8500C94C95 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1E469B20E1CA8500C94C95 /* Address.swift */; };
+		3F22A3F520E46834004B7257 /* LabelDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F22A3F420E46834004B7257 /* LabelDispatch.swift */; };
+		3F22A3F920E46E75004B7257 /* NetworkHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F22A3F820E46E75004B7257 /* NetworkHost.swift */; };
+		3F4921F220E5DCE800CDAC7B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4921F120E5DCE800CDAC7B /* Message.swift */; };
+		3F4921F420E8A6EC00CDAC7B /* IFAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4921F320E8A6EC00CDAC7B /* IFAddress.swift */; };
+		3F4921F720E8B1AB00CDAC7B /* Cryptographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4921F620E8B1AB00CDAC7B /* Cryptographer.swift */; };
+		3F9149A120E95C2800BE4902 /* NetworkErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9149A020E95C2800BE4902 /* NetworkErrorEvent.swift */; };
 		OBJ_136 /* AEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* AEAD.swift */; };
 		OBJ_137 /* AEADChaCha20Poly1305.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* AEADChaCha20Poly1305.swift */; };
 		OBJ_138 /* AES.Cryptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* AES.Cryptors.swift */; };
@@ -229,6 +235,12 @@
 
 /* Begin PBXFileReference section */
 		3F1E469B20E1CA8500C94C95 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		3F22A3F420E46834004B7257 /* LabelDispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDispatch.swift; sourceTree = "<group>"; };
+		3F22A3F820E46E75004B7257 /* NetworkHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHost.swift; sourceTree = "<group>"; };
+		3F4921F120E5DCE800CDAC7B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		3F4921F320E8A6EC00CDAC7B /* IFAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFAddress.swift; sourceTree = "<group>"; };
+		3F4921F620E8B1AB00CDAC7B /* Cryptographer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptographer.swift; sourceTree = "<group>"; };
+		3F9149A020E95C2800BE4902 /* NetworkErrorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorEvent.swift; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_100 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -416,8 +428,19 @@
 				OBJ_14 /* FlagSet.swift */,
 				OBJ_15 /* MessageFlags.swift */,
 				OBJ_16 /* NetworkError.swift */,
+				3F22A3F420E46834004B7257 /* LabelDispatch.swift */,
+				3F4921F320E8A6EC00CDAC7B /* IFAddress.swift */,
+				3F9149A020E95C2800BE4902 /* NetworkErrorEvent.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3F4921F520E8B18F00CDAC7B /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3F4921F620E8B1AB00CDAC7B /* Cryptographer.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		OBJ_103 /* Socket 1.0.8 */ = {
@@ -452,9 +475,12 @@
 		OBJ_11 /* NetConnect */ = {
 			isa = PBXGroup;
 			children = (
+				3F4921F520E8B18F00CDAC7B /* Delegates */,
 				3F1E469A20E1CA4000C94C95 /* Components */,
 				3F1E469920E1CA2B00C94C95 /* Network Base */,
 				OBJ_17 /* NetworkInterface.swift */,
+				3F22A3F820E46E75004B7257 /* NetworkHost.swift */,
+				3F4921F120E5DCE800CDAC7B /* Message.swift */,
 			);
 			name = NetConnect;
 			path = Sources/NetConnect;
@@ -1023,11 +1049,17 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_218 /* FlagComplex.swift in Sources */,
+				3F4921F420E8A6EC00CDAC7B /* IFAddress.swift in Sources */,
+				3F22A3F920E46E75004B7257 /* NetworkHost.swift in Sources */,
 				OBJ_219 /* FlagSet.swift in Sources */,
 				OBJ_220 /* MessageFlags.swift in Sources */,
 				OBJ_221 /* NetworkError.swift in Sources */,
+				3F4921F720E8B1AB00CDAC7B /* Cryptographer.swift in Sources */,
 				OBJ_222 /* NetworkInterface.swift in Sources */,
 				3F1E469C20E1CA8500C94C95 /* Address.swift in Sources */,
+				3F9149A120E95C2800BE4902 /* NetworkErrorEvent.swift in Sources */,
+				3F4921F220E5DCE800CDAC7B /* Message.swift in Sources */,
+				3F22A3F520E46834004B7257 /* LabelDispatch.swift in Sources */,
 				OBJ_223 /* UDPSocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

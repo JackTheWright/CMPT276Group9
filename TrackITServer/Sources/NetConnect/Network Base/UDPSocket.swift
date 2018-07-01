@@ -68,6 +68,36 @@ public class UDPSocket {
         }
     }
     
+    /// Sets the socket's write timeout to a given number of seconds.
+    ///
+    /// - parameters:
+    ///     - seconds: The number of seconds to set the write timeout to.
+    ///
+    /// - returns: Returns `true` if timeout was set successfully; otherwise,
+    ///     returns `false`.
+    @discardableResult
+    public func setWriteTimeout(_ seconds: UInt) -> Bool {
+        do {
+            try socket.setWriteTimeout(value: seconds * 1000)
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+    /// Sets the socket's write timeout to inifity.
+    ///
+    /// - returns: Returns `true` if action was successful, `false` otherwise.
+    @discardableResult
+    public func removeWriteTimeout() -> Bool {
+        do {
+            try socket.setWriteTimeout()
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     /// Listens of a given port for an incoming message.
     ///
     /// - parameters:

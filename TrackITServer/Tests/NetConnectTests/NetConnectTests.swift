@@ -32,8 +32,25 @@ final class NetConnectTests: XCTestCase {
         }
         print()
     }
+    
+    func testMessage() {
+        let string = "Hello World"
+        guard let message = Message(string, flags: Message.Flags(), id: 0)
+        else {
+            XCTAssert(false)
+            return
+        }
+        XCTAssert(message.string == string)
+        XCTAssert(message.size == message.rawData.count)
+    }
+    
+    func testIFAddress() {
+        print(IFAddress.localIP() ?? "nil")
+    }
 
     static var allTests = [
         ("testSocket", testSocket),
+        ("testMessage", testMessage),
+        ("testIFAddress", testIFAddress)
     ]
 }
