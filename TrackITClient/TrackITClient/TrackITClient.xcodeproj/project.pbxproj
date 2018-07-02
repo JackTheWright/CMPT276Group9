@@ -55,6 +55,7 @@
 		10B80B2620E480EA007027F1 /* TimeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeClass.swift; sourceTree = "<group>"; };
 		10B80B2720E480EB007027F1 /* ServingPackageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingPackageClass.swift; sourceTree = "<group>"; };
 		10B80B2D20E48138007027F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FoodAdd.storyboard; sourceTree = "<group>"; };
+		10DEF64920EAB50300759A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		3F11EFFB20C4771A007AB096 /* TrackITClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackITClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F11EFFE20C4771A007AB096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F11F00020C4771A007AB096 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 				3F11F02520C4880A007AB096 /* NetConnect */,
 				3F11EFFE20C4771A007AB096 /* AppDelegate.swift */,
 				3F11F00020C4771A007AB096 /* ViewController.swift */,
+				10DEF64820EAB50300759A13 /* Main.storyboard */,
 				8B751E4A20E37661003EC7D4 /* ViewController2.swift */,
 				10B80B2C20E48138007027F1 /* FoodAdd.storyboard */,
 				101A139720E7E51300D4BE59 /* OverviewPage.storyboard */,
@@ -277,6 +279,14 @@
 				10B80B2D20E48138007027F1 /* Base */,
 			);
 			name = FoodAdd.storyboard;
+			sourceTree = "<group>";
+		};
+		10DEF64820EAB50300759A13 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10DEF64920EAB50300759A13 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		3F11F00720C4771B007AB096 /* LaunchScreen.storyboard */ = {
