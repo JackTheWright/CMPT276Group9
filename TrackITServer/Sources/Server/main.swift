@@ -45,5 +45,3 @@ func server() {
         print(e.localizedDescription)
     }
 }
-
-client()
