@@ -13,6 +13,39 @@ class viewControl: UIViewController {
     let package = ServingPackage()
     let time = DateAttributes()
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        meatStepper.value = Double(GlobalStates.meaties)!
+        vegetableStepper.value = Double(GlobalStates.veggies)!
+        fruitStepper.value = Double(GlobalStates.fruities)!
+        dairyStepper.value = Double(GlobalStates.dairies)!
+        grainsStepper.value = Double(GlobalStates.grainies)!
+        
+        
+        let quickAddRefresh = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
+        
+        
+        if quickAddRefresh == false {
+            //let yesterday = time.getYesterdaysDate()
+            print("yeet")
+            meatCount.text = "0"
+            vegetableCount.text = "0"
+            fruitCount.text = "0"
+            dairyCount.text = "0"
+            grainsCount.text = "0"
+            meatStepper.value = 0
+            vegetableStepper.value = 0
+            fruitStepper.value = 0
+            dairyStepper.value = 0
+            grainsStepper.value = 0
+            
+            UserDefaults.standard.set(true, forKey: "checkToSeeIfLastAccessWasYesterday")
+        }
+        
+    }
+        
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,34 +77,20 @@ class viewControl: UIViewController {
         
         
         
-
-//        let daydict:[String:[String]]
-//        UserDefaults.standard.set(daydict, forKey: "daydict")
-//        if GlobalStates.quickAddRefresh == false {
-//             let yesterday = time.getYesterdaysDate()
-//            daydict = package.packageItemsWithDate(date: yesterday, meat: meatCount.text!, vegetable: vegetableCount.text!, fruit: fruitCount.text!, dairy: dairyCount.text!, grains: grainsCount.text!)
-//        }
+        let quickAddRefresh = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
+        var dayDic = Dictionary<String,[String]>()
+        if quickAddRefresh == false {
+             let yesterday = time.getYesterdaysDate()
+            dayDic = package.packageItemsWithDate(date: yesterday, meat: meatCount.text!, vegetable: vegetableCount.text!, fruit: fruitCount.text!, dairy: dairyCount.text!, grains: grainsCount.text!)
+            UserDefaults.standard.set(dayDic, forKey: yesterday)
+        }
         
-//        meatCount.text = UserDefaults.standard.string(forKey: "meatTotal")
-//        vegetableCount.text = UserDefaults.standard.string(forKey: "vegetableTotal")
-//        fruitCount.text = UserDefaults.standard.string(forKey: "fruitTotal")
-//        dairyCount.text = UserDefaults.standard.string(forKey: "dairyTotal")
-//        grainsCount.text = UserDefaults.standard.string(forKey: "grainsTotal")
         
-        if GlobalStates.quickAddRefresh == false {
-            //let yesterday = time.getYesterdaysDate()
-       
-            meatCount.text = "0"
-            vegetableCount.text = "0"
-            fruitCount.text = "0"
-            dairyCount.text = "0"
-            grainsCount.text = "0"
-            GlobalStates.quickAddRefresh = true
-            
-            
+        
+        
         }
             
-    }
+
 
     
     
@@ -96,31 +115,31 @@ class viewControl: UIViewController {
             @IBAction func meatStepperChanged(_ sender: UIStepper) {
                 meatCount.text = Int(sender.value).description
                 GlobalStates.meaties = meatCount.text!
-//               UserDefaults.standard.set(meatCount.text, forKey: "meatTotal")
+               UserDefaults.standard.set(meatCount.text, forKey: "meatTotal")
             }
 
             @IBAction func vegetableStepperChanged(_ sender: UIStepper) {
                 vegetableCount.text = Int(sender.value).description
                 GlobalStates.veggies = vegetableCount.text!
-//                UserDefaults.standard.set(vegetableCount.text, forKey: "vegetableTotal")
+                UserDefaults.standard.set(vegetableCount.text, forKey: "vegetableTotal")
             }
 
             @IBAction func dairyStepperChanged(_ sender: UIStepper) {
                 dairyCount.text = Int(sender.value).description
                 GlobalStates.dairies = dairyCount.text!
-//                UserDefaults.standard.set(dairyCount.text, forKey: "dairyTotal")
+                UserDefaults.standard.set(dairyCount.text, forKey: "dairyTotal")
             }
 
             @IBAction func fruitStepperChanged(_ sender: UIStepper) {
                 fruitCount.text = Int(sender.value).description
                 GlobalStates.fruities = fruitCount.text!
-//                UserDefaults.standard.set(fruitCount.text, forKey: "fruitTotal")
+                UserDefaults.standard.set(fruitCount.text, forKey: "fruitTotal")
             }
 
             @IBAction func grainsStepperChanged(_ sender: UIStepper) {
                 grainsCount.text = Int(sender.value).description
                 GlobalStates.grainies = grainsCount.text!
-//                UserDefaults.standard.set(grainsCount, forKey: "grainsTotal")
+                UserDefaults.standard.set(grainsCount, forKey: "grainsTotal")
             }
 
 }

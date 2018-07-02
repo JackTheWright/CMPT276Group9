@@ -16,7 +16,6 @@ struct GlobalStates {
     static var currentDayDictionary = [String: [String]]()
     static var foreGroundDate = String()
     static var backGroundDate = String()
-    static var quickAddRefresh = Bool()
     static var meaties = "0"
     static var veggies = "0"
     static var fruities = "0"
@@ -33,10 +32,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vc = viewControl()
     var dateAttributes = DateAttributes()
     
-    
+    var storyboard:UIStoryboard?
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window =  UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        if launchedBefore  {
+            //Not the first time, show login screen.
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let rootController = storyboard!.instantiateViewController(withIdentifier: "start")
+            
+            if let window = self.window {
+                window.rootViewController = rootController
+            }
+            
+        }
+        else {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            //First time, open a new page view controller.
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let rootController = storyboard!.instantiateViewController(withIdentifier: "Overview")
+            
+            if let window = self.window {
+                window.rootViewController = rootController
+            }
+        }
         return true
     }
 
@@ -44,12 +69,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
-//        let yesterday = dateAttributes.getFirstDayOfWeek()
-//        print(yesterday)
-//        GlobalStates.backGroundDate = dateAttributes.currentDateToString()
-//
-//
-//
+        
+        GlobalStates.backGroundDate = dateAttributes.currentDateToString()
+        UserDefaults.standard.set(GlobalStates.backGroundDate, forKey: "backGroundDate")
+
+
+
         
         
         
@@ -64,11 +89,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         
         
-//        GlobalStates.foreGroundDate = dateAttributes.currentDateToString()
+        GlobalStates.foreGroundDate = dateAttributes.currentDateToString()
+        let yest = UserDefaults.standard.string(forKey: "backGroundDate")
 //
-//        GlobalStates.quickAddRefresh = dateAttributes.isSameDates(date1: GlobalStates.backGroundDate, date2: GlobalStates.foreGroundDate)
+        let quickAddRefresh = dateAttributes.isSameDates(date1: yest!, date2: GlobalStates.foreGroundDate)
 //
+        UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
         
+        let boolcheckmanibba = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
+        print(boolcheckmanibba)
         
     }
 
