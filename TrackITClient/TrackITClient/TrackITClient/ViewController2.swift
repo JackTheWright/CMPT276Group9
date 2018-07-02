@@ -15,48 +15,47 @@ var weight = ""
 
 class ViewController2: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var nameOutlet: UITextField!
-    @IBOutlet weak var genderOutlet: UITextField!
-    @IBOutlet weak var ageOutlet: UITextField!
-    @IBOutlet weak var weightOutlet: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var weightTextField: UITextField!
 
     @IBAction func nameAction(_ sender: AnyObject) {
-        if (nameOutlet.text != "")
+        if (nameTextField.text != "")
         {
-            name = nameOutlet.text!
+            name = nameTextField.text!
         }
     }
     
     @IBAction func genderAction(_ sender: AnyObject) {
-        if (genderOutlet.text != "")
+        if (genderTextField.text != "")
         {
-            gender = genderOutlet.text!
+            gender = genderTextField.text!
         }
     }
     
     @IBAction func ageAction(_ sender: AnyObject) {
-        if (ageOutlet.text != "")
+        if (ageTextField.text != "")
         {
-            age = ageOutlet.text!
+            age = ageTextField.text!
         }
     }
     
     @IBAction func weightAction(_ sender: AnyObject) {
-        if (weightOutlet.text != "")
+        if (weightTextField.text != "")
         {
-            weight = weightOutlet.text!
+            weight = weightTextField.text!
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-/*        nameOutlet.delegate = self
-        genderOutlet.delegate = self
-        ageOutlet.delegate = self
-        weightOutlet.delegate = self
+        nameTextField?.delegate = self
+        genderTextField?.delegate = self
+        ageTextField?.delegate = self
+        weightTextField?.delegate = self
 
-   */
         
         // Do any additional setup after loading the view.
     }
@@ -64,6 +63,11 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
    /*
