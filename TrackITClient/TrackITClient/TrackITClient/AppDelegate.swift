@@ -96,8 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
         UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
         
-        let boolcheckmanibba = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
-        print(boolcheckmanibba)
+        
         
     }
 
