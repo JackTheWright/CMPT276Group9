@@ -22,6 +22,7 @@
 		3F11F02620C4880A007AB096 /* NetConnect in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F02520C4880A007AB096 /* NetConnect */; };
 		8B751E4920DF0329003EC7D4 /* split.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B751E4820DF0329003EC7D4 /* split.png */; };
 		8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B751E4A20E37661003EC7D4 /* ViewController2.swift */; };
+		8BD217C220EAC0D700C00E9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DEF64820EAB50300759A13 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD217C220EAC0D700C00E9D /* Main.storyboard in Resources */,
 				3F11F00920C4771B007AB096 /* LaunchScreen.storyboard in Resources */,
 				3F11F00620C4771B007AB096 /* Assets.xcassets in Resources */,
 				10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */,
