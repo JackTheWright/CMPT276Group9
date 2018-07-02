@@ -22,6 +22,9 @@
                                 <rect key="frame" x="100" y="230" width="175" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Notifications"/>
+                                <connections>
+                                    <segue destination="vg6-Fw-2nZ" kind="show" id="13w-ZF-FC7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pma-5I-um4">
                                 <rect key="frame" x="100" y="316" width="175" height="41"/>
@@ -77,6 +80,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0g-MZ-8Ql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="45.600000000000001" y="135.38230884557723"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="RfH-am-0aH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notifications" id="vg6-Fw-2nZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kdv-C0-p3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="28"/>
         </scene>
         <!--FoodAdd-->
         <scene sceneID="sFn-8a-2ET">
