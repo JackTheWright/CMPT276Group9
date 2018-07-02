@@ -19,7 +19,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var genderOutlet: UITextField!
     @IBOutlet weak var ageOutlet: UITextField!
     @IBOutlet weak var weightOutlet: UITextField!
-/*
+
     @IBAction func nameAction(_ sender: AnyObject) {
         if (nameOutlet.text != "")
         {
@@ -47,7 +47,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
             weight = weightOutlet.text!
         }
     }
-*/
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,7 +66,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
+   /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -76,4 +76,5 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     }
     */
 }
+
 
