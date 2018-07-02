@@ -16,8 +16,6 @@
 		10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B80B2C20E48138007027F1 /* FoodAdd.storyboard */; };
 		3F11EFFF20C4771A007AB096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11EFFE20C4771A007AB096 /* AppDelegate.swift */; };
 		3F11F00120C4771A007AB096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11F00020C4771A007AB096 /* ViewController.swift */; };
-		3F11F00420C4771A007AB096 /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F00220C4771A007AB096 /* First.storyboard */; };
-
 		3F11F00620C4771B007AB096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F00520C4771B007AB096 /* Assets.xcassets */; };
 		3F11F00920C4771B007AB096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F00720C4771B007AB096 /* LaunchScreen.storyboard */; };
 		3F11F01420C4771C007AB096 /* TrackITClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11F01320C4771C007AB096 /* TrackITClientTests.swift */; };
@@ -60,9 +58,6 @@
 		3F11EFFB20C4771A007AB096 /* TrackITClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackITClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F11EFFE20C4771A007AB096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F11F00020C4771A007AB096 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-
-		3F11F00320C4771A007AB096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/First.storyboard; sourceTree = "<group>"; };
-
 		3F11F00520C4771B007AB096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F11F00820C4771B007AB096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F11F00A20C4771B007AB096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,9 +112,6 @@
 				3F11F02520C4880A007AB096 /* NetConnect */,
 				3F11EFFE20C4771A007AB096 /* AppDelegate.swift */,
 				3F11F00020C4771A007AB096 /* ViewController.swift */,
-
-				3F11F00220C4771A007AB096 /* First.storyboard */,
-
 				8B751E4A20E37661003EC7D4 /* ViewController2.swift */,
 				10B80B2C20E48138007027F1 /* FoodAdd.storyboard */,
 				101A139720E7E51300D4BE59 /* OverviewPage.storyboard */,
@@ -230,9 +222,6 @@
 				3F11F00620C4771B007AB096 /* Assets.xcassets in Resources */,
 				10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */,
 				8B751E4920DF0329003EC7D4 /* split.png in Resources */,
-
-				3F11F00420C4771A007AB096 /* First.storyboard in Resources */,
-
 				3F11F02620C4880A007AB096 /* NetConnect in Resources */,
 				101A139820E7E51300D4BE59 /* OverviewPage.storyboard in Resources */,
 			);
@@ -290,16 +279,6 @@
 			name = FoodAdd.storyboard;
 			sourceTree = "<group>";
 		};
-
-		3F11F00220C4771A007AB096 /* First.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F11F00320C4771A007AB096 /* Base */,
-			);
-			name = First.storyboard;
-			sourceTree = "<group>";
-		};
-
 		3F11F00720C4771B007AB096 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
