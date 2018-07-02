@@ -2,7 +2,7 @@
 //  ViewController2.swift
 //  TrackITClient
 //
-//  Created by Alice Chen on 2018-06-27.
+//  Created by Alan Dong on 2018-06-27.
 //  Copyright © 2018 Group 9. All rights reserved.
 //
 
@@ -13,13 +13,13 @@ var gender = ""
 var age = ""
 var weight = ""
 
-class ViewController2: UIViewController {
+class ViewController2: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var genderOutlet: UITextField!
     @IBOutlet weak var ageOutlet: UITextField!
     @IBOutlet weak var weightOutlet: UITextField!
-    
+
     @IBAction func nameAction(_ sender: AnyObject) {
         if (nameOutlet.text != "")
         {
@@ -47,10 +47,17 @@ class ViewController2: UIViewController {
             weight = weightOutlet.text!
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+/*        nameOutlet.delegate = self
+        genderOutlet.delegate = self
+        ageOutlet.delegate = self
+        weightOutlet.delegate = self
 
+   */
+        
         // Do any additional setup after loading the view.
     }
 
@@ -59,8 +66,7 @@ class ViewController2: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+   /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -69,5 +75,6 @@ class ViewController2: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+
+
