@@ -23,6 +23,8 @@
 		8B751E4920DF0329003EC7D4 /* split.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B751E4820DF0329003EC7D4 /* split.png */; };
 		8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B751E4A20E37661003EC7D4 /* ViewController2.swift */; };
 		8BD217C220EAC0D700C00E9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DEF64820EAB50300759A13 /* Main.storyboard */; };
+		E831545A20EAC395003B0AA4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E831545920EAC394003B0AA4 /* NotificationViewController.swift */; };
+		E831545D20EAC3A4003B0AA4 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E831545B20EAC3A4003B0AA4 /* Notifications.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		3F11F02520C4880A007AB096 /* NetConnect */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NetConnect; path = ../../../TrackITServer/Sources/NetConnect; sourceTree = "<group>"; };
 		8B751E4820DF0329003EC7D4 /* split.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = split.png; path = TrackITClient/split.png; sourceTree = "<group>"; };
 		8B751E4A20E37661003EC7D4 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		E831545920EAC394003B0AA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		E831545C20EAC3A4003B0AA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notifications.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 		3F11EFFD20C4771A007AB096 /* TrackITClient */ = {
 			isa = PBXGroup;
 			children = (
+				E831545B20EAC3A4003B0AA4 /* Notifications.storyboard */,
+				E831545920EAC394003B0AA4 /* NotificationViewController.swift */,
 				3F11F02520C4880A007AB096 /* NetConnect */,
 				3F11EFFE20C4771A007AB096 /* AppDelegate.swift */,
 				3F11F00020C4771A007AB096 /* ViewController.swift */,
@@ -222,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD217C220EAC0D700C00E9D /* Main.storyboard in Resources */,
+				E831545D20EAC3A4003B0AA4 /* Notifications.storyboard in Resources */,
 				3F11F00920C4771B007AB096 /* LaunchScreen.storyboard in Resources */,
 				3F11F00620C4771B007AB096 /* Assets.xcassets in Resources */,
 				10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */,
@@ -250,6 +257,7 @@
 				10B80B2920E480EB007027F1 /* ViewControlClass.swift in Sources */,
 				10B80B2820E480EB007027F1 /* PageViewControl.swift in Sources */,
 				3F11EFFF20C4771A007AB096 /* AppDelegate.swift in Sources */,
+				E831545A20EAC395003B0AA4 /* NotificationViewController.swift in Sources */,
 				8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */,
 				10B80B2A20E480EB007027F1 /* TimeClass.swift in Sources */,
 				10B80B2B20E480EB007027F1 /* ServingPackageClass.swift in Sources */,
@@ -297,6 +305,14 @@
 				3F11F00820C4771B007AB096 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E831545B20EAC3A4003B0AA4 /* Notifications.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E831545C20EAC3A4003B0AA4 /* Base */,
+			);
+			name = Notifications.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
