@@ -19,24 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cwx-Kt-Hk8">
-                                <rect key="frame" x="21" y="167" width="332" height="143"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="152" id="KHX-JI-hT2"/>
-                                </constraints>
-                                <string key="text">DASH Food Groups:
-Vegetables
-Fruit
-Grains (mainly whole grains)
-Low  Fat or No-Fat Dairy Foods
-Lean meats, poultry and fish
-Nuts, seeds and dry beans
-Fats and Oils
-</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to trackIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mm0-1Q-ZLc">
                                 <rect key="frame" x="104" y="49" width="166" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -44,7 +26,7 @@ Fats and Oils
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="trackIT is an application that helps track DASH diet. DASH stands for Dietary Approaches to Stopping Hypertension." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDC-MX-Kmj">
-                                <rect key="frame" x="16" y="80" width="332" height="70"/>
+                                <rect key="frame" x="21" y="80" width="338" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="WcT-QN-Fub"/>
@@ -52,57 +34,66 @@ Fats and Oils
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Uxo-Dr-72B">
-                                <rect key="frame" x="21" y="318" width="332" height="161"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Instruction:  1.Calculate servings.  2.Record servings. 3.Review servings. 4.Adjust consumption. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vf3-9o-04K">
+                                <rect key="frame" x="21" y="499" width="332" height="107"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Serving Guide
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="AQc-23-ZyG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKU-Pk-y6K">
+                                <rect key="frame" x="154" y="604" width="62" height="30"/>
+                                <state key="normal" title="Continue"/>
+                                <connections>
+                                    <segue destination="F6g-dV-Fkc" kind="show" id="Kgy-6P-vXw"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cwx-Kt-Hk8">
+                                <rect key="frame" x="21" y="174" width="332" height="317"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="317" id="gTw-el-KL2"/>
+                                </constraints>
+                                <mutableString key="text">DASH Food Groups:
+Vegetables
+Fruit
+Grains (mainly whole grains)
+Low  Fat or No-Fat Dairy Foods
+Lean meats, poultry and fish
+Nuts, seeds and dry beans
+Fats and Oils
+ Serving Guide
 Vegetables: 4-5 servings
 Fruit: 4-5 servings
 Grains (mainly whole grains): 7-8 servings
 Low  Fat or No-Fat Dairy Foods: 2-3 servings
 Lean meats, poultry and fish:  2 servings or less
 Nuts, seeds and dry beans: 4-5 servings per week
-Fats and oils:  2-3 servings</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKU-Pk-y6K">
-                                <rect key="frame" x="151" y="604" width="62" height="30"/>
-                                <state key="normal" title="Continue"/>
-                                <connections>
-                                    <segue destination="F6g-dV-Fkc" kind="show" id="Kgy-6P-vXw"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Instruction:  1.Calculate servings.  2.Record servings. 3.Review servings. 4.Adjust consumption. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vf3-9o-04K">
-                                <rect key="frame" x="21" y="495" width="332" height="101"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="Fhs-zn-5RA"/>
-                                </constraints>
+Fats and oils:  2-3 servings</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WDC-MX-Kmj" secondAttribute="trailing" constant="27" id="1oN-w9-6Ov"/>
-                            <constraint firstItem="Vf3-9o-04K" firstAttribute="top" secondItem="cwx-Kt-Hk8" secondAttribute="bottom" constant="177" id="Bnx-34-dyf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WDC-MX-Kmj" secondAttribute="trailing" constant="16" id="0C8-J5-2oH"/>
+                            <constraint firstItem="nKU-Pk-y6K" firstAttribute="centerX" secondItem="WDC-MX-Kmj" secondAttribute="centerX" constant="-5" id="Bj9-Qj-QHx"/>
+                            <constraint firstItem="nKU-Pk-y6K" firstAttribute="top" secondItem="Vf3-9o-04K" secondAttribute="bottom" constant="-2" id="DIt-FH-DfK"/>
+                            <constraint firstItem="cwx-Kt-Hk8" firstAttribute="centerX" secondItem="mm0-1Q-ZLc" secondAttribute="centerX" id="DXp-Ko-QVd"/>
+                            <constraint firstItem="Vf3-9o-04K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="FKE-C0-s6t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cwx-Kt-Hk8" secondAttribute="trailing" constant="22" id="L1g-CB-ENm"/>
                             <constraint firstItem="WDC-MX-Kmj" firstAttribute="top" secondItem="mm0-1Q-ZLc" secondAttribute="bottom" constant="8" symbolic="YES" id="L7g-rj-NJs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uxo-Dr-72B" secondAttribute="trailing" constant="22" id="Mmc-hE-FHf"/>
                             <constraint firstItem="WDC-MX-Kmj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="PUC-EZ-2ZX"/>
-                            <constraint firstItem="Uxo-Dr-72B" firstAttribute="top" secondItem="WDC-MX-Kmj" secondAttribute="bottom" constant="156" id="QgU-nh-oNr"/>
-                            <constraint firstItem="Vf3-9o-04K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="S9j-7M-ksb"/>
-                            <constraint firstItem="WDC-MX-Kmj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WnS-Qg-nau"/>
-                            <constraint firstItem="mm0-1Q-ZLc" firstAttribute="centerX" secondItem="cwx-Kt-Hk8" secondAttribute="centerX" id="Xz8-N9-aU2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cwx-Kt-Hk8" secondAttribute="trailing" constant="22" id="YZw-yr-ISz"/>
-                            <constraint firstItem="Uxo-Dr-72B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="b3I-Bj-nE4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vf3-9o-04K" secondAttribute="trailing" constant="22" id="dpe-ub-qoK"/>
-                            <constraint firstItem="WDC-MX-Kmj" firstAttribute="centerX" secondItem="nKU-Pk-y6K" secondAttribute="centerX" id="hpY-aT-HJv"/>
-                            <constraint firstItem="Vf3-9o-04K" firstAttribute="top" secondItem="cwx-Kt-Hk8" secondAttribute="bottom" constant="177" id="iYt-o5-hJ2"/>
-                            <constraint firstItem="nKU-Pk-y6K" firstAttribute="top" secondItem="Uxo-Dr-72B" secondAttribute="bottom" constant="103" id="jJW-1b-9FG"/>
-                            <constraint firstItem="cwx-Kt-Hk8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="kc9-SK-w8C"/>
-                            <constraint firstItem="nKU-Pk-y6K" firstAttribute="top" secondItem="Vf3-9o-04K" secondAttribute="bottom" constant="8" id="nRC-Ux-YkR"/>
-                            <constraint firstItem="cwx-Kt-Hk8" firstAttribute="top" secondItem="WDC-MX-Kmj" secondAttribute="bottom" constant="8" id="ruc-c4-IsP"/>
+                            <constraint firstItem="nKU-Pk-y6K" firstAttribute="top" secondItem="Vf3-9o-04K" secondAttribute="bottom" constant="-2" id="SQ6-d9-TXi"/>
+                            <constraint firstItem="WDC-MX-Kmj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="UF7-MN-uiI"/>
+                            <constraint firstItem="WDC-MX-Kmj" firstAttribute="top" secondItem="mm0-1Q-ZLc" secondAttribute="bottom" constant="8" id="UPb-23-jl7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vf3-9o-04K" secondAttribute="trailing" constant="22" id="XHp-ym-mqo"/>
+                            <constraint firstItem="cwx-Kt-Hk8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="b9z-Qv-mCr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nKU-Pk-y6K" secondAttribute="bottom" constant="33" id="djN-6Q-hG9"/>
+                            <constraint firstItem="cwx-Kt-Hk8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h3S-N8-cjB"/>
+                            <constraint firstItem="cwx-Kt-Hk8" firstAttribute="top" secondItem="WDC-MX-Kmj" secondAttribute="bottom" constant="24" id="jVS-N3-iId"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
