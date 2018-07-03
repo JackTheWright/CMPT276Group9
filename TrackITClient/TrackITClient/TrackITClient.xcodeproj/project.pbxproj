@@ -14,6 +14,8 @@
 		10B80B2A20E480EB007027F1 /* TimeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2620E480EA007027F1 /* TimeClass.swift */; };
 		10B80B2B20E480EB007027F1 /* ServingPackageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2720E480EB007027F1 /* ServingPackageClass.swift */; };
 		10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B80B2C20E48138007027F1 /* FoodAdd.storyboard */; };
+		10DEF65120EAF98000759A13 /* BarchartClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEF64F20EAF98000759A13 /* BarchartClass.swift */; };
+		10DEF65220EAF98000759A13 /* ChartCreationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEF65020EAF98000759A13 /* ChartCreationClass.swift */; };
 		3F11EFFF20C4771A007AB096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11EFFE20C4771A007AB096 /* AppDelegate.swift */; };
 		3F11F00120C4771A007AB096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11F00020C4771A007AB096 /* ViewController.swift */; };
 		3F11F00620C4771B007AB096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F00520C4771B007AB096 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		10B80B2720E480EB007027F1 /* ServingPackageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingPackageClass.swift; sourceTree = "<group>"; };
 		10B80B2D20E48138007027F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FoodAdd.storyboard; sourceTree = "<group>"; };
 		10DEF64920EAB50300759A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		10DEF64F20EAF98000759A13 /* BarchartClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarchartClass.swift; sourceTree = "<group>"; };
+		10DEF65020EAF98000759A13 /* ChartCreationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCreationClass.swift; sourceTree = "<group>"; };
 		3F11EFFB20C4771A007AB096 /* TrackITClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackITClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F11EFFE20C4771A007AB096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F11F00020C4771A007AB096 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		3F11EFFD20C4771A007AB096 /* TrackITClient */ = {
 			isa = PBXGroup;
 			children = (
+				10DEF64F20EAF98000759A13 /* BarchartClass.swift */,
+				10DEF65020EAF98000759A13 /* ChartCreationClass.swift */,
 				E831545B20EAC3A4003B0AA4 /* Notifications.storyboard */,
 				E831545920EAC394003B0AA4 /* NotificationViewController.swift */,
 				3F11F02520C4880A007AB096 /* NetConnect */,
@@ -253,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				101A139A20E7E8B300D4BE59 /* OverViewControl.swift in Sources */,
+				10DEF65120EAF98000759A13 /* BarchartClass.swift in Sources */,
+				10DEF65220EAF98000759A13 /* ChartCreationClass.swift in Sources */,
 				3F11F00120C4771A007AB096 /* ViewController.swift in Sources */,
 				10B80B2920E480EB007027F1 /* ViewControlClass.swift in Sources */,
 				10B80B2820E480EB007027F1 /* PageViewControl.swift in Sources */,

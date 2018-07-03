@@ -42,8 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
-        if launchedBefore  {
+        if launchedBefore == false {
             //Not the first time, show login screen.
+            
+            UserDefaults.standard.set("0", forKey: "meatTotal")
+            UserDefaults.standard.set("0", forKey: "vegetableTotal")
+            UserDefaults.standard.set("0", forKey: "fruitTotal")
+            UserDefaults.standard.set("0", forKey: "dairyTotal")
+            UserDefaults.standard.set("0", forKey: "grainsTotal")
+            
             storyboard = UIStoryboard(name: "Main", bundle: nil)
             let rootController = storyboard!.instantiateViewController(withIdentifier: "start")
             
@@ -53,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         else {
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
             //First time, open a new page view controller.
             storyboard = UIStoryboard(name: "Main", bundle: nil)
             let rootController = storyboard!.instantiateViewController(withIdentifier: "Overview")
@@ -96,17 +102,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
         UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
         
-        let boolcheckmanibba = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
-        print(boolcheckmanibba)
+        
         
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UserDefaults.standard.set(true, forKey: "launchedBefore")
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
         
     }
 
