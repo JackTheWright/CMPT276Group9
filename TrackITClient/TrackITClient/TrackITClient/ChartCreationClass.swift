@@ -17,14 +17,14 @@ class barChartView: UIViewController {
         
     }
     
-    @IBOutlet weak var Nadabsd: BasicBarChart!
+    @IBOutlet weak var chart: BasicBarChart!
     
     
     override func viewWillAppear(_ animated: Bool) {
         let dataEntries = generateDataEntries()
         print(dataEntries)
         
-        Nadabsd.dataEntries = dataEntries
+        chart.dataEntries = dataEntries
     
     }
     
