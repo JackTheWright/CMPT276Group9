@@ -152,7 +152,7 @@ Fats and oils:  2-3 servings</string>
                                 <rect key="frame" x="120" y="204" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="dVC-VZ-cgZ"/>
                                 </connections>
@@ -161,18 +161,17 @@ Fats and oils:  2-3 servings</string>
                                 <rect key="frame" x="120" y="248" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="J2j-dn-J3l"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxU-In-iYO">
-                                <rect key="frame" x="100" y="386" width="174" height="53"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3K-aO-Fsc">
+                                <rect key="frame" x="120" y="368" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Tracking"/>
                                 <connections>
-                                    <action selector="Start:" destination="F6g-dV-Fkc" eventType="touchUpInside" id="jq7-Fd-73n"/>
-                                    <segue destination="z8m-L4-ere" kind="show" id="Jha-tT-Nmc"/>
+                                    <segue destination="z8m-L4-ere" kind="show" id="uC2-VT-BuT"/>
                                 </connections>
                             </button>
                         </subviews>
