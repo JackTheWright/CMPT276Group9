@@ -248,7 +248,7 @@ class NotificationViewController: UIViewController {
     }
     @objc func timeChangedM1(timePicker: UIDatePicker){
         let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "HH:mm"
+        timeFormat.dateFormat = "hh:mm"
         let time:String? = timeFormat.string(from: (timePickerM1?.date)!)
         firstMealT.text = time
         view.endEditing(true)
@@ -256,7 +256,7 @@ class NotificationViewController: UIViewController {
     
     @objc func timeChangedM2(timePicker: UIDatePicker){
         let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "HH:mm"
+        timeFormat.dateFormat = "hh:mm"
         let time:String? = timeFormat.string(from: (timePickerM2?.date)!)
         secondMealT.text = time
         view.endEditing(true)
@@ -265,7 +265,7 @@ class NotificationViewController: UIViewController {
     
     @objc func timeChangedM3(timePicker: UIDatePicker){
         let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "HH:mm"
+        timeFormat.dateFormat = "hh:mm"
         let time:String? = timeFormat.string(from: (timePickerM3?.date)!)
         thirdMealT.text = time
         view.endEditing(true)
@@ -274,7 +274,7 @@ class NotificationViewController: UIViewController {
     
     @objc func timeChangedS1(timePicker: UIDatePicker){
         let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "HH:mm"
+        timeFormat.dateFormat = "hh:mm"
         let time:String? = timeFormat.string(from: (timePickerS1?.date)!)
         s1T.text = time
         view.endEditing(true)
@@ -283,7 +283,7 @@ class NotificationViewController: UIViewController {
     
     @objc func timeChangedS2(timePicker: UIDatePicker){
         let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "HH:mm"
+        timeFormat.dateFormat = "hh:mm"
         let time:String? = timeFormat.string(from: (timePickerS2?.date)!)
         s2T.text = time
         view.endEditing(true)
@@ -292,7 +292,7 @@ class NotificationViewController: UIViewController {
     
     @objc func timeChangedS3(timePicker: UIDatePicker){
         let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "HH:mm"
+        timeFormat.dateFormat = "hh:mm"
         let time:String? = timeFormat.string(from: (timePickerS3?.date)!)
         s3T.text = time
         view.endEditing(true)
@@ -301,7 +301,7 @@ class NotificationViewController: UIViewController {
     
     @objc func timeChangedS4(timePicker: UIDatePicker){
         let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "HH:mm"
+        timeFormat.dateFormat = "hh:mm"
         let time:String? = timeFormat.string(from: (timePickerS4?.date)!)
         s4T.text = time
         view.endEditing(true)
