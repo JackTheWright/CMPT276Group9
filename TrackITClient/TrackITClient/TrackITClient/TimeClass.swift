@@ -15,6 +15,8 @@ class DateAttributes {
     public var enterBackgroundDate = String()
     
     
+// This function converts the current date to a string in the form year-month-day, this is the main function used to convert the date to a usable string.
+    
     func currentDateToString()->String {
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -24,7 +26,7 @@ class DateAttributes {
     }
     
     
-    
+//  This function is for the creation of the week dictionaries in the packaging class. It takes the current date and subtracts 7 days from it and then finally converts it to a string of the form year-month-day.
     
     func getFirstDayOfWeek() -> String{
         
@@ -42,6 +44,8 @@ class DateAttributes {
         
         
     }
+    
+//  This functions subtracts 1 from the current day, getting yesterdays date and converting it to a string in the form year-month-day.
     
     func getYesterdaysDate() -> String{
         
@@ -62,7 +66,7 @@ class DateAttributes {
     
     
     
-    
+//  This function compares 2 dates and returns true if they are the same. If not the function returns false. Since it inputs the dates as a string, we can disect it into days (index 5-7) and month (index 8-10) and compare the strings.
     
     func isSameDates(date1:String, date2:String) -> Bool {
         
@@ -88,6 +92,8 @@ class DateAttributes {
     
     
 }
+
+//  This string extension allows us to get the month and day out of the string of the form year-month-day using indexing.
 
 extension String {
     subscript(_ range: CountableRange<Int>) -> String {

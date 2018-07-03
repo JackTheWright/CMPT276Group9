@@ -13,10 +13,11 @@ class viewControl: UIViewController {
     let package = ServingPackage()
     let time = DateAttributes()
     
+
     override func viewWillAppear(_ animated: Bool) {
         
         
-       
+        
         
         let quickAddRefresh = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
         
@@ -43,7 +44,7 @@ class viewControl: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+//  When the view loads, we setup the steppers default setting and make sure their values are exactly the same as when the app closed using the userdefaults. We make sure the stepper doesnt wrap and autorepeats and that the user can't press it more than 15 times.
                 meatStepper.wraps = false
                 meatStepper.autorepeat = true
                 meatStepper.maximumValue = 15
@@ -80,6 +81,7 @@ class viewControl: UIViewController {
 
         
         
+//  When the view appears we set the variable quickAddRefresh to the User Default checking if the app was last opened a different day. If the app was last opened on an earlier day, the values for the labels and steppers are reset. The day will then be packaged up into a dictionary and it will be labeled with yesterdays date.
         
         let quickAddRefresh = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
         var dayDic = Dictionary<String,[String]>()
@@ -87,6 +89,7 @@ class viewControl: UIViewController {
              let yesterday = time.getYesterdaysDate()
             dayDic = package.packageItemsWithDate(date: yesterday, meat: meatCount.text!, vegetable: vegetableCount.text!, fruit: fruitCount.text!, dairy: dairyCount.text!, grains: grainsCount.text!)
             UserDefaults.standard.set(dayDic, forKey: yesterday)
+          
         }
         
         
@@ -99,7 +102,7 @@ class viewControl: UIViewController {
     
     
     
-
+//  Initialize the Steppers and the labels and attach them to the objects on the storyboard.
             @IBOutlet weak var meatCount: UILabel!
             @IBOutlet weak var meatStepper: UIStepper!
 
@@ -115,7 +118,7 @@ class viewControl: UIViewController {
             @IBOutlet weak var grainsCount: UILabel!
             @IBOutlet weak var grainsStepper: UIStepper!
 
-
+//  These are the functions that connect the steppers to the label and save the states of the 2 so they persist no matter if the view changes or the app is terminated.
             @IBAction func meatStepperChanged(_ sender: UIStepper) {
                 meatCount.text = Int(sender.value).description
                 GlobalStates.meaties = meatCount.text!

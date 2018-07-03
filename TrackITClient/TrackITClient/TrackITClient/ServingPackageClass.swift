@@ -11,8 +11,7 @@ import Foundation
 class ServingPackage {
     
     
-    //MARK: Add to Dictionary Function
-    //This Function creates a Dictionary first of the day that contains all the number of food servings the user has eaten throughout the day. Then it combines 7 of those daily dictionaries into a weekly dictionary.
+    //This Function creates a Dictionary first of the day that contains all the number of food servings the user has eaten throughout the day. Then it combines 7 of those daily dictionaries into a weekly dictionary. The dictionary entries are tagged by the date, where the weeks are keyed by the first day of the week. This will be used in v2 of the app when we archive old weeks on the server.
     
     var dateFuncs = DateAttributes()
     

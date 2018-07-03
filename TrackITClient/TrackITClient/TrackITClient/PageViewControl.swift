@@ -8,6 +8,7 @@
 
 import UIKit
 
+//This class is used for swiping left and right between views in the FoodAdd Storyboard.
 class PageViewControl: UIPageViewController, UIPageViewControllerDataSource,UIPageViewControllerDelegate {
     
     lazy var ViewControlArray: [UIViewController] = {
@@ -20,6 +21,7 @@ class PageViewControl: UIPageViewController, UIPageViewControllerDataSource,UIPa
         return UIStoryboard(name: "FoodAdd", bundle: nil).instantiateViewController(withIdentifier: name)
     }
     
+//  In viewdidLoad() we just set the first page as the first index of the array of views.
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
@@ -28,6 +30,8 @@ class PageViewControl: UIPageViewController, UIPageViewControllerDataSource,UIPa
             setViewControllers([firstpage], direction: .forward, animated: true, completion: nil)
         }
     }
+    
+//  This does all the checks for page positioning, making sure it doesnt exit the bounds when you swipe right on the first page.
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = ViewControlArray.index(of: viewController) else {
@@ -43,6 +47,7 @@ class PageViewControl: UIPageViewController, UIPageViewControllerDataSource,UIPa
         return ViewControlArray[prevIndex]
     }
     
+// This does the rest of the checks for page positioning, making sure it doesnt go past the array index when swiping left on the last page.
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = ViewControlArray.index(of: viewController) else {
             return nil
@@ -57,10 +62,12 @@ class PageViewControl: UIPageViewController, UIPageViewControllerDataSource,UIPa
         return ViewControlArray[nextIndex]
     }
     
+// Returns the size of the View array.
     public func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return ViewControlArray.count
     }
-    
+
+// Returns index of the View array.
     public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         guard let firstViewControllers = viewControllers?.first,
             let firstViewControllerIndex = ViewControlArray.index(of: firstViewControllers) else {

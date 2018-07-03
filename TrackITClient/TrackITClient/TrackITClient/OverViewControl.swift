@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Set the DateAttributes class to a variable so we can access the the date to string function for the graph label.
 let time = DateAttributes()
 
 class UIOverviewControl: UIViewController {
@@ -19,6 +20,7 @@ class UIOverviewControl: UIViewController {
         
     }
     
+    // Initialize Notification Button, FoodAdd Button and the Barchart label
     @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var foodAddButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
