@@ -113,7 +113,7 @@
                         <viewLayoutGuide key="safeArea" id="F1n-ow-MpE"/>
                     </view>
                     <connections>
-                        <outlet property="Nadabsd" destination="hdd-xh-u0Q" id="79t-Da-49g"/>
+                        <outlet property="chart" destination="hdd-xh-u0Q" id="fW3-gW-BcU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A62-CB-LkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
