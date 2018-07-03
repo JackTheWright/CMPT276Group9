@@ -8,15 +8,23 @@
 
 import UIKit
 
+let time = DateAttributes()
+
 class UIOverviewControl: UIViewController {
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        dateLabel.text = time.currentDateToString()
         
     }
     
     @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var foodAddButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    
+    
+    
     
 }
