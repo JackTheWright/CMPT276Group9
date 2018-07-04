@@ -1,9 +1,14 @@
 //
-//  PageViewControl.swift
-//  TrackitAddMenu
+// File         : PageViewControl.swift
+// Module       : TrackITClient
 //
-//  Created by Jack Wright on 2018-06-23.
-//  Copyright © 2018 Jack Wright. All rights reserved.
+// Team Name    : Group 9
+// Created By   : Jack Wright
+// Created On   : 2018-06-23
+//
+// Edited By    : Jeremy Schwartz
+// Edited On    : 2018-07-03
+//  - Updated Header
 //
 
 import UIKit

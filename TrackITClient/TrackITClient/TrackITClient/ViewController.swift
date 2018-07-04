@@ -1,11 +1,16 @@
 //
-//  ViewController.swift
-//  TrackITClient
+// File         : ViewController.swift
+// Module       : TrackITClient
 //
-//  Created by Jeremy S on 2018-06-03.
-//  Copyright © 2018 Group 9. All rights reserved.
+// Team Name    : Group 9
+// Created By   : Jeremy Schwartz
+// Created On   : 2018-06-03
 //
+// Edited By    : Jeremy Schwartz
+// Edited On    : 2018-07-03
+//  - Updated Header
 //
+
 import UIKit
 
 class ViewController: UIViewController {

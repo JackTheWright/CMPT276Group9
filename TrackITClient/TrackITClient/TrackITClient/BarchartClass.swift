@@ -1,9 +1,14 @@
 //
-//  BarchartClass.swift
-//  TrackITClient
+// File         : BarshartClass.swift
+// Module       : TrackITClient
 //
-//  Created by Jack Wright on 2018-07-01.
-//  Copyright © 2018 Group 9. All rights reserved.
+// Team Name    : Group 9
+// Created By   : Jack Wright
+// Created On   : 2018-07-01
+//
+// Edited By    : Jeremy Schwartz
+// Edited On    : 2018-07-03
+//  - Updated Header
 //
 
 import Foundation

@@ -1,15 +1,21 @@
 //
-//  AppDelegate.swift
-//  TrackITClient
+// File         : AppDelegate.swift
+// Module       : TrackITClient
 //
-//  Created by Jeremy S on 2018-06-03.
-//  Edited by Jack Wright on 2018-06-28.
-//  Copyright © 2018 Group 9. All rights reserved.
+// Team Name    : Group 9
+// Created By   : Jeremy Schwartz
+// Created On   : 2018-06-03
+//
+// Edited By    : Jack Write
+// Edited On    : 2018-06-28
+//  - Implementation
+//
+// Edited By    : Jeremy Schwartz
+// Edited On    : 2018-07-03
+//  - Updated Header
 //
 
 import UIKit
-
-
 
 struct GlobalStates {
     

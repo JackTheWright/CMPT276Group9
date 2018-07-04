@@ -1,9 +1,14 @@
 //
-//  ViewController.swift
-//  notifications page
+// File         : NotificationViewController.swift
+// Module       : TrackITClient
 //
-//  Created by sga94 on 6/29/18.
-//  Copyright © 2018 sga94. All rights reserved.
+// Team Name    : Group 9
+// Created By   : Siddharth Gupta
+// Created On   : 2018-06-29
+//
+// Edited By    : Jeremy Schwartz
+// Edited On    : 2018-07-03
+//  - Updated Header
 //
 
 import UIKit

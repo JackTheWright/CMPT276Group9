@@ -1,9 +1,14 @@
 //
-//  ServingPackageClass.swift
-//  FoodMenu
+// File         : ServingPackageClass.swift
+// Module       : TrackITClient
 //
-//  Created by Jack Wright on 2018-06-26.
-//  Copyright © 2018 Jack Wright. All rights reserved.
+// Team Name    : Group 9
+// Created By   : Jack Wright
+// Created On   : 2018-06-26
+//
+// Edited By    : Jeremy Schwartz
+// Edited On    : 2018-07-03
+//  - Updated Header
 //
 
 import Foundation
@@ -21,22 +26,13 @@ class ServingPackage {
     func packageItemsWithDate(date: String, meat: String, vegetable: String, fruit: String, dairy: String, grains: String ) -> Dictionary<String, [String]> {
         
         var servingsPacked = [String]()
-        
         servingsPacked = [meat,vegetable,fruit,dairy,grains]
-        
         GlobalStates.currentDayDictionary[date] = servingsPacked
-        
         if GlobalStates.currentDayDictionary.count == 7 {
-            
             let startofWeek = dateFuncs.getFirstDayOfWeek()
-            
-            
             weeklyDictionary[startofWeek] = GlobalStates.currentDayDictionary
-        GlobalStates.currentDayDictionary.removeAll()
-            
-            
+            GlobalStates.currentDayDictionary.removeAll()
         }
-        
         return GlobalStates.currentDayDictionary
     }
 
