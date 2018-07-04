@@ -18,13 +18,32 @@ var gender = ""
 var age = ""
 var weight = ""
 
-class ViewController2: UIViewController, UITextFieldDelegate {
+class ViewController2: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
-
+/*    @IBOutlet weak var dropDown: UIPickerView!
+    
+    let Gender = ["Male","Female"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView:UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+        return Gender[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Gender.count
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+            self.dropDown.isHidden = false
+    }*/
+    
     @IBAction func nameAction(_ sender: AnyObject) {
         if (nameTextField.text != "")
         {
