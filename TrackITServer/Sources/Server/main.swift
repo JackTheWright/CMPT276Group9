@@ -18,7 +18,7 @@ let port = 60000
 
 func client() {
     let netif = NetworkInterface()!
-    netif.connect(to: "192.168.10.24", on: port) { host in
+    netif.connect(to: "app.trackitdiet.com", on: port) { host in
         let greeting = "Hello Server, I'm \(IFAddress.localIP() ?? "nil")"
         print("Sending : \(greeting)")
         try host.send(greeting)
