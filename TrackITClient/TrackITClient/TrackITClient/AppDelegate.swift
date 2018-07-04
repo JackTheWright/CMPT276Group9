@@ -6,7 +6,7 @@
 // Created By   : Jeremy Schwartz
 // Created On   : 2018-06-03
 //
-// Edited By    : Jack Write
+// Edited By    : Jack Wright
 // Edited On    : 2018-06-28
 //  - Implementation
 //
