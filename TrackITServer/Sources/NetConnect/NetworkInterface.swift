@@ -25,9 +25,25 @@ open class NetworkInterface {
     
     /// Initializes this instance.
     ///
-    /// - throws: Throws an error if unable to construct the internal socket.
-    public init() throws {
-        self.socket = try UDPSocket()
+    /// Returns `nil` if unable to create the internal socket.
+    public init?() {
+        if let s = try? UDPSocket() {
+            self.socket = s
+        } else {
+            return nil
+        }
+    }
+    
+    /// Initializes from a cryptographer delegate.
+    ///
+    /// Returns `nil` if unable to create the internal socket.
+    public init?(cryptographer: Cryptographer) {
+        if let s = try? UDPSocket() {
+            self.socket = s
+            self.cryptographer = cryptographer
+        } else {
+            return nil
+        }
     }
     
     /// Initiates a connection to a remote host.
