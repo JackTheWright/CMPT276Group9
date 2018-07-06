@@ -31,7 +31,13 @@ class DateAttributes {
         return dateString
     }
     
-    
+    func currentDateToFANCYString() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
 //  This function is for the creation of the week dictionaries in the packaging class. It takes the current date and subtracts 7 days from it and then finally converts it to a string of the form year-month-day.
     
     func getFirstDayOfWeek() -> String{

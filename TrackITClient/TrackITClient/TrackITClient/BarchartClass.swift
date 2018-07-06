@@ -46,14 +46,14 @@ class BasicBarChart: UIView {
     private let mainLayer: CALayer = CALayer()
     
     /// contain mainLayer to support scrolling
-    private let scrollView: UIScrollView = UIScrollView()
+    private var scrollView: UIView = UIView()
     
     var dataEntries: [BarEntry]? = nil {
         didSet {
             
             if let dataEntries = dataEntries {
-                scrollView.contentSize = CGSize(width: (barWidth + space)*CGFloat(dataEntries.count), height: self.frame.size.height)
-                mainLayer.frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
+                
+                mainLayer.frame = CGRect(x: -20, y: 0, width: (barWidth*5)+(space*4), height: 400)
                 
                 drawHorizontalLines()
                 
