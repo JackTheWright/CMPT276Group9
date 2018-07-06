@@ -15,6 +15,7 @@
 		10B80B2B20E480EB007027F1 /* ServingPackageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2720E480EB007027F1 /* ServingPackageClass.swift */; };
 		10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B80B2C20E48138007027F1 /* FoodAdd.storyboard */; };
 		10C7B93620EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */; };
+		10C7B93820EF064E000DD9D6 /* AdvancedAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7B93720EF064E000DD9D6 /* AdvancedAddVC.swift */; };
 		10DEF65120EAF98000759A13 /* BarchartClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEF64F20EAF98000759A13 /* BarchartClass.swift */; };
 		10DEF65220EAF98000759A13 /* ChartCreationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEF65020EAF98000759A13 /* ChartCreationClass.swift */; };
 		3F11EFFF20C4771A007AB096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11EFFE20C4771A007AB096 /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		10B80B2720E480EB007027F1 /* ServingPackageClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingPackageClass.swift; sourceTree = "<group>"; };
 		10B80B2D20E48138007027F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FoodAdd.storyboard; sourceTree = "<group>"; };
 		10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InformationFromFoodMenu.storyboard; sourceTree = "<group>"; };
+		10C7B93720EF064E000DD9D6 /* AdvancedAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedAddVC.swift; sourceTree = "<group>"; };
 		10DEF64920EAB50300759A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		10DEF64F20EAF98000759A13 /* BarchartClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarchartClass.swift; sourceTree = "<group>"; };
 		10DEF65020EAF98000759A13 /* ChartCreationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCreationClass.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */,
 				101A139920E7E8B300D4BE59 /* OverViewControl.swift */,
 				10B80B2720E480EB007027F1 /* ServingPackageClass.swift */,
+				10C7B93720EF064E000DD9D6 /* AdvancedAddVC.swift */,
 				10B80B2620E480EA007027F1 /* TimeClass.swift */,
 				10B80B2520E480EA007027F1 /* ViewControlClass.swift */,
 				10B80B2420E480EA007027F1 /* PageViewControl.swift */,
@@ -268,6 +271,7 @@
 				3F11F00120C4771A007AB096 /* ViewController.swift in Sources */,
 				10B80B2920E480EB007027F1 /* ViewControlClass.swift in Sources */,
 				10B80B2820E480EB007027F1 /* PageViewControl.swift in Sources */,
+				10C7B93820EF064E000DD9D6 /* AdvancedAddVC.swift in Sources */,
 				3F11EFFF20C4771A007AB096 /* AppDelegate.swift in Sources */,
 				E831545A20EAC395003B0AA4 /* NotificationViewController.swift in Sources */,
 				8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */,
