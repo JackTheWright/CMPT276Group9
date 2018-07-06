@@ -307,12 +307,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADVANCED ADD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-vv-fxx">
-                                <rect key="frame" x="90" y="40" width="195" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eY9-nx-yST">
                                 <rect key="frame" x="16" y="142" width="343" height="30"/>
                                 <nil key="textColor"/>
@@ -328,21 +322,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advanced Add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INi-Us-0nr">
+                                <rect key="frame" x="114" y="50" width="147" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0WD-FV-4YR" firstAttribute="trailing" secondItem="oP9-vv-fxx" secondAttribute="trailing" constant="90" id="1RP-qI-HSy"/>
-                            <constraint firstItem="rcE-e7-63a" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="16" id="7Bj-d7-CpS"/>
-                            <constraint firstItem="eY9-nx-yST" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="16" id="8za-Lk-Zy2"/>
-                            <constraint firstItem="rcE-e7-63a" firstAttribute="top" secondItem="oP9-vv-fxx" secondAttribute="bottom" constant="46" id="J62-fW-sMm"/>
-                            <constraint firstItem="0WD-FV-4YR" firstAttribute="bottom" secondItem="eY9-nx-yST" secondAttribute="bottom" constant="495" id="JZp-qg-KkE"/>
-                            <constraint firstItem="oP9-vv-fxx" firstAttribute="top" secondItem="0WD-FV-4YR" secondAttribute="top" constant="20" id="Rzf-I4-7K6"/>
-                            <constraint firstItem="0WD-FV-4YR" firstAttribute="bottom" secondItem="oP9-vv-fxx" secondAttribute="bottom" constant="600" id="XLN-Ar-rtx"/>
-                            <constraint firstItem="0WD-FV-4YR" firstAttribute="trailing" secondItem="rcE-e7-63a" secondAttribute="trailing" constant="100" id="Yce-LN-d7P"/>
-                            <constraint firstItem="eY9-nx-yST" firstAttribute="top" secondItem="rcE-e7-63a" secondAttribute="bottom" constant="8" id="bIA-hC-0oZ"/>
-                            <constraint firstItem="oP9-vv-fxx" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="90" id="l1f-91-lZe"/>
-                            <constraint firstItem="eY9-nx-yST" firstAttribute="top" secondItem="rcE-e7-63a" secondAttribute="bottom" constant="8" id="xBy-xM-Yct"/>
-                            <constraint firstItem="0WD-FV-4YR" firstAttribute="trailing" secondItem="eY9-nx-yST" secondAttribute="trailing" constant="16" id="z01-jh-VDM"/>
+                            <constraint firstItem="0WD-FV-4YR" firstAttribute="trailing" secondItem="eY9-nx-yST" secondAttribute="trailing" constant="16" id="Apm-67-7wZ"/>
+                            <constraint firstItem="eY9-nx-yST" firstAttribute="top" secondItem="rcE-e7-63a" secondAttribute="bottom" constant="8" id="EUm-ka-UeO"/>
+                            <constraint firstItem="INi-Us-0nr" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="114" id="ReT-x0-FyS"/>
+                            <constraint firstItem="rcE-e7-63a" firstAttribute="top" secondItem="INi-Us-0nr" secondAttribute="bottom" constant="35" id="XgN-qw-uTf"/>
+                            <constraint firstItem="eY9-nx-yST" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="16" id="Z2e-TE-Bnd"/>
+                            <constraint firstItem="rcE-e7-63a" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="16" id="cbd-Dn-lNk"/>
+                            <constraint firstItem="0WD-FV-4YR" firstAttribute="trailing" secondItem="INi-Us-0nr" secondAttribute="trailing" constant="114" id="eqP-BP-Fdh"/>
+                            <constraint firstItem="INi-Us-0nr" firstAttribute="top" secondItem="0WD-FV-4YR" secondAttribute="top" constant="30" id="kgJ-rr-Spi"/>
+                            <constraint firstItem="0WD-FV-4YR" firstAttribute="trailing" secondItem="rcE-e7-63a" secondAttribute="trailing" constant="100" id="rqy-Rj-9ca"/>
+                            <constraint firstItem="rcE-e7-63a" firstAttribute="top" secondItem="INi-Us-0nr" secondAttribute="bottom" constant="35" id="zC9-7V-IZC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0WD-FV-4YR"/>
                     </view>
