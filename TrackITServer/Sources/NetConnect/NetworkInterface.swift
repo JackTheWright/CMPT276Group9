@@ -91,6 +91,7 @@ open class NetworkInterface {
             try didStartConnection(message: hrResponse)
             let cid = UInt16(hrResponse.id)
             let host = NetworkHost(socket: socket, address: address, id: cid)
+            host.cryptographer = cryptographer
             try convo(host)
             
             // Conversation finished
@@ -145,6 +146,7 @@ open class NetworkInterface {
             
             // Start conversation
             let host = NetworkHost(socket: socket, address: address, id: cid)
+            host.cryptographer = cryptographer
             try convo(host)
             
             // Conversation finished

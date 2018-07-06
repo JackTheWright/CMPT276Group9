@@ -13,6 +13,7 @@ import SwiftyJSON
 public class NetworkHost {
     
     internal weak var socket: UDPSocket?
+    internal var cryptographer: Cryptographer?
     internal var address: Address
     internal var convoId: UInt16
     
@@ -20,6 +21,73 @@ public class NetworkHost {
         self.socket = socket
         self.address = address
         self.convoId = id
+    }
+    
+}
+
+// Foundation Methods
+
+fileprivate extension NetworkHost {
+    
+    /// Writes data to the host and ensures that it was reveived and not
+    /// corrupted.
+    ///
+    /// - parameters:
+    ///     - data: The data to write.
+    ///
+    /// - throws: Throws an error if unable to write data.
+    func write(data: Data) throws {
+        var flags = Message.Flags()
+        let message: Message
+        
+        // Encrypt data if a cryptographer delegate is present.
+        if let encrypter = cryptographer {
+            let encryptedData = try encrypter.encrypt(data)
+            flags.set(MessageFlags.Encrypted)
+            message = Message(encryptedData, flags: flags, id: convoId)
+        } else {
+            message = Message(data, flags: flags, id: convoId)
+        }
+        
+        var shouldResendMessage = true
+        repeat {
+            try socket!.write(data: message.rawData, to: address)
+            if let response = Message(from: try socket!.read().data) {
+                if response.flags.get(MessageFlags.Confirmation) {
+                    shouldResendMessage = false
+                }
+            } else {
+                throw NetworkError.MalformedMessage
+            }
+        } while shouldResendMessage
+    }
+    
+    /// Reads data from the host ensuring that the data was not corrupted.
+    ///
+    /// If received data is malformed, a resend request is sent back to the
+    /// host to resend the previous data.
+    ///
+    /// - returns: Returns the data from the host.
+    func read() throws -> Data {
+        repeat {
+            let msgData = try socket!.read()
+            if let message = Message(from: msgData.data) {
+                if message.size == msgData.bytesRead {
+                    var flags = Message.Flags()
+                    flags.set(MessageFlags.Confirmation)
+                    let confirm = Message(Data(), flags: flags, id: convoId)
+                    try socket!.write(data: confirm.rawData, to: address)
+                    return message.body
+                }
+            }
+            
+            // If here is reached, then the data is corrupted and should be
+            // resent
+            var flags = Message.Flags()
+            flags.set(MessageFlags.ResendRequest)
+            let resendRequest = Message(Data(), flags: flags, id: convoId)
+            try socket!.write(data: resendRequest.rawData, to: address)
+        } while true
     }
     
 }
@@ -35,12 +103,7 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data) throws {
-        // FIXME: Implement better sending
-        if let s = socket {
-            try s.write(data: data, to: address)
-        } else {
-            throw NetworkError.SocketWriteError("Unable to unwrap socket")
-        }
+        try write(data: data)
     }
     
     /// Sends a string to the host.
@@ -82,13 +145,7 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to reveive data.
     func receiveData() throws -> Data {
-        // FIXME: Implement better receiving
-        if let s = socket {
-            let data = try s.read().data
-            return data
-        } else {
-            throw NetworkError.SocketReadError("Unable to unwrap socket")
-        }
+        return try read()
     }
     
     /// Reveives data from the host as a string.
