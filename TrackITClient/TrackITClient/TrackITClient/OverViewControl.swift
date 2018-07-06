@@ -20,7 +20,7 @@ class UIOverviewControl: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateLabel.text = time.currentDateToString()
+        dateLabel.text = time.currentDateToFANCYString()
     }
     
     // Initialize Notification Button, FoodAdd Button and the Barchart label

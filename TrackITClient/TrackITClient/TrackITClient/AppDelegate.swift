@@ -79,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillResignActive(_ application: UIApplication) {
 
-        GlobalStates.backGroundDate = dateAttributes.currentDateToString()
         UserDefaults.standard.set(GlobalStates.backGroundDate, forKey: "backGroundDate")
 
     }
@@ -91,9 +90,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         
 //  Use Global variable date of when the date goes into the foreground and turn it to a string. Then we create the variable yest and make it equal to the date the app went into the background. We then check if the two dates are the same and save the bool response to the variable quick add refresh and then make that variable a user default to check if the last access date was yesterday or today.
-        GlobalStates.foreGroundDate = dateAttributes.currentDateToString()
         let yest = UserDefaults.standard.string(forKey: "backGroundDate")
-        let quickAddRefresh = dateAttributes.isSameDates(date1: yest!, date2: GlobalStates.foreGroundDate)
+        let today = time.currentDateToString()
+        let quickAddRefresh = dateAttributes.isSameDates(date1: yest!, date2: today)
         UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
         
         

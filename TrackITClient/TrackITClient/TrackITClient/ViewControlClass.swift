@@ -80,6 +80,21 @@ class viewControl: UIViewController {
              let yesterday = time.getYesterdaysDate()
             dayDic = package.packageItemsWithDate(date: yesterday, meat: meatCount.text!, vegetable: vegetableCount.text!, fruit: fruitCount.text!, dairy: dairyCount.text!, grains: grainsCount.text!)
             UserDefaults.standard.set(dayDic, forKey: yesterday)
+            
+            UserDefaults.standard.set(0, forKey: "meatStepped")
+            UserDefaults.standard.set("0", forKey: "meatTotal")
+            
+            UserDefaults.standard.set(0, forKey: "vegetableStepped")
+            UserDefaults.standard.set("0", forKey: "vegetableTotal")
+            
+            UserDefaults.standard.set(0, forKey: "fruitStepped")
+            UserDefaults.standard.set("0", forKey: "fruitTotal")
+            
+            UserDefaults.standard.set(0, forKey: "dairyStepped")
+            UserDefaults.standard.set("0", forKey: "dairyTotal")
+            
+            UserDefaults.standard.set(0, forKey: "grainsStepped")
+            UserDefaults.standard.set("0", forKey: "grainsTotal")
           
         }
     }

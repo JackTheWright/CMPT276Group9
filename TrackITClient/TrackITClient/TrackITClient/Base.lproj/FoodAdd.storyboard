@@ -170,10 +170,18 @@
                                                     <segue destination="XRO-xN-2lC" kind="show" id="EXv-kh-Zc9"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qin-Sf-dWs">
+                                                <rect key="frame" x="317" y="8" width="33" height="30"/>
+                                                <state key="normal" title="Info"/>
+                                                <connections>
+                                                    <segue destination="qWB-AD-oaF" kind="show" id="thP-zF-h7f"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="RGK-rg-oij" firstAttribute="leading" secondItem="qgr-NO-heR" secondAttribute="trailing" constant="85" id="2AZ-pm-ve5"/>
+                                            <constraint firstItem="Qin-Sf-dWs" firstAttribute="leading" secondItem="vyV-HD-nDW" secondAttribute="trailing" constant="42" id="2CW-go-ZG5"/>
                                             <constraint firstItem="FW2-6z-7BX" firstAttribute="leading" secondItem="DN1-Me-nxe" secondAttribute="leading" constant="20" id="4bK-MI-AkY"/>
                                             <constraint firstItem="qa4-9Q-JEf" firstAttribute="top" secondItem="1f8-0S-KKr" secondAttribute="bottom" constant="26" id="53w-BY-yxH"/>
                                             <constraint firstItem="qa4-9Q-JEf" firstAttribute="top" secondItem="vyV-HD-nDW" secondAttribute="bottom" constant="35" id="55V-vo-ohl"/>
@@ -192,6 +200,7 @@
                                             <constraint firstItem="L49-98-lWl" firstAttribute="leading" secondItem="DN1-Me-nxe" secondAttribute="leading" constant="20" id="IPK-94-Xnu"/>
                                             <constraint firstItem="fhq-rT-TGa" firstAttribute="leading" secondItem="DN1-Me-nxe" secondAttribute="leading" constant="20" id="IT2-hH-H54"/>
                                             <constraint firstAttribute="bottom" secondItem="m1a-1R-grf" secondAttribute="bottom" constant="510" id="JKd-71-kYz"/>
+                                            <constraint firstItem="Qin-Sf-dWs" firstAttribute="top" secondItem="DN1-Me-nxe" secondAttribute="top" constant="8" id="JOo-FV-mMN"/>
                                             <constraint firstAttribute="trailing" secondItem="PLH-Bn-G2J" secondAttribute="trailing" constant="20" id="JgX-Mw-Hqy"/>
                                             <constraint firstItem="PLH-Bn-G2J" firstAttribute="top" secondItem="m1a-1R-grf" secondAttribute="bottom" constant="35" id="M2z-Tb-AKt"/>
                                             <constraint firstAttribute="trailing" secondItem="FW2-6z-7BX" secondAttribute="trailing" constant="20" id="OOI-Gz-9U6"/>
@@ -199,6 +208,7 @@
                                             <constraint firstAttribute="bottom" secondItem="hrk-Y3-u8H" secondAttribute="bottom" constant="671" id="Oeo-7x-qjg"/>
                                             <constraint firstItem="qOZ-vd-xrE" firstAttribute="leading" secondItem="DN1-Me-nxe" secondAttribute="leading" constant="20" id="Pnw-yg-JlH"/>
                                             <constraint firstAttribute="trailing" secondItem="vyV-HD-nDW" secondAttribute="trailing" constant="100" id="S0k-k1-QPP"/>
+                                            <constraint firstItem="qa4-9Q-JEf" firstAttribute="top" secondItem="Qin-Sf-dWs" secondAttribute="bottom" constant="26" id="S2f-UO-QRG"/>
                                             <constraint firstItem="1f5-Ps-9Xv" firstAttribute="leading" secondItem="m1a-1R-grf" secondAttribute="trailing" constant="85" id="S6n-pN-QdM"/>
                                             <constraint firstItem="Ng1-7W-GZ4" firstAttribute="leading" secondItem="6Jj-uz-jO8" secondAttribute="trailing" constant="85" id="Sno-9n-tgU"/>
                                             <constraint firstItem="qOZ-vd-xrE" firstAttribute="top" secondItem="6Jj-uz-jO8" secondAttribute="bottom" constant="50" id="U87-im-2r6"/>
@@ -230,6 +240,7 @@
                                             <constraint firstItem="uiM-q8-8gr" firstAttribute="leading" secondItem="L49-98-lWl" secondAttribute="trailing" constant="81" id="pCQ-eS-ntD"/>
                                             <constraint firstAttribute="bottom" secondItem="RGK-rg-oij" secondAttribute="bottom" constant="843" id="puu-rO-Ei3"/>
                                             <constraint firstItem="RGK-rg-oij" firstAttribute="leading" secondItem="qgr-NO-heR" secondAttribute="trailing" constant="85" id="rPc-KB-xIj"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qin-Sf-dWs" secondAttribute="trailing" constant="25" id="sD8-Wo-ifz"/>
                                             <constraint firstAttribute="bottom" secondItem="fhq-rT-TGa" secondAttribute="bottom" constant="671" id="tS2-4z-5aQ"/>
                                             <constraint firstItem="vyV-HD-nDW" firstAttribute="leading" secondItem="DN1-Me-nxe" secondAttribute="leading" constant="100" id="tc2-Kh-iln"/>
                                             <constraint firstItem="1f8-0S-KKr" firstAttribute="leading" secondItem="DN1-Me-nxe" secondAttribute="leading" constant="8" id="u0d-Mx-qBe"/>
@@ -279,6 +290,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0E4-lq-3PL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="639.20000000000005" y="148.42578710644679"/>
+        </scene>
+        <!--InformationFromFoodMenu-->
+        <scene sceneID="UDd-p2-W1c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="InformationFromFoodMenu" id="qWB-AD-oaF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sd3-cb-DQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1278" y="-352"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="h3l-cB-XCR">
