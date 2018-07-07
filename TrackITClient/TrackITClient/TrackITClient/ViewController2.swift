@@ -16,15 +16,15 @@ import UIKit
 var name = ""
 var gender = ""
 var age = ""
-var weight = ""
 
-class ViewController2: UIViewController, UITextFieldDelegate{
+class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
-    @IBOutlet weak var nameTextField: UITextField!
+//    @IBOutlet weak var nameTextField: UITextField!
+
     @IBOutlet weak var genderTextField: UITextField!
-    @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var weightTextField: UITextField!
-/*    @IBOutlet weak var dropDown: UIPickerView!
+ //   @IBOutlet weak var ageTextField: UITextField!
+    
+//    @IBOutlet weak var dropDown: UIPickerView!
     
     let Gender = ["Male","Female"]
     
@@ -40,21 +40,19 @@ class ViewController2: UIViewController, UITextFieldDelegate{
         return Gender.count
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-            self.dropDown.isHidden = false
-    }*/
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        genderTextField.text = Gender[row]
+        genderTextField.text = gender
+    }
     
-    @IBAction func nameAction(_ sender: AnyObject) {
+//   func textFieldDidBeginEditing(_ textField: UITextField) {
+//        self.dropDown.isHidden = false
+//   }
+    
+/*    @IBAction func nameAction(_ sender: AnyObject) {
         if (nameTextField.text != "")
         {
             name = nameTextField.text!
-        }
-    }
-    
-    @IBAction func genderAction(_ sender: AnyObject) {
-        if (genderTextField.text != "")
-        {
-            gender = genderTextField.text!
         }
     }
     
@@ -64,28 +62,17 @@ class ViewController2: UIViewController, UITextFieldDelegate{
             age = ageTextField.text!
         }
     }
-    
-    @IBAction func weightAction(_ sender: AnyObject) {
-        if (weightTextField.text != "")
-        {
-            weight = weightTextField.text!
-        }
-    }
-    
-    func startTrackingAction() {
-   //     let personalData = Personaldata(id: 0, name: name, gender: gender, age: age, weight: weight)
-   //     personalDatas.append(personalData)
-    }
-    
-
+  */
     override func viewDidLoad() {
         super.viewDidLoad()
+        let genderPicker = UIPickerView()
+        genderPicker.delegate = self
         
-        nameTextField?.delegate = self
-        genderTextField?.delegate = self
-        ageTextField?.delegate = self
-        weightTextField?.delegate = self
-
+        genderTextField?.inputView = genderPicker
+        createToolbar()
+        //nameTextField?.delegate = self
+        //ageTextField?.delegate = self
+        
         
         // Do any additional setup after loading the view.
     }
@@ -95,17 +82,26 @@ class ViewController2: UIViewController, UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+ 
+    func createToolbar(){
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target:self, action: #selector (ViewController2.dismissKeyboard))
+        
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        genderTextField.inputAccessoryView = toolBar
+    }
     
-
-    
-    //private var personalDatas = [Personaldata]()
-    private var selectedPerson: Int?
-
-    
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
+    }
+ 
    /*
     // MARK: - Navigation
 
