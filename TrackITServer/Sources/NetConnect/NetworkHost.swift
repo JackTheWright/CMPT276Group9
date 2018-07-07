@@ -54,7 +54,10 @@ fileprivate extension NetworkHost {
             try socket!.write(data: message.rawData, to: address)
             if let response = Message(from: try socket!.read().data) {
                 if response.flags.get(MessageFlags.Confirmation) {
+                    print("Confirmation received")
                     shouldResendMessage = false
+                } else {
+                    print("Message received but did not contain confirmation")
                 }
             } else {
                 throw NetworkError.MalformedMessage
@@ -103,7 +106,9 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data) throws {
-        try write(data: data)
+//        try write(data: data)
+        let message = Message(data, flags: Message.Flags(), id: convoId)
+        try socket!.write(data: data, to: address)
     }
     
     /// Sends a string to the host.
@@ -145,7 +150,11 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to reveive data.
     func receiveData() throws -> Data {
-        return try read()
+//        return try read()
+        guard let message = Message(from: try socket!.read().data) else {
+            throw NetworkError.MalformedMessage
+        }
+        return message.body
     }
     
     /// Reveives data from the host as a string.

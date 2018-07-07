@@ -35,13 +35,26 @@ final class NetConnectTests: XCTestCase {
     
     func testMessage() {
         let string = "Hello World"
-        guard let message = Message(string, flags: Message.Flags(), id: 0)
+        var flags = Message.Flags()
+        flags.set(MessageFlags.Confirmation)
+        guard let message = Message(string, flags: flags, id: 0)
         else {
             XCTAssert(false)
             return
         }
         XCTAssert(message.string == string)
         XCTAssert(message.size == message.rawData.count)
+    }
+    
+    func testMessageFlags() {
+        var flags = Message.Flags()
+        flags.set(MessageFlags.Confirmation)
+        flags.set(MessageFlags.Encrypted)
+        XCTAssert(flags.get(MessageFlags.Confirmation))
+        XCTAssert(flags.get(MessageFlags.Encrypted))
+        let message = Message(Data(), flags: flags, id: 0)
+        XCTAssert(message.flags.get(MessageFlags.Confirmation))
+        XCTAssert(message.flags.get(MessageFlags.Encrypted))
     }
     
     func testIFAddress() {
@@ -51,6 +64,7 @@ final class NetConnectTests: XCTestCase {
     static var allTests = [
         ("testSocket", testSocket),
         ("testMessage", testMessage),
-        ("testIFAddress", testIFAddress)
+        ("testIFAddress", testIFAddress),
+        ("testMessageFlags", testMessageFlags)
     ]
 }
