@@ -108,7 +108,7 @@ public extension NetworkHost {
     func send(_ data: Data) throws {
 //        try write(data: data)
         let message = Message(data, flags: Message.Flags(), id: convoId)
-        try socket!.write(data: data, to: address)
+        try socket!.write(data: message.rawData, to: address)
     }
     
     /// Sends a string to the host.
