@@ -1,6 +1,6 @@
 import Foundation
 
-class Contact {
+class Personaldata {
     let id: Int64?
     var name: String
     var sex: String
