@@ -71,6 +71,12 @@ class ViewController2: UIViewController, UITextFieldDelegate{
             weight = weightTextField.text!
         }
     }
+    
+    func startTrackingAction() {
+        let personalData = Personaldata(id: 0, name: name, gender: gender, age: age, weight: weight)
+        personalDatas.append(personalData)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +99,12 @@ class ViewController2: UIViewController, UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+    
+
+    
+    private var personalDatas = [Personaldata]()
+    private var selectedPerson: Int?
+
     
    /*
     // MARK: - Navigation
