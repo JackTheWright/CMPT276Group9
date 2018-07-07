@@ -49,11 +49,11 @@ class TrackITDB {
     }
 
     func getUser() -> [PersonalData] {
-        var personalDatas = [PersonalDAta]()
+        var personalDatas = [PersonalData]()
 
         do {
             for personalData in try db!.prepare(self.personalDatas) {
-                contacts.append(Contact(
+                personalDatas.append(Personaldata(
                 id: personalData[id],
                 name: personalData[name]!,
                 sex: personalData[sex],
@@ -69,7 +69,7 @@ class TrackITDB {
     func deleteUser(cid: Int64) -> Bool {
         do {
             let personalData = personalDatas.filter(id == cid)
-            try db!.run(personalDAta.delete())
+            try db!.run(personalData.delete())
             return true
         } catch {
             print("Delete failed")

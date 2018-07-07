@@ -1,6 +1,6 @@
 import Foundation
 
-class Contact {
+class PersonalData {
     let id: Int64?
     var name: String
     var sex: String
@@ -17,7 +17,7 @@ class Contact {
         self.id = id
         self.name = name
         self.sex = sex
-        self.dietary = diatary
+        self.dietary = dietary
     }
 }
 

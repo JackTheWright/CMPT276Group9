@@ -168,12 +168,12 @@ fileprivate extension Message {
     ///         this message belongs to.
     func encode(body: Data, flags: Flags, id: UInt16) -> Data {
         var size = UInt32(body.count + 8)
-        var flagData = flags.rawValue
         var idData = id
+        var flagData = flags.rawValue
         var data = Data()
         data.append(UnsafeBufferPointer<UInt32>(start: &size, count: 1))
-        data.append(UnsafeBufferPointer<UInt16>(start: &flagData, count: 1))
         data.append(UnsafeBufferPointer<UInt16>(start: &idData, count: 1))
+        data.append(UnsafeBufferPointer<UInt16>(start: &flagData, count: 1))
         data.append(body)
         return data
     }
