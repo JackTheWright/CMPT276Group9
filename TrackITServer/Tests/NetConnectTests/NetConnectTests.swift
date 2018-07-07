@@ -48,13 +48,11 @@ final class NetConnectTests: XCTestCase {
     
     func testMessageFlags() {
         var flags = Message.Flags()
-        flags.set(MessageFlags.Confirmation)
-        flags.set(MessageFlags.Encrypted)
+        flags.set(MessageFlags.HSConfirm)
+        XCTAssert(!flags.get(MessageFlags.HSDeny))
+        XCTAssert(flags.get(MessageFlags.HSConfirm))
         XCTAssert(flags.get(MessageFlags.Confirmation))
-        XCTAssert(flags.get(MessageFlags.Encrypted))
-        let message = Message(Data(), flags: flags, id: 0)
-        XCTAssert(message.flags.get(MessageFlags.Confirmation))
-        XCTAssert(message.flags.get(MessageFlags.Encrypted))
+        XCTAssert(flags.get(MessageFlags.Handshake))
     }
     
     func testIFAddress() {
