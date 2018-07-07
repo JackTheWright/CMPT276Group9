@@ -25,18 +25,8 @@ var badCount = 0
 func client() {
     let netif = NetworkInterface()!
     netif.connect(to: "app.trackitdiet.com", on: port) { host in
-        for i in 1...count {
+        for _ in 1...count {
             try host.send(message)
-            let received = try host.receiveString()
-            if received == message {
-                goodCount += 1
-            } else {
-                badCount += 1
-                print("Message was corrupted")
-            }
-            if i % 1000 == 0 {
-                print("Test: \(i); good = \(goodCount); bad = \(badCount)")
-            }
         }
     }
 }
@@ -52,10 +42,9 @@ func server() {
                 badCount += 1
                 print("Message was corrupted")
             }
-            try host.send(message)
-            if i % 1000 == 0 {
-                print("Test: \(i); good = \(goodCount); bad = \(badCount)")
-            }
+            print("[ TEST ]# \(String(format: "% 7d", i)) - ", terminator: "")
+            print("[  OK  ]# \(String(format: "% 7d", goodCount)) - ", terminator: "")
+            print("[FAILED]# \(String(format: "% 7d", badCount)) ")
         }
     }
 }
