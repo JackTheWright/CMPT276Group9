@@ -299,7 +299,13 @@ extension NetworkInterface {
     /// - parameters:
     ///     - error: The error that was thrown by the connection.
     open func didThrowError(error: Error) {
-        print("Network Interface Error: " + error.localizedDescription)
+        if let neterr = error as? NetworkError {
+            print(neterr.description)
+        } else if let netevent = error as? NetworkErrorEvent {
+            print(netevent.message)
+        } else {
+            print(error.localizedDescription)
+        }
     }
     
     /// Called by a listener interface to generate a conversation id for a new
