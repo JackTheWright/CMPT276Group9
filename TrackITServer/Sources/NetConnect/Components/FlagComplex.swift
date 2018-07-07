@@ -124,7 +124,7 @@ public struct FlagComplex<SetType : FlagSet> : RawRepresentable {
     /// returns `false`.
     public func get<Flag>(_ flag: Flag) -> Bool where Flag : FlagSet {
         if let f = flag.rawValue as? RawValue {
-            return (rawValue & f) != 0
+            return (rawValue & f) == f
         } else {
             return false
         }
@@ -135,7 +135,7 @@ public struct FlagComplex<SetType : FlagSet> : RawRepresentable {
     ///
     /// - param fc: A flag complex to compare with this complex.
     public func get(_ fc: FlagComplex<SetType>) -> Bool {
-        return (rawValue & fc.rawValue) != 0
+        return (rawValue & fc.rawValue) == fc.rawValue
     }
     
 }

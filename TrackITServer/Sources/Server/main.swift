@@ -15,25 +15,40 @@ import SwiftyJSON
 // --- END TO END NETCONNECT TEST --- //
 
 let port = 60000
+let count = 1_000_000
+
+let message = "RnVjayB4Zb3UgeSGAVyBZb3YmVydVA=="
+
+var goodCount = 0
+var badCount = 0
 
 func client() {
     let netif = NetworkInterface()!
     netif.connect(to: "app.trackitdiet.com", on: port) { host in
-        let greeting = "Hello Server, I'm \(IFAddress.localIP() ?? "nil")"
-        print("Sending : \(greeting)")
-        try host.send(greeting)
-        let response = try host.receiveString()
-        print("Received: \(response)")
+        for i in 1...count {
+            print("Sending message #\(i)")
+            sleep(10)
+            try host.send(message)
+        }
     }
 }
 
 func server() {
     let netif = NetworkInterface()!
     netif.listen(on: port) { host in
-        let greeting = try host.receiveString()
-        print("Received: \(greeting)")
-        let response = "Hello Client, I'm \(IFAddress.localIP() ?? "nil")"
-        print("Sending : \(response)")
-        try host.send(response)
+        for i in 1...count {
+            let received = try host.receiveString()
+            if received == message {
+                goodCount += 1
+            } else {
+                badCount += 1
+                print("Message was corrupted")
+            }
+            print("[ TEST ]# \(String(format: "% 7d", i)) - ", terminator: "")
+            print("[  OK  ]# \(String(format: "% 7d", goodCount)) - ", terminator: "")
+            print("[FAILED]# \(String(format: "% 7d", badCount)) ")
+        }
     }
 }
+
+
