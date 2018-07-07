@@ -12,20 +12,37 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     
     @IBOutlet weak var advancedTextField: UITextField!
     @IBOutlet weak var advancedSuggestions: UITableView!
+    @IBOutlet weak var anyStepper: UIStepper!
+    @IBOutlet weak var anyLabel: UILabel!
+    @IBOutlet weak var anyCount: UILabel!
+    @IBOutlet weak var submit: UIButton!
     
     
+    @IBAction func anyStepped(_ sender: UIStepper) {
+        anyCount.text = Int(sender.value).description
+    }
+    
+    @IBAction func submitIt(_ sender: UIButton) {
+        anyCount.text = "0"
+        anyStepper.value = 0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         advancedTextField.delegate = self
         advancedSuggestions.delegate = self
         
+        anyStepper.wraps = false
+        anyStepper.autorepeat = true
+        anyStepper.maximumValue = 10
+        
         
     }
     
+    //Food Groups: Meats: 1, Veggies: 2, Fruit: 3, Dairy: 4, Grains: 5
     
     var autoComplete = [String]()
-    var autoCompletionPossibilities = ["Apple", "Pineapple", "Orange"]
+    var autoCompletionPossibilities = ["Apple": 3, "Pineapple": 2, "Orange": 1]
     var autoCompleteCharacterCount = 0
     var timer = Timer()
     
@@ -41,15 +58,18 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     func searchAutoCompleteEntriesWithSubstring (substring: String) {
         
         autoComplete.removeAll(keepingCapacity: false)
-        
-        for key in autoCompletionPossibilities {
+        let lazyMapCollection = autoCompletionPossibilities.keys
+        let stringArray = Array(lazyMapCollection.map { String($0) })
+
+        for keys in stringArray {
             
-            let myString:NSString! = key as NSString
+           
+            let myString:NSString! = keys as NSString
             let substringRange: NSRange! = myString.range(of: substring)
             
             if (substringRange.location == 0)
             {
-                autoComplete.append(key)
+                autoComplete.append(keys)
             }
             
         }
