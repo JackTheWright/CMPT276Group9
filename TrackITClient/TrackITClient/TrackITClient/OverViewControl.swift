@@ -72,5 +72,6 @@ class UIOverviewControl: UIViewController {
     @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var foodAddButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var advancedStatsButton: UIButton!
     
 }
