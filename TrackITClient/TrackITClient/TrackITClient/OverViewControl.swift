@@ -20,13 +20,20 @@ let vc = viewControl()
 
 class UIOverviewControl: UIViewController {
     
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set(true, forKey: "launchedBefore")
         dateLabel.text = time.currentDateToFANCYString()
         
         let quickAddRefresh = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
         var dayDic = Dictionary<String,[String]>()
-        if quickAddRefresh == false {
+        if (quickAddRefresh == false) {
             let yesterday = time.getYesterdaysDate()
             
             let meat = UserDefaults.standard.string(forKey: "meatTotal")
@@ -43,28 +50,18 @@ class UIOverviewControl: UIViewController {
             
             UserDefaults.standard.set(0, forKey: "meatStepped")
             UserDefaults.standard.set("0", forKey: "meatTotal")
-            vc.meatCount.text = "0"
-            vc.meatStepper.value = 0
             
             UserDefaults.standard.set(0, forKey: "vegetableStepped")
             UserDefaults.standard.set("0", forKey: "vegetableTotal")
-            vc.vegetableCount.text = "0"
-            vc.vegetableStepper.value = 0
             
             UserDefaults.standard.set(0, forKey: "fruitStepped")
             UserDefaults.standard.set("0", forKey: "fruitTotal")
-            vc.fruitCount.text = "0"
-            vc.fruitStepper.value = 0
             
             UserDefaults.standard.set(0, forKey: "dairyStepped")
             UserDefaults.standard.set("0", forKey: "dairyTotal")
-            vc.dairyCount.text = "0"
-            vc.dairyStepper.value = 0
             
             UserDefaults.standard.set(0, forKey: "grainsStepped")
             UserDefaults.standard.set("0", forKey: "grainsTotal")
-            vc.grainsCount.text = "0"
-            vc.grainsStepper.value = 0
         }
     }
     

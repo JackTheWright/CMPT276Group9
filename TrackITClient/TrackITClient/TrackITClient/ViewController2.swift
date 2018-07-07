@@ -73,8 +73,8 @@ class ViewController2: UIViewController, UITextFieldDelegate{
     }
     
     func startTrackingAction() {
-        let personalData = Personaldata(id: 0, name: name, gender: gender, age: age, weight: weight)
-        personalDatas.append(personalData)
+   //     let personalData = Personaldata(id: 0, name: name, gender: gender, age: age, weight: weight)
+   //     personalDatas.append(personalData)
     }
     
 
@@ -102,7 +102,7 @@ class ViewController2: UIViewController, UITextFieldDelegate{
     
 
     
-    private var personalDatas = [Personaldata]()
+    //private var personalDatas = [Personaldata]()
     private var selectedPerson: Int?
 
     
