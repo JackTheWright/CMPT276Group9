@@ -23,74 +23,19 @@ public class NetworkHost {
         self.convoId = id
     }
     
-}
-
-// Foundation Methods
-
-fileprivate extension NetworkHost {
-    
-    /// Writes data to the host and ensures that it was reveived and not
-    /// corrupted.
+    /// Sets the read and write timeout for the host.
     ///
     /// - parameters:
-    ///     - data: The data to write.
-    ///
-    /// - throws: Throws an error if unable to write data.
-    func write(data: Data) throws {
-        var flags = Message.Flags()
-        let message: Message
-        
-        // Encrypt data if a cryptographer delegate is present.
-        if let encrypter = cryptographer {
-            let encryptedData = try encrypter.encrypt(data)
-            flags.set(MessageFlags.Encrypted)
-            message = Message(encryptedData, flags: flags, id: convoId)
+    ///     - seconds: The number of seconds to wait before timeout. If `nil`
+    ///         then timeout is set to infinity.
+    public func setTimeout(_ seconds: UInt?) {
+        if let s = seconds {
+            socket!.setReadTimeout(s)
+            socket!.setWriteTimeout(s)
         } else {
-            message = Message(data, flags: flags, id: convoId)
+            socket!.removeReadTimeout()
+            socket!.removeWriteTimeout()
         }
-        
-        var shouldResendMessage = true
-        repeat {
-            try socket!.write(data: message.rawData, to: address)
-            if let response = Message(from: try socket!.read().data) {
-                if response.flags.get(MessageFlags.Confirmation) {
-                    print("Confirmation received")
-                    shouldResendMessage = false
-                } else {
-                    print("Message received but did not contain confirmation")
-                }
-            } else {
-                throw NetworkError.MalformedMessage
-            }
-        } while shouldResendMessage
-    }
-    
-    /// Reads data from the host ensuring that the data was not corrupted.
-    ///
-    /// If received data is malformed, a resend request is sent back to the
-    /// host to resend the previous data.
-    ///
-    /// - returns: Returns the data from the host.
-    func read() throws -> Data {
-        repeat {
-            let msgData = try socket!.read()
-            if let message = Message(from: msgData.data) {
-                if message.size == msgData.bytesRead {
-                    var flags = Message.Flags()
-                    flags.set(MessageFlags.Confirmation)
-                    let confirm = Message(Data(), flags: flags, id: convoId)
-                    try socket!.write(data: confirm.rawData, to: address)
-                    return message.body
-                }
-            }
-            
-            // If here is reached, then the data is corrupted and should be
-            // resent
-            var flags = Message.Flags()
-            flags.set(MessageFlags.ResendRequest)
-            let resendRequest = Message(Data(), flags: flags, id: convoId)
-            try socket!.write(data: resendRequest.rawData, to: address)
-        } while true
     }
     
 }
@@ -106,7 +51,6 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data) throws {
-//        try write(data: data)
         let message = Message(data, flags: Message.Flags(), id: convoId)
         try socket!.write(data: message.rawData, to: address)
     }
@@ -150,7 +94,6 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to reveive data.
     func receiveData() throws -> Data {
-//        return try read()
         guard let message = Message(from: try socket!.read().data) else {
             throw NetworkError.MalformedMessage
         }

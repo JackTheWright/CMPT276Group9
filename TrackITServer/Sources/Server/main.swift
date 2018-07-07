@@ -25,7 +25,9 @@ var badCount = 0
 func client() {
     let netif = NetworkInterface()!
     netif.connect(to: "app.trackitdiet.com", on: port) { host in
-        for _ in 1...count {
+        for i in 1...count {
+            print("Sending message #\(i)")
+            sleep(10)
             try host.send(message)
         }
     }
