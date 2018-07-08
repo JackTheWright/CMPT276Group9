@@ -1,0 +1,6 @@
+{
+  "port": 12,
+  "verbose": true,
+  "cnf path": "./cnf.db",
+  "udb path": "./udb.db"
+}
