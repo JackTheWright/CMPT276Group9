@@ -19,10 +19,9 @@ var age = ""
 
 class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
-//    @IBOutlet weak var nameTextField: UITextField!
-
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
- //   @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var ageTextField: UITextField!
     
 //    @IBOutlet weak var dropDown: UIPickerView!
     
@@ -41,13 +40,10 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        genderTextField.text = Gender[row]
+        gender = Gender[row]
         genderTextField.text = gender
     }
     
-//   func textFieldDidBeginEditing(_ textField: UITextField) {
-//        self.dropDown.isHidden = false
-//   }
     
 /*    @IBAction func nameAction(_ sender: AnyObject) {
         if (nameTextField.text != "")
@@ -68,12 +64,10 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         let genderPicker = UIPickerView()
         genderPicker.delegate = self
         
-        genderTextField?.inputView = genderPicker
+        genderTextField.inputView = genderPicker
         createToolbar()
-        //nameTextField?.delegate = self
-        //ageTextField?.delegate = self
-        
-        
+        nameTextField?.delegate = self
+        ageTextField?.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -82,10 +76,10 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
- func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+ //func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+   //     textField.resignFirstResponder()
+     //   return true
+    //}
  
     func createToolbar(){
         let toolBar = UIToolbar()
