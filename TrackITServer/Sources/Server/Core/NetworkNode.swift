@@ -37,11 +37,11 @@ class NetworkNode<Delegate> where Delegate : NodeDelegate {
     /// Initializes the network node.
     ///
     /// Returns `nil` if unable to construct the internal socket.
-    init?() {
-        guard let s = try? UDPSocket() else {
-            return nil
-        }
-        socket = s
+    init?(socket: UDPSocket) {
+//        guard let s = try? UDPSocket() else {
+//            return nil
+//        }
+        self.socket = socket
         delegate.socket = self.socket
         delegate.active = self.active
         delegate.messageQueue = self.messageQueue

@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import NetConnect
 
 class Server {
 
@@ -17,12 +18,18 @@ class Server {
 
     let router: Router
 
+    let socket: UDPSocket
+
     init?() {
         Log.verbose("Initializing Server Instance", event: .info)
-        guard let inNode = InboundNode() else {
+        guard let s = try? UDPSocket() else {
             return nil
         }
-        guard let outNode = OutboundNode() else {
+        socket = s
+        guard let inNode = InboundNode(socket: socket) else {
+            return nil
+        }
+        guard let outNode = OutboundNode(socket: socket) else {
             return nil
         }
         inboundNode = inNode

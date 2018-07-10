@@ -39,10 +39,10 @@ func testConfig() {
 
 
 func testNode() {
-    let node = InboundNode()!
-    node.activate()
-    sleep(5)
-    node.deactivate()
+//    let node = InboundNode()!
+//    node.activate()
+//    sleep(5)
+//    node.deactivate()
 }
 
 func testTime() {
