@@ -64,7 +64,10 @@ func testTime() {
 func testClient() {
     let client = NetworkInterface()!
     client.connect(to: "app.trackitdiet.com", on: Config.port) { server in
+        Log.event("Entering Closure", event: .ok)
         try server.send("Hello World")
+        Log.event("Sent Hello World", event: .ok)
         print(try server.receiveString())
+        Log.event("Received Echo", event: .ok)
     }
 }

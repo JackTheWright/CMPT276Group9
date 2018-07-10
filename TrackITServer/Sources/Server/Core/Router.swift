@@ -64,9 +64,12 @@ extension Router {
     /// Starts the router's main logic loop.
     func start() {
         while active.load() {
-            if let packet = inboundQueue.safeDequeue() {
+            if inboundQueue.count > 0 {
+                let packet = inboundQueue.dequeue()
                 let id = packet.id
                 Log.verbose("Routing msg: id = \(id)", event: .server)
+                Log.verbose("Inbound queue size = \(inboundQueue.count)",
+                        event: .server)
                 if let hc = handlers[id] {
                     // If the handler already exists, run it.
                     handlers[id]!.state = .active

@@ -15,7 +15,7 @@ import SwiftyJSON
 let isServer = true
 
 if isServer {
-    try! Config.load(from: "./srvconf.json")
+    try? Config.load(from: "./srvconf.json")
     if let server = Server() {
         server.start()
     } else {
