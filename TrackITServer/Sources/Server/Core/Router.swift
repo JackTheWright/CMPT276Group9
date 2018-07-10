@@ -91,6 +91,7 @@ extension Router {
                     let id = Int(generateHandlerId())
                     // TODO: generate handler from message flags
                     let handler = EchoHandler(id: id)
+                    handler.outboundQueue = outboundQueue
 
                     Log.verbose("Created handler: id = \(id)", event: .server)
                     let hc: HandlerComplex = (
