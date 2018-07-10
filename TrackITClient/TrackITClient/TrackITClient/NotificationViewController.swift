@@ -8,195 +8,49 @@
 //
 // Edited By    : Jeremy Schwartz
 // Edited On    : 2018-07-03
-//  - Updated Header
 //
+// Edited By    : Siddharth Gupta
+// Edited On    : 2018-07-06
 
 import UIKit
 import UserNotifications
 
 class NotificationViewController: UIViewController {
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var firstMealT: UITextField!
-    @IBOutlet weak var secondMealT: UITextField!
-    @IBOutlet weak var thirdMealT: UITextField!
-    @IBOutlet weak var s1T: UITextField!
-    @IBOutlet weak var s2T: UITextField!
-    @IBOutlet weak var s3T: UITextField!
-    @IBOutlet weak var s4T: UITextField!
-    private var timePickerM1: UIDatePicker?
-    private var timePickerM2: UIDatePicker?
-    private var timePickerM3: UIDatePicker?
-    private var timePickerS1: UIDatePicker?
-    private var timePickerS2: UIDatePicker?
-    private var timePickerS3: UIDatePicker?
-    private var timePickerS4: UIDatePicker?
+    @IBOutlet weak var mealsToolbar: UIToolbar!
+    @IBOutlet weak var mealTimePicker: UIDatePicker!
+    @IBOutlet weak var breakfastTime: UILabel!
+    @IBOutlet weak var dinnerTime: UILabel!
+    @IBOutlet weak var lunchTime: UILabel!
+    @IBOutlet weak var snaclToolbar: UIBarButtonItem!
+    @IBOutlet weak var snackTimePicker: UIDatePicker!
+    @IBOutlet weak var s1Time: UILabel!
+    @IBOutlet weak var s2Time: UILabel!
+    @IBOutlet weak var s3Time: UILabel!
+    @IBOutlet weak var s4Time: UILabel!
     
-    @IBAction func doneBtn(_ sender: Any) {
-        if firstMealT.text != ""
-        {
-        let breakfastContent = UNMutableNotificationContent()
-        breakfastContent.title = "MEAL REMINDER"
-        breakfastContent.subtitle = "First meal of the day"
-        breakfastContent.body = "Time to have your breakfast"
-            var t: String = firstMealT.text!
-            var h: String = String()
-            h.append(t.removeFirst())
-            h.append(t.removeFirst())
-            var m: String = String()
-            t.removeFirst()
-            m.append(t.removeFirst())
-            m.append(t.removeFirst())
-            let hour: Int? = Int(h)
-            let mins: Int? = Int(m)
-            var time = DateComponents()
-            time.hour = hour
-            time.minute = mins
-        let trigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
-            let request = UNNotificationRequest(identifier: "breakfast", content: breakfastContent, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-        if secondMealT.text != ""
-        {
-            let lunchContent = UNMutableNotificationContent()
-            lunchContent.title = "MEAL REMINDER"
-            lunchContent.subtitle = "Second meal of the day"
-            lunchContent.body = "Time to have your lunch"
-            var t: String = secondMealT.text!
-            var h: String = String()
-            h.append(t.removeFirst())
-            h.append(t.removeFirst())
-            var m: String = String()
-            t.removeFirst()
-            m.append(t.removeFirst())
-            m.append(t.removeFirst())
-            let hour: Int? = Int(h)
-            let mins: Int? = Int(m)
-            var time = DateComponents()
-            time.hour = hour
-            time.minute = mins
-            let trigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
-            let request = UNNotificationRequest(identifier: "lunch", content: lunchContent, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-        if thirdMealT.text != ""
-        {
-            let dinnerContent = UNMutableNotificationContent()
-            dinnerContent.title = "MEAL REMINDER"
-            dinnerContent.subtitle = "Third meal of the day"
-            dinnerContent.body = "Time to have your dinner"
-            var t: String = thirdMealT.text!
-            var h: String = String()
-            h.append(t.removeFirst())
-            h.append(t.removeFirst())
-            var m: String = String()
-            t.removeFirst()
-            m.append(t.removeFirst())
-            m.append(t.removeFirst())
-            let hour: Int? = Int(h)
-            let mins: Int? = Int(m)
-            var time = DateComponents()
-            time.hour = hour
-            time.minute = mins
-            let trigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
-            let request = UNNotificationRequest(identifier: "dinner", content: dinnerContent, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-        if s1T.text != ""
-        {
-            let s1Content = UNMutableNotificationContent()
-            s1Content.title = "SNACK REMINDER"
-            s1Content.subtitle = "First snack of the day"
-            s1Content.body = "Time to have your snack"
-            var t: String = s1T.text!
-            var h: String = String()
-            h.append(t.removeFirst())
-            h.append(t.removeFirst())
-            var m: String = String()
-            t.removeFirst()
-            m.append(t.removeFirst())
-            m.append(t.removeFirst())
-            let hour: Int? = Int(h)
-            let mins: Int? = Int(m)
-            var time = DateComponents()
-            time.hour = hour
-            time.minute = mins
-            let trigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
-            let request = UNNotificationRequest(identifier: "snack1", content: s1Content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-        if s2T.text != ""
-        {
-            let s2Content = UNMutableNotificationContent()
-            s2Content.title = "SNACK REMINDER"
-            s2Content.subtitle = "Second snack of the day"
-            s2Content.body = "Time to have your snack"
-            var t: String = s2T.text!
-            var h: String = String()
-            h.append(t.removeFirst())
-            h.append(t.removeFirst())
-            var m: String = String()
-            t.removeFirst()
-            m.append(t.removeFirst())
-            m.append(t.removeFirst())
-            let hour: Int? = Int(h)
-            let mins: Int? = Int(m)
-            var time = DateComponents()
-            time.hour = hour
-            time.minute = mins
-            let trigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
-            let request = UNNotificationRequest(identifier: "snack2", content: s2Content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-        if s3T.text != ""
-        {
-            let s3Content = UNMutableNotificationContent()
-            s3Content.title = "SNACK REMINDER"
-            s3Content.subtitle = "Third snack of the day"
-            s3Content.body = "Time to have your snack"
-            var t: String = s3T.text!
-            var h: String = String()
-            h.append(t.removeFirst())
-            h.append(t.removeFirst())
-            var m: String = String()
-            t.removeFirst()
-            m.append(t.removeFirst())
-            m.append(t.removeFirst())
-            let hour: Int? = Int(h)
-            let mins: Int? = Int(m)
-            var time = DateComponents()
-            time.hour = hour
-            time.minute = mins
-            let trigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
-            let request = UNNotificationRequest(identifier: "snack3", content: s3Content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-        if s4T.text != ""
-        {
-            let s4Content = UNMutableNotificationContent()
-            s4Content.title = "SNACK REMINDER"
-            s4Content.subtitle = "Fourth snack of the day"
-            s4Content.body = "Time to have your snack"
-            var t: String = s4T.text!
-            var h: String = String()
-            h.append(t.removeFirst())
-            h.append(t.removeFirst())
-            var m: String = String()
-            t.removeFirst()
-            m.append(t.removeFirst())
-            m.append(t.removeFirst())
-            let hour: Int? = Int(h)
-            let mins: Int? = Int(m)
-            var time = DateComponents()
-            time.hour = hour
-            time.minute = mins
-            let trigger = UNCalendarNotificationTrigger(dateMatching: time, repeats: true)
-            let request = UNNotificationRequest(identifier: "sanck4", content: s4Content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        }
-        messageLabel.text = "* Notifications have been set"
+    let defaults = UserDefaults.standard
+    
+    @IBAction func setS1Notification(_ sender: Any) {
+        snacktimeSetter(snack: "snack1", timePicker: snackTimePicker)
     }
-    @IBOutlet weak var doneBtn: UIButton!
-    
+    @IBAction func setS2Notification(_ sender: Any) {
+        snacktimeSetter(snack: "snack2", timePicker: snackTimePicker)
+    }
+    @IBAction func setS3Notification(_ sender: Any) {
+        snacktimeSetter(snack: "snack3", timePicker: snackTimePicker)
+    }
+    @IBAction func setS4Notification(_ sender: Any) {
+        snacktimeSetter(snack: "snack4", timePicker: snackTimePicker)
+    }
+    @IBAction func setBreakfastNotification(_ sender: Any) {
+        mealtimeSetter(meal: "breakfast", timePicker: mealTimePicker)
+    }
+    @IBAction func setLunchNotification(_ sender: Any) {
+        mealtimeSetter(meal: "lunch", timePicker: mealTimePicker)
+    }
+    @IBAction func setDinnerNotification(_ sender: Any) {
+        mealtimeSetter(meal: "dinner", timePicker: mealTimePicker)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -204,120 +58,139 @@ class NotificationViewController: UIViewController {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: {didAllow,error in
         })
         
-        timePickerM1 = UIDatePicker()
-        timePickerM1?.datePickerMode = .time
-        timePickerM1?.addTarget(self, action:
-            #selector(NotificationViewController.timeChangedM1(timePicker:)),
-                                for: .valueChanged)
-        
-        firstMealT.inputView = timePickerM1
-        
-        timePickerM2 = UIDatePicker()
-        timePickerM2?.datePickerMode = .time
-        timePickerM2?.addTarget(self, action:
-            #selector(NotificationViewController.timeChangedM2(timePicker:)),
-                                for: .valueChanged)
-        
-        secondMealT.inputView = timePickerM2
-        
-        timePickerM3 = UIDatePicker()
-        timePickerM3?.datePickerMode = .time
-        timePickerM3?.addTarget(self,
-                                action: #selector(NotificationViewController.timeChangedM3(timePicker:)), for: .valueChanged)
-        
-        thirdMealT.inputView = timePickerM3
-        
-        timePickerS1 = UIDatePicker()
-        timePickerS1?.datePickerMode = .time
-        timePickerS1?.addTarget(self, action: #selector(NotificationViewController.timeChangedS1(timePicker:)), for: .valueChanged)
-        
-        s1T.inputView = timePickerS1
-        
-        timePickerS2 = UIDatePicker()
-        timePickerS2?.datePickerMode = .time
-        timePickerS2?.addTarget(self, action: #selector(NotificationViewController.timeChangedS2(timePicker:)), for: .valueChanged)
-        
-        s2T.inputView = timePickerS2
-        
-        timePickerS3 = UIDatePicker()
-        timePickerS3?.datePickerMode = .time
-        timePickerS3?.addTarget(self, action: #selector(NotificationViewController.timeChangedS3(timePicker:)), for: .valueChanged)
-        
-        s3T.inputView = timePickerS3
-        
-        timePickerS4 = UIDatePicker()
-        timePickerS4?.datePickerMode = .time
-        timePickerS4?.addTarget(self, action: #selector(NotificationViewController.timeChangedS4(timePicker:)), for: .valueChanged)
-        
-        s4T.inputView = timePickerS4
-    }
-    @objc func timeChangedM1(timePicker: UIDatePicker){
-        let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "hh:mm"
-        let time:String? = timeFormat.string(from: (timePickerM1?.date)!)
-        firstMealT.text = time
-        view.endEditing(true)
-    }
-    
-    @objc func timeChangedM2(timePicker: UIDatePicker){
-        let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "hh:mm"
-        let time:String? = timeFormat.string(from: (timePickerM2?.date)!)
-        secondMealT.text = time
-        view.endEditing(true)
         
     }
-    
-    @objc func timeChangedM3(timePicker: UIDatePicker){
-        let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "hh:mm"
-        let time:String? = timeFormat.string(from: (timePickerM3?.date)!)
-        thirdMealT.text = time
-        view.endEditing(true)
-        
-    }
-    
-    @objc func timeChangedS1(timePicker: UIDatePicker){
-        let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "hh:mm"
-        let time:String? = timeFormat.string(from: (timePickerS1?.date)!)
-        s1T.text = time
-        view.endEditing(true)
-        
-    }
-    
-    @objc func timeChangedS2(timePicker: UIDatePicker){
-        let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "hh:mm"
-        let time:String? = timeFormat.string(from: (timePickerS2?.date)!)
-        s2T.text = time
-        view.endEditing(true)
-        
-    }
-    
-    @objc func timeChangedS3(timePicker: UIDatePicker){
-        let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "hh:mm"
-        let time:String? = timeFormat.string(from: (timePickerS3?.date)!)
-        s3T.text = time
-        view.endEditing(true)
-        
-    }
-    
-    @objc func timeChangedS4(timePicker: UIDatePicker){
-        let timeFormat = DateFormatter()
-        timeFormat.dateFormat = "hh:mm"
-        let time:String? = timeFormat.string(from: (timePickerS4?.date)!)
-        s4T.text = time
-        view.endEditing(true)
-        
-    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func getTime(timePicker: UIDatePicker) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm a"
+        let time = formatter.string(from: timePicker.date)
+        return time
+    }
+    
+    func setMealNotification(time: UIDatePicker, meal: String){
+        if(meal == "breakfast"){
+        let notifContent = UNMutableNotificationContent()
+        notifContent.title = "MEAL REMINDER"
+        notifContent.subtitle = "First Meal of the day"
+        notifContent.body = "Time to have Breakfast"
+        let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time.date )
+            let t = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+             let request = UNNotificationRequest(identifier: "breakfast", content: notifContent, trigger: t)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+        
+        else if(meal == "lunch")
+        {
+            let notifContent = UNMutableNotificationContent()
+            notifContent.title = "MEAL REMINDER"
+            notifContent.subtitle = "Second Meal of the day"
+            notifContent.body = "Time to have Lunch"
+            let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time.date )
+            let t = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let request = UNNotificationRequest(identifier: "lunch", content: notifContent, trigger: t)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+        else
+        {
+            let notifContent = UNMutableNotificationContent()
+            notifContent.title = "MEAL REMINDER"
+            notifContent.subtitle = "Third Meal of the day"
+            notifContent.body = "Time to have Dinner"
+            let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time.date )
+            let t = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let request = UNNotificationRequest(identifier: "dinner", content: notifContent, trigger: t)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+    }
+    
+    func mealtimeSetter( meal: String, timePicker: UIDatePicker){
+        if(meal == "breakfast"){
+            breakfastTime.text = getTime(timePicker: timePicker)
+            setMealNotification(time: timePicker, meal: meal)
+        }
+        else if(meal == "lunch"){
+            lunchTime.text = getTime(timePicker: timePicker)
+            setMealNotification(time: timePicker, meal: meal)
+        }
+        else{
+            dinnerTime.text = getTime(timePicker: timePicker)
+            setMealNotification(time: timePicker, meal: meal)
+        }
+    }
+    
+    func snacktimeSetter( snack: String, timePicker: UIDatePicker){
+        if(snack == "snack1"){
+            s1Time.text = getTime(timePicker: timePicker)
+            setSnackNotification(time: timePicker, snack: snack)
+        }
+        else if(snack == "snack2"){
+            s2Time.text = getTime(timePicker: timePicker)
+            setSnackNotification(time: timePicker, snack: snack)
+        }
+        else if(snack == "snack3"){
+            s3Time.text = getTime(timePicker: timePicker)
+            setSnackNotification(time: timePicker, snack: snack)
+        }
+        else{
+            s4Time.text = getTime(timePicker: timePicker)
+            setSnackNotification(time: timePicker, snack: snack)
+        }
+    }
+    
+    func setSnackNotification(time: UIDatePicker, snack: String){
+        if(snack == "sanck1"){
+            let notifContent = UNMutableNotificationContent()
+            notifContent.title = "SNACK REMINDER"
+            notifContent.subtitle = "First Snack of the day"
+            notifContent.body = "Time to have Snack#1"
+            let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time.date )
+            let t = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let request = UNNotificationRequest(identifier: "s1", content: notifContent, trigger: t)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+            
+        else if(snack == "snack2")
+        {
+            let notifContent = UNMutableNotificationContent()
+            notifContent.title = "SNACK REMINDER"
+            notifContent.subtitle = "Second Snack of the day"
+            notifContent.body = "Time to have Snack#2"
+            let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time.date )
+            let t = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let request = UNNotificationRequest(identifier: "s2", content: notifContent, trigger: t)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+        else if(snack == "snack3")
+        {
+            let notifContent = UNMutableNotificationContent()
+            notifContent.title = "SNACK REMINDER"
+            notifContent.subtitle = "Third Snack of the day"
+            notifContent.body = "Time to have Snack#3"
+            let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time.date )
+            let t = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let request = UNNotificationRequest(identifier: "s3", content: notifContent, trigger: t)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+        else
+        {
+            let notifContent = UNMutableNotificationContent()
+            notifContent.title = "SNACK REMINDER"
+            notifContent.subtitle = "Fourth Snack of the day"
+            notifContent.body = "Time to have Snack#4"
+            let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time.date )
+            let t = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let request = UNNotificationRequest(identifier: "s4", content: notifContent, trigger: t)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+    }
+    }
 
 
-}
 
