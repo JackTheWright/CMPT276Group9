@@ -47,17 +47,43 @@ class barChartView: UIViewController {
         
         
         
-        let mHeight: Float = Float(meatVal) / 3.0
-        let vHeight: Float = Float(vegVal) / 5.0
-        let fHeight: Float = Float(fruVal) / 5.0
-        let dHeight: Float = Float(daiVal) / 3.0
-        let gHeight: Float = Float(graVal) / 8.0
+        var mHeight: Float = Float(meatVal) / 3.0
+        var meastring = String(format: "%.2f", mHeight * 100) + "%"
+        if (mHeight > 1) {
+            meastring = ">100%"
+            mHeight = 1.1
+        }
         
-        let meastring = String(format: "%.2f", mHeight * 100) + "%"
-        let vegstring = String(format: "%.2f", vHeight * 100) + "%"
-        let frustring = String(format: "%.2f", fHeight * 100) + "%"
-        let daistring = String(format: "%.2f", dHeight * 100) + "%"
-        let grastring = String(format: "%.2f", gHeight * 100) + "%"
+        var vHeight: Float = Float(vegVal) / 5.0
+        var vegstring = String(format: "%.2f", vHeight * 100) + "%"
+        if (vHeight > 1) {
+            vegstring = ">100%"
+            vHeight = 1.1
+        }
+        
+        var fHeight: Float = Float(fruVal) / 5.0
+        var frustring = String(format: "%.2f", fHeight * 100) + "%"
+        if (fHeight > 1.0) {
+            frustring = ">100%"
+            fHeight = 1.1
+        }
+        
+        var dHeight: Float = Float(daiVal) / 3.0
+        var daistring = String(format: "%.2f", dHeight * 100) + "%"
+        if (dHeight > 1) {
+            daistring = ">100%"
+            dHeight = 1.1
+        }
+        
+        var gHeight: Float = Float(graVal) / 8.0
+        var grastring = String(format: "%.2f", gHeight * 100) + "%"
+        if (gHeight > 1) {
+            grastring = ">100%"
+            gHeight = 1.1
+        }
+        
+        
+        
 
     
         result.append(BarEntry(color: colors[0 % colors.count], height: mHeight, textValue: meastring, title: "Meats"))

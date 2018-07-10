@@ -16,6 +16,7 @@
 		10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B80B2C20E48138007027F1 /* FoodAdd.storyboard */; };
 		10C7B93620EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */; };
 		10C7B93820EF064E000DD9D6 /* AdvancedAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7B93720EF064E000DD9D6 /* AdvancedAddVC.swift */; };
+		10C7B93A20F13B91000DD9D6 /* AdvancedStats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C7B93920F13B91000DD9D6 /* AdvancedStats.storyboard */; };
 		10DEF65120EAF98000759A13 /* BarchartClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEF64F20EAF98000759A13 /* BarchartClass.swift */; };
 		10DEF65220EAF98000759A13 /* ChartCreationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEF65020EAF98000759A13 /* ChartCreationClass.swift */; };
 		3F11EFFF20C4771A007AB096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11EFFE20C4771A007AB096 /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 		10B80B2D20E48138007027F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FoodAdd.storyboard; sourceTree = "<group>"; };
 		10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InformationFromFoodMenu.storyboard; sourceTree = "<group>"; };
 		10C7B93720EF064E000DD9D6 /* AdvancedAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedAddVC.swift; sourceTree = "<group>"; };
+		10C7B93920F13B91000DD9D6 /* AdvancedStats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdvancedStats.storyboard; sourceTree = "<group>"; };
 		10DEF64920EAB50300759A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		10DEF64F20EAF98000759A13 /* BarchartClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarchartClass.swift; sourceTree = "<group>"; };
 		10DEF65020EAF98000759A13 /* ChartCreationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCreationClass.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				8B751E4A20E37661003EC7D4 /* ViewController2.swift */,
 				10B80B2C20E48138007027F1 /* FoodAdd.storyboard */,
 				101A139720E7E51300D4BE59 /* OverviewPage.storyboard */,
+				10C7B93920F13B91000DD9D6 /* AdvancedStats.storyboard */,
 				10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */,
 				101A139920E7E8B300D4BE59 /* OverViewControl.swift */,
 				10B80B2720E480EB007027F1 /* ServingPackageClass.swift */,
@@ -245,6 +248,7 @@
 				3F11F00920C4771B007AB096 /* LaunchScreen.storyboard in Resources */,
 				3F11F00620C4771B007AB096 /* Assets.xcassets in Resources */,
 				10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */,
+				10C7B93A20F13B91000DD9D6 /* AdvancedStats.storyboard in Resources */,
 				8B751E4920DF0329003EC7D4 /* split.png in Resources */,
 				3F11F02620C4880A007AB096 /* NetConnect in Resources */,
 				101A139820E7E51300D4BE59 /* OverviewPage.storyboard in Resources */,

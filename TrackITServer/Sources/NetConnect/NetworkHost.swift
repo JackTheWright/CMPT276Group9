@@ -13,6 +13,7 @@ import SwiftyJSON
 public class NetworkHost {
     
     internal weak var socket: UDPSocket?
+    internal var cryptographer: Cryptographer?
     internal var address: Address
     internal var convoId: UInt16
     
@@ -20,6 +21,21 @@ public class NetworkHost {
         self.socket = socket
         self.address = address
         self.convoId = id
+    }
+    
+    /// Sets the read and write timeout for the host.
+    ///
+    /// - parameters:
+    ///     - seconds: The number of seconds to wait before timeout. If `nil`
+    ///         then timeout is set to infinity.
+    public func setTimeout(_ seconds: UInt?) {
+        if let s = seconds {
+            socket!.setReadTimeout(s)
+            socket!.setWriteTimeout(s)
+        } else {
+            socket!.removeReadTimeout()
+            socket!.removeWriteTimeout()
+        }
     }
     
 }
@@ -35,12 +51,8 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data) throws {
-        // FIXME: Implement better sending
-        if let s = socket {
-            try s.write(data: data, to: address)
-        } else {
-            throw NetworkError.SocketWriteError("Unable to unwrap socket")
-        }
+        let message = Message(data, flags: Message.Flags(), id: convoId)
+        try socket!.write(data: message.rawData, to: address)
     }
     
     /// Sends a string to the host.
@@ -82,13 +94,10 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to reveive data.
     func receiveData() throws -> Data {
-        // FIXME: Implement better receiving
-        if let s = socket {
-            let data = try s.read().data
-            return data
-        } else {
-            throw NetworkError.SocketReadError("Unable to unwrap socket")
+        guard let message = Message(from: try socket!.read().data) else {
+            throw NetworkError.MalformedMessage
         }
+        return message.body
     }
     
     /// Reveives data from the host as a string.
