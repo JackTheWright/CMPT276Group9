@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NetConnect
 
 let allTests = [
     ("Config", testConfig),
@@ -58,4 +59,12 @@ func testTime() {
     print()
     print(time.lowestMinute.time)
     print(time.lowestHour.time)
+}
+
+func testClient() {
+    let client = NetworkInterface()!
+    client.connect(to: "app.trackitdiet.com", on: Config.port) { server in
+        try server.send("Hello World")
+        print(try server.receiveString())
+    }
 }

@@ -29,9 +29,13 @@
 		3F42897620F2BEA900F3B99A /* NodePacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42897220F2BEA900F3B99A /* NodePacket.swift */; };
 		3F42897720F2BEA900F3B99A /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42897320F2BEA900F3B99A /* Server.swift */; };
 		3F44E28420F179540041E62D /* TestManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F44E28320F179540041E62D /* TestManifest.swift */; };
+		BAA6543C3D1102257BE4353A /* EchoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA656056C88B711AF0DEF3D /* EchoHandler.swift */; };
 		BAA657ED6056AF53BAA52F8D /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65E3C545EFB5B64696CD3 /* Time.swift */; };
 		BAA6582A9FB36906AB236A64 /* LabelDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65A0514737847E8CF46CE /* LabelDispatch.swift */; };
+		BAA658747F4635B45CE65FE4 /* HandshakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA6518996A03C9CC4EC835A /* HandshakeHandler.swift */; };
 		BAA6590A4A3DA7D5D958F51B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA652D57778F646D5B89456 /* ServerError.swift */; };
+		BAA65ABD2024F1A5DEC4B807 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65C5E1BA4C7725539AA4C /* Handler.swift */; };
+		BAA65C079FE908AF1347E182 /* Probe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65FC02A5E7BAE6A7B8C5E /* Probe.swift */; };
 		OBJ_146 /* AEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* AEAD.swift */; };
 		OBJ_147 /* AEADChaCha20Poly1305.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* AEADChaCha20Poly1305.swift */; };
 		OBJ_148 /* AES.Cryptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* AES.Cryptors.swift */; };
@@ -155,91 +159,91 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteGlobalIDString = CryptoSwift::CryptoSwift;
 			remoteInfo = CryptoSwift;
 		};
 		3F44E27620F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Socket::Socket";
+			remoteGlobalIDString = Socket::Socket;
 			remoteInfo = Socket;
 		};
 		3F44E27720F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::SwiftyJSON";
+			remoteGlobalIDString = Server::SwiftyJSON;
 			remoteInfo = SwiftyJSON;
 		};
 		3F44E27820F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::NetConnect";
+			remoteGlobalIDString = Server::NetConnect;
 			remoteInfo = NetConnect;
 		};
 		3F44E27920F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteGlobalIDString = CryptoSwift::CryptoSwift;
 			remoteInfo = CryptoSwift;
 		};
 		3F44E27A20F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Socket::Socket";
+			remoteGlobalIDString = Socket::Socket;
 			remoteInfo = Socket;
 		};
 		3F44E27B20F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::SwiftyJSON";
+			remoteGlobalIDString = Server::SwiftyJSON;
 			remoteInfo = SwiftyJSON;
 		};
 		3F44E27C20F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Threading::Threading";
+			remoteGlobalIDString = Threading::Threading;
 			remoteInfo = Threading;
 		};
 		3F44E27D20F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::NetConnect";
+			remoteGlobalIDString = Server::NetConnect;
 			remoteInfo = NetConnect;
 		};
 		3F44E27E20F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteGlobalIDString = CryptoSwift::CryptoSwift;
 			remoteInfo = CryptoSwift;
 		};
 		3F44E27F20F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Socket::Socket";
+			remoteGlobalIDString = Socket::Socket;
 			remoteInfo = Socket;
 		};
 		3F44E28020F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::SwiftyJSON";
+			remoteGlobalIDString = Server::SwiftyJSON;
 			remoteInfo = SwiftyJSON;
 		};
 		3F44E28120F1791C0041E62D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::NetConnectTests";
+			remoteGlobalIDString = Server::NetConnectTests;
 			remoteInfo = NetConnectTests;
 		};
 /* End PBXContainerItemProxy section */
@@ -254,9 +258,13 @@
 		3F42897320F2BEA900F3B99A /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Server.swift; path = Core/Server.swift; sourceTree = "<group>"; };
 		3F44E28320F179540041E62D /* TestManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManifest.swift; sourceTree = "<group>"; };
 		3F4B2AD220F17A0E00D8CD02 /* srvconf.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = srvconf.json; sourceTree = "<group>"; };
+		BAA6518996A03C9CC4EC835A /* HandshakeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HandshakeHandler.swift; path = Core/Handlers/HandshakeHandler.swift; sourceTree = "<group>"; };
 		BAA652D57778F646D5B89456 /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
+		BAA656056C88B711AF0DEF3D /* EchoHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EchoHandler.swift; path = Core/Handlers/EchoHandler.swift; sourceTree = "<group>"; };
 		BAA65A0514737847E8CF46CE /* LabelDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDispatch.swift; sourceTree = "<group>"; };
+		BAA65C5E1BA4C7725539AA4C /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Handler.swift; path = Core/Handler.swift; sourceTree = "<group>"; };
 		BAA65E3C545EFB5B64696CD3 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		BAA65FC02A5E7BAE6A7B8C5E /* Probe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Probe.swift; path = Core/Probe.swift; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_100 /* SHA2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA2.swift; sourceTree = "<group>"; };
 		OBJ_101 /* SHA3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA3.swift; sourceTree = "<group>"; };
@@ -454,6 +462,8 @@
 		BAA6536230F49B391ADC6F2E /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				BAA656056C88B711AF0DEF3D /* EchoHandler.swift */,
+				BAA6518996A03C9CC4EC835A /* HandshakeHandler.swift */,
 			);
 			name = Handlers;
 			sourceTree = "<group>";
@@ -466,6 +476,8 @@
 				3F42897120F2BEA900F3B99A /* Router.swift */,
 				3F42897320F2BEA900F3B99A /* Server.swift */,
 				BAA6536230F49B391ADC6F2E /* Handlers */,
+				BAA65C5E1BA4C7725539AA4C /* Handler.swift */,
+				BAA65FC02A5E7BAE6A7B8C5E /* Probe.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -1162,6 +1174,10 @@
 				3F42896B20F2BE7400F3B99A /* NodeDelegate.swift in Sources */,
 				3F42896F20F2BE8900F3B99A /* InboundDelegate.swift in Sources */,
 				3F42896E20F2BE8900F3B99A /* OutboundDelegate.swift in Sources */,
+				BAA65ABD2024F1A5DEC4B807 /* Handler.swift in Sources */,
+				BAA6543C3D1102257BE4353A /* EchoHandler.swift in Sources */,
+				BAA658747F4635B45CE65FE4 /* HandshakeHandler.swift in Sources */,
+				BAA65C079FE908AF1347E182 /* Probe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

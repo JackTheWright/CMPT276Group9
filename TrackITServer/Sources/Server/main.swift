@@ -12,7 +12,15 @@ import NetConnect
 import CryptoSwift
 import SwiftyJSON
 
-try! Config.load(from: "./srvconf.json")
-let server = Server()!
+let isServer = true
 
-
+if isServer {
+    try! Config.load(from: "./srvconf.json")
+    if let server = Server() {
+        server.start()
+    } else {
+        print("Unable to construct server")
+    }
+} else {
+    testClient()
+}

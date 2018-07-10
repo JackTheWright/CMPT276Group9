@@ -15,6 +15,11 @@ public class Message {
     public typealias Flags = FlagComplex<MessageFlags>
     
     fileprivate var encodedData = Data()
+
+    /// The conversation identifier used for handshake request messages.
+    public static var handshakeId : UInt16 {
+        return 0x8000
+    }
     
     /// Constructs from an encoded message.
     ///
@@ -183,11 +188,6 @@ fileprivate extension Message {
 // MARK: Static Methods
 
 internal extension Message {
-    
-    /// The conversation identifier used for handshake request messages.
-    static var handshakeId : UInt16 {
-        return 0x800
-    }
     
     /// Returns a `Message` object that is preformatted for a handshake request.
     ///
