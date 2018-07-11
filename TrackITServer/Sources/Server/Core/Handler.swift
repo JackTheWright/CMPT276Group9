@@ -13,7 +13,7 @@ import Threading
 
 class Handler {
 
-    let id: Int
+    let id: Message.ID
 
     var cryptographer: Cryptographer?
 
@@ -23,7 +23,7 @@ class Handler {
     /// A weak reference to the encapsulating router.
     fileprivate weak var router: Router!
 
-    init(id: Int) {
+    init(id: Message.ID) {
         self.id = id
     }
 
@@ -112,7 +112,8 @@ extension Handler {
                     data = outboundData
                 }
                 let flags = self.getMessageFlags(isError: false)
-                let msg = Message(data, flags: flags, id: UInt16(id))
+                let outId = getOutboundId() ?? id
+                let msg = Message(data, flags: flags, id: outId)
                 let outPacket = NodePacket(
                         address: packet.address,
                         message: msg,
@@ -138,7 +139,7 @@ extension Handler {
                 description = "An unknown error occurred."
             }
             let flags = self.getMessageFlags(isError: true)
-            let msg = Message(description, flags: flags, id: UInt16(id))!
+            let msg = Message(description, flags: flags, id: id)!
             let outPacket = NodePacket(
                     address: packet.address,
                     message: msg,

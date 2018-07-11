@@ -31,8 +31,8 @@ class Router {
     var cryptographer: Cryptographer?
 
     /// The conversation identifier for the handshake handler.
-    var handshakeId: Int {
-        return Int(Message.handshakeId)
+    var handshakeId: Message.ID {
+        return Message.handshakeId
     }
 
     /// The set of all active handlers in the router.
@@ -52,7 +52,7 @@ extension Router {
     func activate() {
         var handshakeHandler = HandshakeHandler(id: handshakeId)
         configureHandler(&handshakeHandler)
-        handlers[handshakeId] = (
+        handlers[Int(handshakeId)] = (
                 handshakeHandler,
                 HandlerState.idle,
                 DispatchQueue(label: LabelDispatch.getLabel())
@@ -87,7 +87,8 @@ extension Router {
                     }
                 } else {
                     // If handler doesn't exist, create it then run it.
-                    let id = Int(generateHandlerId())
+                    let id = generateHandlerId()
+                    let idx = Int(id)
                     // TODO: generate handler from message flags
                     let handler = EchoHandler(id: id)
                     handler.outboundQueue = outboundQueue
@@ -98,13 +99,13 @@ extension Router {
                             HandlerState.active,
                             DispatchQueue(label: LabelDispatch.getLabel())
                     )
-                    handlers[id] = hc
+                    handlers[idx] = hc
                     hc.dispatch.async {
                         handler.execute(packet: packet)
-                        if self.handlers[id]!.state != .awaitingDestruction {
-                            self.handlers[id]!.state = .idle
+                        if self.handlers[idx]!.state != .awaitingDestruction {
+                            self.handlers[idx]!.state = .idle
                         } else {
-                            self.handlers[id] = nil
+                            self.handlers[idx] = nil
                         }
                     }
                 }
@@ -119,8 +120,8 @@ extension Router {
 extension Router {
 
     /// Marks a handler with a given id for destruction.
-    func markHandlerForDestruction(id: Int) {
-        handlers[id]?.state = .awaitingDestruction
+    func markHandlerForDestruction(id: Message.ID) {
+        handlers[Int(id)]?.state = .awaitingDestruction
     }
 
     func generateHandlerId() -> Message.ID {
