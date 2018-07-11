@@ -35,12 +35,7 @@ class NetworkNode<Delegate> where Delegate : NodeDelegate {
     fileprivate let dispatchGroup = DispatchGroup()
 
     /// Initializes the network node.
-    ///
-    /// Returns `nil` if unable to construct the internal socket.
-    init?(socket: UDPSocket) {
-//        guard let s = try? UDPSocket() else {
-//            return nil
-//        }
+    init(socket: UDPSocket) {
         self.socket = socket
         delegate.socket = self.socket
         delegate.active = self.active

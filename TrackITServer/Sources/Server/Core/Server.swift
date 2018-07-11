@@ -10,6 +10,7 @@
 import Foundation
 import NetConnect
 
+/// Main server object.
 class Server {
 
     let inboundNode: InboundNode
@@ -26,14 +27,8 @@ class Server {
             return nil
         }
         socket = s
-        guard let inNode = InboundNode(socket: socket) else {
-            return nil
-        }
-        guard let outNode = OutboundNode(socket: socket) else {
-            return nil
-        }
-        inboundNode = inNode
-        outboundNode = outNode
+        inboundNode = InboundNode(socket: socket)
+        outboundNode = OutboundNode(socket: socket)
         router = Router()
         router.inboundQueue = inboundNode.messageQueue
         router.outboundQueue = outboundNode.messageQueue

@@ -20,7 +20,7 @@ struct NodePacket {
         return message.flags
     }
 
-    var id: Int {
+    var id: Message.ID {
         return message.id
     }
 

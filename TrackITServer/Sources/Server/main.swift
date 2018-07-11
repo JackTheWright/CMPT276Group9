@@ -13,7 +13,7 @@ import CryptoSwift
 import SwiftyJSON
 import Threading
 
-let isServer = true
+let isServer = false
 
 if isServer {
     try? Config.load(from: "./srvconf.json")
@@ -23,20 +23,15 @@ if isServer {
         print("Unable to construct server")
     }
 } else {
-    let socket = try! UDPSocket()
 
-    for i in 1...1000 {
-        let str = "\(i)"
-        let message = Message(str, flags: Message.Flags(), id: 100)!
-        if let address = Address.create(hostname: "app.trackitdiet.com", port: 60011) {
-            try! socket.write(data: message.rawData, to: address)
-            guard let replyData = try? socket.read() else {
-                print("unable to read")
-                exit(1)
-            }
-            let reply = Message(from: replyData.data)!
-            print(reply.string ?? "nil")
+    let interface = NetworkInterface()!
+    interface.setTimeout(5)
+    interface.connect(to: "app.trackitdeit.com", on: Config.port) { host in
+        for i in 1...10000 {
+            try host.send("\(i)")
+            let reply = try host.receiveString()
+            print(reply)
         }
-
     }
+
 }

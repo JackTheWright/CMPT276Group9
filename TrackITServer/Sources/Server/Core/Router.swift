@@ -67,23 +67,22 @@ extension Router {
             if inboundQueue.count > 0 {
                 let packet = inboundQueue.dequeue()
                 let id = packet.id
+                let idx = Int(id)
                 Log.verbose("Routing msg: id = \(id)", event: .server)
-                Log.verbose("Inbound queue size = \(inboundQueue.count)",
-                        event: .server)
-                if let hc = handlers[id] {
+                if let hc = handlers[idx] {
                     // If the handler already exists, run it.
-                    handlers[id]!.state = .active
+                    handlers[Int(id)]!.state = .active
                     let handler = hc.handler
                     hc.dispatch.async {
                         handler.execute(packet: packet)
-                        if self.handlers[id]!.state != .awaitingDestruction {
-                            self.handlers[id]!.state = .idle
+                        if self.handlers[idx]!.state != .awaitingDestruction {
+                            self.handlers[idx]!.state = .idle
                         } else {
                             Log.verbose(
                                     "Destroying handler: id = \(id)",
                                     event: .server
                             )
-                            self.handlers[id] = nil
+                            self.handlers[idx] = nil
                         }
                     }
                 } else {
