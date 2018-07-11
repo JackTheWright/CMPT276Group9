@@ -26,11 +26,12 @@ if isServer {
 
     let interface = NetworkInterface()!
     interface.setTimeout(5)
-    interface.connect(to: "app.trackitdeit.com", on: Config.port) { host in
+    interface.connect(to: "app.trackitdiet.com", on: 60011) { host in
         for i in 1...10000 {
-            try host.send("\(i)")
-            let reply = try host.receiveString()
-            print(reply)
+            try host.send("Hello World: \(i)")
+            let reply = try host.receiveData()
+            print("Reply: \(reply.count) bytes, as string: " +
+                    "\(String(data: reply, encoding: .utf8) ?? "nil")")
         }
     }
 

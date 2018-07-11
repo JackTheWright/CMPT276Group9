@@ -123,7 +123,7 @@ extension Router {
         handlers[id]?.state = .awaitingDestruction
     }
 
-    func generateHandlerId() -> UInt16 {
+    func generateHandlerId() -> Message.ID {
         // TODO: implement this
         return 0
     }

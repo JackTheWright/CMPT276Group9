@@ -51,6 +51,16 @@ class Handler {
         return nil
     }
 
+    /// Overridable method which can return an outbound message identifier which
+    /// will override the standard identifier which is identical to the inbound
+    /// message id.
+    ///
+    /// - returns: An override outbound message id or `nil` if the default
+    ///     should be used.
+    func getOutboundId() -> Message.ID? {
+        return nil
+    }
+
     /// Overridable method which returns the message flags to use on all
     /// outbound messages from this handler.
     func getMessageFlags(isError: Bool) -> Message.Flags {
@@ -143,6 +153,14 @@ extension Handler {
                 )
             }
         }
+    }
+
+    /// Calls the containing router's `generateHandlerId` method. To be used in
+    /// conjunction with overrides of the `getOutboundId` method.
+    ///
+    /// - returns: Returns a new handler / message id from the router.
+    final func getNewIdFromRouter() -> Message.ID {
+        return router.generateHandlerId()
     }
 
 }
