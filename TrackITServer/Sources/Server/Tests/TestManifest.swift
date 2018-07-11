@@ -61,6 +61,11 @@ func testTime() {
     print(time.lowestHour.time)
 }
 
+func testTimeLinux() {
+    let time = Time.now
+    print(time.fancy)
+}
+
 func testClient() {
     let client = NetworkInterface()!
     client.connect(to: "app.trackitdiet.com", on: Config.port) { server in

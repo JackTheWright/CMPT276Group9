@@ -47,6 +47,7 @@ struct Time {
     init() {
         let date = Date()
         let calendar = Calendar.current
+        print(calendar.timeZone)
         year = calendar.component(.year, from: date)
         month = calendar.component(.month, from: date)
         day = calendar.component(.day, from: date)

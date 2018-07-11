@@ -13,6 +13,9 @@ import CryptoSwift
 import SwiftyJSON
 import Threading
 
+testTimeLinux()
+exit(0)
+
 let isServer = false
 
 if isServer {
@@ -27,7 +30,7 @@ if isServer {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
     interface.connect(to: "app.trackitdiet.com", on: 60011) { host in
-        for i in 1...10000 {
+        for i in 1...2 {
             try host.send("Hello World: \(i)")
             let reply = try host.receiveData()
             print("Reply: \(reply.count) bytes, as string: " +
