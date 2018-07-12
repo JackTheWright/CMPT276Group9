@@ -6,6 +6,11 @@
 // Created By   : Jeremy Schwartz
 // Created On   : 2018-07-07
 //
+// Known Bugs:
+//  - On Linux, time is not corrected for the current timezone and is always
+//    displayed as GMT time. This is most likely a bug in the the Swift
+//    implementation of the standard library on Linux.
+//
 
 import Foundation
 
@@ -47,7 +52,6 @@ struct Time {
     init() {
         let date = Date()
         let calendar = Calendar.current
-        print(calendar.timeZone)
         year = calendar.component(.year, from: date)
         month = calendar.component(.month, from: date)
         day = calendar.component(.day, from: date)
