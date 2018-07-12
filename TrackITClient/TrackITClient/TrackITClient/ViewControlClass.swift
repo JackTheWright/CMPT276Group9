@@ -42,6 +42,8 @@ class viewControl: UIViewController {
         super.viewDidLoad()
         
 //  When the view loads, we setup the steppers default setting and make sure their values are exactly the same as when the app closed using the userdefaults. We make sure the stepper doesnt wrap and autorepeats and that the user can't press it more than 15 times.
+        
+        AdvancedAddVC.viewController = self
         meatStepper.wraps = false
         meatStepper.autorepeat = true
         meatStepper.maximumValue = 15
