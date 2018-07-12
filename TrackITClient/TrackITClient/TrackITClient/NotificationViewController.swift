@@ -30,26 +30,39 @@ class NotificationViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
+    
     @IBAction func setS1Notification(_ sender: Any) {
         snacktimeSetter(snack: "snack1", timePicker: snackTimePicker)
+        defaults.set(s1Time.text, forKey: "s1")
     }
     @IBAction func setS2Notification(_ sender: Any) {
         snacktimeSetter(snack: "snack2", timePicker: snackTimePicker)
+        defaults.set(s2Time.text, forKey: "s2")
     }
     @IBAction func setS3Notification(_ sender: Any) {
         snacktimeSetter(snack: "snack3", timePicker: snackTimePicker)
+        defaults.set(s3Time.text, forKey: "s3")
     }
     @IBAction func setS4Notification(_ sender: Any) {
         snacktimeSetter(snack: "snack4", timePicker: snackTimePicker)
+        defaults.set(s4Time.text, forKey: "s4")
     }
     @IBAction func setBreakfastNotification(_ sender: Any) {
         mealtimeSetter(meal: "breakfast", timePicker: mealTimePicker)
+        defaults.set(breakfastTime.text, forKey: "B")
     }
     @IBAction func setLunchNotification(_ sender: Any) {
         mealtimeSetter(meal: "lunch", timePicker: mealTimePicker)
+         defaults.set(lunchTime.text, forKey: "L")
     }
     @IBAction func setDinnerNotification(_ sender: Any) {
         mealtimeSetter(meal: "dinner", timePicker: mealTimePicker)
+         defaults.set(dinnerTime.text, forKey: "D")
+    }
+    
+    func setDefaults(label: UILabel, key: String){
+       let time = defaults.string(forKey: key)
+        label.text = time
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +70,15 @@ class NotificationViewController: UIViewController {
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: {didAllow,error in
         })
+        
+        setDefaults(label: breakfastTime, key: "B")
+        setDefaults(label: lunchTime, key: "L")
+        setDefaults(label: dinnerTime, key: "D")
+        setDefaults(label: s1Time, key: "s1")
+        setDefaults(label: s2Time, key: "s2")
+        setDefaults(label: s3Time, key: "s3")
+        setDefaults(label: s4Time, key: "s4")
+        
         
         
     }
