@@ -16,16 +16,19 @@ import UIKit
 var name = ""
 var gender = ""
 var age = ""
+var restriction = ""
 
 class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var restrictionTextField: UITextField!
     
 //    @IBOutlet weak var dropDown: UIPickerView!
     
-    let Gender = ["Male","Female"]
+    let Gender = [" ","Male","Female"]
+    let Restrict = [" ", "Sugar", "Salt"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -33,15 +36,20 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView:UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
         return Gender[row]
+        return Restrict[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Gender.count
+        return Restrict.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         gender = Gender[row]
         genderTextField.text = gender
+        restriction = Restrict[row]
+        restrictionTextField.text = restriction
+        
     }
     
     
@@ -64,7 +72,11 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         let genderPicker = UIPickerView()
         genderPicker.delegate = self
         
+        let restrictionPicker = UIPickerView()
+        restrictionPicker.delegate = self
+        
         genderTextField.inputView = genderPicker
+        restrictionTextField.inputView = restrictionPicker
         createToolbar()
         nameTextField?.delegate = self
         ageTextField?.delegate = self
@@ -90,6 +102,7 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         genderTextField.inputAccessoryView = toolBar
+        restrictionTextField.inputAccessoryView = toolBar
     }
     
     @objc func dismissKeyboard(){
