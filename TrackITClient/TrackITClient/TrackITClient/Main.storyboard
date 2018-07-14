@@ -227,7 +227,7 @@ Fats and Oils</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Please indicate any dietary restrictions"/>
                                 <connections>
-                                    <segue destination="He0-GE-3Zn" kind="show" id="kDG-Yo-kzk"/>
+                                    <segue destination="yRh-14-QOO" kind="show" id="laj-Sz-NZh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3K-aO-Fsc">
@@ -252,41 +252,12 @@ Fats and Oils</string>
             <point key="canvasLocation" x="1631.8840579710147" y="79.891304347826093"/>
         </scene>
         <!--DietaryRestriction-->
-        <scene sceneID="oiK-bC-qku">
+        <scene sceneID="zse-aQ-J5w">
             <objects>
-                <viewControllerPlaceholder storyboardName="DietaryRestriction" id="He0-GE-3Zn" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dAG-vm-XQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DietaryRestriction" id="yRh-14-QOO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lA2-03-Ra7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2301" y="-9"/>
-        </scene>
-        <!--Root View Controller-->
-        <scene sceneID="fkP-Kd-efn">
-            <objects>
-                <tableViewController id="lTK-SH-3Tp" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AVJ-K4-1zX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="44J-Fj-Tug">
-                                <rect key="frame" x="0.0" y="28" width="414" height="85"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="44J-Fj-Tug" id="gvY-8z-Jmk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="84.666666666666671"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="lTK-SH-3Tp" id="soz-Ce-kZC"/>
-                            <outlet property="delegate" destination="lTK-SH-3Tp" id="Su1-Bh-yNl"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="sFP-vZ-tFg"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FIt-lF-CZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3292.753623188406" y="109.23913043478262"/>
+            <point key="canvasLocation" x="2221" y="25"/>
         </scene>
         <!--OverviewPage-->
         <scene sceneID="Vfg-Ih-ch6">

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rx9-MG-IO4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller3-->
+        <!--View Controller-->
         <scene sceneID="ORA-iz-8eg">
             <objects>
-                <viewController id="cBc-Le-JWm" customClass="ViewController3" customModule="TrackITClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cBc-Le-JWm" customClass="ViewController" customModule="TableViewWithMultipleSelection" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jEn-vP-WbF"/>
                         <viewControllerLayoutGuide type="bottom" id="8hP-7n-vjW"/>
@@ -43,8 +43,6 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="cBc-Le-JWm" eventType="touchUpInside" id="Zq2-i2-Eak"/>
-                                    <action selector="next:" destination="aSp-Tr-ItN" eventType="touchUpInside" id="sdk-Lv-jD3"/>
-                                    <segue destination="BSv-S7-a6f" kind="show" id="kY4-rw-klY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -66,17 +64,26 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZ5-dE-KZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="aSp-Tr-ItN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="150"/>
+            <point key="canvasLocation" x="1951.2" y="125.4872563718141"/>
         </scene>
-        <!--OverviewPage-->
-        <scene sceneID="tfR-w8-vq4">
+        <!--Navigation Controller-->
+        <scene sceneID="1Mn-ry-EDG">
             <objects>
-                <viewControllerPlaceholder storyboardName="OverviewPage" id="BSv-S7-a6f" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FvY-yL-Vvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rx9-MG-IO4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4ao-Ly-gAC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cBc-Le-JWm" kind="relationship" relationship="rootViewController" id="lrj-oE-gMF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wtj-gg-OTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="295"/>
+            <point key="canvasLocation" x="1012" y="125.4872563718141"/>
         </scene>
     </scenes>
 </document>
