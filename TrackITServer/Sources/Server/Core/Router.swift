@@ -96,7 +96,9 @@ extension Router {
                     let id = generateHandlerId()
                     let idx = Int(id)
                     // TODO: generate handler from message flags
-                    let handler = generateHandler(flags: packet.flags, id: id)
+                    print(packet.flags.rawValue)
+                    print(id)
+                    let handler = generateHandler(flags: packet.flags, id: id)!
                     handler.outboundQueue = outboundQueue
 
                     Log.verbose("Created handler: id = \(id)", event: .server)
