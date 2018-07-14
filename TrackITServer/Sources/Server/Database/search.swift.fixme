@@ -1,4 +1,5 @@
-import UIKit
+import Foundation
+import PerfectSQLite
 
 class SQLiteCOnnect: NSOBject {
     var db: OpaquePointer? = nil
