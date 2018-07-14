@@ -14,7 +14,7 @@ import SwiftyJSON
 import Threading
 import PerfectSQLite
 
-let isServer = false
+let isServer = true
 
 if isServer {
     try? Config.load(from: "./srvconf.json")

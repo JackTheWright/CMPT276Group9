@@ -86,14 +86,22 @@ extension Config {
     ///
     /// No failover.
     static var cnfPath: String {
-        return json.dictionary!["cnf path"]!.string!
+        if let path = json.dictionary?["cnf path"]?.string {
+            return path
+        } else {
+            return "./cnf.db"
+        }
     }
 
     /// Path to the user data database.
     ///
     /// No failover.
     static var userDBPath: String {
-        return json.dictionary!["udb path"]!.string!
+        if let path = json.dictionary?["udb path"]?.string {
+            return path
+        } else {
+            return "./userInfo.db"
+        }
     }
     
 }
