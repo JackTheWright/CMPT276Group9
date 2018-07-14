@@ -10,6 +10,7 @@
 import Foundation
 import NetConnect
 import PerfectSQLite
+import SwiftyJSON
 
 class DBHandler : Handler {
 
@@ -26,9 +27,7 @@ class DBHandler : Handler {
             return nil
         }
 
-        // Database code goes here
-
-        return nil
+        return try! JSON(arrayLiteral: "a", "b", "c", "d").rawData()
     }
 
 }
