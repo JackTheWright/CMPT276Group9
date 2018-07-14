@@ -19,24 +19,6 @@ class viewControl: UIViewController {
     let package = ServingPackage()
     let time = DateAttributes()
     
-    override func viewWillAppear(_ animated: Bool) {
-        let quickAddRefresh = UserDefaults.standard.bool(forKey: "checkToSeeIfLastAccessWasYesterday")
-        if quickAddRefresh == false {
-            //let yesterday = time.getYesterdaysDate()
-            meatCount.text = "0"
-            vegetableCount.text = "0"
-            fruitCount.text = "0"
-            dairyCount.text = "0"
-            grainsCount.text = "0"
-            meatStepper.value = 0
-            vegetableStepper.value = 0
-            fruitStepper.value = 0
-            dairyStepper.value = 0
-            grainsStepper.value = 0
-            
-            UserDefaults.standard.set(true, forKey: "checkToSeeIfLastAccessWasYesterday")
-        }
-    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,19 +67,29 @@ class viewControl: UIViewController {
             
             UserDefaults.standard.set(0, forKey: "meatStepped")
             UserDefaults.standard.set("0", forKey: "meatTotal")
+            meatCount.text = UserDefaults.standard.string(forKey: "meatTotal")
+            meatStepper.value = UserDefaults.standard.double(forKey: "meatStepped")
             
             UserDefaults.standard.set(0, forKey: "vegetableStepped")
             UserDefaults.standard.set("0", forKey: "vegetableTotal")
+            vegetableCount.text = UserDefaults.standard.string(forKey: "vegetableTotal")
+            vegetableStepper.value = UserDefaults.standard.double(forKey: "vegetableStepped")
             
             UserDefaults.standard.set(0, forKey: "fruitStepped")
             UserDefaults.standard.set("0", forKey: "fruitTotal")
+            fruitCount.text = UserDefaults.standard.string(forKey: "fruitTotal")
+            fruitStepper.value = UserDefaults.standard.double(forKey: "fruitStepped")
             
             UserDefaults.standard.set(0, forKey: "dairyStepped")
             UserDefaults.standard.set("0", forKey: "dairyTotal")
+            dairyCount.text = UserDefaults.standard.string(forKey: "dairyTotal")
+            dairyStepper.value = UserDefaults.standard.double(forKey: "dairyStepped")
             
             UserDefaults.standard.set(0, forKey: "grainsStepped")
             UserDefaults.standard.set("0", forKey: "grainsTotal")
-          
+            grainsCount.text = UserDefaults.standard.string(forKey: "grainsTotal")
+            grainsStepper.value = UserDefaults.standard.double(forKey: "grainsStepped")
+            
         }
     }
     
