@@ -20,6 +20,33 @@
         }
       },
       {
+        "package": "PerfectCRUD",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-CRUD.git",
+        "state": {
+          "branch": null,
+          "revision": "e79873e28ee9acf96fdf71b6784130a97a4b3f74",
+          "version": "1.0.4"
+        }
+      },
+      {
+        "package": "PerfectSQLite",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-SQLite.git",
+        "state": {
+          "branch": null,
+          "revision": "36d57fa64a1f46aa2e4545a30d79dc5a5c2ef6ed",
+          "version": "3.1.1"
+        }
+      },
+      {
+        "package": "PerfectCSQLite3",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect-sqlite3-support.git",
+        "state": {
+          "branch": null,
+          "revision": "fb806c0fd0fcbf27ababa9c03a00e32c2c46464c",
+          "version": "3.0.0"
+        }
+      },
+      {
         "package": "Threading",
         "repositoryURL": "https://github.com/Miraion/Threading.git",
         "state": {

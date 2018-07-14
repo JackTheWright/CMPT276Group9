@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Server::NetConnect"
-               BuildableName = "NetConnect.framework"
-               BlueprintName = "NetConnect"
+               BlueprintIdentifier = "PerfectCRUD::PerfectCRUD"
+               BuildableName = "PerfectCRUD.framework"
+               BlueprintName = "PerfectCRUD"
+               ReferencedContainer = "container:Server.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Threading::Threading"
+               BuildableName = "Threading.framework"
+               BlueprintName = "Threading"
                ReferencedContainer = "container:Server.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +56,37 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Threading::Threading"
-               BuildableName = "Threading.framework"
-               BlueprintName = "Threading"
+               BlueprintIdentifier = "Server::SwiftyJSON"
+               BuildableName = "SwiftyJSON.framework"
+               BlueprintName = "SwiftyJSON"
+               ReferencedContainer = "container:Server.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PerfectSQLite::PerfectSQLite"
+               BuildableName = "PerfectSQLite.framework"
+               BlueprintName = "PerfectSQLite"
+               ReferencedContainer = "container:Server.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Server::NetConnect"
+               BuildableName = "NetConnect.framework"
+               BlueprintName = "NetConnect"
                ReferencedContainer = "container:Server.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -73,20 +115,6 @@
                BlueprintIdentifier = "CryptoSwift::CryptoSwift"
                BuildableName = "CryptoSwift.framework"
                BlueprintName = "CryptoSwift"
-               ReferencedContainer = "container:Server.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Server::SwiftyJSON"
-               BuildableName = "SwiftyJSON.framework"
-               BlueprintName = "SwiftyJSON"
                ReferencedContainer = "container:Server.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -125,9 +153,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Server::NetConnect"
-            BuildableName = "NetConnect.framework"
-            BlueprintName = "NetConnect"
+            BlueprintIdentifier = "PerfectCRUD::PerfectCRUD"
+            BuildableName = "PerfectCRUD.framework"
+            BlueprintName = "PerfectCRUD"
             ReferencedContainer = "container:Server.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
