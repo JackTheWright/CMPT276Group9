@@ -13,6 +13,13 @@ import PerfectSQLite
 
 class DBHandler : Handler {
 
+    /// Path to Canadian Nutrient File data base.
+    let cnfPath = Config.cnfPath
+
+    /// Path to user information database.
+    let userDBPath = Config.userDBPath
+
+    /// Entry point for database handler.
     override func main(packet: NodePacket) throws -> Data? {
         let flags = packet.message.flags
         guard let sqlStatement = packet.message.string else {
