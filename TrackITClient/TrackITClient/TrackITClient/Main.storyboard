@@ -100,7 +100,7 @@ Fats and Oils</string>
                                 <rect key="frame" x="20" y="77" width="374" height="582"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">    Vegetables: 4-5 servings
+                                <string key="text">    Vegetables: 4-5 servings
     250 mL (1 cup) raw leafy  vegetables
     125 mL (½ cup)  cooked vegetables
     170 ml (6 oz) juice 
@@ -128,7 +128,7 @@ Fats and Oils</string>
     15mL (1 tbsp) low-fat mayonnaise
     30 mL (2 tbsp)  light salad dressing
     5 ml (1 tsp) vegetable oil
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -191,6 +191,7 @@ Fats and Oils</string>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
+                                    <action selector="ageAction:" destination="F6g-dV-Fkc" eventType="editingDidEnd" id="ka3-S3-B1Q"/>
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="dVC-VZ-cgZ"/>
                                 </connections>
                             </textField>
@@ -200,6 +201,7 @@ Fats and Oils</string>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="nameAction:" destination="F6g-dV-Fkc" eventType="editingDidEnd" id="NRO-E3-tcy"/>
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="TTd-Ae-lCD"/>
                                 </connections>
                             </textField>
@@ -210,14 +212,6 @@ Fats and Oils</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3K-aO-Fsc">
-                                <rect key="frame" x="159" y="422" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start Tracking"/>
-                                <connections>
-                                    <segue destination="z8m-L4-ere" kind="show" id="uC2-VT-BuT"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-0l-gCU">
                                 <rect key="frame" x="120" y="211" width="183" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -228,6 +222,22 @@ Fats and Oils</string>
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="h2D-61-hbi"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czf-fR-tkX">
+                                <rect key="frame" x="75" y="403" width="264" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Please indicate any dietary restrictions"/>
+                                <connections>
+                                    <segue destination="He0-GE-3Zn" kind="show" id="kDG-Yo-kzk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3K-aO-Fsc">
+                                <rect key="frame" x="159" y="558" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Tracking"/>
+                                <connections>
+                                    <segue destination="z8m-L4-ere" kind="show" id="uC2-VT-BuT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0df-RT-J5I"/>
@@ -240,6 +250,43 @@ Fats and Oils</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUj-Q1-1lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1631.8840579710147" y="79.891304347826093"/>
+        </scene>
+        <!--DietaryRestriction-->
+        <scene sceneID="oiK-bC-qku">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DietaryRestriction" id="He0-GE-3Zn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dAG-vm-XQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301" y="-9"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="fkP-Kd-efn">
+            <objects>
+                <tableViewController id="lTK-SH-3Tp" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AVJ-K4-1zX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="44J-Fj-Tug">
+                                <rect key="frame" x="0.0" y="28" width="414" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="44J-Fj-Tug" id="gvY-8z-Jmk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="84.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lTK-SH-3Tp" id="soz-Ce-kZC"/>
+                            <outlet property="delegate" destination="lTK-SH-3Tp" id="Su1-Bh-yNl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="sFP-vZ-tFg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FIt-lF-CZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3292.753623188406" y="109.23913043478262"/>
         </scene>
         <!--OverviewPage-->
         <scene sceneID="Vfg-Ih-ch6">

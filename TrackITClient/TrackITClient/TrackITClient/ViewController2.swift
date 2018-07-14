@@ -15,7 +15,7 @@ import UIKit
 
 var name = ""
 var gender = ""
-var age:Int = 99
+var age = ""
 
 class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
@@ -47,7 +47,19 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in }))
         self.present(alert, animated:true, completion:nil)
     }
-
+    
+    
+    @IBAction func nameAction(_ sender: AnyObject) {
+        if (nameTextField.text != ""){
+            nameTextField.text = name
+        }
+    }
+    @IBAction func ageAction(_ sender: AnyObject) {
+        if (ageTextField.text != ""){
+            ageTextField.text = age
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,9 +74,7 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if (age < 16) {
-        createAlert(title: "Reminder", message: "Your age does not meet the requirement")
-        }
+        createAlert(title: "Reminder", message: "Recommanded age is 16 and above")
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +96,6 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         genderTextField.inputAccessoryView = toolBar
-        ageTextField?.inputAccessoryView = toolBar
     }
     
     @objc func dismissKeyboard(){
