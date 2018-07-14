@@ -15,72 +15,56 @@ import UIKit
 
 var name = ""
 var gender = ""
-var age = ""
-var restriction = ""
+var age:Int = 99
 
 class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var restrictionTextField: UITextField!
-    
-//    @IBOutlet weak var dropDown: UIPickerView!
     
     let Gender = [" ","Male","Female"]
-    let Restrict = [" ", "Sugar", "Salt"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView:UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-        return Gender[row]
-        return Restrict[row]
+            return Gender[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Gender.count
-        return Restrict.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         gender = Gender[row]
         genderTextField.text = gender
-        restriction = Restrict[row]
-        restrictionTextField.text = restriction
-        
     }
     
-    
-/*    @IBAction func nameAction(_ sender: AnyObject) {
-        if (nameTextField.text != "")
-        {
-            name = nameTextField.text!
-        }
+    func createAlert (title : String, message:String){
+        let alert = UIAlertController (title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in }))
+        self.present(alert, animated:true, completion:nil)
     }
-    
-    @IBAction func ageAction(_ sender: AnyObject) {
-        if (ageTextField.text != "")
-        {
-            age = ageTextField.text!
-        }
-    }
-  */
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let genderPicker = UIPickerView()
         genderPicker.delegate = self
-        
-        let restrictionPicker = UIPickerView()
-        restrictionPicker.delegate = self
-        
         genderTextField.inputView = genderPicker
-        restrictionTextField.inputView = restrictionPicker
+        
         createToolbar()
         nameTextField?.delegate = self
         ageTextField?.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (age < 16) {
+        createAlert(title: "Reminder", message: "Your age does not meet the requirement")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,7 +86,7 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         genderTextField.inputAccessoryView = toolBar
-        restrictionTextField.inputAccessoryView = toolBar
+        ageTextField?.inputAccessoryView = toolBar
     }
     
     @objc func dismissKeyboard(){
