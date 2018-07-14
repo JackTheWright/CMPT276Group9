@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import NetConnect
 
 var foodGroup = Int()
 
 class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     static weak var viewController: viewControl!
-    
+    let netinterface = NetworkInterface()!
     @IBOutlet weak var advancedTextField: UITextField!
     @IBOutlet weak var advancedSuggestions: UITableView!
     @IBOutlet weak var anyStepper: UIStepper!
@@ -29,6 +30,11 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     @IBAction func submitIt(_ sender: UIButton) {
         let transferFrom = Int(anyCount.text!)
         var transferTo = Int()
+        netinterface.connect(to: "app.trackitdiet.com", on: 60011) { host in
+            try host.send("yeet")
+            let reply = try host.receiveString()
+            print(reply)
+        }
         if foodGroup == 1 {
             transferTo = Int(UserDefaults.standard.string(forKey: "meatTotal")!)!
             let meat = transferFrom! + UserDefaults.standard.integer(forKey: "meatStepped")
@@ -40,7 +46,6 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             UserDefaults.standard.set(transferTo, forKey: "meatTotal")
             AdvancedAddVC.viewController.meatCount.text = UserDefaults.standard.string(forKey: "meatTotal")
             AdvancedAddVC.viewController.meatStepper.value = UserDefaults.standard.double(forKey: "meatStepped")
-            
 
         }
         else if foodGroup == 2 {

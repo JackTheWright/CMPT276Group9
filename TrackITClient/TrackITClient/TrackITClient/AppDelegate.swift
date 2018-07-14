@@ -20,8 +20,6 @@ import UIKit
 struct GlobalStates {
     
     static var currentDayDictionary = [String: [String]]()
-    static var foreGroundDate = String()
-    static var backGroundDate = String()
     static var meaties = "0"
     static var veggies = "0"
     static var fruities = "0"
@@ -47,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window =  UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
+        
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         

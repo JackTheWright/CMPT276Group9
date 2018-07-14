@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		101A139820E7E51300D4BE59 /* OverviewPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 101A139720E7E51300D4BE59 /* OverviewPage.storyboard */; };
 		101A139A20E7E8B300D4BE59 /* OverViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A139920E7E8B300D4BE59 /* OverViewControl.swift */; };
+		102B781B20FAA480006FFF01 /* NetConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 102B781A20FAA480006FFF01 /* NetConnect.framework */; };
+		102B781C20FAA480006FFF01 /* NetConnect.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 102B781A20FAA480006FFF01 /* NetConnect.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10B80B2820E480EB007027F1 /* PageViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2420E480EA007027F1 /* PageViewControl.swift */; };
 		10B80B2920E480EB007027F1 /* ViewControlClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2520E480EA007027F1 /* ViewControlClass.swift */; };
 		10B80B2A20E480EB007027F1 /* TimeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2620E480EA007027F1 /* TimeClass.swift */; };
@@ -49,6 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				102B781C20FAA480006FFF01 /* NetConnect.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +61,7 @@
 /* Begin PBXFileReference section */
 		101A139720E7E51300D4BE59 /* OverviewPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OverviewPage.storyboard; sourceTree = "<group>"; };
 		101A139920E7E8B300D4BE59 /* OverViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewControl.swift; sourceTree = "<group>"; };
+		102B781A20FAA480006FFF01 /* NetConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B80B2420E480EA007027F1 /* PageViewControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControl.swift; sourceTree = "<group>"; };
 		10B80B2520E480EA007027F1 /* ViewControlClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControlClass.swift; sourceTree = "<group>"; };
 		10B80B2620E480EA007027F1 /* TimeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeClass.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				102B781B20FAA480006FFF01 /* NetConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,7 @@
 		3F11EFF220C4771A007AB096 = {
 			isa = PBXGroup;
 			children = (
+				102B781A20FAA480006FFF01 /* NetConnect.framework */,
 				8B751E4820DF0329003EC7D4 /* split.png */,
 				3F11EFFD20C4771A007AB096 /* TrackITClient */,
 				3F11F01220C4771C007AB096 /* TrackITClientTests */,
@@ -459,7 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WTUWJ9Q64Z;
 				INFOPLIST_FILE = TrackITClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,7 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WTUWJ9Q64Z;
 				INFOPLIST_FILE = TrackITClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
