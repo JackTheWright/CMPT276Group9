@@ -96,22 +96,25 @@ extension Router {
                     let id = generateHandlerId()
                     let idx = Int(id)
                     // TODO: generate handler from message flags
-                    let handler = EchoHandler(id: id)
-                    handler.outboundQueue = outboundQueue
+                    print(packet.flags.rawValue)
+                    print(id)
+                    if let handler = generateHandler(flags: packet.flags, id: id) {
+                        handler.outboundQueue = outboundQueue
 
-                    Log.verbose("Created handler: id = \(id)", event: .server)
-                    let hc: HandlerComplex = (
-                            handler as Handler,
-                            HandlerState.active,
-                            DispatchQueue(label: LabelDispatch.getLabel())
-                    )
-                    handlers[idx] = hc
-                    hc.dispatch.async {
-                        handler.execute(packet: packet)
-                        if self.handlers[idx]!.state != .awaitingDestruction {
-                            self.handlers[idx]!.state = .idle
-                        } else {
-                            self.handlers[idx] = nil
+                        Log.verbose("Created handler: id = \(id)", event: .server)
+                        let hc: HandlerComplex = (
+                                handler as Handler,
+                                HandlerState.active,
+                                DispatchQueue(label: LabelDispatch.getLabel())
+                        )
+                        handlers[idx] = hc
+                        hc.dispatch.async {
+                            handler.execute(packet: packet)
+                            if self.handlers[idx]!.state != .awaitingDestruction {
+                                self.handlers[idx]!.state = .idle
+                            } else {
+                                self.handlers[idx] = nil
+                            }
                         }
                     }
                 }
@@ -144,6 +147,7 @@ extension Router {
     /// Generates and returns a handler based on the flags of a message.
     func generateHandler(flags: Message.Flags, id: Message.ID) -> Handler? {
         if flags.get(MessageFlags.DBQuery) || flags.get(MessageFlags.DBAction) {
+            print("gen db handler")
             return DBHandler(id: id)
         }
 
