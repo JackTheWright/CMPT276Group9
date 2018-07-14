@@ -12,7 +12,7 @@ import NetConnect
 import CryptoSwift
 import SwiftyJSON
 import Threading
-
+import PerfectSQLite
 
 let isServer = false
 

@@ -40,6 +40,11 @@ class Router {
 
     var active = Atomic<Bool>(false)
 
+    /// A map of handler ids to their active state. `true` is active, `false` is
+    /// inactive.
+    fileprivate var handleIds = [Bool](repeating: false, count: 1000)
+
+
 }
 
 // MARK: Init Methods
@@ -83,6 +88,7 @@ extension Router {
                                     event: .server
                             )
                             self.handlers[idx] = nil
+                            self.handleIds[idx] = false
                         }
                     }
                 } else {
@@ -124,9 +130,30 @@ extension Router {
         handlers[Int(id)]?.state = .awaitingDestruction
     }
 
-    func generateHandlerId() -> Message.ID {
-        // TODO: implement this
+    /// Returns the next available handler id and sets that id to be active.
+    func generateHandlerId() -> UInt16 {
+        for i in 0..<handleIds.count {
+            if !handleIds[i] {
+                handleIds[i] = true
+                return UInt16(i)
+            }
+        }
         return 0
+    }
+
+    /// Generates and returns a handler based on the flags of a message.
+    func generateHandler(flags: Message.Flags, id: Message.ID) -> Handler? {
+        if flags.get(MessageFlags.DBQuery) || flags.get(MessageFlags.DBAction) {
+            return DBHandler(id: id)
+        }
+
+        else if flags.get(MessageFlags.Echo) {
+            return EchoHandler(id: id)
+        }
+
+        else {
+            return nil
+        }
     }
 
 }
