@@ -28,8 +28,10 @@ class DBHandler : Handler {
         }
 
         if let json = try? JSON(arrayLiteral: "a", "b", "c", "d").rawData() {
+            print("json ok")
             return json
         } else {
+            print("unable to convert to json")
             return Data()
         }
     }
