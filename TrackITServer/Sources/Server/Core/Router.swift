@@ -99,7 +99,9 @@ extension Router {
                     print(packet.flags.rawValue)
                     print(id)
                     if let handler = generateHandler(flags: packet.flags, id: id) {
+                        print("ok")
                         handler.outboundQueue = outboundQueue
+                        print("ok")
 
                         Log.verbose("Created handler: id = \(id)", event: .server)
                         let hc: HandlerComplex = (
@@ -107,6 +109,7 @@ extension Router {
                                 HandlerState.active,
                                 DispatchQueue(label: LabelDispatch.getLabel())
                         )
+                        print("ok")
                         handlers[idx] = hc
                         hc.dispatch.async {
                             handler.execute(packet: packet)
