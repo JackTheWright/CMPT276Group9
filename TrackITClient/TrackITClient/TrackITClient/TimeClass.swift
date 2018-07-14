@@ -67,12 +67,10 @@ class DateAttributes {
     func isSameDates(date1:String, date2:String) -> Bool {
         var boolDate = Bool()
         boolDate = false
-        let words1 = date1.split(separator: "-")
-        let words2 = date2.split(separator: "-")
-        let month1 = words1[2]
-        let day1 = words1[3]
-        let month2 = words2[2]
-        let day2 = words2[3]
+        let month1 = date1[5..<7]
+        let day1 = date1[8..<date1.count]
+        let month2 = date2[5..<7]
+        let day2 = date2[8..<date2.count]
         if (day1 == day2) && (month1 == month2) {
             boolDate = true
         }
@@ -81,3 +79,12 @@ class DateAttributes {
     
 }
 
+//  This string extension allows us to get the month and day out of the string of the form year-month-day using indexing.
+
+extension String {
+    subscript(_ range: CountableRange<Int>) -> String {
+        let idx1 = index(startIndex, offsetBy: max(0, range.lowerBound))
+        let idx2 = index(startIndex, offsetBy: min(self.count, range.upperBound))
+        return String(self[idx1..<idx2])
+    }
+}

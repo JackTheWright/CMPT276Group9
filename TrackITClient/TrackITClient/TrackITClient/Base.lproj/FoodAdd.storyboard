@@ -307,15 +307,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eY9-nx-yST">
-                                <rect key="frame" x="16" y="166" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="maT-oZ-yWw" id="m57-pQ-JvF"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type the food you've eaten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcE-e7-63a">
                                 <rect key="frame" x="16" y="113" width="259" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -371,8 +362,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="maT-oZ-yWw" id="0b9-04-Omo"/>
-                                    <outlet property="delegate" destination="maT-oZ-yWw" id="APZ-us-Hma"/>
+                                    <outlet property="delegate" destination="maT-oZ-yWw" id="m57-pQ-JvF"/>
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ln6-3C-YfS">
@@ -409,17 +399,12 @@
                         <viewLayoutGuide key="safeArea" id="0WD-FV-4YR"/>
                     </view>
                     <connections>
-                        <outlet property="advancedSuggestions" destination="6IE-gm-LFr" id="QP7-Z6-iRj"/>
                         <outlet property="advancedTextField" destination="eY9-nx-yST" id="w0n-P3-1Pg"/>
-                        <outlet property="anyCount" destination="aGe-Vz-fx6" id="I5I-V7-jmz"/>
-                        <outlet property="anyLabel" destination="8j9-TC-siD" id="xWD-Uz-fs7"/>
-                        <outlet property="anyStepper" destination="cLt-Wn-rI3" id="Jgb-rl-TOe"/>
-                        <outlet property="submit" destination="xgs-Be-ge6" id="SMh-RK-vqj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2F-zr-pEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1429.5999999999999" y="67.916041979010501"/>
+            <point key="canvasLocation" x="1430" y="68"/>
         </scene>
         <!--InformationFromFoodMenu-->
         <scene sceneID="Y9B-sX-lNM">
