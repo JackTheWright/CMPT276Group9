@@ -28,9 +28,9 @@ if isServer {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
     interface.connect(to: "app.trackitdiet.com", on: 60011) { host in
-        for i in 1...2 {
+        for i in 1...10000 {
             do {
-                try host.send("Hello World: \(i)")
+                try host.send("\(IFAddress.localIP() ?? "no ip"): \(i)")
                 let reply = try host.receiveData()
                 print("Reply: \(reply.count) bytes, as string: " +
                         "\(String(data: reply, encoding: .utf8) ?? "nil")")
