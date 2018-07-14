@@ -81,6 +81,50 @@ public extension NetworkHost {
         let data = try json.rawData()
         try send(data)
     }
+
+    /// Sends data to the host with given message flags.
+    ///
+    /// - parameters:
+    ///     - data: The data to send.
+    ///
+    ///     - flags: The flags for the message.
+    ///
+    /// - throws: Throws an error if unable to send.
+    func send(_ data: Data, flags: Message.Flags) throws {
+        let message = Message(data, flags: flags, id: convoId)
+        try socket!.write(data: message.rawData, to: address)
+    }
+
+    /// Sends a string to the host with given message flags.
+    ///
+    /// - parameters:
+    ///     - string: The string to send to the host.
+    ///
+    ///     - flags: The flags for the message.
+    ///
+    /// - throws: Throws `NetworkError.UnableToConvertStringToData` if unable to
+    ///     convert the string. Errors thrown from `send(Data)` are also passed
+    ///     through this method.
+    func send(_ string: String, flags: Message.Flags) throws {
+        guard let data = string.data(using: .utf8) else {
+            throw NetworkError.UnableToConvertStringToData
+        }
+        try send(data, flags: flags)
+    }
+
+    /// Sends a JSON object to the host.
+    ///
+    /// - parameters:
+    ///     - json: The JSON object to send to the host.
+    ///
+    ///     - flags: The flags for the message.
+    ///
+    /// - throws: Throws an error if unable to convert JSON to data, or if
+    ///     unable to send the data.
+    func send(_ json: JSON, flags: Message.Flags) throws {
+        let data = try json.rawData()
+        try send(data, flags: flags)
+    }
     
 }
 
@@ -88,11 +132,11 @@ public extension NetworkHost {
 
 public extension NetworkHost {
     
-    /// Reveives data from the host.
+    /// Receives data from the host.
     ///
-    /// - returns: Returns the data reveived from the host.
+    /// - returns: Returns the data received from the host.
     ///
-    /// - throws: Throws an error if unable to reveive data.
+    /// - throws: Throws an error if unable to receive data.
     func receiveData() throws -> Data {
         guard let message = Message(from: try socket!.read().data) else {
             throw NetworkError.MalformedMessage
@@ -100,11 +144,11 @@ public extension NetworkHost {
         return message.body
     }
     
-    /// Reveives data from the host as a string.
+    /// Receives data from the host as a string.
     ///
-    /// - returns: Returns the data reveived from the host.
+    /// - returns: Returns the data received from the host.
     ///
-    /// - throws: Throws an error if unable to reveive data.
+    /// - throws: Throws an error if unable to receive data.
     func receiveString() throws -> String {
         let data = try receiveData()
         guard let string = String(data: data, encoding: .utf8) else {
@@ -113,11 +157,11 @@ public extension NetworkHost {
         return string
     }
     
-    /// Reveives data from the host as a JSON object.
+    /// Receives data from the host as a JSON object.
     ///
-    /// - returns: Returns the data reveived from the host.
+    /// - returns: Returns the data received from the host.
     ///
-    /// - throws: Throws an error if unable to reveive data.
+    /// - throws: Throws an error if unable to receive data.
     func receiveJSON() throws -> JSON {
         let data = try receiveData()
         let json = try JSON(data: data)

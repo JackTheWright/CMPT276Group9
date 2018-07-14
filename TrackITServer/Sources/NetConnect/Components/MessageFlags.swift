@@ -20,8 +20,8 @@ public enum MessageFlags : UInt16, FlagSet {
     case Null           = 0b0000_0000_0000_0000
     
     /// Flag denoting a 'handshake' message. Is used when initiating a new
-    /// conversation with a server. Upon reciving a handshake message the
-    /// server will set up a new conversation and reply with message flaged
+    /// conversation with a server. Upon receiving a handshake message the
+    /// server will set up a new conversation and reply with message flagged
     /// with `HSConfirm` and the body of said reply will contain the 16-bit
     /// thread identifier.
     case Handshake      = 0b0000_0000_0000_0101
@@ -43,9 +43,9 @@ public enum MessageFlags : UInt16, FlagSet {
     /// a confirmation message.
     case ExpectingReply = 0b0000_0000_0000_0100
     
-    /// Flag which tells the reciver to resend the previous message. A message
+    /// Flag which tells the receiver to resend the previous message. A message
     /// with this flag set will be automatically sent back if a corrupted
-    /// datagram is recived.
+    /// datagram is received.
     case ResendRequest  = 0b0000_0000_0000_1100
     
     /// Flag denoted whether or not the message body is encrypted. If active,
@@ -62,11 +62,26 @@ public enum MessageFlags : UInt16, FlagSet {
     /// that the conversation was ended successfully.
     case EndOfConvo     = 0b0100_0000_0000_0000
     
-    /// Flag denoting that an error has occured somewhere in the server. If the
+    /// Flag denoting that an error has occurred somewhere in the server. If the
     /// client receives a message with this flag, it can assume that the
     /// conversation has been closed due to an exception being thrown. To
     /// re-establish connection with the server, the client must send a new
     /// handshake request.
     case Error          = 0b1000_0000_0000_0000
+
+    /// Flag denoting a database query message. (e.g. SELECT)
+    case DBQuery    = 0b0000_0001_0000_0000
+
+    /// Flag denoting a database action message. (e.g. INSERT, DELETE, etc.)
+    case DBAction   = 0b0000_0010_0000_0000
+
+    /// Flag requesting access to the CNF database.
+    case CnfDB      = 0b0000_0000_1000_0000
+
+    /// Flag requesting access to the user database.
+    case UserDB     = 0b0000_0000_0100_0000
+
+    /// Flag requesting echo handler.
+    case Echo       = 0b0000_0000_0010_0000
     
 }

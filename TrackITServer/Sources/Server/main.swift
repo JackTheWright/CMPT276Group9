@@ -14,7 +14,6 @@ import SwiftyJSON
 import Threading
 import PerfectSQLite
 
-
 let isServer = false
 
 if isServer {
