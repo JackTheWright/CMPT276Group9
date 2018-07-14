@@ -10,7 +10,7 @@ let package = Package(
         .executable(name: "Server", targets: ["Server"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Miraion/Threading.git", from: "1.0.0"),
+        .package(url: "https://github.com/Miraion/Threading.git", from: "1.0.1"),
         .package(url: "https://github.com/IBM-Swift/BlueSocket.git", from: "1.0.0"),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift", from: "0.0.0")
     ],

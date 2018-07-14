@@ -45,6 +45,20 @@ open class NetworkInterface {
             return nil
         }
     }
+
+    /// Sets the connection timeout for the interface.
+    ///
+    /// - parameters:
+    ///     - seconds: The number of seconds to set the timeout to.
+    public func setTimeout(_ seconds: UInt?) {
+        if let s = seconds {
+            socket.setReadTimeout(s)
+            socket.setWriteTimeout(s)
+        } else {
+            socket.removeReadTimeout()
+            socket.removeWriteTimeout()
+        }
+    }
     
     /// Initiates a connection to a remote host.
     ///

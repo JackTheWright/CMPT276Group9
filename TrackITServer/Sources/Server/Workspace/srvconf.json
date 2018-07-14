@@ -1,0 +1,7 @@
+{
+  "port": 60011,
+  "verbose": true,
+  "cnf path": "./cnf.db",
+  "udb path": "./udb.db",
+  "outfile": "./srv.log"
+}

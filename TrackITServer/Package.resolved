@@ -20,21 +20,12 @@
         }
       },
       {
-        "package": "SwiftyJSON",
-        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
-        "state": {
-          "branch": null,
-          "revision": "ebfc0d7e314f15c1df02fcb198beb40624421839",
-          "version": "4.1.0"
-        }
-      },
-      {
         "package": "Threading",
         "repositoryURL": "https://github.com/Miraion/Threading.git",
         "state": {
           "branch": null,
-          "revision": "60e20454de4ce227c12abd3b68772fc72d9150b0",
-          "version": "1.0.0"
+          "revision": "f326bcd84449b7d6604f2b3ff601b8d87ac39790",
+          "version": "1.0.1"
         }
       }
     ]
