@@ -141,13 +141,16 @@ public extension NetworkHost {
 public extension NetworkHost {
 
     fileprivate func dataReceiver(_ base: Data) throws -> Data {
+        print("rd")
         guard let message = Message(from: try socket!.read().data) else {
             throw NetworkError.MalformedMessage
         }
+        print("rd")
         let data = base + message.body
         if message.flags.get(MessageFlags.MultiMessageStream) {
             return try dataReceiver(data)
         } else {
+            print("done")
             return data
         }
     }
