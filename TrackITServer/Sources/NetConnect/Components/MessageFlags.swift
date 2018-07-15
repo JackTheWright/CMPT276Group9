@@ -70,18 +70,24 @@ public enum MessageFlags : UInt16, FlagSet {
     case Error          = 0b1000_0000_0000_0000
 
     /// Flag denoting a database query message. (e.g. SELECT)
-    case DBQuery    = 0b0000_0001_0000_0000
+    case DBQuery        = 0b0000_0001_0000_0000
 
     /// Flag denoting a database action message. (e.g. INSERT, DELETE, etc.)
-    case DBAction   = 0b0000_0010_0000_0000
+    case DBAction       = 0b0000_0010_0000_0000
 
     /// Flag requesting access to the CNF database.
-    case CnfDB      = 0b0000_0000_1000_0000
+    case CnfDB          = 0b0000_0000_1000_0000
 
     /// Flag requesting access to the user database.
-    case UserDB     = 0b0000_0000_0100_0000
+    case UserDB         = 0b0000_0000_0100_0000
 
     /// Flag requesting echo handler.
-    case Echo       = 0b0000_0000_0010_0000
+    case Echo           = 0b0000_0000_0010_0000
+
+    /// Flag saying that the rest of the data will come in follow up messages.
+    case MultiMessageStream = 0b0001_0000_0000_0000
+
+    /// Denotes that the message is a special request.
+    case SpecialRequest = 0b0000_1111_0000_0000
     
 }

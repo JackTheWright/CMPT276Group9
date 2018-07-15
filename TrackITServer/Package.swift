@@ -7,6 +7,7 @@ let package = Package(
     products: [
         .library(name: "NetConnect", targets: ["NetConnect"]),
         .library(name: "SwiftyJSON", targets: ["SwiftyJSON"]),
+        .library(name: "Database", targets: ["Database"]),
         .executable(name: "Server", targets: ["Server"])
     ],
     dependencies: [
@@ -17,8 +18,9 @@ let package = Package(
     ],
     targets: [
         .target(name: "SwiftyJSON", dependencies: []),
-        .target(name: "NetConnect", dependencies: ["Socket", "CryptoSwift", "SwiftyJSON"]),
-        .target(name: "Server", dependencies: ["NetConnect", "Threading", "PerfectSQLite"]),
+        .target(name: "NetConnect", dependencies: ["Socket", "CryptoSwift", "SwiftyJSON", "Database"]),
+        .target(name: "Server", dependencies: ["NetConnect", "Threading", "Database"]),
+        .target(name: "Database", dependencies: ["PerfectSQLite", "SwiftyJSON"]),
         .testTarget(name: "NetConnectTests", dependencies: ["NetConnect"])
     ]
 )

@@ -51,8 +51,7 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data) throws {
-        let message = Message(data, flags: Message.Flags(), id: convoId)
-        try socket!.write(data: message.rawData, to: address)
+        try send(data, flags: Message.Flags())
     }
     
     /// Sends a string to the host.
@@ -91,8 +90,17 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data, flags: Message.Flags) throws {
-        let message = Message(data, flags: flags, id: convoId)
-        try socket!.write(data: message.rawData, to: address)
+        if data.count > Message.maxBodySize {
+            // If data is too big, send multiple messages recursively.
+            let cutoff = Message.maxBodySize
+            let dataToSend = data.subdata(in: 0..<cutoff)
+            let f = flags.setting(MessageFlags.MultiMessageStream)
+            try send(dataToSend, flags: f)
+            try send(data.subdata(in: cutoff..<data.count), flags: flags)
+        } else {
+            let message = Message(data, flags: flags, id: convoId)
+            try socket!.write(data: message.rawData, to: address)
+        }
     }
 
     /// Sends a string to the host with given message flags.
@@ -141,7 +149,12 @@ public extension NetworkHost {
         guard let message = Message(from: try socket!.read().data) else {
             throw NetworkError.MalformedMessage
         }
-        return message.body
+        let data = message.body
+        if message.flags.get(MessageFlags.MultiMessageStream) {
+            return try data + receiveData()
+        } else {
+            return data
+        }
     }
     
     /// Receives data from the host as a string.

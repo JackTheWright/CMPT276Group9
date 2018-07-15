@@ -1,12 +1,17 @@
 //
-//  TestManifest.swift
-//  Server
+// File         : TestManifests.swift
+// Module       : TrackITServer
 //
-//  Created by Jeremy Schwartz on 2018-07-07.
+// Team Name    : Group 9
+// Created By   : Jeremy Schwartz
+// Created On   : 2018-07-09
 //
 
 import Foundation
 import NetConnect
+import SwiftyJSON
+import PerfectSQLite
+import Database
 
 let allTests = [
     ("Config", testConfig),
@@ -74,5 +79,44 @@ func testClient() {
         Log.event("Sent Hello World", event: .ok)
         print(try server.receiveString())
         Log.event("Received Echo", event: .ok)
+    }
+}
+
+func testDB() {
+    let path = "./cnf.db"
+
+    do {
+        guard let db = Database(path: path) else {
+            print("unable to open database")
+            return
+        }
+
+        var result = try db.query("SELECT * FROM 'FOOD NAME' WHERE FOODID = 2")
+        print(result.rowsAsJSON())
+        result.addRow(["FoodID" : 42, "FoodDescription" : "The Food"])
+        print(result.rowCount)
+
+        print(result.rowsAsJSON())
+        print(result.columnsAsJSON())
+        let json = result.columnsAsJSON()
+        guard let test = Table(jsonColumns: json) else {
+            print("unable to remake table")
+            return
+        }
+        print(result.rows)
+        print(test.rows)
+    } catch let e {
+        print(e)
+    }
+}
+
+func testCNF() {
+    let cnf = NutrientFile(path: "./cnf.db")!
+    do {
+        let result = try cnf.getAllFoodNames()
+        let json = result.rowsAsJSON()
+        print(json)
+    } catch let e {
+        print(e)
     }
 }

@@ -96,22 +96,23 @@ extension Router {
                     let id = generateHandlerId()
                     let idx = Int(id)
                     // TODO: generate handler from message flags
-                    let handler = EchoHandler(id: id)
-                    handler.outboundQueue = outboundQueue
+                    if var handler = generateHandler(flags: packet.flags, id: id) {
+                        configureHandler(&handler)
 
-                    Log.verbose("Created handler: id = \(id)", event: .server)
-                    let hc: HandlerComplex = (
-                            handler as Handler,
-                            HandlerState.active,
-                            DispatchQueue(label: LabelDispatch.getLabel())
-                    )
-                    handlers[idx] = hc
-                    hc.dispatch.async {
-                        handler.execute(packet: packet)
-                        if self.handlers[idx]!.state != .awaitingDestruction {
-                            self.handlers[idx]!.state = .idle
-                        } else {
-                            self.handlers[idx] = nil
+                        Log.verbose("Created handler: id = \(id)", event: .server)
+                        let hc: HandlerComplex = (
+                                handler as Handler,
+                                HandlerState.active,
+                                DispatchQueue(label: LabelDispatch.getLabel())
+                        )
+                        handlers[idx] = hc
+                        hc.dispatch.async {
+                            handler.execute(packet: packet)
+                            if self.handlers[idx]!.state != .awaitingDestruction {
+                                self.handlers[idx]!.state = .idle
+                            } else {
+                                self.handlers[idx] = nil
+                            }
                         }
                     }
                 }
