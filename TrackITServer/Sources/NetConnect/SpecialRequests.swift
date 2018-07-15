@@ -13,4 +13,8 @@ public enum SpecialRequests : String {
 
     case CNFGetNutrients = "CNFGetNutrients"
 
+    public static func getNutrients(for id: Int) -> String {
+        return CNFGetNutrients.rawValue + ":\(id)"
+    }
+
 }
