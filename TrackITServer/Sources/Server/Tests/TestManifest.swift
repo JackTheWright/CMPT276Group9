@@ -93,18 +93,29 @@ func testDB() {
 
         var result = try db.query("SELECT * FROM 'FOOD NAME' WHERE FOODID = 2")
         print(result.rowsAsJSON())
-//        result.addRow(["FoodID" : 42, "FoodDescription" : "The Food"])
-//        print(result.rowCount)
-//
-//        print(result.rowsAsJSON())
-//        print(result.columnsAsJSON())
-//        let json = result.columnsAsJSON()
-//        guard let test = Table(jsonColumns: json) else {
-//            print("unable to remake table")
-//            return
-//        }
-//        print(result.rows)
-//        print(test.rows)
+        result.addRow(["FoodID" : 42, "FoodDescription" : "The Food"])
+        print(result.rowCount)
+
+        print(result.rowsAsJSON())
+        print(result.columnsAsJSON())
+        let json = result.columnsAsJSON()
+        guard let test = Table(jsonColumns: json) else {
+            print("unable to remake table")
+            return
+        }
+        print(result.rows)
+        print(test.rows)
+    } catch let e {
+        print(e)
+    }
+}
+
+func testCNF() {
+    let cnf = NutrientFile(path: "./cnf.db")!
+    do {
+        let result = try cnf.getAllFoodNames()
+        let json = result.rowsAsJSON()
+        print(json)
     } catch let e {
         print(e)
     }

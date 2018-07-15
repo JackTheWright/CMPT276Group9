@@ -159,7 +159,8 @@ public extension Table {
         var str = "{"
         for (key, value) in dic {
             if let valueString = value as? String {
-                str += "\"\(key)\":\"\(valueString)\","
+                let s = valueString.replacingOccurrences(of: "\"", with: "\\\"")
+                str += "\"\(key)\":\"\(s)\","
             } else {
                 str += " \"\(key)\":\(String(describing: value)),"
             }
@@ -281,20 +282,6 @@ public extension Table {
         }
         for i in 0..<rowCount {
             internals[i][name.uppercased()] = SQLiteElement([i])
-        }
-    }
-
-}
-
-public extension JSON {
-
-    mutating func mergeAsDictionary(_ other: JSON) {
-        for (key, json) in other {
-            if let i = json.int {
-                self.rawDictionary[key] = JSON(integerLiteral: i)
-            } else {
-                self.rawDictionary[key] = json
-            }
         }
     }
 

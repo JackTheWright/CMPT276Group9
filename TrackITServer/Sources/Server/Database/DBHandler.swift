@@ -20,15 +20,58 @@ class DBHandler : Handler {
         defer {
             self.destroy()
         }
-        guard let sqlStatement = packet.message.string else {
-            return nil
-        }
+        if packet.flags.get(MessageFlags.SpecialRequest) {
+            guard let requestString = packet.message.string else {
+                return nil
+            }
+            let splitString = requestString.split(separator: ":")
+            guard splitString.count > 0 else {
+                return nil
+            }
+            guard let request = SpecialRequests(rawValue: String(splitString[0]))
+            else {
+                return nil
+            }
+            switch (request) {
 
-        guard let db = Database(path: "./cnf.db") else {
-            throw Database.Error.UnableToOpen
+            case .CNFGetAllFoodItems:
+                guard let cnf = NutrientFile(path: Config.cnfPath) else {
+                    Log.event("Unable to locate \(Config.cnfPath)",
+                            event: .warning)
+                    return nil
+                }
+                let table = try cnf.getAllFoodNames()
+                return try table.rowsAsJSON().rawData()
+
+            case .CNFGetNutrients:
+                guard splitString.count > 2 else {
+                    Log.event("Invalid message body for get nutrients",
+                            event: .warning)
+                    return nil
+                }
+                guard let id = Int(splitString[1]) else {
+                    return nil
+                }
+                guard let cnf = NutrientFile(path: Config.cnfPath) else {
+                    Log.event("Unable to locate \(Config.cnfPath)",
+                            event: .warning)
+                    return nil
+                }
+                let table = try cnf.getNutrientValues(for: id)
+                return try table.rowsAsJSON().rawData()
+
+            }
+        } else {
+            guard let sqlStatement = packet.message.string else {
+                return nil
+            }
+
+            guard let db = Database(path: "./cnf.db") else {
+                throw Database.Error.UnableToOpen
+            }
+            let table = try db.query(sqlStatement)
+            return try table.rowsAsJSON().rawData()
         }
-        let table = try db.query(sqlStatement)
-        return try table.rowsAsJSON().rawData()
     }
 
 }
