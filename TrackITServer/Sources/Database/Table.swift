@@ -175,8 +175,8 @@ public extension Table {
         for row in rows {
             var jsonRow = JSON()
             for kv in row {
-                try? jsonRow.merge(
-                        other: JSON(dictionaryLiteral: (kv.key, kv.value.any))
+                try? jsonRow.mergeAsDictionary(
+                        JSON(dictionaryLiteral: (kv.key, kv.value.any))
                 )
             }
             jsonRows.append(jsonRow)
@@ -211,12 +211,11 @@ public extension Table {
     func columnsAsJSON() -> JSON {
         var json = JSON()
         for header in columnHeaders {
-            try? json.merge(
-                    other: JSON(dictionaryLiteral: (
+            try? json.mergeAsDictionary(
+                    JSON(dictionaryLiteral: (
                             header,
                             column(header).map {$0.any }
-                    ))
-            )
+                    )))
         }
         return json
     }
@@ -270,12 +269,12 @@ public extension Table {
 
 public extension JSON {
 
-    mutating func merge(other: JSON) {
+    mutating func mergeAsDictionary(_ other: JSON) {
         for (key, json) in other {
             if let i = json.int {
-                self[key] = JSON(integerLiteral: i)
+                self.rawDictionary[key] = JSON(integerLiteral: i)
             } else {
-                self[key] = json
+                self.rawDictionary[key] = json
             }
         }
     }
