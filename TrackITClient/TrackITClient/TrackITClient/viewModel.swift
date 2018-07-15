@@ -2,13 +2,18 @@
 //  ViewModel.swift
 //  TrackITClient
 //
-//  Created by Alice Chen on 2018-07-14.
+//  Created by Alice Chen on 2018-07-15.
 //  Copyright © 2018 Group 9. All rights reserved.
 //
+
 import Foundation
 import UIKit
 
-let dataArray = [Model(title: "Pork"), Model(title: "Beef"),Model(title: "Fish"), Model(title: "Poultry"),Model(title: "Egg"), Model(title: "Peanuts")]
+struct Model {
+    var title: String
+}
+
+let dataArray = [Model(title: "Peanuts"), Model(title: "Beef"), Model(title: "Pork"), Model(title: "Poultry"), Model(title: "Egg"), Model(title: "Fish"), Model(title: "Shellfish"), Model(title: "Milk")]
 
 class ViewModelItem {
     private var item: Model

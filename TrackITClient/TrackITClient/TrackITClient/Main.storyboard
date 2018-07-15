@@ -210,7 +210,7 @@ Fats and Oils</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Please indicate any dietary restrictions"/>
                                 <connections>
-                                    <segue destination="yRh-14-QOO" kind="show" id="laj-Sz-NZh"/>
+                                    <segue destination="3F9-xo-Q03" kind="show" id="SJW-T8-nIX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3K-aO-Fsc">
@@ -234,13 +234,13 @@ Fats and Oils</string>
             </objects>
             <point key="canvasLocation" x="1631.8840579710147" y="79.891304347826093"/>
         </scene>
-        <!--DietaryRestriction-->
-        <scene sceneID="zse-aQ-J5w">
+        <!--DietaryRestrictions-->
+        <scene sceneID="fYo-zP-bOG">
             <objects>
-                <viewControllerPlaceholder storyboardName="DietaryRestriction" id="yRh-14-QOO" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lA2-03-Ra7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DietaryRestrictions" id="3F9-xo-Q03" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjM-YT-cxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221" y="25"/>
+            <point key="canvasLocation" x="2235" y="75"/>
         </scene>
         <!--OverviewPage-->
         <scene sceneID="Vfg-Ih-ch6">

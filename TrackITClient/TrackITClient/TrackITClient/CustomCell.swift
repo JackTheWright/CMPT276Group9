@@ -2,7 +2,7 @@
 //  CustomCell.swift
 //  TrackITClient
 //
-//  Created by Alan Dong on 2018-07-14.
+//  Created by Alice Chen on 2018-07-15.
 //  Copyright © 2018 Group 9. All rights reserved.
 //
 
@@ -18,6 +18,7 @@ class CustomCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         selectionStyle = .none
     }
     
@@ -33,6 +34,8 @@ class CustomCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        // update UI
         accessoryType = selected ? .checkmark : .none
     }
 }

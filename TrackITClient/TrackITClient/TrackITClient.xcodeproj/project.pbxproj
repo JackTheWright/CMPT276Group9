@@ -26,11 +26,14 @@
 		3F11F00920C4771B007AB096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F00720C4771B007AB096 /* LaunchScreen.storyboard */; };
 		3F11F01420C4771C007AB096 /* TrackITClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11F01320C4771C007AB096 /* TrackITClientTests.swift */; };
 		3F11F02620C4880A007AB096 /* NetConnect in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F02520C4880A007AB096 /* NetConnect */; };
-		3FB633A520FBE1190077E744 /* DietaryRestriction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB633A420FBE1190077E744 /* DietaryRestriction.storyboard */; };
 		8B751E4920DF0329003EC7D4 /* split.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B751E4820DF0329003EC7D4 /* split.png */; };
 		8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B751E4A20E37661003EC7D4 /* ViewController2.swift */; };
 		8BD217C220EAC0D700C00E9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DEF64820EAB50300759A13 /* Main.storyboard */; };
-		8BD217CE20FA9D7A00C00E9D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD217CD20FA9D7A00C00E9D /* Model.swift */; };
+		8BD5F61D20FBF36E00473845 /* DietaryRestrictions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD5F61C20FBF36E00473845 /* DietaryRestrictions.storyboard */; };
+		8BD5F61F20FBF42F00473845 /* Restriction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5F61E20FBF42F00473845 /* Restriction.swift */; };
+		8BD5F62120FBF5CB00473845 /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5F62020FBF5CB00473845 /* viewModel.swift */; };
+		8BD5F62420FBF81F00473845 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5F62220FBF81F00473845 /* CustomCell.swift */; };
+		8BD5F62520FBF81F00473845 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD5F62320FBF81F00473845 /* CustomCell.xib */; };
 		E8180CE820FAF53B004953B7 /* AdvacnedStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8180CE620FAF53B004953B7 /* AdvacnedStatsViewController.swift */; };
 		E8180CE920FAF53B004953B7 /* AdvancedStats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8180CE720FAF53B004953B7 /* AdvancedStats.storyboard */; };
 		E831545A20EAC395003B0AA4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E831545920EAC394003B0AA4 /* NotificationViewController.swift */; };
@@ -85,14 +88,13 @@
 		3F11F01320C4771C007AB096 /* TrackITClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackITClientTests.swift; sourceTree = "<group>"; };
 		3F11F01520C4771C007AB096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F11F02520C4880A007AB096 /* NetConnect */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NetConnect; path = ../../../TrackITServer/Sources/NetConnect; sourceTree = "<group>"; };
-		3FB633A420FBE1190077E744 /* DietaryRestriction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DietaryRestriction.storyboard; sourceTree = "<group>"; };
 		8B751E4820DF0329003EC7D4 /* split.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = split.png; path = TrackITClient/split.png; sourceTree = "<group>"; };
 		8B751E4A20E37661003EC7D4 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
-		8BD217C720FA9AB400C00E9D /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		8BD217C820FA9AB400C00E9D /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
-		8BD217CB20FA9C7800C00E9D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		8BD217CD20FA9D7A00C00E9D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		8BD217CF20FA9DCF00C00E9D /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		8BD5F61C20FBF36E00473845 /* DietaryRestrictions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietaryRestrictions.storyboard; sourceTree = "<group>"; };
+		8BD5F61E20FBF42F00473845 /* Restriction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restriction.swift; sourceTree = "<group>"; };
+		8BD5F62020FBF5CB00473845 /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
+		8BD5F62220FBF81F00473845 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		8BD5F62320FBF81F00473845 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		E8180CE620FAF53B004953B7 /* AdvacnedStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvacnedStatsViewController.swift; sourceTree = "<group>"; };
 		E8180CE720FAF53B004953B7 /* AdvancedStats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdvancedStats.storyboard; sourceTree = "<group>"; };
 		E831545920EAC394003B0AA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +143,6 @@
 		3F11EFFD20C4771A007AB096 /* TrackITClient */ = {
 			isa = PBXGroup;
 			children = (
-				3FB633A420FBE1190077E744 /* DietaryRestriction.storyboard */,
 				10DEF64F20EAF98000759A13 /* BarchartClass.swift */,
 				10DEF65020EAF98000759A13 /* ChartCreationClass.swift */,
 				E831545B20EAC3A4003B0AA4 /* Notifications.storyboard */,
@@ -149,14 +150,14 @@
 				3F11F02520C4880A007AB096 /* NetConnect */,
 				3F11EFFE20C4771A007AB096 /* AppDelegate.swift */,
 				3F11F00020C4771A007AB096 /* ViewController.swift */,
+				8BD5F61C20FBF36E00473845 /* DietaryRestrictions.storyboard */,
+				8BD5F61E20FBF42F00473845 /* Restriction.swift */,
+				8BD5F62020FBF5CB00473845 /* viewModel.swift */,
 				10DEF64820EAB50300759A13 /* Main.storyboard */,
+				8BD5F62220FBF81F00473845 /* CustomCell.swift */,
+				8BD5F62320FBF81F00473845 /* CustomCell.xib */,
 				E8180CE620FAF53B004953B7 /* AdvacnedStatsViewController.swift */,
 				E8180CE720FAF53B004953B7 /* AdvancedStats.storyboard */,
-				8BD217CF20FA9DCF00C00E9D /* ViewController3.swift */,
-				8BD217CB20FA9C7800C00E9D /* ViewModel.swift */,
-				8BD217CD20FA9D7A00C00E9D /* Model.swift */,
-				8BD217C720FA9AB400C00E9D /* CustomCell.swift */,
-				8BD217C820FA9AB400C00E9D /* CustomCell.xib */,
 				8B751E4A20E37661003EC7D4 /* ViewController2.swift */,
 				10B80B2C20E48138007027F1 /* FoodAdd.storyboard */,
 				101A139720E7E51300D4BE59 /* OverviewPage.storyboard */,
@@ -269,10 +270,11 @@
 				E831545D20EAC3A4003B0AA4 /* Notifications.storyboard in Resources */,
 				10C7B93620EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard in Resources */,
 				3F11F00920C4771B007AB096 /* LaunchScreen.storyboard in Resources */,
+				8BD5F61D20FBF36E00473845 /* DietaryRestrictions.storyboard in Resources */,
 				3F11F00620C4771B007AB096 /* Assets.xcassets in Resources */,
+				8BD5F62520FBF81F00473845 /* CustomCell.xib in Resources */,
 				10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */,
 				E8180CE920FAF53B004953B7 /* AdvancedStats.storyboard in Resources */,
-				3FB633A520FBE1190077E744 /* DietaryRestriction.storyboard in Resources */,
 				8B751E4920DF0329003EC7D4 /* split.png in Resources */,
 				3F11F02620C4880A007AB096 /* NetConnect in Resources */,
 				101A139820E7E51300D4BE59 /* OverviewPage.storyboard in Resources */,
@@ -293,19 +295,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BD217CE20FA9D7A00C00E9D /* Model.swift in Sources */,
 				E8180CE820FAF53B004953B7 /* AdvacnedStatsViewController.swift in Sources */,
 				101A139A20E7E8B300D4BE59 /* OverViewControl.swift in Sources */,
 				10DEF65120EAF98000759A13 /* BarchartClass.swift in Sources */,
 				10DEF65220EAF98000759A13 /* ChartCreationClass.swift in Sources */,
 				3F11F00120C4771A007AB096 /* ViewController.swift in Sources */,
 				10B80B2920E480EB007027F1 /* ViewControlClass.swift in Sources */,
+				8BD5F62420FBF81F00473845 /* CustomCell.swift in Sources */,
 				10B80B2820E480EB007027F1 /* PageViewControl.swift in Sources */,
 				10C7B93820EF064E000DD9D6 /* AdvancedAddVC.swift in Sources */,
 				3F11EFFF20C4771A007AB096 /* AppDelegate.swift in Sources */,
 				E831545A20EAC395003B0AA4 /* NotificationViewController.swift in Sources */,
+				8BD5F62120FBF5CB00473845 /* viewModel.swift in Sources */,
 				8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */,
 				10B80B2A20E480EB007027F1 /* TimeClass.swift in Sources */,
+				8BD5F61F20FBF42F00473845 /* Restriction.swift in Sources */,
 				10B80B2B20E480EB007027F1 /* ServingPackageClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
