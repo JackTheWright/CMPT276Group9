@@ -148,6 +148,28 @@ public extension Table {
 
 public extension Table {
 
+
+    /// Converts a dictionary to a JSON formatted string.
+    ///
+    /// - parameters:
+    ///     - dic: The dictionary to convert.
+    ///
+    /// - returns: A JSON formatted string with the contents of the dictionary.
+    fileprivate func dictionaryToJSONString(_ dic: [String : Any]) -> String {
+        var str = "{"
+        for (key, value) in dic {
+            if let valueString = value as? String {
+                str += "\"\(key)\":\"\(valueString)\","
+            } else {
+                str += " \"\(key)\":\(String(describing: value)),"
+            }
+        }
+        str.removeLast() // remove end ","
+        str += "}"
+        return str
+    }
+
+
     /// Converts the entire table into JSON formatted as an array of rows.
     ///
     /// - returns: A JSON array containing the table data.
@@ -168,20 +190,18 @@ public extension Table {
     /// [
     ///     { "A":1, "B":2, "C",3 },
     ///     { "A":4, "B":5, "C",6 }
-    /// }
+    /// ]
     /// ```
     func rowsAsJSON() -> JSON {
-        var jsonRows = [JSON]()
+        var jsonString = "["
         for row in rows {
-            var jsonRow = JSON()
-            for kv in row {
-                jsonRow.mergeAsDictionary(
-                        JSON(dictionaryLiteral: (kv.key, kv.value.any))
-                )
-            }
-            jsonRows.append(jsonRow)
+            jsonString += "    "
+            jsonString += dictionaryToJSONString(row.mapValues { $0.any })
+            jsonString += ","
         }
-        return JSON(jsonRows)
+        jsonString.removeLast() // remove last ","
+        jsonString += "]"
+        return JSON(parseJSON: jsonString)
     }
 
     /// Converts the entire table into JSON formatted as a map of column headers
@@ -209,15 +229,14 @@ public extension Table {
     /// }
     /// ```
     func columnsAsJSON() -> JSON {
-        var json = JSON()
-        for header in columnHeaders {
-            json.mergeAsDictionary(
-                    JSON(dictionaryLiteral: (
-                            header,
-                            column(header).map {$0.any }
-                    )))
+        var jsonString = "{"
+        for (header, column) in columns {
+            jsonString += "\"\(header)\":\(String(describing: column.map { $0.any })),"
         }
-        return json
+        jsonString.removeLast() // remove last ","
+        jsonString += "}"
+        print(jsonString)
+        return JSON(parseJSON: jsonString)
     }
 
 }
