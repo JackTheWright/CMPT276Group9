@@ -22,6 +22,11 @@ public class Message {
     public static var handshakeId : ID {
         return 0x8000
     }
+
+    /// The largest size, in bytes, that a message body can be.
+    public static var maxBodySize: Int {
+        return 4000
+    }
     
     /// Constructs from an encoded message.
     ///
@@ -36,7 +41,7 @@ public class Message {
     }
     
     /// Constructs from a body, flags, and conversation identifier. The size
-    /// property of the message will be automatcally computed.
+    /// property of the message will be automatically computed.
     ///
     /// - parameters:
     ///     - body: The body of the message as raw data.

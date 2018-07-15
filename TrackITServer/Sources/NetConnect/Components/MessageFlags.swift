@@ -83,5 +83,8 @@ public enum MessageFlags : UInt16, FlagSet {
 
     /// Flag requesting echo handler.
     case Echo       = 0b0000_0000_0010_0000
+
+    /// Flag saying that the rest of the data will come in follow up messages.
+    case MultiMessageStream = 0b0001_0000_0000_0000
     
 }
