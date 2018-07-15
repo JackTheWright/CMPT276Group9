@@ -59,7 +59,7 @@ class DBHandler : Handler {
                     return nil
                 }
                 let table = try cnf.getNutrientValues(for: id)
-                return try table.rowsAsJSON().rawData()
+                return try table.columnsAsJSON().rawData()
 
             }
         } else {
