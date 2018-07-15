@@ -222,3 +222,48 @@ public extension Table {
     }
 
 }
+
+// MARK: Mutating Methods
+
+public extension Table {
+
+    /// Adds a new row to the bottom of the table.
+    ///
+    /// - parameters:
+    ///     - row: The row to add.
+    ///
+    /// The keys in the row dictionary correspond to the column headers in the
+    /// table. For consistency, the same column headers (keys) should be used
+    /// for every row in the table.
+    ///
+    /// The values in the row dictionary should be either Int, String, Double or
+    /// Bool. Any other values may cause problems when trying to create JSON.
+    mutating func addRow(_ row: [String : Any]) {
+        var correctedRow = [String : Any]() // correct for case insensitivity
+        for kv in row {
+            correctedRow[kv.key.uppercased()] = kv.value
+        }
+        internals.append(correctedRow.mapValues { SQLiteElement($0) })
+    }
+
+    /// Adds another column to the table.
+    ///
+    /// - parameters:
+    ///     - name: The column header for the new column.
+    ///
+    ///     - data: An array to defined the data that will be in the column. The
+    ///         length of this array must be the same as the number of rows
+    ///         currently in the table. If not, then this method does nothing.
+    ///
+    /// The values in the `data` array should be either Int, String, Double, or
+    /// Bool. Any other values may cause problems when trying to create JSON.
+    mutating func addColumn(name: String, data: [Any]) {
+        if rowCount != data.count {
+            return
+        }
+        for i in 0..<rowCount {
+            internals[i][name.uppercased()] = SQLiteElement([i])
+        }
+    }
+
+}

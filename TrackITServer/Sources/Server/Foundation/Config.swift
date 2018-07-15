@@ -89,7 +89,7 @@ extension Config {
         if let path = json.dictionary?["cnf path"]?.string {
             return path
         } else {
-            return "~/cnf.db"
+            return "./cnf.db"
         }
     }
 
@@ -100,7 +100,7 @@ extension Config {
         if let path = json.dictionary?["udb path"]?.string {
             return path
         } else {
-            return "~/userInfo.db"
+            return "./userInfo.db"
         }
     }
     
