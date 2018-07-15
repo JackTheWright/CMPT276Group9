@@ -46,12 +46,13 @@
                                     <segue destination="ICL-1Z-dw8" kind="embed" id="PvP-xa-TSx"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmk-Ux-SKv">
-                                <rect key="frame" x="100" y="598" width="175" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDY-oP-Yt8">
+                                <rect key="frame" x="79" y="479" width="216" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Advanced Stats"/>
+                                <state key="normal" title="Advanced Statistics"/>
                                 <connections>
-                                    <segue destination="5vQ-0Z-HY6" kind="show" id="soa-XC-rK3"/>
+                                    <segue destination="UMo-hr-9SK" kind="show" id="xhG-Pw-xnB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,12 +114,12 @@
             <point key="canvasLocation" x="757" y="391"/>
         </scene>
         <!--AdvancedStats-->
-        <scene sceneID="TdZ-4F-OR2">
+        <scene sceneID="Wue-Wd-MRA">
             <objects>
-                <viewControllerPlaceholder storyboardName="AdvancedStats" id="5vQ-0Z-HY6" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PFh-UH-T4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="AdvancedStats" id="UMo-hr-9SK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2am-7Y-z2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823" y="398"/>
+            <point key="canvasLocation" x="94" y="676"/>
         </scene>
         <!--Bar Chart View-->
         <scene sceneID="f4C-Py-tfU">

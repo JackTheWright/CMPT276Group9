@@ -116,8 +116,6 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         
     }
     
-    //Food Groups: Meats: 1, Veggies: 2, Fruit: 3, Dairy: 4, Grains: 5
-    
     var autoComplete = [String]()
     var autoCompletionPossibilities = ["Apple": 3, "Pineapple": 2, "Orange": 1]
     var autoCompleteCharacterCount = 0

@@ -18,7 +18,6 @@
 		10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B80B2C20E48138007027F1 /* FoodAdd.storyboard */; };
 		10C7B93620EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */; };
 		10C7B93820EF064E000DD9D6 /* AdvancedAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7B93720EF064E000DD9D6 /* AdvancedAddVC.swift */; };
-		10C7B93A20F13B91000DD9D6 /* AdvancedStats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C7B93920F13B91000DD9D6 /* AdvancedStats.storyboard */; };
 		10DEF65120EAF98000759A13 /* BarchartClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEF64F20EAF98000759A13 /* BarchartClass.swift */; };
 		10DEF65220EAF98000759A13 /* ChartCreationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEF65020EAF98000759A13 /* ChartCreationClass.swift */; };
 		3F11EFFF20C4771A007AB096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11EFFE20C4771A007AB096 /* AppDelegate.swift */; };
@@ -30,6 +29,14 @@
 		8B751E4920DF0329003EC7D4 /* split.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B751E4820DF0329003EC7D4 /* split.png */; };
 		8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B751E4A20E37661003EC7D4 /* ViewController2.swift */; };
 		8BD217C220EAC0D700C00E9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DEF64820EAB50300759A13 /* Main.storyboard */; };
+		8BD217C920FA9AB400C00E9D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD217C720FA9AB400C00E9D /* CustomCell.swift */; };
+		8BD217CA20FA9AB400C00E9D /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD217C820FA9AB400C00E9D /* CustomCell.xib */; };
+		8BD217CC20FA9C7800C00E9D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD217CB20FA9C7800C00E9D /* ViewModel.swift */; };
+		8BD217CE20FA9D7A00C00E9D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD217CD20FA9D7A00C00E9D /* Model.swift */; };
+		8BD217D020FA9DCF00C00E9D /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD217CF20FA9DCF00C00E9D /* ViewController3.swift */; };
+		8BD5F61220FAA57600473845 /* DietaryRestriction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD5F61120FAA57600473845 /* DietaryRestriction.storyboard */; };
+		E8180CE820FAF53B004953B7 /* AdvacnedStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8180CE620FAF53B004953B7 /* AdvacnedStatsViewController.swift */; };
+		E8180CE920FAF53B004953B7 /* AdvancedStats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8180CE720FAF53B004953B7 /* AdvancedStats.storyboard */; };
 		E831545A20EAC395003B0AA4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E831545920EAC394003B0AA4 /* NotificationViewController.swift */; };
 		E831545D20EAC3A4003B0AA4 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E831545B20EAC3A4003B0AA4 /* Notifications.storyboard */; };
 /* End PBXBuildFile section */
@@ -69,7 +76,6 @@
 		10B80B2D20E48138007027F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FoodAdd.storyboard; sourceTree = "<group>"; };
 		10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InformationFromFoodMenu.storyboard; sourceTree = "<group>"; };
 		10C7B93720EF064E000DD9D6 /* AdvancedAddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedAddVC.swift; sourceTree = "<group>"; };
-		10C7B93920F13B91000DD9D6 /* AdvancedStats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdvancedStats.storyboard; sourceTree = "<group>"; };
 		10DEF64920EAB50300759A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		10DEF64F20EAF98000759A13 /* BarchartClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarchartClass.swift; sourceTree = "<group>"; };
 		10DEF65020EAF98000759A13 /* ChartCreationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCreationClass.swift; sourceTree = "<group>"; };
@@ -85,6 +91,14 @@
 		3F11F02520C4880A007AB096 /* NetConnect */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NetConnect; path = ../../../TrackITServer/Sources/NetConnect; sourceTree = "<group>"; };
 		8B751E4820DF0329003EC7D4 /* split.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = split.png; path = TrackITClient/split.png; sourceTree = "<group>"; };
 		8B751E4A20E37661003EC7D4 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		8BD217C720FA9AB400C00E9D /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		8BD217C820FA9AB400C00E9D /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		8BD217CB20FA9C7800C00E9D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		8BD217CD20FA9D7A00C00E9D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8BD217CF20FA9DCF00C00E9D /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		8BD5F61120FAA57600473845 /* DietaryRestriction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = DietaryRestriction.storyboard; path = ../DietaryRestriction.storyboard; sourceTree = "<group>"; };
+		E8180CE620FAF53B004953B7 /* AdvacnedStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvacnedStatsViewController.swift; sourceTree = "<group>"; };
+		E8180CE720FAF53B004953B7 /* AdvancedStats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdvancedStats.storyboard; sourceTree = "<group>"; };
 		E831545920EAC394003B0AA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		E831545C20EAC3A4003B0AA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notifications.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,10 +153,17 @@
 				3F11EFFE20C4771A007AB096 /* AppDelegate.swift */,
 				3F11F00020C4771A007AB096 /* ViewController.swift */,
 				10DEF64820EAB50300759A13 /* Main.storyboard */,
+				E8180CE620FAF53B004953B7 /* AdvacnedStatsViewController.swift */,
+				E8180CE720FAF53B004953B7 /* AdvancedStats.storyboard */,
+				8BD217CF20FA9DCF00C00E9D /* ViewController3.swift */,
+				8BD217CB20FA9C7800C00E9D /* ViewModel.swift */,
+				8BD217CD20FA9D7A00C00E9D /* Model.swift */,
+				8BD5F61120FAA57600473845 /* DietaryRestriction.storyboard */,
+				8BD217C720FA9AB400C00E9D /* CustomCell.swift */,
+				8BD217C820FA9AB400C00E9D /* CustomCell.xib */,
 				8B751E4A20E37661003EC7D4 /* ViewController2.swift */,
 				10B80B2C20E48138007027F1 /* FoodAdd.storyboard */,
 				101A139720E7E51300D4BE59 /* OverviewPage.storyboard */,
-				10C7B93920F13B91000DD9D6 /* AdvancedStats.storyboard */,
 				10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */,
 				101A139920E7E8B300D4BE59 /* OverViewControl.swift */,
 				10B80B2720E480EB007027F1 /* ServingPackageClass.swift */,
@@ -254,7 +275,8 @@
 				3F11F00920C4771B007AB096 /* LaunchScreen.storyboard in Resources */,
 				3F11F00620C4771B007AB096 /* Assets.xcassets in Resources */,
 				10B80B2E20E48138007027F1 /* FoodAdd.storyboard in Resources */,
-				10C7B93A20F13B91000DD9D6 /* AdvancedStats.storyboard in Resources */,
+				8BD5F61220FAA57600473845 /* DietaryRestriction.storyboard in Resources */,
+				E8180CE920FAF53B004953B7 /* AdvancedStats.storyboard in Resources */,
 				8B751E4920DF0329003EC7D4 /* split.png in Resources */,
 				3F11F02620C4880A007AB096 /* NetConnect in Resources */,
 				101A139820E7E51300D4BE59 /* OverviewPage.storyboard in Resources */,
@@ -275,6 +297,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD217CE20FA9D7A00C00E9D /* Model.swift in Sources */,
+				E8180CE820FAF53B004953B7 /* AdvacnedStatsViewController.swift in Sources */,
 				101A139A20E7E8B300D4BE59 /* OverViewControl.swift in Sources */,
 				10DEF65120EAF98000759A13 /* BarchartClass.swift in Sources */,
 				10DEF65220EAF98000759A13 /* ChartCreationClass.swift in Sources */,

@@ -396,11 +396,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4UJ-HB-DH3" firstAttribute="leading" secondItem="INi-Us-0nr" secondAttribute="trailing" constant="60" id="80m-s7-H8D"/>
-                            <constraint firstItem="0WD-FV-4YR" firstAttribute="trailing" secondItem="eY9-nx-yST" secondAttribute="trailing" constant="16" id="EhD-kU-LED"/>
-                            <constraint firstItem="eY9-nx-yST" firstAttribute="top" secondItem="4UJ-HB-DH3" secondAttribute="bottom" constant="116" id="HXA-h2-hIh"/>
+                            <constraint firstAttribute="top" secondItem="4UJ-HB-DH3" secondAttribute="bottom" constant="116" id="HXA-h2-hIh"/>
                             <constraint firstItem="INi-Us-0nr" firstAttribute="top" secondItem="0WD-FV-4YR" secondAttribute="top" id="TCb-ex-9m9"/>
                             <constraint firstItem="rcE-e7-63a" firstAttribute="top" secondItem="INi-Us-0nr" secondAttribute="bottom" constant="65" id="aWD-io-y3k"/>
-                            <constraint firstItem="eY9-nx-yST" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="16" id="g0M-DH-4xT"/>
+                            <constraint firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="16" id="g0M-DH-4xT"/>
                             <constraint firstItem="rcE-e7-63a" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="16" id="jlG-wE-Iux"/>
                             <constraint firstItem="INi-Us-0nr" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="114" id="y9s-Ly-Kjf"/>
                             <constraint firstItem="4UJ-HB-DH3" firstAttribute="top" secondItem="0WD-FV-4YR" secondAttribute="top" id="zNv-rT-CtR"/>
