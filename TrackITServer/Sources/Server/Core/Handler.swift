@@ -105,27 +105,53 @@ extension Handler {
     final func execute(packet: NodePacket) {
         do {
             if let outboundData = try self.main(packet: packet) {
-                let data: Data
+                var data: Data
                 if let encrypter = cryptographer {
                     data = try encrypter.encrypt(outboundData)
                 } else {
                     data = outboundData
                 }
-                let flags = self.getMessageFlags(isError: false)
+                var flags = self.getMessageFlags(isError: false)
                 let outId = getOutboundId() ?? id
-                let msg = Message(data, flags: flags, id: outId)
-                let outPacket = NodePacket(
-                        address: packet.address,
-                        message: msg,
-                        time: Time.now
-                )
-                if let outQueue = outboundQueue {
-                    outQueue.enqueue(outPacket)
-                } else {
-                    Log.event(
-                            "Unable to resolve reference to outbound queue",
-                            event: .warning
+                if data.count < Message.maxBodySize {
+                    let msg = Message(data, flags: flags, id: outId)
+                    let outPacket = NodePacket(
+                            address: packet.address,
+                            message: msg,
+                            time: Time.now
                     )
+                    if let outQueue = outboundQueue {
+                        outQueue.enqueue(outPacket)
+                    } else {
+                        Log.event(
+                                "Unable to resolve reference to outbound queue",
+                                event: .warning
+                        )
+                    }
+                } else {
+                    while data.count != 0 {
+                        print("Creating Multi Message")
+                        let cutoff = min(Message.maxBodySize, data.count)
+                        let dataToSend = data.subdata(in: 0..<cutoff)
+                        data.removeSubrange(0..<cutoff)
+                        if data.count != 0 {
+                            flags.set(MessageFlags.MultiMessageStream)
+                        }
+                        let msg = Message(dataToSend, flags: flags, id: outId)
+                        let outPacket = NodePacket(
+                                address: packet.address,
+                                message: msg,
+                                time: Time.now
+                        )
+                        if let outQueue = outboundQueue {
+                            outQueue.enqueue(outPacket)
+                        } else {
+                            Log.event(
+                                    "Unable to resolve reference to outbound queue",
+                                    event: .warning
+                            )
+                        }
+                    }
                 }
             }
         } catch let error {
