@@ -176,7 +176,7 @@ public extension Table {
             var jsonRow = JSON()
             for kv in row {
                 try? jsonRow.merge(
-                        with: JSON(dictionaryLiteral: (kv.key, kv.value.any))
+                        other: JSON(dictionaryLiteral: (kv.key, kv.value.any))
                 )
             }
             jsonRows.append(jsonRow)
@@ -212,7 +212,7 @@ public extension Table {
         var json = JSON()
         for header in columnHeaders {
             try? json.merge(
-                    with: JSON(dictionaryLiteral: (
+                    other: JSON(dictionaryLiteral: (
                             header,
                             column(header).map {$0.any }
                     ))
@@ -263,6 +263,16 @@ public extension Table {
         }
         for i in 0..<rowCount {
             internals[i][name.uppercased()] = SQLiteElement([i])
+        }
+    }
+
+}
+
+public extension JSON {
+
+    mutating func merge(other: JSON) {
+        for (key, json) in other {
+            self[key] = json
         }
     }
 

@@ -91,20 +91,20 @@ func testDB() {
             return
         }
 
-        var result = try db.query("SELECT FOODID, FOODDESCRIPTION FROM 'FOOD NAME' WHERE FOODID = 2 OR FOODID = 5")
-
-        result.addRow(["FoodID" : 42, "FoodDescription" : "The Food"])
-        print(result.rowCount)
-
+        var result = try db.query("SELECT * FROM 'FOOD NAME' WHERE FOODID = 2")
         print(result.rowsAsJSON())
-        print(result.columnsAsJSON())
-        let json = result.columnsAsJSON()
-        guard let test = Table(jsonColumns: json) else {
-            print("unable to remake table")
-            return
-        }
-        print(result.rows)
-        print(test.rows)
+//        result.addRow(["FoodID" : 42, "FoodDescription" : "The Food"])
+//        print(result.rowCount)
+//
+//        print(result.rowsAsJSON())
+//        print(result.columnsAsJSON())
+//        let json = result.columnsAsJSON()
+//        guard let test = Table(jsonColumns: json) else {
+//            print("unable to remake table")
+//            return
+//        }
+//        print(result.rows)
+//        print(test.rows)
     } catch let e {
         print(e)
     }
