@@ -272,7 +272,11 @@ public extension JSON {
 
     mutating func merge(other: JSON) {
         for (key, json) in other {
-            self[key] = json
+            if let i = json.int {
+                self[key] = JSON(i)
+            } else {
+                self[key] = json
+            }
         }
     }
 
