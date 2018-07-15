@@ -16,6 +16,11 @@
 //
 
 import UIKit
+import NetConnect
+import SwiftyJSON
+
+typealias foodTuple = (foodname: String, foodid: Int, foodgroup: String)
+typealias tableTuple = (foodname: String, foodid: Int, foodgroup: Int)
 
 struct GlobalStates {
     
@@ -25,6 +30,9 @@ struct GlobalStates {
     static var fruities = "0"
     static var dairies = "0"
     static var grainies = "0"
+    static var foodnames: [(foodTuple)] = []
+    static var foodfortable: [(tableTuple)] = []
+    static var port = 60011
     
 }
 
@@ -39,6 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var storyboard:UIStoryboard?
     
     
+    
+    
+    
 //  When the Application loads it does many things. First the launchedBefore variable is set to the userdefault launchedBefore, which is a bool. If it's false then it is the first time using the app. This means all the label values are 0 and the first view controller should be the information page, then the user input page. If launchedBefore is true, it'll set the first view to be the overview page.
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -46,6 +57,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window =  UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
+        let interface = NetworkInterface()!
+        
+        interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
+            var flags = Message.Flags()
+            flags.set(MessageFlags.DBQuery)
+            print("sending")
+            try host.send("select foodId, foodDescription, foodGroupId from ‘food name’ limit 100;", flags: flags)
+            print("sent")
+            let JSONreply = try host.receiveJSON()
+            print("didrecieve")
+            if let fn = JSONreply.array?.compactMap({ element in
+                return (element.dictionary!["FOODDESCRIPTION"]!.string!,
+                        element.dictionary!["FOODID"]!.int!,
+                        element.dictionary!["FOODGROUPID"]!.string!)
+            }) {
+                GlobalStates.foodnames = fn
+            }
+            print(GlobalStates.foodnames)
+            interface.setTimeout(5)
+        }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
