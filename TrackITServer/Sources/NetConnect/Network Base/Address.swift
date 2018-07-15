@@ -47,14 +47,3 @@ public class Address {
     }
     
 }
-
-public extension Address {
-
-    /// Public address creation function.
-    ///
-    /// Equivalent to the main `Address` initializer.
-    static func create(hostname: String, port: Int) -> Address? {
-        return Address(hostname: hostname, port: port)
-    }
-
-}

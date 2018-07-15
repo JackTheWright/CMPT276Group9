@@ -20,6 +20,8 @@ import UIKit
 struct GlobalStates {
     
     static var currentDayDictionary = [String: [String]]()
+    static var foreGroundDate = String()
+    static var backGroundDate = String()
     static var meaties = "0"
     static var veggies = "0"
     static var fruities = "0"
@@ -45,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window =  UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
@@ -77,7 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        UserDefaults.standard.set(time.currentDateToString(), forKey: "backGroundDate")
+
+        UserDefaults.standard.set(GlobalStates.backGroundDate, forKey: "backGroundDate")
+
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -87,10 +90,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         
 //  Use Global variable date of when the date goes into the foreground and turn it to a string. Then we create the variable yest and make it equal to the date the app went into the background. We then check if the two dates are the same and save the bool response to the variable quick add refresh and then make that variable a user default to check if the last access date was yesterday or today.
-            let yest = UserDefaults.standard.string(forKey: "backGroundDate") ?? time.currentDateToString()
-            let today = time.currentDateToString()
-            let quickAddRefresh = dateAttributes.isSameDates(date1: yest, date2: today)
-            UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
+        let yest = UserDefaults.standard.string(forKey: "backGroundDate")
+        let today = time.currentDateToString()
+        let quickAddRefresh = dateAttributes.isSameDates(date1: yest!, date2: today)
+        UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
+        
+        
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
