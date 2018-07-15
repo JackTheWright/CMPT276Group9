@@ -12,9 +12,8 @@ class ViewController3: UIViewController {
     
     var viewModel = ViewModel()
     
-    @IBOutlet weak var tableView: UITableView?
-    @IBOutlet weak var nextButton: UIButton?
-    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nextButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         

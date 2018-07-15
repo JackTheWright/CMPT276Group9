@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-let dataArray = [Model(title: "Swift"), Model(title: "Objective C"), Model(title: "Java"), Model(title: "Kotlin"), Model(title: "Java Script"), Model(title: "Python"), Model(title: "Ruby"), Model(title: "PHP"), Model(title: "Perl"), Model(title: "C#"), Model(title: "C++"), Model(title: "Pascal"), Model(title: "Visual Basic")]
+let dataArray = [Model(title: "Pork"), Model(title: "Beef"),Model(title: "Fish"), Model(title: "Poultry"),Model(title: "Egg"), Model(title: "Peanuts")]
 
 class ViewModelItem {
     private var item: Model
