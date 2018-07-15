@@ -48,7 +48,7 @@ class NutrientFile {
     /// Gets the nutrient values for a given food id.
     func getNutrientValues(for foodId: Int) throws -> Table {
         let table = try database.query("""
-        select NutrientID, NutrientValue
+        select NutrientValue
         from 'Nutrient Amount'
         where FoodID = \(foodId) and (
         NutrientID = \(protein) or
@@ -59,8 +59,9 @@ class NutrientFile {
         NutrientID = \(vitD) or
         NutrientID = \(iron) or
         NutrientID = \(potassium) or
-        NutrientID = \(sodium)
-        );
+        NutrientID = \(sodium))
+        order by NutrientID
+        ;
         """)
         return table
     }
