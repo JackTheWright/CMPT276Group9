@@ -9,7 +9,11 @@
 
 import Foundation
 import PerfectSQLite
-import SQLite3
+
+public let SQLITE_INTEGER: Int32 = 1
+public let SQLITE_FLOAT: Int32 = 2
+public let SQLITE_TEXT: Int32 = 3
+public let SQLITE_BLOB: Int32 = 4
 
 public class Database {
 
@@ -47,7 +51,7 @@ public class Database {
                 case SQLITE_FLOAT:
                     row[colName] = SQLiteElement(stmt.columnDouble(position: j))
 
-                case SQLITE3_TEXT:
+                case SQLITE_TEXT:
                     row[colName] = SQLiteElement(stmt.columnText(position: j))
 
                 case SQLITE_BLOB:
