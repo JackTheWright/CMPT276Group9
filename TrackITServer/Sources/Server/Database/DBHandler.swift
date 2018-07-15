@@ -44,7 +44,7 @@ class DBHandler : Handler {
                 return try table.rowsAsJSON().rawData()
 
             case .CNFGetNutrients:
-                guard splitString.count > 2 else {
+                guard splitString.count >= 2 else {
                     Log.event("Invalid message body for get nutrients",
                             event: .warning)
                     return nil
