@@ -92,7 +92,9 @@ func testDB() {
         }
 
         var result = try db.query("SELECT * FROM 'FOOD NAME' WHERE FOODID = 2")
-        print(result.rowsAsJSON())
+        let json = result.rowsAsJSON()
+        print(json)
+        print(json[0]["FOODID"])
 //        result.addRow(["FoodID" : 42, "FoodDescription" : "The Food"])
 //        print(result.rowCount)
 //
