@@ -52,6 +52,15 @@
                                     <segue destination="ICL-1Z-dw8" kind="embed" id="PvP-xa-TSx"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDY-oP-Yt8">
+                                <rect key="frame" x="79" y="479" width="216" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Advanced Statistics"/>
+                                <connections>
+                                    <segue destination="UMo-hr-9SK" kind="show" id="xhG-Pw-xnB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -101,6 +110,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTx-bh-uUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="757" y="391"/>
+        </scene>
+        <!--AdvancedStats-->
+        <scene sceneID="Wue-Wd-MRA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdvancedStats" id="UMo-hr-9SK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2am-7Y-z2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="676"/>
         </scene>
         <!--Bar Chart View-->
         <scene sceneID="f4C-Py-tfU">

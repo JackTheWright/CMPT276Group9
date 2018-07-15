@@ -110,7 +110,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         
     }
     
-    @IBOutlet weak var advancedTextField: UITextField!
+   
     
     var autoCompletionPossibilities = ["Apple", "Pineapple", "Orange"]
     var autoCompleteCharacterCount = 0
