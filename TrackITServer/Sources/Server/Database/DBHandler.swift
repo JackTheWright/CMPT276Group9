@@ -21,6 +21,7 @@ class DBHandler : Handler {
             self.destroy()
         }
         if packet.flags.get(MessageFlags.SpecialRequest) {
+            Log.verbose("Handling special request", event: .server)
             guard let requestString = packet.message.string else {
                 return nil
             }
