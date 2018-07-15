@@ -1,0 +1,46 @@
+Server Saturation Test
+Date: 2018-07-13
+
+Notes:
+    This test does not take into account the connection time over the
+    internet as it was run with all nodes in the same network. This is
+    mainly a test of server compute time and not network connectivity as
+    there is nothing that can be done to improve that.
+
+    Server is running a simple echo handler for all connections. Will 
+    need to run another test with a more complicated handler.
+
+Server Configuration:
+    CPU:
+        2 cores
+        6.5 GHz total clock speed
+        99% CPU usage for server application
+    RAM:
+        2 GB
+    OS:
+        Ubuntu Server 17.10
+        VMWare ESXi 6.5
+
+Baseline:
+    Average # bytes per transmission: 20
+    Connection time from node to server: ~ 3.1 ms
+
+Data:
+    # Client Nodes | Run Time (s) | # Transmissions | Time/Trans. (ms)
+           1       |      46      |      10 000     |      4.6
+           2       |      54      |      10 000     |      5.4
+           3       |      63      |      10 000     |      6.3
+
+Projections:
+    +1 client node -> ~ +1 ms transmission time
+
+    This can be extrapolated to:
+        200 nodes ~= 1s transmission time
+
+    Accommodating for experimental errors, the server should be able to
+    handle 100 simultaneous, low bandwidth (<100 bytes) connections in
+    its current configuration.
+
+Decision:
+    At this time, no server hardware modifications are needed.
+

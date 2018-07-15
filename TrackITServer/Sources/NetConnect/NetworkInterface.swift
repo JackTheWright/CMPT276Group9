@@ -45,6 +45,20 @@ open class NetworkInterface {
             return nil
         }
     }
+
+    /// Sets the connection timeout for the interface.
+    ///
+    /// - parameters:
+    ///     - seconds: The number of seconds to set the timeout to.
+    public func setTimeout(_ seconds: UInt?) {
+        if let s = seconds {
+            socket.setReadTimeout(s)
+            socket.setWriteTimeout(s)
+        } else {
+            socket.removeReadTimeout()
+            socket.removeWriteTimeout()
+        }
+    }
     
     /// Initiates a connection to a remote host.
     ///
@@ -195,11 +209,11 @@ extension NetworkInterface {
     /// Called after connection has been established with the host but before
     /// the conversation closure has been called.
     ///
-    /// If the interface is an instigator this event will trigger with the relpy
+    /// If the interface is an instigator this event will trigger with the reply
     /// from the host after the initial request is sent. In this case, the event
     /// will be triggered as soon as the reply is received. If a rejection
     /// message was sent as the reply this event will still trigger, but this
-    /// event is not responsable for terminating the connection; that will
+    /// event is not responsible for terminating the connection; that will
     /// happen immediately after this event finishes.
     ///
     /// If this interface is not the instigator, then this event will be called
@@ -243,7 +257,7 @@ extension NetworkInterface {
     ///
     /// ------------------------------------------------------------------------
     ///
-    /// This event is triggered after the conversaiton closure has finished
+    /// This event is triggered after the conversation closure has finished
     /// without throwing any errors, but before the final connection teardown
     /// starts. This event may be used to send any final messages to the host
     /// that were not suitable to put in the closure or to retrieve some info
