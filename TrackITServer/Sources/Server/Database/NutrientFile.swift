@@ -21,6 +21,12 @@ class NutrientFile {
     let protein = 203
     let fat = 204
     let carb = 205
+    let magnesium = 304
+    let vitB9 = 418
+    let vitD = 876
+    let iron = 303
+    let potassium = 306
+    let sodium = 307
 
     init?(path: String) {
         guard let db = Database(path: path) else {
@@ -47,7 +53,13 @@ class NutrientFile {
         where FoodID = \(foodId) and (
         NutrientID = \(protein) or
         NutrientID = \(fat) or
-        NutrientID = \(carb)
+        NutrientID = \(carb) or
+        NutrientID = \(magnesium) or
+        NutrientID = \(vitB9) or
+        NutrientID = \(vitD) or
+        NutrientID = \(iron) or
+        NutrientID = \(potassium) or
+        NutrientID = \(sodium)
         );
         """)
         return table
