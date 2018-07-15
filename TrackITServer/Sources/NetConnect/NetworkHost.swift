@@ -90,6 +90,7 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data, flags: Message.Flags) throws {
+        print(data.count)
         if data.count > Message.maxBodySize {
             print("DATA TOO BIG")
             // If data is too big, send multiple messages recursively.
