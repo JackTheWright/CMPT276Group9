@@ -131,11 +131,11 @@ extension Handler {
                 } else {
                     var isDone = false
                     while !isDone {
-                        print("Creating Multi Message")
                         let cutoff = min(Message.maxBodySize, data.count)
                         let dataToSend = data.subdata(in: 0..<cutoff)
                         if (cutoff == data.count) {
                             isDone = true
+                            flags.remove(MessageFlags.MultiMessageStream)
                         } else {
                             data.removeSubrange(0..<cutoff)
                             flags.set(MessageFlags.MultiMessageStream)

@@ -139,21 +139,6 @@ public extension NetworkHost {
 // MARK: Receive Methods
 
 public extension NetworkHost {
-
-    fileprivate func dataReceiver(_ base: Data) throws -> Data {
-        print("rd")
-        guard let message = Message(from: try socket!.read().data) else {
-            throw NetworkError.MalformedMessage
-        }
-        print("rd")
-        let data = base + message.body
-        if message.flags.get(MessageFlags.MultiMessageStream) {
-            return try dataReceiver(data)
-        } else {
-            print("done")
-            return data
-        }
-    }
     
     /// Receives data from the host.
     ///
@@ -161,7 +146,15 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to receive data.
     func receiveData() throws -> Data {
-        return try dataReceiver(Data())
+        guard let message = Message(from: try socket!.read().data) else {
+            throw NetworkError.MalformedMessage
+        }
+        let data = message.body
+        if message.flags.get(MessageFlags.MultiMessageStream) {
+            return try data + receiveData()
+        } else {
+            return data
+        }
     }
     
     /// Receives data from the host as a string.
