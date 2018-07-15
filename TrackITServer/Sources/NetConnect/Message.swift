@@ -25,7 +25,7 @@ public class Message {
 
     /// The largest size, in bytes, that a message body can be.
     public static var maxBodySize: Int {
-        return 4000
+        return 2048
     }
     
     /// Constructs from an encoded message.
