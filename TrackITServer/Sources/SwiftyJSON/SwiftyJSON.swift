@@ -660,6 +660,7 @@ extension JSON: Swift.RawRepresentable {
 				}
 				let body = try dict.keys.map { key throws -> String in
 					guard let value = dict[key] else {
+                        print("dic nil") // TEMP
 						return "\"\(key)\": null"
 					}
 					guard let unwrappedValue = value else {
