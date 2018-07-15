@@ -9,8 +9,9 @@
 
 import Foundation
 import NetConnect
-import PerfectSQLite
+import Database
 import SwiftyJSON
+
 
 class DBHandler : Handler {
 
@@ -22,17 +23,18 @@ class DBHandler : Handler {
 
     /// Entry point for database handler.
     override func main(packet: NodePacket) throws -> Data? {
-        let flags = packet.message.flags
+        defer {
+            self.destroy()
+        }
         guard let sqlStatement = packet.message.string else {
             return nil
         }
 
-        Log.verbose("Executing SQL Statement: \(sqlStatement)", event: .server)
-        if let json = try? JSON(arrayLiteral: "a", "b", "c", "d").rawData() {
-            return json
-        } else {
-            return Data()
+        guard let db = Database(path: cnfPath) else {
+            throw Database.Error.UnableToOpen
         }
+        let table = try db.query(sqlStatement)
+        return try table.rowsAsJSON().rawData()
     }
 
 }

@@ -21,6 +21,8 @@ public class Database {
 
         case InvalidColumnType
 
+        case UnableToOpen
+
     }
 
     fileprivate let sqlite: SQLite

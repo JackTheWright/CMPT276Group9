@@ -14,10 +14,6 @@ import SwiftyJSON
 import Threading
 import PerfectSQLite
 
-
-testDB()
-exit(0)
-
 let isServer = true
 
 if isServer {
@@ -32,15 +28,18 @@ if isServer {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
     interface.connect(to: "app.trackitdiet.com", on: 60011) { host in
-        for i in 1...10000 {
-            do {
-                try host.send("\(IFAddress.localIP() ?? "no ip"): \(i)")
-                let reply = try host.receiveData()
-                print("Reply: \(reply.count) bytes, as string: " +
-                        "\(String(data: reply, encoding: .utf8) ?? "nil")")
-            } catch NetworkError.Timeout {
-                print("Connection timed out; retrying...")
-            }
+        do {
+            var flags = Message.Flags()
+            flags.set(MessageFlags.DBQuery)
+            try host.send("""
+            select foodDescription from 'food name' where foodId = 2;
+            """, flags: flags)
+
+            let reply = try host.receiveJSON()
+            print(reply)
+
+        } catch NetworkError.Timeout {
+            print("Connection timed out; retrying...")
         }
     }
 
