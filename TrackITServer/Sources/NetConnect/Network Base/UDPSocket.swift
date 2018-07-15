@@ -133,7 +133,7 @@ public class UDPSocket {
     /// is already set up on a specific port. One should call `listen` first
     /// to wait for an initial message, the use `read` to continue accepting
     /// messages on the same port.
-    public func read() throws -> ReadData {
+    func read() throws -> ReadData {
         var data = Data()
         let result = try socket.readDatagram(into: &data)
         if let addr = result.address {
@@ -149,7 +149,7 @@ public class UDPSocket {
     ///
     /// - throws: Throws `Socket.Error` if unable to write.
     @discardableResult
-    public func write(data: Data, to address: Address) throws -> Int {
+    func write(data: Data, to address: Address) throws -> Int {
         return try socket.write(from: data, to: address.addr)
     }
     

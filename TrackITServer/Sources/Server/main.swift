@@ -11,36 +11,44 @@ import Foundation
 import NetConnect
 import CryptoSwift
 import SwiftyJSON
-import Threading
-import PerfectSQLite
 
-let isServer = true
+// --- END TO END NETCONNECT TEST --- //
 
-if isServer {
-    try? Config.load(from: "./srvconf.json")
-    if let server = Server() {
-        server.start()
-    } else {
-        print("Unable to construct server")
-    }
-} else {
+let port = 60000
+let count = 1_000_000
 
-    let interface = NetworkInterface()!
-    interface.setTimeout(2)
-    interface.connect(to: "app.trackitdiet.com", on: 60011) { host in
-        do {
-            var flags = Message.Flags()
-            flags.set(MessageFlags.DBQuery)
-            try host.send("""
-            select foodDescription from 'food name' where foodId = 2;
-            """, flags: flags)
+let message = "RnVjayB4Zb3UgeSGAVyBZb3YmVydVA=="
 
-            let reply = try host.receiveJSON()
-            print(reply)
+var goodCount = 0
+var badCount = 0
 
-        } catch NetworkError.Timeout {
-            print("Connection timed out")
+func client() {
+    let netif = NetworkInterface()!
+    netif.connect(to: "app.trackitdiet.com", on: port) { host in
+        for i in 1...count {
+            print("Sending message #\(i)")
+            sleep(10)
+            try host.send(message)
         }
     }
-
 }
+
+func server() {
+    let netif = NetworkInterface()!
+    netif.listen(on: port) { host in
+        for i in 1...count {
+            let received = try host.receiveString()
+            if received == message {
+                goodCount += 1
+            } else {
+                badCount += 1
+                print("Message was corrupted")
+            }
+            print("[ TEST ]# \(String(format: "% 7d", i)) - ", terminator: "")
+            print("[  OK  ]# \(String(format: "% 7d", goodCount)) - ", terminator: "")
+            print("[FAILED]# \(String(format: "% 7d", badCount)) ")
+        }
+    }
+}
+
+

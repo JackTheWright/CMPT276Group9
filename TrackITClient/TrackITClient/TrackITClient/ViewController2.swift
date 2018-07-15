@@ -16,78 +16,65 @@ import UIKit
 var name = ""
 var gender = ""
 var age = ""
-var weight = ""
 
-class ViewController2: UIViewController, UITextFieldDelegate{
+class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
-    @IBOutlet weak var weightTextField: UITextField!
-/*    @IBOutlet weak var dropDown: UIPickerView!
     
-    let Gender = ["Male","Female"]
+    let Gender = [" ","Male","Female"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView:UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-        return Gender[row]
+            return Gender[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Gender.count
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-            self.dropDown.isHidden = false
-    }*/
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        gender = Gender[row]
+        genderTextField.text = gender
+    }
+    
+    func createAlert (title : String, message:String){
+        let alert = UIAlertController (title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in }))
+        self.present(alert, animated:true, completion:nil)
+    }
+    
     
     @IBAction func nameAction(_ sender: AnyObject) {
-        if (nameTextField.text != "")
-        {
-            name = nameTextField.text!
+        if (nameTextField.text != ""){
+            nameTextField.text = name
         }
     }
-    
-    @IBAction func genderAction(_ sender: AnyObject) {
-        if (genderTextField.text != "")
-        {
-            gender = genderTextField.text!
-        }
-    }
-    
     @IBAction func ageAction(_ sender: AnyObject) {
-        if (ageTextField.text != "")
-        {
-            age = ageTextField.text!
+        if (ageTextField.text != ""){
+            ageTextField.text = age
         }
     }
     
-    @IBAction func weightAction(_ sender: AnyObject) {
-        if (weightTextField.text != "")
-        {
-            weight = weightTextField.text!
-        }
-    }
-    
-    func startTrackingAction() {
-   //     let personalData = Personaldata(id: 0, name: name, gender: gender, age: age, weight: weight)
-   //     personalDatas.append(personalData)
-    }
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameTextField?.delegate = self
-        genderTextField?.delegate = self
-        ageTextField?.delegate = self
-        weightTextField?.delegate = self
-
+        let genderPicker = UIPickerView()
+        genderPicker.delegate = self
+        genderTextField.inputView = genderPicker
         
+        createToolbar()
+        nameTextField?.delegate = self
+        ageTextField?.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        createAlert(title: "Reminder", message: "Recommanded age is 16 and above")
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,17 +82,26 @@ class ViewController2: UIViewController, UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+ //func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+   //     textField.resignFirstResponder()
+     //   return true
+    //}
+ 
+    func createToolbar(){
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target:self, action: #selector (ViewController2.dismissKeyboard))
+        
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        genderTextField.inputAccessoryView = toolBar
     }
     
-
-    
-    //private var personalDatas = [Personaldata]()
-    private var selectedPerson: Int?
-
-    
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
+    }
+ 
    /*
     // MARK: - Navigation
 

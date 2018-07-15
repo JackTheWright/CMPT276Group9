@@ -13,20 +13,8 @@ import SwiftyJSON
 public class Message {
     
     public typealias Flags = FlagComplex<MessageFlags>
-
-    public typealias ID = UInt16
     
     fileprivate var encodedData = Data()
-
-    /// The conversation identifier used for handshake request messages.
-    public static var handshakeId : ID {
-        return 0x8000
-    }
-
-    /// The largest size, in bytes, that a message body can be.
-    public static var maxBodySize: Int {
-        return 2048
-    }
     
     /// Constructs from an encoded message.
     ///
@@ -41,7 +29,7 @@ public class Message {
     }
     
     /// Constructs from a body, flags, and conversation identifier. The size
-    /// property of the message will be automatically computed.
+    /// property of the message will be automatcally computed.
     ///
     /// - parameters:
     ///     - body: The body of the message as raw data.
@@ -49,7 +37,7 @@ public class Message {
     ///     - flags: A flag complex containing state flags for the message.
     ///
     ///     - id: The conversation identifier for the message.
-    public init(_ body: Data, flags: Flags, id: ID) {
+    public init(_ body: Data, flags: Flags, id: UInt16) {
         encodedData = encode(body: body, flags: flags, id: id)
     }
     
@@ -63,7 +51,7 @@ public class Message {
     ///     - id: The conversation identifier for the message.
     ///
     /// Returns `nil` if unable to convert the string body into a `Data` object.
-    public convenience init?(_ body: String, flags: Flags, id: ID) {
+    public convenience init?(_ body: String, flags: Flags, id: UInt16) {
         guard let data = body.data(using: .utf8) else {
             return nil
         }
@@ -80,7 +68,7 @@ public class Message {
     ///     - id: The conversation identifier for the message.
     ///
     /// Returns `nil` if unable to convert the JSON body into a `Data` object.
-    public convenience init?(_ body: JSON, flags: Flags, id: ID) {
+    public convenience init?(_ body: JSON, flags: Flags, id: UInt16) {
         guard let data = try? body.rawData() else {
             return nil
         }
@@ -106,10 +94,10 @@ public extension Message {
     }
     
     /// Return the conversation identifier of the message.
-    var id: ID {
+    var id: Int {
         let idData = encodedData.subdata(in: 4..<6)
-        let value: ID = copyInteger(from: idData)
-        return value
+        let value: UInt16 = copyInteger(from: idData)
+        return Int(value)
     }
     
     /// Returns the flags for the message.
@@ -178,7 +166,7 @@ fileprivate extension Message {
     ///
     ///     - id: A 16-bit integer that denotes the id of the conversation that
     ///         this message belongs to.
-    func encode(body: Data, flags: Flags, id: ID) -> Data {
+    func encode(body: Data, flags: Flags, id: UInt16) -> Data {
         var size = UInt32(body.count + 8)
         var idData = id
         var flagData = flags.rawValue
@@ -195,6 +183,11 @@ fileprivate extension Message {
 // MARK: Static Methods
 
 internal extension Message {
+    
+    /// The conversation identifier used for handshake request messages.
+    static var handshakeId : UInt16 {
+        return 0x800
+    }
     
     /// Returns a `Message` object that is preformatted for a handshake request.
     ///
@@ -217,9 +210,9 @@ internal extension Message {
     ///     - id: The new conversation id for the conversation. Will only be
     ///         used if `valid` is `true`.
     ///
-    /// - returns: Returns a handshake response message.
+    /// - returns: Returns a handshake respnse message.
     static func handshakeResponse
-        (valid: Bool, body: Data, id: ID) -> Message
+        (valid: Bool, body: Data, id: UInt16) -> Message
     {
         var flags = Flags()
         if valid {
