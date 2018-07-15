@@ -14,7 +14,7 @@ import SwiftyJSON
 import Threading
 import PerfectSQLite
 
-let isServer = true
+let isServer = false
 
 if isServer {
     try? Config.load(from: "./srvconf.json")
@@ -26,8 +26,8 @@ if isServer {
 } else {
 
     let interface = NetworkInterface()!
-    interface.setTimeout(5)
-    interface.connect(to: "app.trackitdiet.com", on: 60011) { host in
+    interface.setTimeout(2)
+    interface.connect(to: "192.168.10.105", on: 60011) { host in
         do {
             var flags = Message.Flags()
             flags.set(MessageFlags.DBQuery)
@@ -39,7 +39,7 @@ if isServer {
             print(reply)
 
         } catch NetworkError.Timeout {
-            print("Connection timed out; retrying...")
+            print("Connection timed out")
         }
     }
 
