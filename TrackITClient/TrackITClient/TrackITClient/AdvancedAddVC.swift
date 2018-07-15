@@ -106,15 +106,64 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        advancedTextField.delegate = self
+        advancedSuggestions.delegate = self
+        
+        anyStepper.wraps = false
+        anyStepper.autorepeat = true
+        anyStepper.maximumValue = 10
         
         
     }
     
-    @IBOutlet weak var advancedTextField: UITextField!
+    //Food Groups: Meats: 1, Veggies: 2, Fruit: 3, Dairy: 4, Grains: 5
     
-    var autoCompletionPossibilities = ["Apple", "Pineapple", "Orange"]
+    var autoComplete = [String]()
+    var autoCompletionPossibilities = ["Apple": 3, "Pineapple": 2, "Orange": 1]
     var autoCompleteCharacterCount = 0
     var timer = Timer()
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let substring = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        searchAutoCompleteEntriesWithSubstring(substring: substring)
+        
+        return true
+    }
+    
+    func searchAutoCompleteEntriesWithSubstring (substring: String) {
+        
+        autoComplete.removeAll(keepingCapacity: false)
+        let lazyMapCollection = autoCompletionPossibilities.keys
+        let stringArray = Array(lazyMapCollection.map { String($0) })
+
+        for keys in stringArray {
+            
+           
+            let myString:NSString! = keys as NSString
+            let substringRange: NSRange! = myString.range(of: substring)
+            
+            if (substringRange.location == 0)
+            {
+                autoComplete.append(keys)
+            }
+            
+        }
+        advancedSuggestions.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        let index = indexPath.row as Int
+        cell.textLabel!.text = autoComplete[index]
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return autoComplete.count
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell: UITableViewCell = advancedSuggestions.cellForRow(at: indexPath)!
