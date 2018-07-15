@@ -15,12 +15,6 @@ import SwiftyJSON
 
 class DBHandler : Handler {
 
-    /// Path to Canadian Nutrient File data base.
-    let cnfPath = Config.cnfPath
-
-    /// Path to user information database.
-    let userDBPath = Config.userDBPath
-
     /// Entry point for database handler.
     override func main(packet: NodePacket) throws -> Data? {
         defer {
@@ -30,7 +24,7 @@ class DBHandler : Handler {
             return nil
         }
 
-        guard let db = Database(path: cnfPath) else {
+        guard let db = Database(path: "./cnf.db") else {
             throw Database.Error.UnableToOpen
         }
         let table = try db.query(sqlStatement)
