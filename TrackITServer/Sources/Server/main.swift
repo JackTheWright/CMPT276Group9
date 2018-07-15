@@ -14,6 +14,10 @@ import SwiftyJSON
 import Threading
 import PerfectSQLite
 
+
+testDB()
+exit(0)
+
 let isServer = true
 
 if isServer {

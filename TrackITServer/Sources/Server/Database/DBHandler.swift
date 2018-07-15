@@ -27,11 +27,10 @@ class DBHandler : Handler {
             return nil
         }
 
+        Log.verbose("Executing SQL Statement: \(sqlStatement)", event: .server)
         if let json = try? JSON(arrayLiteral: "a", "b", "c", "d").rawData() {
-            print("json ok")
             return json
         } else {
-            print("unable to convert to json")
             return Data()
         }
     }
