@@ -91,6 +91,7 @@ public extension NetworkHost {
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data, flags: Message.Flags) throws {
         if data.count > Message.maxBodySize {
+            print("DATA TOO BIG")
             // If data is too big, send multiple messages recursively.
             let cutoff = Message.maxBodySize
             let dataToSend = data.subdata(in: 0..<cutoff)
@@ -145,6 +146,7 @@ public extension NetworkHost {
             throw NetworkError.MalformedMessage
         }
         let data = base + message.body
+        print("dr")
         if message.flags.get(MessageFlags.MultiMessageStream) {
             return try dataReceiver(data)
         } else {
