@@ -61,9 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
             var flags = Message.Flags()
+            interface.setTimeout(10)
             flags.set(MessageFlags.DBQuery)
             print("sending")
-            try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 2000;", flags: flags)
+            try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 100;", flags: flags)
             print("sent")
             let JSONreply = try host.receiveJSON()
             print("didrecieve")
@@ -75,7 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 GlobalStates.foodnames = fn
             }
             print(GlobalStates.foodnames)
-            interface.setTimeout(5)
         }
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
