@@ -8,7 +8,7 @@
 
 import UIKit
 
-var foodGroup = String()
+var foodGroup = Int()
 var foodText = String()
 class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -29,7 +29,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         let transferFrom = Int(anyCount.text!)
         var transferTo = Int()
 
-        if foodGroup == "meat" {
+        if foodGroup == 0 {
             transferTo = Int(UserDefaults.standard.string(forKey: "meatTotal")!)!
             let meat = transferFrom! + UserDefaults.standard.integer(forKey: "meatStepped")
             UserDefaults.standard.set(meat, forKey: "meatStepped")
@@ -42,7 +42,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.meatStepper.value = UserDefaults.standard.double(forKey: "meatStepped")
 
         }
-        else if foodGroup == "vegetable" {
+        else if foodGroup == 1 {
             transferTo = Int(UserDefaults.standard.string(forKey: "vegetableTotal")!)!
             let veg = transferFrom! + UserDefaults.standard.integer(forKey: "vegetableStepped")
             UserDefaults.standard.set(veg, forKey: "vegetableStepped")
@@ -55,7 +55,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.vegetableStepper.value = UserDefaults.standard.double(forKey: "vegetableStepped")
             
         }
-        else if foodGroup == "fruit" {
+        else if foodGroup == 2 {
             transferTo = Int(UserDefaults.standard.string(forKey: "fruitTotal")!)!
             let fruit = transferFrom! + UserDefaults.standard.integer(forKey: "fruitStepped")
             UserDefaults.standard.set(fruit, forKey: "fruitStepped")
@@ -67,7 +67,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.fruitCount.text = UserDefaults.standard.string(forKey: "fruitTotal")
             AdvancedAddVC.viewController.fruitStepper.value = UserDefaults.standard.double(forKey: "fruitStepped")
         }
-        else if foodGroup == "dairy" {
+        else if foodGroup == 3 {
             transferTo = Int(UserDefaults.standard.string(forKey: "dairyTotal")!)!
             let dairy = transferFrom! + UserDefaults.standard.integer(forKey: "dairyStepped")
             UserDefaults.standard.set(dairy, forKey: "dairyStepped")
@@ -80,7 +80,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.dairyStepper.value = UserDefaults.standard.double(forKey: "dairyStepped")
 
         }
-        else if foodGroup == "grains" {
+        else if foodGroup == 4 {
             transferTo = Int(UserDefaults.standard.string(forKey: "grainsTotal")!)!
             let grains = transferFrom! + UserDefaults.standard.integer(forKey: "grainsStepped")
             UserDefaults.standard.set(grains, forKey: "grainsStepped")
@@ -164,21 +164,21 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         let Label = selectedCell.textLabel
         advancedTextField.text = Label?.text
         foodText = advancedTextField.text!
-        foodGroup = autoCompletionPossibilities.first{ $0.foodname == foodText}?.foodgroup ?? ""
+        foodGroup = autoCompletionPossibilities.first{ $0.foodname == foodText}?.foodgroup ?? 0
         
-        if foodGroup == "meat" {
+        if foodGroup == 5 || foodGroup == 7 || foodGroup == 10 || foodGroup == 12 || foodGroup == 13 || foodGroup == 15 || foodGroup == 17{
             anyLabel.text = "Meat"
         }
-        if foodGroup == "vegetable" {
+        if foodGroup == 16 || foodGroup == 11 {
             anyLabel.text = "Vegetables"
         }
-        if foodGroup == "fruit" {
+        if foodGroup == 9 {
             anyLabel.text = "Fruit"
         }
-        if foodGroup == "dairy" {
+        if foodGroup == 1 {
             anyLabel.text = "Dairy"
         }
-        if foodGroup == "grains" {
+        if foodGroup == 8 || foodGroup == 18 || foodGroup == 20 {
             anyLabel.text = "Grains"
         }
         

@@ -19,7 +19,7 @@ import UIKit
 import NetConnect
 import SwiftyJSON
 
-typealias foodTuple = (foodname: String, foodid: Int, foodgroup: String)
+typealias foodTuple = (foodname: String, foodid: Int, foodgroup: Int)
 typealias tableTuple = (foodname: String, foodid: Int, foodgroup: Int)
 
 struct GlobalStates {
@@ -63,14 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var flags = Message.Flags()
             flags.set(MessageFlags.DBQuery)
             print("sending")
-            try host.send("select foodId, foodDescription, foodGroupId from ‘food name’ limit 100;", flags: flags)
+            try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 2000;", flags: flags)
             print("sent")
             let JSONreply = try host.receiveJSON()
             print("didrecieve")
             if let fn = JSONreply.array?.compactMap({ element in
                 return (element.dictionary!["FOODDESCRIPTION"]!.string!,
                         element.dictionary!["FOODID"]!.int!,
-                        element.dictionary!["FOODGROUPID"]!.string!)
+                        element.dictionary!["FOODGROUPID"]!.int!)
             }) {
                 GlobalStates.foodnames = fn
             }
