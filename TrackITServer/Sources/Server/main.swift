@@ -14,33 +14,10 @@ import SwiftyJSON
 import Threading
 import PerfectSQLite
 
-let isServer = true
-
-if isServer {
-    try? Config.load(from: "./srvconf.json")
-    if let server = Server() {
-        server.start()
-    } else {
-        print("Unable to construct server")
-    }
+try? Config.load(from: "./srvconf.json")
+Log.outFile = Config.outFile
+if let server = Server() {
+    server.start()
 } else {
-
-    let interface = NetworkInterface()!
-    interface.setTimeout(2)
-    interface.connect(to: "app.trackitdiet.com", on: 60011) { host in
-        do {
-            var flags = Message.Flags()
-            flags.set(MessageFlags.DBQuery)
-            try host.send("""
-            select foodDescription from 'food name' where foodId = 2;
-            """, flags: flags)
-
-            let reply = try host.receiveJSON()
-            print(reply)
-
-        } catch NetworkError.Timeout {
-            print("Connection timed out")
-        }
-    }
-
+    print("Unable to construct server")
 }

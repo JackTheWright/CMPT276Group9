@@ -103,6 +103,14 @@ extension Config {
             return "./userInfo.db"
         }
     }
+
+    static var outFile: String? {
+        if let path = json.dictionary?["outfile"]?.string {
+            return path
+        } else {
+            return nil
+        }
+    }
     
 }
 
