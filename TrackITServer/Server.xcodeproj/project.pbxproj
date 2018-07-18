@@ -163,7 +163,6 @@
 		OBJ_419 /* HandshakeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* HandshakeHandler.swift */; };
 		OBJ_420 /* NetworkNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* NetworkNode.swift */; };
 		OBJ_421 /* NodePacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* NodePacket.swift */; };
-		OBJ_422 /* Probe.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Probe.swift */; };
 		OBJ_423 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Router.swift */; };
 		OBJ_424 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Server.swift */; };
 		OBJ_425 /* DBHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* DBHandler.swift */; };
@@ -390,7 +389,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BAA652C27C518D8BEACB4EA8 /* cnf.db */ = {isa = PBXFileReference; lastKnownFileType = file.db; path = cnf.db; sourceTree = "<group>"; };
+		BAA656F3F9CBEF37B74B1F1A /* Group9DB.db */ = {isa = PBXFileReference; lastKnownFileType = file.db; path = Group9DB.db; sourceTree = "<group>"; };
 		BAA658E839CB82DB5D487892 /* NutrientFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientFile.swift; sourceTree = "<group>"; };
+		BAA6595352A6D00D06D349AD /* srvconf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = srvconf.json; sourceTree = "<group>"; };
 		BAA65AC3E73D312D6558653E /* SpecialRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialRequests.swift; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_103 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
@@ -470,7 +472,6 @@
 		OBJ_175 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jeremy/Desktop/projects/TrackIT/TrackITServer/.build/checkouts/CryptoSwift--5560562967812595289/Package.swift"; sourceTree = "<group>"; };
 		OBJ_178 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		OBJ_179 /* SocketProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketProtocols.swift; sourceTree = "<group>"; };
-		OBJ_18 /* Probe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Probe.swift; sourceTree = "<group>"; };
 		OBJ_180 /* SocketUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketUtils.swift; sourceTree = "<group>"; };
 		OBJ_181 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/jeremy/Desktop/projects/TrackIT/TrackITServer/.build/checkouts/BlueSocket.git-3162807777605905816/Package.swift"; sourceTree = "<group>"; };
 		OBJ_185 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
@@ -657,6 +658,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BAA6567FC3A303785D79BBF9 /* Workspace */ = {
+			isa = PBXGroup;
+			children = (
+				BAA652C27C518D8BEACB4EA8 /* cnf.db */,
+				BAA656F3F9CBEF37B74B1F1A /* Group9DB.db */,
+				BAA6595352A6D00D06D349AD /* srvconf.json */,
+			);
+			path = Workspace;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +678,7 @@
 				OBJ_33 /* Protocols */,
 				OBJ_35 /* Tests */,
 				OBJ_37 /* main.swift */,
+				BAA6567FC3A303785D79BBF9 /* Workspace */,
 			);
 			name = Server;
 			path = Sources/Server;
@@ -751,7 +763,6 @@
 				OBJ_13 /* Handlers */,
 				OBJ_16 /* NetworkNode.swift */,
 				OBJ_17 /* NodePacket.swift */,
-				OBJ_18 /* Probe.swift */,
 				OBJ_19 /* Router.swift */,
 				OBJ_20 /* Server.swift */,
 			);
@@ -1641,7 +1652,6 @@
 				OBJ_419 /* HandshakeHandler.swift in Sources */,
 				OBJ_420 /* NetworkNode.swift in Sources */,
 				OBJ_421 /* NodePacket.swift in Sources */,
-				OBJ_422 /* Probe.swift in Sources */,
 				OBJ_423 /* Router.swift in Sources */,
 				OBJ_424 /* Server.swift in Sources */,
 				OBJ_425 /* DBHandler.swift in Sources */,
