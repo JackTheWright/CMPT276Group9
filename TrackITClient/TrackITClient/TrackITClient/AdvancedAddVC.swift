@@ -92,12 +92,21 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.grainsCount.text = UserDefaults.standard.string(forKey: "grainsTotal")
             AdvancedAddVC.viewController.grainsStepper.value = UserDefaults.standard.double(forKey: "grainsStepped")
         }
+        
+        //set the foodID var to the foodID from the database array entry
         let foodID = autoCompletionPossibilities.first{ $0.foodname == foodText}?.foodid ?? 0
+        //assign foodfortable to the array entry that is being accessed for the food being added
         GlobalStates.foodForTable = [FoodNutrition(foodname: foodText, foodIF: foodID, Multiplier: Int(anyCount.text!) ?? 0)]
+        //getting whats in user defaults out so that we can append to the array
+        GlobalStates.arr = UserDefaults.standard.data(forKey: "foodForTable")!
+        //append the encoded struct to the already made array
         GlobalStates.arr += try! PropertyListEncoder().encode(GlobalStates.foodForTable)
+        print(GlobalStates.arr)
+        //set the foodForTable to the newly appended array
         UserDefaults.standard.set(GlobalStates.arr, forKey: "foodForTable")
         anyCount.text = "0"
         anyStepper.value = 0
+        
     }
     
     override func viewDidLoad() {
