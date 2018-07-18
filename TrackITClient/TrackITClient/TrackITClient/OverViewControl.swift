@@ -74,7 +74,7 @@ class UIOverviewControl: UIViewController {
     @IBOutlet weak var advancedStatsButton: UIButton!
     @IBAction func showAlertButtonTapped(_ sender: UIButton) {
     let check = UserDefaults.standard.string(forKey: "didWork")
-        if check == "fuck" {
+        if check == "nosir" {
             // create the alert
             let alert = UIAlertController(title: "Database Issue", message: "The database cannot be loaded, please stick to Quick Add functionality. We apologize for the trouble.", preferredStyle: UIAlertControllerStyle.alert)
             

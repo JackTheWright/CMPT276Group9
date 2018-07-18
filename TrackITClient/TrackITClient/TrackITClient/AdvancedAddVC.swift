@@ -133,7 +133,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let substring = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        searchAutoCompleteEntriesWithSubstring(substring: substring)
+        searchAutoCompleteEntriesWithSubstring(substring: substring.lowercased())
         
         return true
     }
@@ -142,7 +142,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         
         print(autoCompletionPossibilities)
         autoComplete.removeAll(keepingCapacity: false)
-        let mappy = autoCompletionPossibilities.map { $0.foodname }
+        let mappy = autoCompletionPossibilities.map { $0.foodname.lowercased() }
         print(mappy)
         
         for keys in mappy {
@@ -177,7 +177,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         let Label = selectedCell.textLabel
         advancedTextField.text = Label?.text
         foodText = advancedTextField.text!
-        foodGroup = autoCompletionPossibilities.first{ $0.foodname == foodText}?.foodgroup ?? 0
+        foodGroup = autoCompletionPossibilities.first{ $0.foodname.lowercased() == foodText.lowercased()}?.foodgroup ?? 0
         
         if foodGroup == 5 || foodGroup == 7 || foodGroup == 10 || foodGroup == 12 || foodGroup == 13 || foodGroup == 15 || foodGroup == 17{
             anyLabel.text = "Meat"
