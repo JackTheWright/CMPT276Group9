@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }) {
                     GlobalStates.foodnames = fn
                 }
-            } catch NetworkError.Timeout {
+            } catch{
                 UserDefaults.standard.set("nosir", forKey: "didWork")
             }
             print(GlobalStates.foodnames)
