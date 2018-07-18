@@ -196,7 +196,11 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    
+    func createAlert (title : String, message:String){
+        let alert = UIAlertController (title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in }))
+        self.present(alert, animated:true, completion:nil)
+    }
     
     
     override func viewDidLoad() {
@@ -212,6 +216,8 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
         let foodData = UserDefaults.standard.data(forKey: "foodForTable")!
         let food = try? PropertyListDecoder().decode([FoodNutrition].self, from: foodData)
         if food == nil {
+
+
             proteinAmt.text = String(0)
             appendUnits(label: proteinAmt, unit: "grams")
             
@@ -310,6 +316,10 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
         appendUnits(label: sodiumAmt, unit: "milligrams")
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        createAlert(title: "Alert", message: "There is no data currently stored. This is a bug")
     }
     
     override func didReceiveMemoryWarning() {
