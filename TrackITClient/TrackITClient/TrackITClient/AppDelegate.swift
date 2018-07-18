@@ -24,7 +24,7 @@ typealias tableTuple = (foodname: String, foodid: Int, multiplier: Int)
 
 struct FoodNutrition: Codable {
     var foodname = String()
-    var foodIF = Int()
+    var foodID = Int()
     var Multiplier = Int()
     
 }
@@ -48,6 +48,8 @@ struct GlobalStates {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var totalNutrients = [Double]()
+    
     var window: UIWindow?
     
     var vc = viewControl()
