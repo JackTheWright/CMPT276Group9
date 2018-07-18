@@ -79,8 +79,8 @@ func foodToFoodID( food: [FoodNutrition]) -> [Int] {
 }
 
 
-let foodData = UserDefaults.standard.data(forKey: "foodForTable")!
-let food = try? PropertyListDecoder().decode([FoodNutrition].self, from: foodData)
+//let foodData = UserDefaults.standard.data(forKey: "foodForTable")!
+//let food = try? PropertyListDecoder().decode([FoodNutrition].self, from: foodData)
 
 class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -99,79 +99,79 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableViewData[section].opened == true {
+        if tableViewData.count > 0 && tableViewData[section].opened == true {
             return tableViewData[section].data.count + 7
         }
         else {
             return 1
         }
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if food != nil {
-            return food!.count
-        }
-        else {
-            return 0
-        }
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        if food != nil {
+//            return food!.count
+//        }
+//        else {
+//            return 0
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
+            guard tableViewData.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = tableViewData[indexPath.section].title
             cell.backgroundColor = UIColor.white
             return cell
         }
         else if indexPath.row == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
+            guard tableViewData.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Protein: \(tableViewData[indexPath.section].data[0] ) grams"
             cell.backgroundColor = UIColor.yellow
             return cell
         }
         else if indexPath.row == 2 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
+            guard tableViewData.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Carbohydrates: \(tableViewData[indexPath.section].data[2] ) grams"
             cell.backgroundColor = UIColor.yellow
             return cell
         }
         else if indexPath.row == 3 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
+            guard tableViewData.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Fats: \(tableViewData[indexPath.section].data[1]) grams"
             cell.backgroundColor = UIColor.yellow
             return cell
         }
         else if indexPath.row == 4 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
+            guard tableViewData.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Magnesium: \(tableViewData[indexPath.section].data[4]) milligrams"
             cell.backgroundColor = UIColor.lightGray
             return cell
         }
-        else if indexPath.row == 5 {
+        else if tableViewData.count > 0, indexPath.row == 5 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Vitamin B9: \(tableViewData[indexPath.section].data[7]) milligrams"
             cell.backgroundColor = UIColor.lightGray
             return cell
         }
-        else if indexPath.row == 6 {
+        else if tableViewData.count > 0, indexPath.row == 6 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Vitamin D: \((tableViewData[indexPath.section].data[8])*0.025) micrograms"
             cell.backgroundColor = UIColor.lightGray
             return cell
         }
-        else if indexPath.row == 7 {
+        else if tableViewData.count > 0, indexPath.row == 7 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Iron: \(tableViewData[indexPath.section].data[3]) milligrams"
             cell.backgroundColor = UIColor.lightGray
             return cell
         }
-        else if indexPath.row == 8 {
+        else if tableViewData.count > 0, indexPath.row == 8 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Potassium: \(tableViewData[indexPath.section].data[5]) milligrams"
             cell.backgroundColor = UIColor.lightGray
             return cell
         }
         else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
+            guard tableViewData.count > 0, let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{return UITableViewCell()}
             cell.textLabel?.text = "Sodium: \(tableViewData[indexPath.section].data[6]) milligrams"
             cell.backgroundColor = UIColor.lightGray
             return cell
@@ -207,8 +207,14 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             label.text = text
         }
         
-        let foodData = UserDefaults.standard.data(forKey: "foodForTable")!
-        let food = try? PropertyListDecoder().decode([FoodNutrition].self, from: foodData)
+        let food: [FoodNutrition]?
+        
+        if let foodData = UserDefaults.standard.data(forKey: "foodForTable") {
+            food = try? PropertyListDecoder().decode([FoodNutrition].self, from: foodData)
+        } else {
+            food = nil
+        }
+        
         if food == nil {
 
 
@@ -265,10 +271,10 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
                     sum = 0
                     let multiplier = servings[i]
                     let nutrients = makeInterface(foodID: foodID[i])
-                    for i in 0...9 {
-                        sum = sum + (nutrients[i] * Double(multiplier))
+                    for n in nutrients {
+                        sum = sum + (n * Double(multiplier))
                     }
-                    totNutri[i] = sum
+                    totNutri.append(sum)
                 }
                 return totNutri
             }

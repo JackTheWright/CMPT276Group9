@@ -26,6 +26,7 @@ class DBHandler : Handler {
                 return nil
             }
             let splitString = requestString.split(separator: ":")
+            Log.verbose("\(splitString)", event: .data)
             guard splitString.count > 0 else {
                 return nil
             }
