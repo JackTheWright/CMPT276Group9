@@ -65,6 +65,7 @@ class viewControl: UIViewController {
             dayDic = package.packageItemsWithDate(date: yesterday, meat: meatCount.text!, vegetable: vegetableCount.text!, fruit: fruitCount.text!, dairy: dairyCount.text!, grains: grainsCount.text!)
             UserDefaults.standard.set(dayDic, forKey: yesterday)
             
+            print("hit this bad boy")
             UserDefaults.standard.set(0, forKey: "meatStepped")
             UserDefaults.standard.set("0", forKey: "meatTotal")
             meatCount.text = UserDefaults.standard.string(forKey: "meatTotal")
