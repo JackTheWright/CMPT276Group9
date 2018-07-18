@@ -66,9 +66,9 @@ func foodToMultiplier( food:[FoodNutrition] )-> [Int] {
 
 func foodToName( food:[FoodNutrition]) -> [String] {
     var nameArray = [String]()
-    var i = 0
+    var i = -1
     for elem in food {
-        nameArray[i] = (elem.foodname)
+        nameArray[i+1] = (elem.foodname)
         i = i + 1
     }
     return nameArray
@@ -76,9 +76,9 @@ func foodToName( food:[FoodNutrition]) -> [String] {
 
 func foodToFoodID( food: [FoodNutrition]) -> [Int] {
     var foodIDArray = [Int]()
-    var i = 0
+    var i = -1
     for elem in food {
-        foodIDArray[i] = (elem.foodID)
+        foodIDArray[i+1] = (elem.foodID)
         i = i + 1
     }
     return foodIDArray
