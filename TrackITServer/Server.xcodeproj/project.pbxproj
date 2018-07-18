@@ -390,7 +390,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BAA652C27C518D8BEACB4EA8 /* cnf.db */ = {isa = PBXFileReference; lastKnownFileType = file.db; path = cnf.db; sourceTree = "<group>"; };
+		BAA656F3F9CBEF37B74B1F1A /* Group9DB.db */ = {isa = PBXFileReference; lastKnownFileType = file.db; path = Group9DB.db; sourceTree = "<group>"; };
 		BAA658E839CB82DB5D487892 /* NutrientFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientFile.swift; sourceTree = "<group>"; };
+		BAA6595352A6D00D06D349AD /* srvconf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = srvconf.json; sourceTree = "<group>"; };
 		BAA65AC3E73D312D6558653E /* SpecialRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialRequests.swift; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_103 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
@@ -657,6 +660,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BAA6567FC3A303785D79BBF9 /* Workspace */ = {
+			isa = PBXGroup;
+			children = (
+				BAA652C27C518D8BEACB4EA8 /* cnf.db */,
+				BAA656F3F9CBEF37B74B1F1A /* Group9DB.db */,
+				BAA6595352A6D00D06D349AD /* srvconf.json */,
+			);
+			path = Workspace;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +680,7 @@
 				OBJ_33 /* Protocols */,
 				OBJ_35 /* Tests */,
 				OBJ_37 /* main.swift */,
+				BAA6567FC3A303785D79BBF9 /* Workspace */,
 			);
 			name = Server;
 			path = Sources/Server;
