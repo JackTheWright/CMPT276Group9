@@ -16,7 +16,6 @@ import UIKit
 // Set the DateAttributes class to a variable so we can access the the date to string function for the graph label.
 let time = DateAttributes()
 let package = ServingPackage()
-let vc = viewControl()
 
 class UIOverviewControl: UIViewController {
     
@@ -62,6 +61,7 @@ class UIOverviewControl: UIViewController {
             
             UserDefaults.standard.set(0, forKey: "grainsStepped")
             UserDefaults.standard.set("0", forKey: "grainsTotal")
+            print("hit it n quit it")
         }
         
         
