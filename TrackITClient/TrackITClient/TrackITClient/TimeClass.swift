@@ -69,10 +69,10 @@ class DateAttributes {
         boolDate = false
         let words1 = date1.split(separator: "-")
         let words2 = date2.split(separator: "-")
-        let month1 = words1[2]
-        let day1 = words1[3]
-        let month2 = words2[2]
-        let day2 = words2[3]
+        let month1 = words1[1]
+        let day1 = words1[2]
+        let month2 = words2[1]
+        let day2 = words2[2]
         if (day1 == day2) && (month1 == month2) {
             boolDate = true
         }

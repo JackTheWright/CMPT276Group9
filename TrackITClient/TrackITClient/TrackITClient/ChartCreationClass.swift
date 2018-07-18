@@ -28,7 +28,6 @@ class barChartView: UIViewController {
     //  When the view is about to appear, we will set the data entries variable to an array made by the userdefaults for the food servings. This array contains: height, the servings value, a count, and a title. It then creates the chart with these entries
     override func viewWillAppear(_ animated: Bool) {
         let dataEntries = generateDataEntries()
-        print(dataEntries)
         
         chart.dataEntries = dataEntries
     

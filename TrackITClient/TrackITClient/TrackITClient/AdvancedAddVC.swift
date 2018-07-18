@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import NetConnect
 
 var foodGroup = Int()
-
+var foodText = String()
 class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     static weak var viewController: viewControl!
-    let netinterface = NetworkInterface()!
     @IBOutlet weak var advancedTextField: UITextField!
     @IBOutlet weak var advancedSuggestions: UITableView!
     @IBOutlet weak var anyStepper: UIStepper!
@@ -30,12 +28,8 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     @IBAction func submitIt(_ sender: UIButton) {
         let transferFrom = Int(anyCount.text!)
         var transferTo = Int()
-        netinterface.connect(to: "app.trackitdiet.com", on: 60011) { host in
-            try host.send("yeet")
-            let reply = try host.receiveString()
-            print(reply)
-        }
-        if foodGroup == 1 {
+
+        if foodGroup == 5 || foodGroup == 7 || foodGroup == 10 || foodGroup == 12 || foodGroup == 13 || foodGroup == 15 || foodGroup == 17{
             transferTo = Int(UserDefaults.standard.string(forKey: "meatTotal")!)!
             let meat = transferFrom! + UserDefaults.standard.integer(forKey: "meatStepped")
             UserDefaults.standard.set(meat, forKey: "meatStepped")
@@ -48,7 +42,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.meatStepper.value = UserDefaults.standard.double(forKey: "meatStepped")
 
         }
-        else if foodGroup == 2 {
+        else if foodGroup == 16 || foodGroup == 11 {
             transferTo = Int(UserDefaults.standard.string(forKey: "vegetableTotal")!)!
             let veg = transferFrom! + UserDefaults.standard.integer(forKey: "vegetableStepped")
             UserDefaults.standard.set(veg, forKey: "vegetableStepped")
@@ -60,9 +54,8 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.vegetableCount.text = UserDefaults.standard.string(forKey: "vegetableTotal")
             AdvancedAddVC.viewController.vegetableStepper.value = UserDefaults.standard.double(forKey: "vegetableStepped")
             
-
         }
-        else if foodGroup == 3 {
+        else if foodGroup == 9 {
             transferTo = Int(UserDefaults.standard.string(forKey: "fruitTotal")!)!
             let fruit = transferFrom! + UserDefaults.standard.integer(forKey: "fruitStepped")
             UserDefaults.standard.set(fruit, forKey: "fruitStepped")
@@ -74,7 +67,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.fruitCount.text = UserDefaults.standard.string(forKey: "fruitTotal")
             AdvancedAddVC.viewController.fruitStepper.value = UserDefaults.standard.double(forKey: "fruitStepped")
         }
-        else if foodGroup == 4 {
+        else if foodGroup == 1 {
             transferTo = Int(UserDefaults.standard.string(forKey: "dairyTotal")!)!
             let dairy = transferFrom! + UserDefaults.standard.integer(forKey: "dairyStepped")
             UserDefaults.standard.set(dairy, forKey: "dairyStepped")
@@ -87,7 +80,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.dairyStepper.value = UserDefaults.standard.double(forKey: "dairyStepped")
 
         }
-        else if foodGroup == 5 {
+        else if foodGroup == 8 || foodGroup == 18 || foodGroup == 20 {
             transferTo = Int(UserDefaults.standard.string(forKey: "grainsTotal")!)!
             let grains = transferFrom! + UserDefaults.standard.integer(forKey: "grainsStepped")
             UserDefaults.standard.set(grains, forKey: "grainsStepped")
@@ -99,9 +92,23 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             AdvancedAddVC.viewController.grainsCount.text = UserDefaults.standard.string(forKey: "grainsTotal")
             AdvancedAddVC.viewController.grainsStepper.value = UserDefaults.standard.double(forKey: "grainsStepped")
         }
-
+        
+        //set the foodID var to the foodID from the database array entry
+        let foodID = autoCompletionPossibilities.first{ $0.foodname == foodText}?.foodid ?? 0
+        //assign foodfortable to the array entry that is being accessed for the food being added
+        GlobalStates.foodForTable = [FoodNutrition(foodname: foodText, foodIF: foodID, Multiplier: Int(anyCount.text!) ?? 0)]
+        //getting whats in user defaults out so that we can append to the array
+        if let current = UserDefaults.standard.data(forKey: "foodForTable") {
+            GlobalStates.arr = current
+        }
+        //append the encoded struct to the already made array
+        GlobalStates.arr += try! PropertyListEncoder().encode(GlobalStates.foodForTable)
+        print(GlobalStates.arr)
+        //set the foodForTable to the newly appended array
+        UserDefaults.standard.set(GlobalStates.arr, forKey: "foodForTable")
         anyCount.text = "0"
         anyStepper.value = 0
+        
     }
     
     override func viewDidLoad() {
@@ -117,7 +124,8 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     }
     
     var autoComplete = [String]()
-    var autoCompletionPossibilities = ["Apple": 3, "Pineapple": 2, "Orange": 1]
+    var autoCompletionPossibilities = GlobalStates.foodnames
+
     var autoCompleteCharacterCount = 0
     var timer = Timer()
     
@@ -125,20 +133,21 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let substring = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        searchAutoCompleteEntriesWithSubstring(substring: substring)
+        searchAutoCompleteEntriesWithSubstring(substring: substring.lowercased())
         
         return true
     }
     
     func searchAutoCompleteEntriesWithSubstring (substring: String) {
         
+        print(autoCompletionPossibilities)
         autoComplete.removeAll(keepingCapacity: false)
-        let lazyMapCollection = autoCompletionPossibilities.keys
-        let stringArray = Array(lazyMapCollection.map { String($0) })
-
-        for keys in stringArray {
+        let mappy = autoCompletionPossibilities.map { $0.foodname.lowercased() }
+        print(mappy)
+        
+        for keys in mappy {
             
-           
+            
             let myString:NSString! = keys as NSString
             let substringRange: NSRange! = myString.range(of: substring)
             
@@ -167,22 +176,26 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         let selectedCell: UITableViewCell = advancedSuggestions.cellForRow(at: indexPath)!
         let Label = selectedCell.textLabel
         advancedTextField.text = Label?.text
-        let Teext = advancedTextField.text
-        foodGroup = autoCompletionPossibilities[Teext!]!
-        if foodGroup == 1 {
+        foodText = advancedTextField.text!
+        foodGroup = autoCompletionPossibilities.first{ $0.foodname.lowercased() == foodText.lowercased()}?.foodgroup ?? 0
+        
+        if foodGroup == 5 || foodGroup == 7 || foodGroup == 10 || foodGroup == 12 || foodGroup == 13 || foodGroup == 15 || foodGroup == 17{
             anyLabel.text = "Meat"
         }
-        if foodGroup == 2 {
+        else if foodGroup == 16 || foodGroup == 11 {
             anyLabel.text = "Vegetables"
         }
-        if foodGroup == 3 {
+        else if foodGroup == 9 {
             anyLabel.text = "Fruit"
         }
-        if foodGroup == 4 {
+        else if foodGroup == 1 {
             anyLabel.text = "Dairy"
         }
-        if foodGroup == 5 {
+        else if foodGroup == 8 || foodGroup == 18 || foodGroup == 20 {
             anyLabel.text = "Grains"
+        }
+        else {
+            anyLabel.text = "Not available"
         }
         
         

@@ -16,7 +16,6 @@ import UIKit
 // Set the DateAttributes class to a variable so we can access the the date to string function for the graph label.
 let time = DateAttributes()
 let package = ServingPackage()
-let vc = viewControl()
 
 class UIOverviewControl: UIViewController {
     
@@ -62,7 +61,10 @@ class UIOverviewControl: UIViewController {
             
             UserDefaults.standard.set(0, forKey: "grainsStepped")
             UserDefaults.standard.set("0", forKey: "grainsTotal")
+            print("hit it n quit it")
         }
+        
+        
     }
     
     // Initialize Notification Button, FoodAdd Button and the Barchart label
@@ -70,5 +72,18 @@ class UIOverviewControl: UIViewController {
     @IBOutlet weak var foodAddButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var advancedStatsButton: UIButton!
+    @IBAction func showAlertButtonTapped(_ sender: UIButton) {
+    let check = UserDefaults.standard.string(forKey: "didWork")
+        if check == "nosir" {
+            // create the alert
+            let alert = UIAlertController(title: "Database Issue", message: "The database cannot be loaded, please stick to Quick Add functionality. We apologize for the trouble.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     
 }
