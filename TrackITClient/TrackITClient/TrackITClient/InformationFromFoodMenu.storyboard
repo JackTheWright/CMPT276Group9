@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,47 +19,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9bk-1y-x67">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9bk-1y-x67">
                                 <rect key="frame" x="16" y="49" width="343" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="2mu-h8-OTQ"/>
+                                </constraints>
                                 <string key="text">The healthy DASH diet plan was developed to lower blood pressure without medication in research sponsored by the US National Institutes of Health, Dietary Approaches to Stop Hypertension. The first DASH diet research showed that it could lower blood pressure as well as the first line blood pressure medications, even with a sodium intake of 3300 mg/day!  </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="f5b81475-fabe-4f71-95f7-b9e4b52a0786_169" translatesAutoresizingMaskIntoConstraints="NO" id="dTy-c0-41o">
-                                <rect key="frame" x="92" y="207" width="190" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="what-is-the-dash-diet-1524069881" translatesAutoresizingMaskIntoConstraints="NO" id="PKg-io-WwA">
-                                <rect key="frame" x="97" y="484" width="180" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dash Diet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxX-hE-Fyn">
-                                <rect key="frame" x="10" y="20" width="355" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dash Diet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxX-hE-Fyn">
+                                <rect key="frame" x="16" y="20" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q13-QT-cox">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q13-QT-cox">
                                 <rect key="frame" x="16" y="343" width="343" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="RFO-rO-g2k"/>
+                                </constraints>
                                 <string key="text">Since then, numerous studies have shown that the DASH diet reduces the risk of many diseases, including some kinds of cancer, stroke, heart disease, heart failure, kidney stones, and diabetes. It has been proven to be an effective way to become healthier at the same time. It is full of fabulous, delicious, real foods. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6X-pY-bcr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6X-pY-bcr">
                                 <rect key="frame" x="160" y="620" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aCt-0c-CUP"/>
+                                </constraints>
                                 <state key="normal" title="Next &gt;"/>
                                 <connections>
                                     <segue destination="oul-Zm-aUo" kind="show" id="LT7-Cm-Q2d"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="what-is-the-dash-diet-1524069881" translatesAutoresizingMaskIntoConstraints="NO" id="BbB-c6-XJQ">
+                                <rect key="frame" x="65" y="207" width="245" height="128"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="f5b81475-fabe-4f71-95f7-b9e4b52a0786_169" translatesAutoresizingMaskIntoConstraints="NO" id="V0E-Xq-svH">
+                                <rect key="frame" x="65" y="484" width="245" height="128"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="V0E-Xq-svH" firstAttribute="top" secondItem="q13-QT-cox" secondAttribute="bottom" constant="8" symbolic="YES" id="29f-XR-O12"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="trailing" secondItem="Pyq-2R-OZf" secondAttribute="trailingMargin" id="86l-jO-kV3"/>
+                            <constraint firstItem="V0E-Xq-svH" firstAttribute="leading" secondItem="8up-2V-Wnd" secondAttribute="leading" constant="65" id="D8U-qZ-cL6"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="centerX" secondItem="V0E-Xq-svH" secondAttribute="centerX" id="EzO-hq-Jdw"/>
+                            <constraint firstItem="8up-2V-Wnd" firstAttribute="bottom" secondItem="W6X-pY-bcr" secondAttribute="bottom" constant="17" id="Fge-zG-i7F"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="leading" secondItem="q13-QT-cox" secondAttribute="leading" id="Gsd-Hy-cAQ"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="trailing" secondItem="IxX-hE-Fyn" secondAttribute="trailing" id="Klk-4v-9kf"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="centerX" secondItem="BbB-c6-XJQ" secondAttribute="centerX" id="NR8-mf-dg1"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="top" secondItem="Pyq-2R-OZf" secondAttribute="top" constant="49" id="NWt-SN-ygx"/>
+                            <constraint firstItem="BbB-c6-XJQ" firstAttribute="leading" secondItem="8up-2V-Wnd" secondAttribute="leading" constant="65" id="Zfm-es-M4F"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="leading" secondItem="IxX-hE-Fyn" secondAttribute="leading" id="ZxA-xF-0th"/>
+                            <constraint firstAttribute="bottom" secondItem="q13-QT-cox" secondAttribute="bottom" constant="191" id="d6y-s3-o0b"/>
+                            <constraint firstItem="W6X-pY-bcr" firstAttribute="leading" secondItem="8up-2V-Wnd" secondAttribute="leading" constant="160" id="iDN-3s-pbe"/>
+                            <constraint firstItem="W6X-pY-bcr" firstAttribute="top" secondItem="V0E-Xq-svH" secondAttribute="bottom" constant="8" symbolic="YES" id="lKo-OO-8co"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="centerX" secondItem="W6X-pY-bcr" secondAttribute="centerX" id="n6y-BR-Pc9"/>
+                            <constraint firstItem="8up-2V-Wnd" firstAttribute="trailing" secondItem="V0E-Xq-svH" secondAttribute="trailing" constant="65" id="pGS-i8-Wae"/>
+                            <constraint firstItem="BbB-c6-XJQ" firstAttribute="top" secondItem="9bk-1y-x67" secondAttribute="bottom" constant="8" symbolic="YES" id="rOA-BR-Sar"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="top" secondItem="IxX-hE-Fyn" secondAttribute="bottom" constant="8" symbolic="YES" id="uVE-Lb-26Q"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="leading" secondItem="Pyq-2R-OZf" secondAttribute="leadingMargin" id="uxH-s0-OUs"/>
+                            <constraint firstItem="8up-2V-Wnd" firstAttribute="trailing" secondItem="BbB-c6-XJQ" secondAttribute="trailing" constant="65" id="vfN-de-lxI"/>
+                            <constraint firstItem="9bk-1y-x67" firstAttribute="trailing" secondItem="q13-QT-cox" secondAttribute="trailing" id="wFJ-xa-VK0"/>
+                            <constraint firstItem="q13-QT-cox" firstAttribute="top" secondItem="BbB-c6-XJQ" secondAttribute="bottom" constant="8" symbolic="YES" id="x8f-8w-y0Y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8up-2V-Wnd"/>
                     </view>
                 </viewController>
@@ -74,93 +108,150 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2-0_meat" translatesAutoresizingMaskIntoConstraints="NO" id="UOx-VK-C4H">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2-0_meat" translatesAutoresizingMaskIntoConstraints="NO" id="UOx-VK-C4H">
                                 <rect key="frame" x="16" y="49" width="85" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2-0_veget" translatesAutoresizingMaskIntoConstraints="NO" id="SeJ-c8-sAa">
-                                <rect key="frame" x="16" y="144" width="85" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2-0_veget" translatesAutoresizingMaskIntoConstraints="NO" id="SeJ-c8-sAa">
+                                <rect key="frame" x="16" y="156" width="85" height="87"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fruit" translatesAutoresizingMaskIntoConstraints="NO" id="6jg-pp-lTQ">
-                                <rect key="frame" x="16" y="239" width="85" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fruit" translatesAutoresizingMaskIntoConstraints="NO" id="6jg-pp-lTQ">
+                                <rect key="frame" x="16" y="263" width="85" height="87"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2-0_milk-eng" translatesAutoresizingMaskIntoConstraints="NO" id="Z5M-ql-SMq">
-                                <rect key="frame" x="16" y="334" width="85" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2-0_milk-eng" translatesAutoresizingMaskIntoConstraints="NO" id="Z5M-ql-SMq">
+                                <rect key="frame" x="16" y="370" width="85" height="87"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2-0_grains" translatesAutoresizingMaskIntoConstraints="NO" id="tqJ-f7-2YU">
-                                <rect key="frame" x="16" y="429" width="85" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2-0_grains" translatesAutoresizingMaskIntoConstraints="NO" id="tqJ-f7-2YU">
+                                <rect key="frame" x="16" y="477" width="85" height="87"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pbx-Lw-r2h">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pbx-Lw-r2h">
                                 <rect key="frame" x="109" y="49" width="240" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="BTn-ga-OYF"/>
+                                    <constraint firstAttribute="height" constant="87" id="UMf-zn-laq"/>
+                                </constraints>
                                 <mutableString key="text">Common Serving Sizes for Meat:   Eggs: 2 Beef: 75g, 125 mL Bison: 75g, 125 mL Poultry: 75g, 125 mL Fish and Shellfish: 75g, 125 mL Pork, Lamb, Goat: 75g, 125 mL Organ Meat: 75g, 125 mL  More information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/meat-alternatives/what-food-guide-serving-meat-alternatives.html</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-92-cYd">
-                                <rect key="frame" x="109" y="144" width="240" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cbp-92-cYd">
+                                <rect key="frame" x="109" y="156" width="240" height="87"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="axT-7O-9tJ"/>
+                                </constraints>
                                 <mutableString key="text">Common Serving Sizes for Vegetables:Peas: 125 mL, ½ cup Carrot: 125 mL, ½ cup Pepper: 125 mL, ½ cup Cucumber: 125 mL, ½ cup Corn: 125 mL, ½ cup Romaine Lettuce: 250 mL, 1 cup raw  More Information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/vegetables-fruit/what-food-guide-serving-vegetables-fruit.html </mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-v3-WUv">
-                                <rect key="frame" x="109" y="239" width="240" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-v3-WUv">
+                                <rect key="frame" x="109" y="263" width="240" height="87"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="pGZ-Qj-kwN"/>
+                                </constraints>
                                 <string key="text">Common Serving Sizes for Fruit: Apple: 1 medium Banana: 1 medium Orange: 1 medium Strawberry: 125 mL, ½ cup Grape: 20 fruits Mango: 125 mL, ½ cup, ½ fruit </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZWf-ZE-dYp">
-                                <rect key="frame" x="109" y="334" width="240" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZWf-ZE-dYp">
+                                <rect key="frame" x="109" y="370" width="240" height="87"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="GQo-gJ-lPt"/>
+                                </constraints>
                                 <mutableString key="text">Common Serving Sizes for Dairy: Milk: 250mL, 1 cup Cheese: 50 g, 1 ½ oz Yogurt: 175 g, 175 mL, ¾ cup Cream: 250 mL, 1 cup
  More Information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/milk-alternatives/what-food-guide-serving-milk-alternatives.html </mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hlt-oW-7pG">
-                                <rect key="frame" x="109" y="429" width="240" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hlt-oW-7pG">
+                                <rect key="frame" x="109" y="477" width="240" height="87"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="rVo-Hp-kmZ"/>
+                                </constraints>
                                 <mutableString key="text">Common Serving Sizes for Grains: Bagel: ½ bagel, 45 g Bread: 1 slice, 35 g Pasta: 125 mL, ½ cup - cooked Cereal: 30 g Rice: 125 mL, ½ cup - cooked
  More Information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/grain-products/what-food-guide-serving-grain-products.html
 </mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLC-Gt-ppd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLC-Gt-ppd">
                                 <rect key="frame" x="169" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next &gt;"/>
                                 <connections>
                                     <segue destination="YmL-Mj-L9Z" kind="show" id="x3M-N1-8Wv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serving Sizes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-eq-CTi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serving Sizes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-eq-CTi">
                                 <rect key="frame" x="136" y="20" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All images above have been taken from the Government of Canada website " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIn-ox-Y64">
-                                <rect key="frame" x="16" y="546" width="343" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All images above have been taken from the Government of Canada website " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIn-ox-Y64">
+                                <rect key="frame" x="16" y="572" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hlt-oW-7pG" firstAttribute="bottom" secondItem="tqJ-f7-2YU" secondAttribute="bottom" id="25D-fC-Kpk"/>
+                            <constraint firstItem="Qda-v3-WUv" firstAttribute="leading" secondItem="6jg-pp-lTQ" secondAttribute="trailing" constant="8" symbolic="YES" id="30L-ef-2z0"/>
+                            <constraint firstItem="cbp-92-cYd" firstAttribute="top" secondItem="SeJ-c8-sAa" secondAttribute="top" id="5Ea-lI-GO4"/>
+                            <constraint firstItem="ZWf-ZE-dYp" firstAttribute="top" secondItem="Z5M-ql-SMq" secondAttribute="top" id="6fN-35-VUb"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="trailing" secondItem="Hlt-oW-7pG" secondAttribute="trailing" id="7wa-AR-tNs"/>
+                            <constraint firstAttribute="bottom" secondItem="nLC-Gt-ppd" secondAttribute="bottom" constant="20" symbolic="YES" id="AN4-nz-YMp"/>
+                            <constraint firstItem="Qda-v3-WUv" firstAttribute="bottom" secondItem="6jg-pp-lTQ" secondAttribute="bottom" id="BwF-hj-yIB"/>
+                            <constraint firstItem="jBb-eq-CTi" firstAttribute="centerX" secondItem="783-Lh-cv4" secondAttribute="centerX" id="CFC-4S-5LT"/>
+                            <constraint firstItem="cbp-92-cYd" firstAttribute="top" secondItem="Pbx-Lw-r2h" secondAttribute="bottom" constant="20" id="HJ7-kp-qOa"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="leading" secondItem="ZWf-ZE-dYp" secondAttribute="leading" id="JrJ-cW-WCV"/>
+                            <constraint firstItem="SeJ-c8-sAa" firstAttribute="leading" secondItem="ZPM-U4-J6X" secondAttribute="leading" constant="16" id="K2b-nU-GFA"/>
+                            <constraint firstItem="UOx-VK-C4H" firstAttribute="leading" secondItem="ZPM-U4-J6X" secondAttribute="leading" constant="16" id="KfJ-Mq-60n"/>
+                            <constraint firstItem="Hlt-oW-7pG" firstAttribute="leading" secondItem="tqJ-f7-2YU" secondAttribute="trailing" constant="8" id="Mid-bO-Vzi"/>
+                            <constraint firstItem="nLC-Gt-ppd" firstAttribute="leading" secondItem="ZPM-U4-J6X" secondAttribute="leading" constant="169" id="O1S-6O-SZY"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="bottom" secondItem="UOx-VK-C4H" secondAttribute="bottom" id="Q2Q-kC-Iys"/>
+                            <constraint firstItem="Hlt-oW-7pG" firstAttribute="leading" secondItem="tqJ-f7-2YU" secondAttribute="trailing" constant="8" symbolic="YES" id="Sib-Qc-QNg"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="leading" secondItem="Qda-v3-WUv" secondAttribute="leading" id="TSa-Na-afw"/>
+                            <constraint firstItem="Qda-v3-WUv" firstAttribute="top" secondItem="cbp-92-cYd" secondAttribute="bottom" constant="20" id="TgY-I7-OKT"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="top" secondItem="UOx-VK-C4H" secondAttribute="top" id="VUh-sZ-b1q"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="trailing" secondItem="ZWf-ZE-dYp" secondAttribute="trailing" id="YEL-qq-cL7"/>
+                            <constraint firstItem="6jg-pp-lTQ" firstAttribute="leading" secondItem="ZPM-U4-J6X" secondAttribute="leading" constant="16" id="YO0-V7-qbK"/>
+                            <constraint firstItem="jBb-eq-CTi" firstAttribute="centerX" secondItem="gIn-ox-Y64" secondAttribute="centerX" id="am5-Cu-cI3"/>
+                            <constraint firstItem="ZWf-ZE-dYp" firstAttribute="top" secondItem="Qda-v3-WUv" secondAttribute="bottom" constant="20" id="dgK-u9-6wF"/>
+                            <constraint firstItem="gIn-ox-Y64" firstAttribute="top" secondItem="Hlt-oW-7pG" secondAttribute="bottom" constant="8" symbolic="YES" id="ecY-X2-Vnp"/>
+                            <constraint firstItem="cbp-92-cYd" firstAttribute="leading" secondItem="SeJ-c8-sAa" secondAttribute="trailing" constant="8" symbolic="YES" id="fct-mB-NfS"/>
+                            <constraint firstItem="ZWf-ZE-dYp" firstAttribute="leading" secondItem="Z5M-ql-SMq" secondAttribute="trailing" constant="8" id="ffY-od-fsS"/>
+                            <constraint firstItem="cbp-92-cYd" firstAttribute="leading" secondItem="SeJ-c8-sAa" secondAttribute="trailing" constant="8" id="ggd-Zi-E8N"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="trailing" secondItem="cbp-92-cYd" secondAttribute="trailing" id="hJ3-3J-9YN"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="leading" secondItem="UOx-VK-C4H" secondAttribute="trailing" constant="8" symbolic="YES" id="iZq-Ts-O2E"/>
+                            <constraint firstItem="cbp-92-cYd" firstAttribute="bottom" secondItem="SeJ-c8-sAa" secondAttribute="bottom" id="jAb-co-3L0"/>
+                            <constraint firstItem="tqJ-f7-2YU" firstAttribute="leading" secondItem="ZPM-U4-J6X" secondAttribute="leading" constant="16" id="jJK-bQ-EPC"/>
+                            <constraint firstItem="Z5M-ql-SMq" firstAttribute="leading" secondItem="ZPM-U4-J6X" secondAttribute="leading" constant="16" id="kBr-uH-a0y"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="leading" secondItem="UOx-VK-C4H" secondAttribute="trailing" constant="8" id="l27-LP-LfK"/>
+                            <constraint firstItem="jBb-eq-CTi" firstAttribute="top" secondItem="ZPM-U4-J6X" secondAttribute="top" id="lXc-5g-OFh"/>
+                            <constraint firstItem="gIn-ox-Y64" firstAttribute="leading" secondItem="ZPM-U4-J6X" secondAttribute="leading" constant="16" id="quC-Nu-X1i"/>
+                            <constraint firstItem="Hlt-oW-7pG" firstAttribute="top" secondItem="tqJ-f7-2YU" secondAttribute="top" id="rDm-oA-s4y"/>
+                            <constraint firstItem="Hlt-oW-7pG" firstAttribute="top" secondItem="ZWf-ZE-dYp" secondAttribute="bottom" constant="20" id="riS-2W-FN4"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="top" secondItem="jBb-eq-CTi" secondAttribute="bottom" constant="8" symbolic="YES" id="rjt-wo-oPe"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="leading" secondItem="Hlt-oW-7pG" secondAttribute="leading" id="rom-kS-TXQ"/>
+                            <constraint firstItem="ZPM-U4-J6X" firstAttribute="trailing" secondItem="gIn-ox-Y64" secondAttribute="trailing" constant="16" id="sHH-Fw-ada"/>
+                            <constraint firstItem="Qda-v3-WUv" firstAttribute="leading" secondItem="6jg-pp-lTQ" secondAttribute="trailing" constant="8" id="tWR-ce-pmz"/>
+                            <constraint firstItem="Qda-v3-WUv" firstAttribute="top" secondItem="6jg-pp-lTQ" secondAttribute="top" id="uKY-PS-elV"/>
+                            <constraint firstItem="ZWf-ZE-dYp" firstAttribute="bottom" secondItem="Z5M-ql-SMq" secondAttribute="bottom" id="vSl-Ic-zhi"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="trailing" secondItem="Qda-v3-WUv" secondAttribute="trailing" id="vek-da-nGS"/>
+                            <constraint firstItem="ZWf-ZE-dYp" firstAttribute="leading" secondItem="Z5M-ql-SMq" secondAttribute="trailing" constant="8" symbolic="YES" id="vmD-Zk-6sx"/>
+                            <constraint firstItem="Pbx-Lw-r2h" firstAttribute="leading" secondItem="cbp-92-cYd" secondAttribute="leading" id="xCn-0F-7uT"/>
+                            <constraint firstItem="ZPM-U4-J6X" firstAttribute="trailing" secondItem="Pbx-Lw-r2h" secondAttribute="trailing" constant="26" id="y2T-dd-eug"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZPM-U4-J6X"/>
                     </view>
                 </viewController>
