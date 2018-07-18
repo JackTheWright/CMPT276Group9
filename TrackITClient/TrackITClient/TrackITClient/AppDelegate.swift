@@ -20,7 +20,15 @@ import NetConnect
 import SwiftyJSON
 
 typealias foodTuple = (foodname: String, foodid: Int, foodgroup: Int)
-typealias tableTuple = (foodname: String, foodid: Int, foodgroup: Int)
+typealias tableTuple = (foodname: String, foodid: Int, multiplier: Int)
+
+struct FoodNutrition: Codable {
+    var foodname = String()
+    var foodIF = Int()
+    var Multiplier = Int()
+    
+}
+
 
 struct GlobalStates {
     
@@ -31,8 +39,9 @@ struct GlobalStates {
     static var dairies = "0"
     static var grainies = "0"
     static var foodnames: [(foodTuple)] = []
-    static var foodfortable: [(tableTuple)] = []
     static var port = 60011
+    static var foodForTable = [FoodNutrition]()
+    static var arr = Data()
     
 }
 
@@ -62,18 +71,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
             var flags = Message.Flags()
             interface.setTimeout(10)
+            
             flags.set(MessageFlags.DBQuery)
             print("sending")
-            try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 100;", flags: flags)
-            print("sent")
-            let JSONreply = try host.receiveJSON()
-            print("didrecieve")
-            if let fn = JSONreply.array?.compactMap({ element in
-                return (element.dictionary!["FOODDESCRIPTION"]!.string!,
-                        element.dictionary!["FOODID"]!.int!,
-                        element.dictionary!["FOODGROUPID"]!.int!)
-            }) {
-                GlobalStates.foodnames = fn
+            do {
+                try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
+                print("sent")
+                let JSONreply = try host.receiveJSON()
+                print("didrecieve")
+                if let fn = JSONreply.array?.compactMap({ element in
+                    return (element.dictionary!["FOODDESCRIPTION"]!.string!,
+                            element.dictionary!["FOODID"]!.int!,
+                            element.dictionary!["FOODGROUPID"]!.int!)
+                }) {
+                    GlobalStates.foodnames = fn
+                }
+            } catch NetworkError.Timeout {
+                UserDefaults.standard.set("nosir", forKey: "didWork")
             }
             print(GlobalStates.foodnames)
         }
@@ -81,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
         if launchedBefore == false {
+            
             
             UserDefaults.standard.set("0", forKey: "meatTotal")
             UserDefaults.standard.set("0", forKey: "vegetableTotal")

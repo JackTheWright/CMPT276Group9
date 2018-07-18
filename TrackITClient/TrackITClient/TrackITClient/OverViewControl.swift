@@ -63,6 +63,8 @@ class UIOverviewControl: UIViewController {
             UserDefaults.standard.set(0, forKey: "grainsStepped")
             UserDefaults.standard.set("0", forKey: "grainsTotal")
         }
+        
+        
     }
     
     // Initialize Notification Button, FoodAdd Button and the Barchart label
@@ -70,5 +72,18 @@ class UIOverviewControl: UIViewController {
     @IBOutlet weak var foodAddButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var advancedStatsButton: UIButton!
+    @IBAction func showAlertButtonTapped(_ sender: UIButton) {
+    let check = UserDefaults.standard.string(forKey: "didWork")
+        if check == "fuck" {
+            // create the alert
+            let alert = UIAlertController(title: "Database Issue", message: "The database cannot be loaded, please stick to Quick Add functionality. We apologize for the trouble.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     
 }
