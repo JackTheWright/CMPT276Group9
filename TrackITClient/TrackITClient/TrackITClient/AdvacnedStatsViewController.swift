@@ -56,30 +56,24 @@ func foodToFoodDic( food: [FoodNutrition]) -> [Int : (String , Int)] {
 
 func foodToMultiplier( food:[FoodNutrition] )-> [Int] {
     var multiplierArray = [Int]()
-    var i = 0
     for elem in food {
-        multiplierArray[i] = (elem.Multiplier)
-        i = i + 1
+        multiplierArray.append(elem.Multiplier)
     }
     return multiplierArray
 }
 
 func foodToName( food:[FoodNutrition]) -> [String] {
     var nameArray = [String]()
-    var i = -1
     for elem in food {
-        nameArray[i+1] = (elem.foodname)
-        i = i + 1
+        nameArray.append(elem.foodname)
     }
     return nameArray
 }
 
 func foodToFoodID( food: [FoodNutrition]) -> [Int] {
     var foodIDArray = [Int]()
-    var i = -1
     for elem in food {
-        foodIDArray[i+1] = (elem.foodID)
-        i = i + 1
+        foodIDArray.append(elem.foodID)
     }
     return foodIDArray
 }
