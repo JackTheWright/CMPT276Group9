@@ -98,7 +98,9 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         //assign foodfortable to the array entry that is being accessed for the food being added
         GlobalStates.foodForTable = [FoodNutrition(foodname: foodText, foodIF: foodID, Multiplier: Int(anyCount.text!) ?? 0)]
         //getting whats in user defaults out so that we can append to the array
-        GlobalStates.arr = UserDefaults.standard.data(forKey: "foodForTable")!
+        if let current = UserDefaults.standard.data(forKey: "foodForTable") {
+            GlobalStates.arr = current
+        }
         //append the encoded struct to the already made array
         GlobalStates.arr += try! PropertyListEncoder().encode(GlobalStates.foodForTable)
         print(GlobalStates.arr)
