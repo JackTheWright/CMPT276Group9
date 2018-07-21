@@ -154,3 +154,69 @@ public class UDPSocket {
     }
     
 }
+
+// MARK: Packet Loss Detection
+
+fileprivate extension UDPSocket {
+
+    /// Packets will be 512 bytes in size with an 8 byte header; meaning that
+    /// the maximum body size will be 512 - 8 = 504 bytes.
+    var maxPacketBodySize: Int { return 512 - 8 }
+
+
+    /// Data structure which holds packet information.
+    ///
+    /// The packet is encoded as such:
+    ///     1. id       (4 bytes)
+    ///     2. count    (4 bytes)
+    ///     3. data
+    struct Packet {
+
+        /// The id number for this packet.
+        var id: Int32
+
+        /// The total number of packets in this transmission.
+        var count: Int32
+
+        /// Transmission data.
+        var data: Data
+
+        /// Encodes the packet into a single data object using the 
+        /// aforementioned encoding.
+        func encode() -> Data {
+            var d = Data()
+            d.append(contentsOf: id.bytes)
+            d.append(contentsOf: count.bytes)
+            d.append(data)
+            return d
+        }
+
+        /// Decodes a data object into a `Packet`. Returns `nil` if unable to
+        /// do so.
+        static func decode(from d: Data) -> Packet? {
+            guard d.count >= 8 else {
+                return nil
+            }
+            guard let _id = Int32(bytes: d.subdata(in: 0..<4)) else {
+                return nil
+            }
+            guard let _count = Int32(bytes: d.subdata(in: 4..<8)) else {
+                return nil
+            }
+            let  _data = d.subdata(in: 8..<d.count)
+            return Packet(id: _id, count: _count, data: _data)
+        }
+
+    }
+
+
+    func sendAsPackets(data: Data) throws {
+        var packets = [Packet]()
+        let count = data.count.dividingRoundingUp(by: maxPacketBodySize)
+    }
+
+//    func readPackets() throws -> ReadData {
+//
+//    }
+
+}

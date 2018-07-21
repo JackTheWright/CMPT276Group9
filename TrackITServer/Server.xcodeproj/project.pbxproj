@@ -23,6 +23,8 @@
 /* Begin PBXBuildFile section */
 		BAA656BB7B9603A5BADCE6AE /* NutrientFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA658E839CB82DB5D487892 /* NutrientFile.swift */; };
 		BAA65B7B6CD1DFC92162D26C /* SpecialRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65AC3E73D312D6558653E /* SpecialRequests.swift */; };
+		BAA65CA30E8A4039C44D3354 /* Int+DividingRoundingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65629300C8B5676936484 /* Int+DividingRoundingUp.swift */; };
+		BAA65FD0AE68D81D5B798785 /* FixedWidthInteger+Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65F5019145F3406655AF1 /* FixedWidthInteger+Bytes.swift */; };
 		OBJ_212 /* AEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* AEAD.swift */; };
 		OBJ_213 /* AEADChaCha20Poly1305.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* AEADChaCha20Poly1305.swift */; };
 		OBJ_214 /* AES.Cryptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* AES.Cryptors.swift */; };
@@ -390,10 +392,12 @@
 
 /* Begin PBXFileReference section */
 		BAA652C27C518D8BEACB4EA8 /* cnf.db */ = {isa = PBXFileReference; lastKnownFileType = file.db; path = cnf.db; sourceTree = "<group>"; };
+		BAA65629300C8B5676936484 /* Int+DividingRoundingUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+DividingRoundingUp.swift"; sourceTree = "<group>"; };
 		BAA656F3F9CBEF37B74B1F1A /* Group9DB.db */ = {isa = PBXFileReference; lastKnownFileType = file.db; path = Group9DB.db; sourceTree = "<group>"; };
 		BAA658E839CB82DB5D487892 /* NutrientFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientFile.swift; sourceTree = "<group>"; };
 		BAA6595352A6D00D06D349AD /* srvconf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = srvconf.json; sourceTree = "<group>"; };
 		BAA65AC3E73D312D6558653E /* SpecialRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialRequests.swift; sourceTree = "<group>"; };
+		BAA65F5019145F3406655AF1 /* FixedWidthInteger+Bytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixedWidthInteger+Bytes.swift"; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_103 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
 		OBJ_104 /* AEADChaCha20Poly1305.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEADChaCha20Poly1305.swift; sourceTree = "<group>"; };
@@ -975,6 +979,8 @@
 				OBJ_44 /* MessageFlags.swift */,
 				OBJ_45 /* NetworkError.swift */,
 				OBJ_46 /* NetworkErrorEvent.swift */,
+				BAA65F5019145F3406655AF1 /* FixedWidthInteger+Bytes.swift */,
+				BAA65629300C8B5676936484 /* Int+DividingRoundingUp.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1573,6 +1579,8 @@
 				OBJ_322 /* NetworkHost.swift in Sources */,
 				OBJ_323 /* NetworkInterface.swift in Sources */,
 				BAA65B7B6CD1DFC92162D26C /* SpecialRequests.swift in Sources */,
+				BAA65FD0AE68D81D5B798785 /* FixedWidthInteger+Bytes.swift in Sources */,
+				BAA65CA30E8A4039C44D3354 /* Int+DividingRoundingUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
