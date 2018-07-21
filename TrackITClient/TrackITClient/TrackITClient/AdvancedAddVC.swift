@@ -96,16 +96,13 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         //set the foodID var to the foodID from the database array entry
         let foodID = autoCompletionPossibilities.first{ $0.foodname == foodText}?.foodid ?? 0
         //assign foodfortable to the array entry that is being accessed for the food being added
-        GlobalStates.foodForTable = [FoodNutrition(foodname: foodText, foodID: foodID, Multiplier: Int(anyCount.text!) ?? 0)]
+        GlobalStates.foodForTable[String(foodID)] = Int(anyCount.text!) ?? 0
         //getting whats in user defaults out so that we can append to the array
-        if let current = UserDefaults.standard.data(forKey: "foodForTable") {
-            GlobalStates.arr = current
+        if let current = UserDefaults.standard.dictionary(forKey: "foodForTable") {
+            GlobalStates.foodForTable.update(other: current)
         }
-        //append the encoded struct to the already made array
-        GlobalStates.arr += try! PropertyListEncoder().encode(GlobalStates.foodForTable)
-        print(GlobalStates.arr)
         //set the foodForTable to the newly appended array
-        UserDefaults.standard.set(GlobalStates.arr, forKey: "foodForTable")
+        UserDefaults.standard.set(GlobalStates.foodForTable, forKey: "foodForTable")
         anyCount.text = "0"
         anyStepper.value = 0
         
@@ -199,5 +196,14 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         }
         
         
+    }
+    
+}
+
+extension Dictionary {
+    mutating func update(other:Dictionary) {
+        for (key,value) in other {
+            self.updateValue(value, forKey:key)
+        }
     }
 }

@@ -20,7 +20,6 @@ import NetConnect
 import SwiftyJSON
 
 typealias foodTuple = (foodname: String, foodid: Int, foodgroup: Int)
-typealias tableTuple = (foodname: String, foodid: Int, multiplier: Int)
 
 struct FoodNutrition: Codable {
     var foodname = String()
@@ -40,7 +39,7 @@ struct GlobalStates {
     static var grainies = "0"
     static var foodnames: [(foodTuple)] = []
     static var port = 60011
-    static var foodForTable = [FoodNutrition]()
+    static var foodForTable = [String: Int]()
     static var arr = Data()
     
 }
