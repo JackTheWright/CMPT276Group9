@@ -22,6 +22,7 @@ struct cellData {
     //  }
 }
 
+// get Nutrients
 func makeInterface(foodID: Int) -> [Double] {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
@@ -40,6 +41,26 @@ func makeInterface(foodID: Int) -> [Double] {
         return [Double]()
     }
 }
+// GEtting food name
+public func getFoodDescription(foodID: Int) -> String? {
+    let interface = NetworkInterface()!
+    interface.setTimeout(5)
+    var response = JSON()
+    interface.connect(to: "app.trackitdiet.com", on: 60011) {host in
+        var flag = Message.Flags()
+        flag.set(MessageFlags.DBQuery)
+        try host.send("select foodDescription from 'food name' where foodid = \(foodID);", flags: flag)
+        let reply = try host.receiveJSON()
+        // print(reply)
+        response = reply
+        }
+    if let array = response.array {
+        return array.first?.dictionary?["FOODDESCRIPTION"]?.string
+    } else {
+        return nil
+    }
+}
+
 
 func foodToCount(food: [FoodNutrition]) -> Int {
     return food.count
