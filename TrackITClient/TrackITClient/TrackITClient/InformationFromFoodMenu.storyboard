@@ -130,7 +130,7 @@
                                     <constraint firstAttribute="width" constant="240" id="BTn-ga-OYF"/>
                                     <constraint firstAttribute="height" constant="87" id="UMf-zn-laq"/>
                                 </constraints>
-                                <mutableString key="text">Common Serving Sizes for Meat:   Eggs: 2 Beef: 75g, 125 mL Bison: 75g, 125 mL Poultry: 75g, 125 mL Fish and Shellfish: 75g, 125 mL Pork, Lamb, Goat: 75g, 125 mL Organ Meat: 75g, 125 mL  More information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/meat-alternatives/what-food-guide-serving-meat-alternatives.html</mutableString>
+                                <string key="text">Common Serving Sizes for Meat:   Eggs: 2 Beef: 75g, 125 mL Bison: 75g, 125 mL Poultry: 75g, 125 mL Fish and Shellfish: 75g, 125 mL Pork, Lamb, Goat: 75g, 125 mL Organ Meat: 75g, 125 mL  More information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/meat-alternatives/what-food-guide-serving-meat-alternatives.html</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -141,7 +141,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="axT-7O-9tJ"/>
                                 </constraints>
-                                <mutableString key="text">Common Serving Sizes for Vegetables:Peas: 125 mL, ½ cup Carrot: 125 mL, ½ cup Pepper: 125 mL, ½ cup Cucumber: 125 mL, ½ cup Corn: 125 mL, ½ cup Romaine Lettuce: 250 mL, 1 cup raw  More Information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/vegetables-fruit/what-food-guide-serving-vegetables-fruit.html </mutableString>
+                                <string key="text">Common Serving Sizes for Vegetables:
+Peas: 125 mL, ½ cup Carrot: 125 mL, ½ cup Pepper: 125 mL, ½ cup Cucumber: 125 mL, ½ cup Corn: 125 mL, ½ cup Romaine Lettuce: 250 mL, 1 cup raw  More Information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/vegetables-fruit/what-food-guide-serving-vegetables-fruit.html </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -163,8 +164,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="GQo-gJ-lPt"/>
                                 </constraints>
-                                <mutableString key="text">Common Serving Sizes for Dairy: Milk: 250mL, 1 cup Cheese: 50 g, 1 ½ oz Yogurt: 175 g, 175 mL, ¾ cup Cream: 250 mL, 1 cup
- More Information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/milk-alternatives/what-food-guide-serving-milk-alternatives.html </mutableString>
+                                <string key="text">Common Serving Sizes for Dairy: Milk: 250mL, 1 cup Cheese: 50 g, 1 ½ oz Yogurt: 175 g, 175 mL, ¾ cup Cream: 250 mL, 1 cup
+ More Information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/milk-alternatives/what-food-guide-serving-milk-alternatives.html </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -175,9 +176,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="rVo-Hp-kmZ"/>
                                 </constraints>
-                                <mutableString key="text">Common Serving Sizes for Grains: Bagel: ½ bagel, 45 g Bread: 1 slice, 35 g Pasta: 125 mL, ½ cup - cooked Cereal: 30 g Rice: 125 mL, ½ cup - cooked
+                                <string key="text">Common Serving Sizes for Grains: Bagel: ½ bagel, 45 g Bread: 1 slice, 35 g Pasta: 125 mL, ½ cup - cooked Cereal: 30 g Rice: 125 mL, ½ cup - cooked
  More Information: https://www.canada.ca/en/health-canada/services/food-nutrition/canada-food-guide/choosing-foods/grain-products/what-food-guide-serving-grain-products.html
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
