@@ -42,19 +42,20 @@ func makeInterface(foodID: Int) -> [Double] {
     }
 }
 // GEtting food name
-func getFoodDescription(foodID: Int) -> String? {
+public func getFoodDescription(foodID: Int) -> String? {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
     var response = JSON()
     interface.connect(to: "app.trackitdiet.com", on: 60011) {host in
         var flag = Message.Flags()
         flag.set(MessageFlags.DBQuery)
-        try host.send("select foodDescription from 'food name' where foodid = \(foodID)", flags: flag)
+        try host.send("select foodDescription from 'food name' where foodid = \(foodID);", flags: flag)
         let reply = try host.receiveJSON()
+        // print(reply)
         response = reply
         }
     if let array = response.array {
-        return array.first?.string
+        return array.first?.dictionary?["FOODDESCRIPTION"]?.string
     } else {
         return nil
     }
