@@ -86,11 +86,22 @@ func foodToServings( food: [String : Int] )-> [Int] {
     return multiplierArray
 }
 
+func stringToInt(str: String?) -> Int {
+    if str == nil {
+        return 0
+    }
+    else {
+        let integer = Int(str!)
+        return integer!
+    }
+   
+}
+
 // getting dictionary and then getting corresponding food names in array
 func foodIDToName(food:[String: Int]) -> [String] {
     var nameArray = [String]()
     for elem in food {
-        nameArray.append(getFoodDescription(foodID: Int(elem.key)!)!)
+            nameArray.append(getFoodDescription(foodID: stringToInt(str: elem.key))!)
     }
     return nameArray
 }
@@ -227,93 +238,110 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        func appendUnits(label: UILabel, unit: String) {
-            var text = label.text
-            text = text! + " " + unit
-            label.text = text
-        }
-        
-        var food = [String: Int]()
-        
-        if let fooddata = UserDefaults.standard.dictionary(forKey: "foodForTable") {
-            food = UserDefaults.standard.dictionary(forKey: "foodForTable") as! [String : Int]
-        }
-        
-       
-        
-        //   var foodDic = foodToFoodDic(food: food)
-        let foodname = foodIDToName(food: food)
-        if !foodname.isEmpty {
-            var i = 0
-            var foodIDA = foodToFoodID(food: food)
-            for _ in foodname {
-                tableViewData.append(cellData(opened: false, title: foodname[i], data: getNutrients(foodID: foodIDA[i])))
-                i = i + 1
-            }
-        }
-        
-        var nutrients = [Double]()
-        var servings = foodToServings(food:food)
-        var foodID = foodToFoodID(food: food)
-        
-        func totalNutritents(foodID: [Int], servings: [Int]) -> [Double] {
-            let count = foodID.count
-            if count != 0 {
-                var totNutri = [Double]()
-                var sum: Double = 0
-                for i in 0...(count-1) {
-                    sum = 0
-                    let multiplier = servings[i]
-                    let nutrients = getNutrients(foodID: foodID[i])
-                    for n in nutrients {
-                        sum = sum + (n * Double(multiplier))
-                    }
-                    totNutri.append(sum)
-                }
-                return totNutri
-            }
-            else {
-                return [0,0,0,0,0,0,0,0,0]
-            }
-        
-        
-        
-        
-        nutrients = totalNutritents(foodID: foodID, servings: servings)
-        UserDefaults.standard.set(nutrients, forKey: "totalNutrients")
-        
-        proteinAmt.text = String(nutrients[0])
-        appendUnits(label: proteinAmt, unit: "grams")
-        
-        fatAmt.text = String(nutrients[1])
-        appendUnits(label: fatAmt, unit: "grams")
-        
-        carbAmt.text = String(nutrients[2])
-        appendUnits(label: carbAmt, unit: "grams")
-        
-        mgAmt.text = String(nutrients[4])
-        appendUnits(label: mgAmt, unit: "milligrams")
-        
-        vitB9Amt.text = String(nutrients[7])
-        appendUnits(label: vitB9Amt, unit: "milligrams")
-        
-        vitDAmt.text = String(nutrients[8])
-        appendUnits(label: vitDAmt, unit: "micrograms")
-        
-        ironAmt.text = String(nutrients[3])
-        appendUnits(label: ironAmt, unit: "milligrams")
-        
-        potassiumAmt.text = String(nutrients[5])
-        appendUnits(label: potassiumAmt, unit: "milligrams")
-        
-        sodiumAmt.text = String(nutrients[6])
-        appendUnits(label: sodiumAmt, unit: "milligrams")
-        }
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        createAlert(title: "Alert", message: "There is no data currently stored. This is a bug")
+        
+        // createAlert(title: "Alert", message: "There is no data currently stored. This is a bug")
+        
+        func appendUnits(label: UILabel, unit: String) {
+            if var text = label.text {
+                text = text + " " + unit
+                label.text = text
+            }
+            else {
+                label.text = String(0) + " " + unit
+            }
+        }
+        
+        var food = [String: Int]()
+        
+        if UserDefaults.standard.dictionary(forKey: "foodForTable") != nil {
+            food = UserDefaults.standard.dictionary(forKey: "foodForTable") as! [String : Int]
+            let foodname = foodIDToName(food: food)
+            if !foodname.isEmpty {
+                //set table cells
+                var foodIDArray = foodToFoodID(food: food)
+                for i in 0...(foodname.count - 1) {
+                    tableViewData.append(cellData(opened: false, title: foodname[i], data: getNutrients(foodID: foodIDArray[i])))
+                }
+            }
+            
+            var nutrients = [Double]()
+            let servings = foodToServings(food: food)
+            var totalNutrientsCount = [Double]()
+            let foodIDArray = foodToFoodID(food: food)
+            totalNutrientsCount = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+            
+            for i in 0...(foodIDArray.count - 1) {
+                nutrients = getNutrients(foodID: foodIDArray[i])
+                let multiplier = Double(servings[i])
+                for j in 0...8 {
+                    totalNutrientsCount[j] = totalNutrientsCount[j] + (multiplier * nutrients[j])
+                }
+            }
+            
+            proteinAmt.text = String(totalNutrientsCount[0])
+            appendUnits(label: proteinAmt, unit: "grams")
+            
+            fatAmt.text = String(totalNutrientsCount[1])
+            appendUnits(label: fatAmt, unit: "grams")
+            
+            carbAmt.text = String(totalNutrientsCount[2])
+            appendUnits(label: carbAmt, unit: "grams")
+            
+            mgAmt.text = String(totalNutrientsCount[4])
+            appendUnits(label: mgAmt, unit: "milligrams")
+            
+            vitB9Amt.text = String(totalNutrientsCount[7])
+            appendUnits(label: vitB9Amt, unit: "milligrams")
+            
+            vitDAmt.text = String(totalNutrientsCount[8])
+            appendUnits(label: vitDAmt, unit: "micrograms")
+            
+            ironAmt.text = String(totalNutrientsCount[3])
+            appendUnits(label: ironAmt, unit: "milligrams")
+            
+            potassiumAmt.text = String(totalNutrientsCount[5])
+            appendUnits(label: potassiumAmt, unit: "milligrams")
+            
+            sodiumAmt.text = String(totalNutrientsCount[6])
+            appendUnits(label: sodiumAmt, unit: "milligrams")
+        }
+        else {
+           
+            proteinAmt.text = String(0.0)
+            appendUnits(label: proteinAmt, unit: "grams")
+            
+            carbAmt.text = String(0.0)
+            appendUnits(label: carbAmt, unit: "grams")
+            
+            fatAmt.text = String(0.0)
+            appendUnits(label: carbAmt, unit: "grams")
+            
+            mgAmt.text = String(0.0)
+            appendUnits(label: mgAmt, unit: "milligrams")
+            
+            vitB9Amt.text = String(0.0)
+            appendUnits(label: vitB9Amt, unit: "miligrams")
+            
+            vitDAmt.text = String(0.0)
+            appendUnits(label: vitDAmt, unit: "micrograms")
+            
+            ironAmt.text = String(0.0)
+            appendUnits(label: ironAmt, unit: "milligrams")
+            
+            potassiumAmt.text = String(0.0)
+            appendUnits(label: ironAmt, unit: "milligrams")
+            
+            sodiumAmt.text = String(0.0)
+            appendUnits(label: sodiumAmt, unit: "milligrams")
+            
+            
+        }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
