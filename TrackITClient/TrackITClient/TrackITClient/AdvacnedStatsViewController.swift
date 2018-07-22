@@ -42,7 +42,7 @@ func getNutrients(foodID: Int) -> [Double] {
     }
 }
 // Getting food name
-public func getFoodDescription(foodID: Int) -> String? {
+public func getFoodDescription(foodID: Int) -> String {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
     var response = JSON()
@@ -55,9 +55,9 @@ public func getFoodDescription(foodID: Int) -> String? {
         response = reply
         }
     if let array = response.array {
-        return array.first?.dictionary?["FOODDESCRIPTION"]?.string
+        return (array.first?.dictionary?["FOODDESCRIPTION"]?.string)!
     } else {
-        return nil
+        return ""
     }
 }
 
@@ -101,7 +101,7 @@ func stringToInt(str: String?) -> Int {
 func foodIDToName(food:[String: Int]) -> [String] {
     var nameArray = [String]()
     for elem in food {
-            nameArray.append(getFoodDescription(foodID: stringToInt(str: elem.key))!)
+            nameArray.append(getFoodDescription(foodID: elem.value))
     }
     return nameArray
 }
