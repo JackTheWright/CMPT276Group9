@@ -1,9 +1,10 @@
 //
 //  extendCrypto.swift
-//  
+// Module       : NetConnect
 //
-//  Created by keyih on 7/21/18.
-//
+// Team Name    : Group 9
+// Created By   : Keyi Huang
+// Created On   : 2018-07-21
 
 import UIKit
 import Function
@@ -17,18 +18,19 @@ class extendCrypto: Cryptographer{
     
     func encrypt(_ data: Data) throws -> Data {
         
-        let encrypted = try aes.encrypt(data.bytes)
-        data = encrypted.toBase64()!
+        let bytes = data.bytes
+        let encrypted = try aes.encrypt(bytes)
+        let data = Data(encrypted)
         return data
         
     }
 
     func decrypt(_ data: Data) throws -> Data{
         
-        let decrypted = try aes.decrypt(data)
-        data = String(data: Data(decrypted), encoding: .utf8)!
+        let bytes = data.bytes
+        let decrypted = try aes.decrypt(bytes)
+        let data = Data(decrypted)
         return data
-        
     }
     
 }
