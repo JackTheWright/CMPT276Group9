@@ -99,7 +99,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         GlobalStates.foodForTable[String(foodID)] = Int(anyCount.text!) ?? 0
         //getting whats in user defaults out so that we can append to the array
         if let current = UserDefaults.standard.dictionary(forKey: "foodForTable") {
-            GlobalStates.foodForTable.update(other: current)
+            GlobalStates.foodForTable.update(other: current as! Dictionary<String, Int>)
         }
         //set the foodForTable to the newly appended array
         UserDefaults.standard.set(GlobalStates.foodForTable, forKey: "foodForTable")

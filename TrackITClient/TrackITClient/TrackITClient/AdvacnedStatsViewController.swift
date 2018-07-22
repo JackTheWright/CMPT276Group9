@@ -23,11 +23,11 @@ struct cellData {
 }
 
 // get Nutrients
-func makeInterface(foodID: Int) -> [Double] {
+func getNutrients(foodID: Int) -> [Double] {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
     var response = JSON()
-    interface.connect(to: "app.trackitdiet.com", on: 60011) { host in
+    interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
         var flag = Message.Flags()
         flag.set(MessageFlags.SpecialRequest)
         try host.send(SpecialRequests.getNutrients(for: foodID), flags: flag)
@@ -41,12 +41,12 @@ func makeInterface(foodID: Int) -> [Double] {
         return [Double]()
     }
 }
-// GEtting food name
+// Getting food name
 public func getFoodDescription(foodID: Int) -> String? {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
     var response = JSON()
-    interface.connect(to: "app.trackitdiet.com", on: 60011) {host in
+    interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) {host in
         var flag = Message.Flags()
         flag.set(MessageFlags.DBQuery)
         try host.send("select foodDescription from 'food name' where foodid = \(foodID);", flags: flag)
@@ -61,42 +61,47 @@ public func getFoodDescription(foodID: Int) -> String? {
     }
 }
 
+//static var foodForTable = [String: Int]()
 
-func foodToCount(food: [FoodNutrition]) -> Int {
+// count of foods in fooddata from advanced add
+func foodToCount(food: [String: Int]) -> Int {
     return food.count
 }
 
-//static var foodfortable = [(foodName: String , foodID: Int , multiplier: Int)]()
-func foodToFoodDic( food: [FoodNutrition]) -> [Int : (String , Int)] {
-    var dic = [Int : (String , Int) ]()
-    for elem in food {
-        dic[elem.foodID] = (elem.foodname , elem.Multiplier)
-    }
-    return dic
-}
+// residue code (RC)
+//func foodToFoodDic( food: [FoodNutrition]) -> [Int : (String , Int)] {
+//    var dic = [Int : (String , Int) ]()
+//    for elem in food {
+//        dic[elem.foodID] = (elem.foodname , elem.Multiplier)
+//    }
+//    return dic
+//}
 
-func foodToMultiplier( food:[FoodNutrition] )-> [Int] {
+// getting dictionary and extracting servings
+func foodToServings( food: [String : Int] )-> [Int] {
     var multiplierArray = [Int]()
     for elem in food {
-        multiplierArray.append(elem.Multiplier)
+        multiplierArray.append(elem.value)
     }
     return multiplierArray
 }
 
-func foodToName( food:[FoodNutrition]) -> [String] {
+// getting dictionary and then getting corresponding food names in array
+func foodIDToName(food:[String: Int]) -> [String] {
     var nameArray = [String]()
     for elem in food {
-        nameArray.append(elem.foodname)
+        nameArray.append(getFoodDescription(foodID: Int(elem.key)!)!)
     }
     return nameArray
 }
 
-func foodToFoodID( food: [FoodNutrition]) -> [Int] {
-    var foodIDArray = [Int]()
-    for elem in food {
-        foodIDArray.append(elem.foodID)
-    }
-    return foodIDArray
+// getting dictionary and getting foodId in array
+func foodToFoodID( food: [String: Int]) -> [Int] {
+   var foodIDArray = [Int]()
+   for elem in food {
+    foodIDArray.append(Int(elem.key)!)
+   }
+   return foodIDArray
 }
 
 
@@ -228,60 +233,28 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             label.text = text
         }
         
-        let food: [FoodNutrition]?
+        var food = [String: Int]()
         
-        if let foodData = UserDefaults.standard.data(forKey: "foodForTable") {
-            food = try? PropertyListDecoder().decode([FoodNutrition].self, from: foodData)
-        } else {
-            food = nil
+        if let fooddata = UserDefaults.standard.dictionary(forKey: "foodForTable") {
+            food = UserDefaults.standard.dictionary(forKey: "foodForTable") as! [String : Int]
         }
         
-        if food == nil {
-
-
-            proteinAmt.text = String(0)
-            appendUnits(label: proteinAmt, unit: "grams")
-            
-            fatAmt.text = String(0)
-            appendUnits(label: fatAmt, unit: "grams")
-            
-            carbAmt.text = String(0)
-            appendUnits(label: carbAmt, unit: "grams")
-            
-            mgAmt.text = String(0)
-            appendUnits(label: mgAmt, unit: "milligrams")
-            
-            vitB9Amt.text = String(0)
-            appendUnits(label: vitB9Amt, unit: "milligrams")
-            
-            vitDAmt.text = String(0)
-            appendUnits(label: vitDAmt, unit: "micrograms")
-            
-            ironAmt.text = String(0)
-            appendUnits(label: ironAmt, unit: "milligrams")
-            
-            potassiumAmt.text = String(0)
-            appendUnits(label: potassiumAmt, unit: "milligrams")
-            
-            sodiumAmt.text = String(0)
-            appendUnits(label: sodiumAmt, unit: "milligrams")
-        }
-        else {
+       
+        
         //   var foodDic = foodToFoodDic(food: food)
-        let foodname = foodToName(food: food!)
+        let foodname = foodIDToName(food: food)
         if !foodname.isEmpty {
             var i = 0
-            var foodIDA = foodToFoodID(food: food!)
+            var foodIDA = foodToFoodID(food: food)
             for _ in foodname {
-                tableViewData.append(cellData(opened: false, title: foodname[i], data: makeInterface(foodID: foodIDA[i])))
+                tableViewData.append(cellData(opened: false, title: foodname[i], data: getNutrients(foodID: foodIDA[i])))
                 i = i + 1
             }
         }
-        let delegate = UIApplication.shared.delegate as! AppDelegate
         
         var nutrients = [Double]()
-        var servings = foodToMultiplier(food: food!)
-        var foodID = foodToFoodID(food: food!)
+        var servings = foodToServings(food:food)
+        var foodID = foodToFoodID(food: food)
         
         func totalNutritents(foodID: [Int], servings: [Int]) -> [Double] {
             let count = foodID.count
@@ -291,7 +264,7 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
                 for i in 0...(count-1) {
                     sum = 0
                     let multiplier = servings[i]
-                    let nutrients = makeInterface(foodID: foodID[i])
+                    let nutrients = getNutrients(foodID: foodID[i])
                     for n in nutrients {
                         sum = sum + (n * Double(multiplier))
                     }
@@ -302,7 +275,7 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             else {
                 return [0,0,0,0,0,0,0,0,0]
             }
-        }
+        
         
         
         

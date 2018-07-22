@@ -21,14 +21,6 @@ import SwiftyJSON
 
 typealias foodTuple = (foodname: String, foodid: Int, foodgroup: Int)
 
-struct FoodNutrition: Codable {
-    var foodname = String()
-    var foodID = Int()
-    var Multiplier = Int()
-    
-}
-
-
 struct GlobalStates {
     
     static var currentDayDictionary = [String: [String]]()
