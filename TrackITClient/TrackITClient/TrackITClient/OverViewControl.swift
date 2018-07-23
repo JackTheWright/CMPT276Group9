@@ -62,6 +62,9 @@ class UIOverviewControl: UIViewController {
             UserDefaults.standard.set(0, forKey: "grainsStepped")
             UserDefaults.standard.set("0", forKey: "grainsTotal")
             print("hit it n quit it")
+            
+            UserDefaults.standard.set(true, forKey: "checkToSeeIfLastAccessWasYesterday")
+            GlobalStates.yest = time.currentDateToString()
         }
         
         
