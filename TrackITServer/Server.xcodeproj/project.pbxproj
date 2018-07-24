@@ -397,6 +397,7 @@
 		BAA658E839CB82DB5D487892 /* NutrientFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientFile.swift; sourceTree = "<group>"; };
 		BAA6595352A6D00D06D349AD /* srvconf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = srvconf.json; sourceTree = "<group>"; };
 		BAA65AC3E73D312D6558653E /* SpecialRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialRequests.swift; sourceTree = "<group>"; };
+		BAA65F4DEB3B83617B98E14B /* test-data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "test-data.txt"; sourceTree = "<group>"; };
 		BAA65F5019145F3406655AF1 /* FixedWidthInteger+Bytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixedWidthInteger+Bytes.swift"; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_103 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
@@ -668,6 +669,7 @@
 				BAA652C27C518D8BEACB4EA8 /* cnf.db */,
 				BAA656F3F9CBEF37B74B1F1A /* Group9DB.db */,
 				BAA6595352A6D00D06D349AD /* srvconf.json */,
+				BAA65F4DEB3B83617B98E14B /* test-data.txt */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";

@@ -85,6 +85,14 @@ public extension UDPSocket {
             }
             var packetArray = [Packet?](repeating: nil, count: Int(packet.count))
             packetArray[Int(packet.id)] = packet
+
+            var i = 0
+            while let missingPackets = getMissingPackets(from: packetArray),
+                  i < packet.count
+            {
+
+            }
+
             if packet.count != 1 {
                 readPackets(into: &packetArray)
             }
@@ -193,6 +201,26 @@ fileprivate extension UDPSocket {
         }
     }
 
+    /// Returns an array of missing packet ids from a given packet array. If no
+    /// packets are missing, returns `nil`.
+    ///
+    /// - parameters:
+    ///     - packetArray: The array of packets to analyze.
+    ///
+    /// - returns: Returns an array of missing packet ids or `nil` if none are
+    ///     missing.
+    ///
+    /// - complexity: _O(n)_
+    func getMissingPackets(from packetArray: [Packet?]) -> [Int]? {
+        var missingIds = [Int]()
+        for i in 0..<packetArray.count {
+            if packetArray[i] == nil {
+                missingIds.append(i)
+            }
+        }
+        return missingIds.count == 0 ? nil : missingIds
+    }
+
 }
 
 // MARK: Legacy Methods
@@ -213,7 +241,7 @@ public extension UDPSocket {
         return true
     }
 
-    /// Sets the socket's read timeout to inifity.
+    /// Sets the socket's read timeout to infinity.
     ///
     /// - returns: Returns `true` if action was successful, `false` otherwise.
     @available(*, deprecated, message: "Use UDPSocket.timeout instead")
@@ -237,7 +265,7 @@ public extension UDPSocket {
         return true
     }
 
-    /// Sets the socket's write timeout to inifity.
+    /// Sets the socket's write timeout to infinity.
     ///
     /// - returns: Returns `true` if action was successful, `false` otherwise.
     @available(*, deprecated, message: "Use UDPSocket.timeout instead")
