@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		BAA651CA05CD52078E6D0F1F /* AESCryptographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65D419B7BF91A6CFBD8F1 /* AESCryptographer.swift */; };
 		BAA656BB7B9603A5BADCE6AE /* NutrientFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA658E839CB82DB5D487892 /* NutrientFile.swift */; };
 		BAA65B7B6CD1DFC92162D26C /* SpecialRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65AC3E73D312D6558653E /* SpecialRequests.swift */; };
 		OBJ_212 /* AEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* AEAD.swift */; };
@@ -394,6 +395,7 @@
 		BAA658E839CB82DB5D487892 /* NutrientFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientFile.swift; sourceTree = "<group>"; };
 		BAA6595352A6D00D06D349AD /* srvconf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = srvconf.json; sourceTree = "<group>"; };
 		BAA65AC3E73D312D6558653E /* SpecialRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialRequests.swift; sourceTree = "<group>"; };
+		BAA65D419B7BF91A6CFBD8F1 /* AESCryptographer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESCryptographer.swift; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_103 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
 		OBJ_104 /* AEADChaCha20Poly1305.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEADChaCha20Poly1305.swift; sourceTree = "<group>"; };
@@ -983,6 +985,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_48 /* Cryptographer.swift */,
+				BAA65D419B7BF91A6CFBD8F1 /* AESCryptographer.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -1573,6 +1576,7 @@
 				OBJ_322 /* NetworkHost.swift in Sources */,
 				OBJ_323 /* NetworkInterface.swift in Sources */,
 				BAA65B7B6CD1DFC92162D26C /* SpecialRequests.swift in Sources */,
+				BAA651CA05CD52078E6D0F1F /* AESCryptographer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
