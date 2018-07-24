@@ -1,5 +1,5 @@
 //
-//  AESCryptographer.swift
+// AESCryptographer.swift
 // Module       : NetConnect
 //
 // Team Name    : Group 9
@@ -9,15 +9,16 @@
 import Foundation
 import CryptoSwift
 
-class extendCrypto: Cryptographer{
+class AESCryptographer: Cryptographer{
     private let key: String
     private let iv: String
+    private let aes: AES
     
     public init (key: String, iv: String){
         self.key = key
         self.iv = iv
+        aes = try! AES(key: key.bytes, blockMode: CBC(iv: iv.bytes))
     }
-    let aes = try AES(key: key.bytes, blockMode: .CBC(iv: iv.bytes))
     
     public func encrypt(_ data: Data) throws -> Data {
         
