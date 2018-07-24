@@ -99,7 +99,7 @@ public extension NetworkHost {
             try send(data.subdata(in: cutoff..<data.count), flags: flags)
         } else {
             let message = Message(data, flags: flags, id: convoId)
-            try socket!.write(data: message.rawData, to: address)
+            try socket!.write(message.rawData, to: address)
         }
     }
 

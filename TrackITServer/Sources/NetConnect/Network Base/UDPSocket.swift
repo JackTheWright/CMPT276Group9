@@ -6,21 +6,34 @@
 // Created By   : Jeremy Schwartz
 // Created On   : 2018-06-26
 //
+// Edited By    : Jeremy Schwartz
+// Edited On    : 2018-07-22
+//
+//  Restructured class to allow for packet drop detection and correction.
+//
 
 import Foundation
 import Socket
 
 public class UDPSocket {
-    
-    /// Contains data about a udp transmission.
+
     public typealias ReadData = (address: Address, bytesRead: Int, data: Data)
-    
+
     private var socket: Socket
-    
-    /// The port that this socket is connected to. `nil` if the socket has not
-    /// been connected to any port.
-    public private(set) var port: Int?
-    
+
+    /// The current timeout setting for the socket. Measured in milliseconds.
+    public var timeout: UInt? {
+        didSet {
+            if let milliseconds = timeout {
+                try? socket.setWriteTimeout(value: milliseconds)
+                try? socket.setReadTimeout(value: milliseconds)
+            } else {
+                try? socket.setWriteTimeout()
+                try? socket.setReadTimeout()
+            }
+        }
+    }
+
     /// Constructs a default udp socket.
     ///
     /// - throws: Throws `Socket.Error` if unable to create the underlying
@@ -31,138 +44,73 @@ public class UDPSocket {
             type: .datagram,
             proto: .udp)
         try socket.udpBroadcast(enable: true)
+        self.timeout = nil
     }
-    
+
     /// Closes the socket.
     deinit {
         self.socket.close()
     }
-    
-    /// Sets the socket's read timeout to a given number of seconds.
-    ///
-    /// - parameters:
-    ///     - seconds: The number of seconds to set the read timeout to.
-    ///
-    /// - returns: Returns `true` if timeout was set successfully; otherwise,
-    ///     returns `false`.
-    @discardableResult
-    public func setReadTimeout(_ seconds: UInt) -> Bool {
-        do {
-            try socket.setReadTimeout(value: seconds * 1000)
-            return true
-        } catch {
-            return false
-        }
-    }
-    
-    /// Sets the socket's read timeout to inifity.
-    ///
-    /// - returns: Returns `true` if action was successful, `false` otherwise.
-    @discardableResult
-    public func removeReadTimeout() -> Bool {
-        do {
-            try socket.setReadTimeout()
-            return true
-        } catch {
-            return false
-        }
-    }
-    
-    /// Sets the socket's write timeout to a given number of seconds.
-    ///
-    /// - parameters:
-    ///     - seconds: The number of seconds to set the write timeout to.
-    ///
-    /// - returns: Returns `true` if timeout was set successfully; otherwise,
-    ///     returns `false`.
-    @discardableResult
-    public func setWriteTimeout(_ seconds: UInt) -> Bool {
-        do {
-            try socket.setWriteTimeout(value: seconds * 1000)
-            return true
-        } catch {
-            return false
-        }
-    }
-    
-    /// Sets the socket's write timeout to inifity.
-    ///
-    /// - returns: Returns `true` if action was successful, `false` otherwise.
-    @discardableResult
-    public func removeWriteTimeout() -> Bool {
-        do {
-            try socket.setWriteTimeout()
-            return true
-        } catch {
-            return false
-        }
-    }
-    
-    /// Listens of a given port for an incoming message.
-    ///
-    /// - parameters:
-    ///     - port: The port to listen on. Must be between 0 and `UInt16.max`.
-    ///
-    /// - returns: Returns a tuple containing the message recieved along with
-    ///     the number of bytes read and an `Address` object for the connected
-    ///     host.
-    ///
-    /// - throws: Throws `NetworkError.Timeout` if the connection times out, or
-    ///     `Socket.Error` if there is an underlying socket error.
-    public func listen(on port: Int) throws -> ReadData {
-        self.port = port
-        var data = Data()
-        let result = try socket.listen(forMessage: &data, on: port)
-        if let addr = result.address {
-            return (Address(addr), result.bytesRead, data)
-        } else {
-            throw NetworkError.Timeout
-        }
-    }
-    
-    /// Reads from the socket.
-    ///
-    /// - returns: Returns a tuple containing the message recieved along with
-    ///     the number of bytes read and an `Address` object for the connected
-    ///     host.
-    ///
-    /// - throws: Throws `NetworkError.Timeout` if the connection times out, or
-    ///     `Socket.Error` if there is an underlying socket error.
-    ///
-    /// `read` is different from `listen` in that `read` assumes that the socket
-    /// is already set up on a specific port. One should call `listen` first
-    /// to wait for an initial message, the use `read` to continue accepting
-    /// messages on the same port.
-    public func read() throws -> ReadData {
-        var data = Data()
-        let result = try socket.readDatagram(into: &data)
-        if let addr = result.address {
-            return (Address(addr), result.bytesRead, data)
-        } else {
-            throw NetworkError.Timeout
-        }
-    }
-    
-    /// Sends data to a given address.
-    ///
-    /// - returns: Returns the number of bytes written.
-    ///
-    /// - throws: Throws `Socket.Error` if unable to write.
-    @discardableResult
-    public func write(data: Data, to address: Address) throws -> Int {
-        return try socket.write(from: data, to: address.addr)
-    }
-    
+
 }
 
-// MARK: Packet Loss Detection
+// MARK: Read & Write Methods
+
+public extension UDPSocket {
+
+    func write(_ data: Data, to address: Address) throws {
+        var packets = [Packet]()
+        let count = data.count.dividingRoundingUp(by: maxPacketBodySize)
+        for i in 0..<count {
+            let s = i * maxPacketBodySize
+            let e = (i + 1) * maxPacketBodySize
+            let packet = Packet(
+                    id: Int32(i),
+                    count: Int32(count),
+                    data: data.subdata(in: s..<e)
+            )
+            packets.append(packet)
+        }
+    }
+
+    func read() throws -> ReadData {
+        var initialData = Data()
+        let readData = try socket.readDatagram(into: &initialData)
+        if let packet = Packet.decoding(from: initialData) {
+            guard packet.count >= 0 && packet.id >= 0 else {
+                throw NetworkError.MalformedMessage
+            }
+            guard packet.id < packet.count else {
+                throw NetworkError.MalformedMessage
+            }
+            var packetArray = [Packet?](repeating: nil, count: Int(packet.count))
+            packetArray[Int(packet.id)] = packet
+            if packet.count != 1 {
+                readPackets(into: &packetArray)
+            }
+
+        } else {
+            return (Address(readData.address!), readData.bytesRead, initialData)
+        }
+    }
+
+    func listen(on port: Int) throws -> ReadData {
+
+    }
+
+}
+
+
+// MARK: Internals
 
 fileprivate extension UDPSocket {
 
-    /// Packets will be 512 bytes in size with an 8 byte header; meaning that
-    /// the maximum body size will be 512 - 8 = 504 bytes.
-    var maxPacketBodySize: Int { return 512 - 8 }
+    /// The read timeout to set when reading a packet stream.
+    var packetReadTimeout: Int { return 100 }
 
+    /// Max packet size is 512 bytes, therefor the max packet body size is 512
+    /// minus the 8 bytes header which is 504 bytes.
+    var maxPacketBodySize: Int { return 512 - 8 }
 
     /// Data structure which holds packet information.
     ///
@@ -181,7 +129,7 @@ fileprivate extension UDPSocket {
         /// Transmission data.
         var data: Data
 
-        /// Encodes the packet into a single data object using the 
+        /// Encodes the packet into a single data object using the
         /// aforementioned encoding.
         func encode() -> Data {
             var d = Data()
@@ -193,7 +141,7 @@ fileprivate extension UDPSocket {
 
         /// Decodes a data object into a `Packet`. Returns `nil` if unable to
         /// do so.
-        static func decode(from d: Data) -> Packet? {
+        static func decoding(from d: Data) -> Packet? {
             guard d.count >= 8 else {
                 return nil
             }
@@ -207,16 +155,96 @@ fileprivate extension UDPSocket {
             return Packet(id: _id, count: _count, data: _data)
         }
 
+    } // struct Packet
+
+    /// Writes an array of packets to a given address.
+    ///
+    /// - parameters:
+    ///     - packets: An array of packets to be written to the socket. There
+    ///         must be no gaps in packet ids (i.e. if there are 10 packets the
+    ///         each packet must have a unique id in the range 0..<10).
+    ///
+    ///     - address: The address of the host to write the packets to.
+    ///
+    /// - throws: Throws an error if unable to write a packet.
+    func write(packets: [Packet], to address: Address) throws {
+        for packet in packets {
+            try socket.write(from: packet.encode(), to: address.addr)
+        }
     }
 
-
-    func sendAsPackets(data: Data) throws {
-        var packets = [Packet]()
-        let count = data.count.dividingRoundingUp(by: maxPacketBodySize)
+    /// Reads packets from the socket into an inout packet array.
+    ///
+    /// - parameters:
+    ///     - packetArray: A mutable array to which the inbound packets will be
+    ///         stored in. The array should be pre-initialized to contain the
+    ///         expected number of packets.
+    ///
+    /// The method will stop listening for new packets once the socket throws a
+    /// timeout error.
+    func readPackets(into packetArray: inout [Packet?]) {
+        var data = Data()
+        while let _ = try? socket.readDatagram(into: &data) {
+            if let packet = Packet.decoding(from: data) {
+                if packet.id >= 0 && packet.id < packetArray.count {
+                    packetArray[Int(packet.id)] = packet
+                }
+            }
+        }
     }
 
-//    func readPackets() throws -> ReadData {
-//
-//    }
+}
+
+// MARK: Legacy Methods
+
+public extension UDPSocket {
+
+    /// Sets the socket's read timeout to a given number of seconds.
+    ///
+    /// - parameters:
+    ///     - seconds: The number of seconds to set the read timeout to.
+    ///
+    /// - returns: Returns `true` if timeout was set successfully; otherwise,
+    ///     returns `false`.
+    @available(*, deprecated, message: "Use UDPSocket.timeout instead")
+    @discardableResult
+    public func setReadTimeout(_ seconds: UInt) -> Bool {
+        timeout = seconds * 1000
+        return true
+    }
+
+    /// Sets the socket's read timeout to inifity.
+    ///
+    /// - returns: Returns `true` if action was successful, `false` otherwise.
+    @available(*, deprecated, message: "Use UDPSocket.timeout instead")
+    @discardableResult
+    public func removeReadTimeout() -> Bool {
+        timeout = nil
+        return true
+    }
+
+    /// Sets the socket's write timeout to a given number of seconds.
+    ///
+    /// - parameters:
+    ///     - seconds: The number of seconds to set the write timeout to.
+    ///
+    /// - returns: Returns `true` if timeout was set successfully; otherwise,
+    ///     returns `false`.
+    @available(*, deprecated, message: "Use UDPSocket.timeout instead")
+    @discardableResult
+    public func setWriteTimeout(_ seconds: UInt) -> Bool {
+        timeout = seconds * 1000
+        return true
+    }
+
+    /// Sets the socket's write timeout to inifity.
+    ///
+    /// - returns: Returns `true` if action was successful, `false` otherwise.
+    @available(*, deprecated, message: "Use UDPSocket.timeout instead")
+    @discardableResult
+    public func removeWriteTimeout() -> Bool {
+        timeout = nil
+        return true
+    }
 
 }
