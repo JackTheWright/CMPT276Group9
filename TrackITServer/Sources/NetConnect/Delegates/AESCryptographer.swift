@@ -6,14 +6,14 @@
 // Created By   : Keyi Huang
 // Created On   : 2018-07-21
 
-import Function
+import Foundation
 import CryptoSwift
 
 class extendCrypto: Cryptographer{
     private let key: String
     private let iv: String
     
-    public init ((key: String, iv: String){
+    public init (key: String, iv: String){
         self.key = key
         self.iv = iv
     }
