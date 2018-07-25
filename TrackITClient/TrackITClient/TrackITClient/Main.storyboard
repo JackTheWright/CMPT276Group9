@@ -30,6 +30,7 @@
                                 <rect key="frame" x="0.0" y="673" width="414" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.58066489399999999" green="0.59353272830000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
                                     <segue destination="4Km-Iq-6Kh" kind="show" id="4w6-kK-edK"/>
@@ -63,6 +64,7 @@
                                 <rect key="frame" x="0.0" y="674" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.58066489399999999" green="0.59353272830000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
                                     <segue destination="F6g-dV-Fkc" kind="show" id="KXV-iT-8lZ"/>
@@ -93,6 +95,14 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88x-pE-xAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="602.89855072463774" y="97.826086956521749"/>
+        </scene>
+        <!--OverviewPage-->
+        <scene sceneID="gr1-0B-7OF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OverviewPage" id="kWP-Kt-BRb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PBh-d3-9bU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1253" y="464"/>
         </scene>
         <!--View Controller2-->
         <scene sceneID="TIf-Eo-oZG">
@@ -168,13 +178,14 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                     <segue destination="3F9-xo-Q03" kind="show" id="SJW-T8-nIX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3K-aO-Fsc">
-                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfq-Gt-2Q7">
+                                <rect key="frame" x="0.0" y="672" width="414" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.58066489399999999" green="0.59353272830000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Start Tracking"/>
                                 <connections>
-                                    <segue destination="z8m-L4-ere" kind="show" id="uC2-VT-BuT"/>
+                                    <segue destination="kWP-Kt-BRb" kind="show" id="Qus-D2-D9e"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -184,6 +195,7 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                     <navigationItem key="navigationItem" id="phb-ma-aeT"/>
                     <connections>
                         <outlet property="genderTextField" destination="vI6-0l-gCU" id="QfC-br-yDO"/>
+                        <outlet property="startButton" destination="Bfq-Gt-2Q7" id="FCd-jb-xCl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUj-Q1-1lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,14 +209,6 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjM-YT-cxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2235" y="75"/>
-        </scene>
-        <!--OverviewPage-->
-        <scene sceneID="Vfg-Ih-ch6">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Overview" storyboardName="OverviewPage" id="z8m-L4-ere" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WOq-zd-ZRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1117" y="470"/>
         </scene>
     </scenes>
 </document>
