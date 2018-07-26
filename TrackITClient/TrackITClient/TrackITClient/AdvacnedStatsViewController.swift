@@ -11,14 +11,14 @@ import NetConnect
 import SwiftyJSON
 import Foundation
 
-
+// cell data struct for tableView
 struct cellData {
     var opened = Bool()
     var title = String()
     var data = [Double]()
 }
 
-// get Nutrients
+// get Nutrients from server
 func getNutrients(foodID: Int) -> [Double] {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
@@ -34,10 +34,20 @@ func getNutrients(foodID: Int) -> [Double] {
         return array
     }
     else {
-        return [Double]()
+        return [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     }
 }
-// Getting food name
+
+// Might be extra code !!!!!!!!!!
+func setNutriData( nutriArr: [Double], cellDAta: cellData) -> cellData {
+    var cellStuff = cellData()
+    cellStuff.opened = cellDAta.opened
+    cellStuff.title = cellDAta.title
+    cellStuff.data = nutriArr
+    return cellStuff
+}
+
+// Getting food name from server
 public func getFoodDescription(foodID: Int) -> String {
     let interface = NetworkInterface()!
     interface.setTimeout(5)
@@ -53,25 +63,17 @@ public func getFoodDescription(foodID: Int) -> String {
     if let array = response.array {
         return (array.first?.dictionary?["FOODDESCRIPTION"]?.string)!
     } else {
-        return ""
+        return "No Name"
     }
 }
 
-//static var foodForTable = [String: Int]()
+
 
 // count of foods in fooddata from advanced add
 func foodToCount(food: [String: Int]) -> Int {
     return food.count
 }
 
-// residue code (RC)
-//func foodToFoodDic( food: [FoodNutrition]) -> [Int : (String , Int)] {
-//    var dic = [Int : (String , Int) ]()
-//    for elem in food {
-//        dic[elem.foodID] = (elem.foodname , elem.Multiplier)
-//    }
-//    return dic
-//}
 
 // getting dictionary and extracting servings
 func foodToServings( food: [String : Int] )-> [Int] {
@@ -82,6 +84,7 @@ func foodToServings( food: [String : Int] )-> [Int] {
     return multiplierArray
 }
 
+// converts string to int
 func stringToInt(str: String?) -> Int {
     if str == nil {
         return 0
@@ -112,8 +115,7 @@ func foodToFoodID( food: [String: Int]) -> [Int] {
 }
 
 
-//let foodData = UserDefaults.standard.data(forKey: "foodForTable")!
-//let food = try? PropertyListDecoder().decode([FoodNutrition].self, from: foodData)
+var tableViewData = [cellData]()
 
 class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -127,7 +129,8 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var potassiumAmt: UILabel!
     @IBOutlet weak var sodiumAmt: UILabel!
     
-    var tableViewData = [cellData]()
+    
+    //var tableViewData = [cellData]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableViewData.count > 0 && tableViewData[section].opened == true {
@@ -224,9 +227,8 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func countFood() -> Int {
-        let foood = UserDefaults.standard.dictionary(forKey: "foodForTable")
-        if let fooood = foood {
-            return fooood.count
+        if let foood = UserDefaults.standard.dictionary(forKey: "foodForTable"){
+            return foood.count
         }
         else {
             return 0
@@ -255,25 +257,25 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
         
-        let foodUn = UserDefaults.standard.dictionary(forKey: "foodForTable")
+       // let foodUn = UserDefaults.standard.dictionary(forKey: "foodForTable")
         
         
-        if let food = foodUn {
+       // if let food = foodUn {
           //  food = UserDefaults.standard.dictionary(forKey: "foodForTable")  //UserDefaults.standard.dictionary(forKey: "foodForTable")
-            let foodname = foodIDToName(food: food as! [String : Int])
+       
+        if let food = UserDefaults.standard.dictionary(forKey: "foodForTable") as? [String : Int] {
+            let foodname = foodIDToName(food: food )
             if !foodname.isEmpty {
                 //set table cells
-                var foodIDArray = foodToFoodID(food: food as! [String : Int])
+                var foodIDArray = foodToFoodID(food: food )
                 for i in 0...(foodname.count - 1) {
                     tableViewData.append(cellData(opened: false, title: foodname[i], data: getNutrients(foodID: foodIDArray[i])))
                 }
             }
             
-            let servings = foodToServings(food: food as! [String : Int])
-            var totalNutrientsCount = [Double]()
-            let foodIDArray = foodToFoodID(food: food as! [String : Int])
-            
-            totalNutrientsCount = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+            let servings = foodToServings(food: food )
+            var totalNutrientsCount = UserDefaults.standard.array(forKey: "totalNutrients") as? [Double] ?? GlobalStates.totalNutrientsCount
+            let foodIDArray = foodToFoodID(food: food )
             
      //       for i in 0...(foodIDArray.count - 1) {
      //           nutrients = getNutrients(foodID: foodIDArray[i])
@@ -285,18 +287,21 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             var i = 0
             for each in foodIDArray {
                 var nutrients = getNutrients(foodID: each)
-                let multiplier = Double(servings[i])
-                var j = 0
-                for var object in totalNutrientsCount {
-                    object = object + multiplier*nutrients[j]
-                    j = j+1
+                let multiplier = Double()
+                for j in 0...(totalNutrientsCount.count - 1) {
+                    totalNutrientsCount[j] = totalNutrientsCount[j] + multiplier*nutrients[j]
                 }
-                i = i + 1
-                j = 0
+                if ( i < servings.count - 1) {
+                    i = i + 1
+                }
+                else{
+                    break
+                }
             }
             i = 0
             
-            
+            let newTotal = totalNutrientsCount
+            UserDefaults.standard.set(newTotal, forKey: "totalNutrients")
             
             
             proteinAmt.text = String(totalNutrientsCount[0])

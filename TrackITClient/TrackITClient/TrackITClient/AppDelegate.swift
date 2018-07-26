@@ -33,6 +33,7 @@ struct GlobalStates {
     static var port = 60011
     static var foodForTable = [String: Int]()
     static var arr = Data()
+    static var totalNutrientsCount = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     
 }
 
