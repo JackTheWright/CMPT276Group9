@@ -15,11 +15,7 @@ import Foundation
 struct cellData {
     var opened = Bool()
     var title = String()
-    //   var id = Int()
     var data = [Double]()
-    //  mutating func setData(ID: Int) {
-    //      data = makeInterface(foodID: ID)!
-    //  }
 }
 
 // get Nutrients
@@ -133,8 +129,6 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
     
     var tableViewData = [cellData]()
     
-   
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableViewData.count > 0 && tableViewData[section].opened == true {
             return tableViewData[section].data.count + 7
@@ -143,14 +137,10 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             return 1
         }
     }
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        if food != nil {
-//            return food!.count
-//        }
-//        else {
-//            return 0
-//        }
-//    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return countFood()
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
@@ -233,6 +223,16 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
         self.present(alert, animated:true, completion:nil)
     }
     
+    func countFood() -> Int {
+        let foood = UserDefaults.standard.dictionary(forKey: "foodForTable")
+        if let fooood = foood {
+            return fooood.count
+        }
+        else {
+            return 0
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -255,32 +255,49 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
         
-        var food = [String: Int]()
+        let foodUn = UserDefaults.standard.dictionary(forKey: "foodForTable")
         
-        if UserDefaults.standard.dictionary(forKey: "foodForTable") != nil {
-            food = UserDefaults.standard.dictionary(forKey: "foodForTable") as! [String : Int]
-            let foodname = foodIDToName(food: food)
+        
+        if let food = foodUn {
+          //  food = UserDefaults.standard.dictionary(forKey: "foodForTable")  //UserDefaults.standard.dictionary(forKey: "foodForTable")
+            let foodname = foodIDToName(food: food as! [String : Int])
             if !foodname.isEmpty {
                 //set table cells
-                var foodIDArray = foodToFoodID(food: food)
+                var foodIDArray = foodToFoodID(food: food as! [String : Int])
                 for i in 0...(foodname.count - 1) {
                     tableViewData.append(cellData(opened: false, title: foodname[i], data: getNutrients(foodID: foodIDArray[i])))
                 }
             }
             
-            var nutrients = [Double]()
-            let servings = foodToServings(food: food)
+            let servings = foodToServings(food: food as! [String : Int])
             var totalNutrientsCount = [Double]()
-            let foodIDArray = foodToFoodID(food: food)
+            let foodIDArray = foodToFoodID(food: food as! [String : Int])
+            
             totalNutrientsCount = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
             
-            for i in 0...(foodIDArray.count - 1) {
-                nutrients = getNutrients(foodID: foodIDArray[i])
+     //       for i in 0...(foodIDArray.count - 1) {
+     //           nutrients = getNutrients(foodID: foodIDArray[i])
+     //           let multiplier = Double(servings[i])
+     //           for j in 0...8 {
+     //               totalNutrientsCount[j] = totalNutrientsCount[j] + (multiplier * nutrients[j])
+     //           }
+     //
+            var i = 0
+            for each in foodIDArray {
+                var nutrients = getNutrients(foodID: each)
                 let multiplier = Double(servings[i])
-                for j in 0...8 {
-                    totalNutrientsCount[j] = totalNutrientsCount[j] + (multiplier * nutrients[j])
+                var j = 0
+                for var object in totalNutrientsCount {
+                    object = object + multiplier*nutrients[j]
+                    j = j+1
                 }
+                i = i + 1
+                j = 0
             }
+            i = 0
+            
+            
+            
             
             proteinAmt.text = String(totalNutrientsCount[0])
             appendUnits(label: proteinAmt, unit: "grams")
@@ -309,37 +326,10 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             sodiumAmt.text = String(totalNutrientsCount[6])
             appendUnits(label: sodiumAmt, unit: "milligrams")
         }
+    
         else {
-           
-            proteinAmt.text = String(0.0)
-            appendUnits(label: proteinAmt, unit: "grams")
-            
-            carbAmt.text = String(0.0)
-            appendUnits(label: carbAmt, unit: "grams")
-            
-            fatAmt.text = String(0.0)
-            appendUnits(label: carbAmt, unit: "grams")
-            
-            mgAmt.text = String(0.0)
-            appendUnits(label: mgAmt, unit: "milligrams")
-            
-            vitB9Amt.text = String(0.0)
-            appendUnits(label: vitB9Amt, unit: "miligrams")
-            
-            vitDAmt.text = String(0.0)
-            appendUnits(label: vitDAmt, unit: "micrograms")
-            
-            ironAmt.text = String(0.0)
-            appendUnits(label: ironAmt, unit: "milligrams")
-            
-            potassiumAmt.text = String(0.0)
-            appendUnits(label: ironAmt, unit: "milligrams")
-            
-            sodiumAmt.text = String(0.0)
-            appendUnits(label: sodiumAmt, unit: "milligrams")
-            
-            
-        }
+            createAlert(title: "Alert", message: "You have added no food till now. Please use the Advanced Add page to add food")
+            }
         
         
     }
