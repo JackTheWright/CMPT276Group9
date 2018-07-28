@@ -277,13 +277,7 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             var totalNutrientsCount = UserDefaults.standard.array(forKey: "totalNutrients") as? [Double] ?? GlobalStates.totalNutrientsCount
             let foodIDArray = foodToFoodID(food: food )
             
-     //       for i in 0...(foodIDArray.count - 1) {
-     //           nutrients = getNutrients(foodID: foodIDArray[i])
-     //           let multiplier = Double(servings[i])
-     //           for j in 0...8 {
-     //               totalNutrientsCount[j] = totalNutrientsCount[j] + (multiplier * nutrients[j])
-     //           }
-     //
+     
             var i = 0
             for each in foodIDArray {
                 var nutrients = getNutrients(foodID: each)
@@ -301,6 +295,7 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
             i = 0
             
             let newTotal = totalNutrientsCount
+            GlobalStates.totalNutrientsCount = newTotal
             UserDefaults.standard.set(newTotal, forKey: "totalNutrients")
             
             
