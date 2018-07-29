@@ -58,7 +58,7 @@ public class UDPSocket {
 
 public extension UDPSocket {
 
-    func write(_ data: Data, to address: Address) throws {
+    func write(data: Data, to address: Address) throws {
         var packets = [Packet]()
         let count = data.count.dividingRoundingUp(by: maxPacketBodySize)
         for i in 0..<count {
@@ -67,15 +67,48 @@ public extension UDPSocket {
             let packet = Packet(
                     id: Int32(i),
                     count: Int32(count),
-                    data: data.subdata(in: s..<e)
+                    data: data.subdata(in: s..<(min(e, data.count)))
             )
             packets.append(packet)
         }
+        try write(packets: packets, to: address)
     }
 
+//    func read() throws -> ReadData {
+//        var initialData = Data()
+//        let readData = try socket.readDatagram(into: &initialData)
+//        if let packet = Packet.decoding(from: initialData) {
+//            guard packet.count >= 0 && packet.id >= 0 else {
+//                throw NetworkError.MalformedMessage
+//            }
+//            guard packet.id < packet.count else {
+//                throw NetworkError.MalformedMessage
+//            }
+//            var packetArray = [Packet?](repeating: nil, count: Int(packet.count))
+//            packetArray[Int(packet.id)] = packet
+//            readPackets(into: &packetArray)
+//
+//            var i = 0
+//            while let missingPackets = getMissingPackets(from: packetArray),
+//                  i < packet.count
+//            {
+//                readPackets(into: &packetArray)
+//                i += 1
+//            }
+//
+//        } else {
+//            return (Address(readData.address!), readData.bytesRead, initialData)
+//        }
+//    }
+
     func read() throws -> ReadData {
+        throw NetworkError.SocketReadError("Not Implemented")
+    }
+
+    func listen(on port: Int) throws -> ReadData {
         var initialData = Data()
-        let readData = try socket.readDatagram(into: &initialData)
+        let readData = try socket.listen(forMessage: &initialData, on: port)
+        print("captured connection")
         if let packet = Packet.decoding(from: initialData) {
             guard packet.count >= 0 && packet.id >= 0 else {
                 throw NetworkError.MalformedMessage
@@ -85,25 +118,26 @@ public extension UDPSocket {
             }
             var packetArray = [Packet?](repeating: nil, count: Int(packet.count))
             packetArray[Int(packet.id)] = packet
+            print("reading packets")
+            readPackets(into: &packetArray)
 
-            var i = 0
-            while let missingPackets = getMissingPackets(from: packetArray),
-                  i < packet.count
-            {
+            print("Number of missing packets =", packetArray.count(where: {
+                $0 == nil
+            }))
 
-            }
+            return (Address(readData.address!), 0, Data())
 
-            if packet.count != 1 {
-                readPackets(into: &packetArray)
-            }
+//            var i = 0
+//            while let missingPackets = getMissingPackets(from: packetArray),
+//                  i < packet.count
+//            {
+//                readPackets(into: &packetArray)
+//                i += 1
+//            }
 
         } else {
             return (Address(readData.address!), readData.bytesRead, initialData)
         }
-    }
-
-    func listen(on port: Int) throws -> ReadData {
-
     }
 
 }
@@ -176,6 +210,7 @@ fileprivate extension UDPSocket {
     ///
     /// - throws: Throws an error if unable to write a packet.
     func write(packets: [Packet], to address: Address) throws {
+        print("writting \(packets.count) packets")
         for packet in packets {
             try socket.write(from: packet.encode(), to: address.addr)
         }
@@ -192,9 +227,12 @@ fileprivate extension UDPSocket {
     /// timeout error.
     func readPackets(into packetArray: inout [Packet?]) {
         var data = Data()
+        try! socket.setReadTimeout(value: 10)
+        try! socket.setWriteTimeout(value: 10)
         while let _ = try? socket.readDatagram(into: &data) {
             if let packet = Packet.decoding(from: data) {
                 if packet.id >= 0 && packet.id < packetArray.count {
+                    print("read packet \(packet.id)")
                     packetArray[Int(packet.id)] = packet
                 }
             }
