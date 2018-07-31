@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class DailyViewController: UIViewController {
+class PieViewController: UIViewController {
 
     @IBOutlet weak var pieChart: PieChartView!
     
@@ -43,7 +43,13 @@ class DailyViewController: UIViewController {
          // Do any additional setup after loading the view.
         
         // set chart description
-        pieChart.chartDescription?.text = "Servings of different food groups consumed today :"
+        pieChart.chartDescription?.text = "Servings of food groups consumed today"
+        pieChart.chartDescription?.font = .boldSystemFont(ofSize: 16)
+        pieChart.legend.font = .systemFont(ofSize: 20)
+        pieChart.legend.textColor = .black
+        pieChart.holeColor = .white
+    
+        
         
         // checking if dailyVals has default value (no foods) or has foods
         if dailyVals !=  ["" : ["" : ["0","0","0","0","0"]]] {
@@ -93,7 +99,7 @@ class DailyViewController: UIViewController {
         let chartDataSet = PieChartDataSet(values: dailyMealsEntry, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
-        let color = [UIColor.red, UIColor.green, UIColor.yellow, UIColor.yellow, UIColor.blue]
+        let color = [UIColor.red, UIColor.black, UIColor.orange, UIColor.brown, UIColor.blue]
         chartDataSet.colors = color
         
         pieChart.data = chartData
@@ -113,7 +119,7 @@ class DailyViewController: UIViewController {
         formatter.dateStyle = .long
         formatter.timeStyle = .none
         let str = formatter.string(from: Date())
-        todayLbl.text?.append(str)
+        todayLbl.text? = str
     }
 
     /*
