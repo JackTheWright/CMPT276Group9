@@ -42,6 +42,10 @@ struct GlobalStates {
     static var foodForTable = [String: Int]()
     static var arr = Data()
     static var yest = String()
+    static var foodGroupyBoy1 = String()
+    static var foodGroupyBoy2 = String()
+    static var foodGroupyBoy3 = String()
+    static var foodGroupyBoy = String()
 }
 
 @UIApplicationMain
@@ -76,33 +80,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(quickAddRefresh)
         UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
         
-        
-        let interface = NetworkInterface()!
-        
-        interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
-            var flags = Message.Flags()
-            interface.setTimeout(10)
+        DispatchQueue.global(qos: .background).async{
+            let interface = NetworkInterface()!
             
-            flags.set(MessageFlags.DBQuery)
-            print("sending")
-            do {
-                try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
-                print("sent")
-                let JSONreply = try host.receiveJSON()
-                print("didrecieve")
-                if let fn = JSONreply.array?.compactMap({ element in
-                    return (element.dictionary!["FOODDESCRIPTION"]!.string!,
-                            element.dictionary!["FOODID"]!.int!,
-                            element.dictionary!["FOODGROUPID"]!.int!)
-                }) {
-                    GlobalStates.foodnames = fn
+            interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
+                var flags = Message.Flags()
+                interface.setTimeout(10)
+                
+                flags.set(MessageFlags.DBQuery)
+                print("sending")
+                do {
+                    try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
+                    print("sent")
+                    let JSONreply = try host.receiveJSON()
+                    print("didrecieve")
+                    if let fn = JSONreply.array?.compactMap({ element in
+                        return (element.dictionary!["FOODDESCRIPTION"]!.string!,
+                                element.dictionary!["FOODID"]!.int!,
+                                element.dictionary!["FOODGROUPID"]!.int!)
+                    }) {
+                        GlobalStates.foodnames = fn
+                    }
+                } catch{
+                    UserDefaults.standard.set("nosir", forKey: "didWork")
                 }
-            } catch{
-                UserDefaults.standard.set("nosir", forKey: "didWork")
+                print(GlobalStates.foodnames)
             }
-            print(GlobalStates.foodnames)
         }
-        
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
         if launchedBefore == false {

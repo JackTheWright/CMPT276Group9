@@ -48,17 +48,17 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         self.present(alert, animated:true, completion:nil)
     }
     
-    
-    @IBAction func nameAction(_ sender: AnyObject) {
-        if (nameTextField.text != ""){
-            nameTextField.text = name
-        }
-    }
-    @IBAction func ageAction(_ sender: AnyObject) {
-        if (ageTextField.text != ""){
-            ageTextField.text = age
-        }
-    }
+//    
+//    @IBAction func nameAction(_ sender: AnyObject) {
+//        if (nameTextField.text != ""){
+//            nameTextField.text = name
+//        }
+//    }
+//    @IBAction func ageAction(_ sender: AnyObject) {
+//        if (ageTextField.text != ""){
+//            ageTextField.text = age
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

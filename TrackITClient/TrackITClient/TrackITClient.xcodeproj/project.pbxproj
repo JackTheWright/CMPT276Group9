@@ -7,10 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1018FF9E210954850040612B /* Socket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FF9D210954850040612B /* Socket.framework */; };
+		1018FF9F210954850040612B /* Socket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FF9D210954850040612B /* Socket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1018FFA1210954850040612B /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFA0210954850040612B /* CryptoSwift.framework */; };
+		1018FFA2210954850040612B /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFA0210954850040612B /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1018FFA4210954850040612B /* Threading.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFA3210954850040612B /* Threading.framework */; };
+		1018FFA5210954850040612B /* Threading.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFA3210954850040612B /* Threading.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1018FFA7210954850040612B /* PerfectCRUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFA6210954850040612B /* PerfectCRUD.framework */; };
+		1018FFA8210954850040612B /* PerfectCRUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFA6210954850040612B /* PerfectCRUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1018FFAA210954850040612B /* Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFA9210954850040612B /* Database.framework */; };
+		1018FFAB210954850040612B /* Database.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFA9210954850040612B /* Database.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1018FFAD210954850040612B /* PerfectSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFAC210954850040612B /* PerfectSQLite.framework */; };
+		1018FFAE210954850040612B /* PerfectSQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFAC210954850040612B /* PerfectSQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1018FFB0210954860040612B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFAF210954860040612B /* SwiftyJSON.framework */; };
+		1018FFB1210954860040612B /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1018FFAF210954860040612B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		101A139820E7E51300D4BE59 /* OverviewPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 101A139720E7E51300D4BE59 /* OverviewPage.storyboard */; };
 		101A139A20E7E8B300D4BE59 /* OverViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A139920E7E8B300D4BE59 /* OverViewControl.swift */; };
 		102B781B20FAA480006FFF01 /* NetConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 102B781A20FAA480006FFF01 /* NetConnect.framework */; };
 		102B781C20FAA480006FFF01 /* NetConnect.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 102B781A20FAA480006FFF01 /* NetConnect.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10464A52210CC586003FC543 /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10464A51210CC586003FC543 /* Recommendations.swift */; };
 		10B80B2820E480EB007027F1 /* PageViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2420E480EA007027F1 /* PageViewControl.swift */; };
 		10B80B2920E480EB007027F1 /* ViewControlClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2520E480EA007027F1 /* ViewControlClass.swift */; };
 		10B80B2A20E480EB007027F1 /* TimeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B80B2620E480EA007027F1 /* TimeClass.swift */; };
@@ -57,7 +72,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1018FFB1210954860040612B /* SwiftyJSON.framework in Embed Frameworks */,
+				1018FFA8210954850040612B /* PerfectCRUD.framework in Embed Frameworks */,
+				1018FFAE210954850040612B /* PerfectSQLite.framework in Embed Frameworks */,
+				1018FFA2210954850040612B /* CryptoSwift.framework in Embed Frameworks */,
+				1018FFA5210954850040612B /* Threading.framework in Embed Frameworks */,
+				1018FFAB210954850040612B /* Database.framework in Embed Frameworks */,
 				102B781C20FAA480006FFF01 /* NetConnect.framework in Embed Frameworks */,
+				1018FF9F210954850040612B /* Socket.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,9 +87,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1018FF9D210954850040612B /* Socket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Socket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1018FFA0210954850040612B /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1018FFA3210954850040612B /* Threading.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Threading.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1018FFA6210954850040612B /* PerfectCRUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PerfectCRUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1018FFA9210954850040612B /* Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1018FFAC210954850040612B /* PerfectSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PerfectSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1018FFAF210954860040612B /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		101A139720E7E51300D4BE59 /* OverviewPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OverviewPage.storyboard; sourceTree = "<group>"; };
 		101A139920E7E8B300D4BE59 /* OverViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewControl.swift; sourceTree = "<group>"; };
 		102B781A20FAA480006FFF01 /* NetConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10464A51210CC586003FC543 /* Recommendations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
 		10B80B2420E480EA007027F1 /* PageViewControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControl.swift; sourceTree = "<group>"; };
 		10B80B2520E480EA007027F1 /* ViewControlClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControlClass.swift; sourceTree = "<group>"; };
 		10B80B2620E480EA007027F1 /* TimeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeClass.swift; sourceTree = "<group>"; };
@@ -106,7 +136,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1018FFB0210954860040612B /* SwiftyJSON.framework in Frameworks */,
+				1018FFA7210954850040612B /* PerfectCRUD.framework in Frameworks */,
+				1018FFAD210954850040612B /* PerfectSQLite.framework in Frameworks */,
+				1018FFA1210954850040612B /* CryptoSwift.framework in Frameworks */,
+				1018FFA4210954850040612B /* Threading.framework in Frameworks */,
+				1018FFAA210954850040612B /* Database.framework in Frameworks */,
 				102B781B20FAA480006FFF01 /* NetConnect.framework in Frameworks */,
+				1018FF9E210954850040612B /* Socket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +160,13 @@
 		3F11EFF220C4771A007AB096 = {
 			isa = PBXGroup;
 			children = (
+				1018FFAF210954860040612B /* SwiftyJSON.framework */,
+				1018FFAC210954850040612B /* PerfectSQLite.framework */,
+				1018FFA9210954850040612B /* Database.framework */,
+				1018FFA6210954850040612B /* PerfectCRUD.framework */,
+				1018FFA3210954850040612B /* Threading.framework */,
+				1018FFA0210954850040612B /* CryptoSwift.framework */,
+				1018FF9D210954850040612B /* Socket.framework */,
 				102B781A20FAA480006FFF01 /* NetConnect.framework */,
 				8B751E4820DF0329003EC7D4 /* split.png */,
 				3F11EFFD20C4771A007AB096 /* TrackITClient */,
@@ -161,6 +205,7 @@
 				8B751E4A20E37661003EC7D4 /* ViewController2.swift */,
 				10B80B2C20E48138007027F1 /* FoodAdd.storyboard */,
 				101A139720E7E51300D4BE59 /* OverviewPage.storyboard */,
+				10464A51210CC586003FC543 /* Recommendations.swift */,
 				10C7B93520EED3CA000DD9D6 /* InformationFromFoodMenu.storyboard */,
 				101A139920E7E8B300D4BE59 /* OverViewControl.swift */,
 				10B80B2720E480EB007027F1 /* ServingPackageClass.swift */,
@@ -308,6 +353,7 @@
 				E831545A20EAC395003B0AA4 /* NotificationViewController.swift in Sources */,
 				8BD5F62120FBF5CB00473845 /* viewModel.swift in Sources */,
 				8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */,
+				10464A52210CC586003FC543 /* Recommendations.swift in Sources */,
 				10B80B2A20E480EB007027F1 /* TimeClass.swift in Sources */,
 				8BD5F61F20FBF42F00473845 /* Restriction.swift in Sources */,
 				10B80B2B20E480EB007027F1 /* ServingPackageClass.swift in Sources */,
