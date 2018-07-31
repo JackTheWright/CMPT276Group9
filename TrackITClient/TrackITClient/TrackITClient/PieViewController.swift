@@ -43,9 +43,11 @@ class PieViewController: UIViewController {
          // Do any additional setup after loading the view.
         
         // set chart description
-        pieChart.chartDescription?.text = "Servings of different food groups consumed today :"
+        pieChart.chartDescription?.text = "Servings of different food groups consumed today"
         pieChart.chartDescription?.textColor = .white
+        pieChart.chartDescription?.font = .systemFont(ofSize: 15)
         pieChart.legend.textColor = .white
+        pieChart.legend.font = .systemFont(ofSize: 18)
         
         
         
@@ -92,6 +94,8 @@ class PieViewController: UIViewController {
         dailyMealsEntry = [grp1Data, grp2DaTa, grp3Data, grp4Data, grp5Data]
         updateChart()
         pieChart.legend.textColor = .white
+        pieChart.holeColor = .lightGray
+        
         
     }
     
@@ -99,7 +103,7 @@ class PieViewController: UIViewController {
         let chartDataSet = PieChartDataSet(values: dailyMealsEntry, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
-        let color = [UIColor.red, UIColor.green, UIColor.yellow, UIColor.yellow, UIColor.blue]
+        let color = [UIColor.red, UIColor.darkGray, UIColor.brown, UIColor.purple, UIColor.blue]
         chartDataSet.colors = color
         
         pieChart.data = chartData
