@@ -261,48 +261,8 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
                     }
                 }
             }
-        }
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        // appending units to total nutrient values
-        func appendUnits(label: UILabel, unit: String) {
-            if var text = label.text {
-                text = text + " " + unit
-                label.text = text
-            }
-            else {
-                label.text = String(0) + " " + unit
-            }
-        }
-        
-       // poulating tableViewData
-        if let food = UserDefaults.standard.dictionary(forKey: "foodForTable") as? [String : Int] {
-       //     let foodname = foodIDToName(food: food )
-            var nutrientArrArray = [[Double]]()
-       //     if !foodname.isEmpty {
-                //set table cells
-                
-         //       var celldataArr = [cellData]()
-                let foodIDArray = foodToFoodID(food: food )
-                for each in foodIDArray {
-                    nutrientArrArray.append(getNutrients(foodID: each))
-                }
-        //        if foodname.count == nutrientArrArray.count {
-       //             let lastIndex = foodname.count - 1
-        //            for i in 0...lastIndex {
-        //                celldataArr.append(cellData(opened: false, title: foodname[i], data: nutrientArrArray[i]))
-         //           }
-       //
-       //             for each in celldataArr {
-        //                tableViewData.append(each)
-        //            }
-         //       }
-         //   }
             
-            // total nutrients consumed computation
+            // get total nutrients from userdefaults
             var totalNutrientsCount = UserDefaults.standard.array(forKey: "totalNutrients") as? [Double] ?? GlobalStates.totalNutrientsCount
             var multiplier = [Double]()
             for each in food {
@@ -322,11 +282,60 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
                     break
                 }
             }
-     
+            
             
             let newTotal = totalNutrientsCount
             UserDefaults.standard.set(newTotal, forKey: "totalNutrients")
             
+            // set values accordingly
+            proteinAmt.text = String(totalNutrientsCount[0])
+            appendUnits(label: proteinAmt, unit: "grams")
+            
+            fatAmt.text = String(totalNutrientsCount[1])
+            appendUnits(label: fatAmt, unit: "grams")
+            
+            carbAmt.text = String(totalNutrientsCount[2])
+            appendUnits(label: carbAmt, unit: "grams")
+            
+            mgAmt.text = String(totalNutrientsCount[4])
+            appendUnits(label: mgAmt, unit: "milligrams")
+            
+            vitB9Amt.text = String(totalNutrientsCount[7])
+            appendUnits(label: vitB9Amt, unit: "milligrams")
+            
+            vitDAmt.text = String(totalNutrientsCount[8])
+            appendUnits(label: vitDAmt, unit: "micrograms")
+            
+            ironAmt.text = String(totalNutrientsCount[3])
+            appendUnits(label: ironAmt, unit: "milligrams")
+            
+            potassiumAmt.text = String(totalNutrientsCount[5])
+            appendUnits(label: potassiumAmt, unit: "milligrams")
+            
+            sodiumAmt.text = String(totalNutrientsCount[6])
+            appendUnits(label: sodiumAmt, unit: "milligrams")
+            
+        }
+    }
+    
+    func appendUnits(label: UILabel, unit: String) {
+        if var text = label.text {
+            text = text + " " + unit
+            label.text = text
+        }
+        else {
+            label.text = String(0) + " " + unit
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // appending units to total nutrient values
+        
+        
+       // poulating tableViewData
+        if (UserDefaults.standard.dictionary(forKey: "foodForTable") as? [String : Int]) != nil {
+            var totalNutrientsCount = UserDefaults.standard.array(forKey: "totalNutrients") as? [Double] ?? GlobalStates.totalNutrientsCount
+           
             // set values accordingly
             proteinAmt.text = String(totalNutrientsCount[0])
             appendUnits(label: proteinAmt, unit: "grams")
