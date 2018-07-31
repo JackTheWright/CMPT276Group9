@@ -71,7 +71,7 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
         let phaseY = animator.phaseY
         let barSpace = dataSet.barSpace
         let showCandleBar = dataSet.showCandleBar
-        let entryCount = dataSet.entryCount
+        _ = dataSet.entryCount
         
         _xBounds.set(chart: dataProvider, dataSet: dataSet, animator: animator)
         

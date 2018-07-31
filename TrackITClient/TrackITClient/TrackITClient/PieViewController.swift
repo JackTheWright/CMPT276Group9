@@ -72,7 +72,7 @@ class PieViewController: UIViewController {
         }
         
         else {
-            todaysValues = ["1","2","2","3","4"]
+            todaysValues = ["2","5","2","3","4"]
         }
         
         
@@ -99,7 +99,7 @@ class PieViewController: UIViewController {
         let chartDataSet = PieChartDataSet(values: dailyMealsEntry, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
-        let color = [UIColor.red, UIColor.black, UIColor.orange, UIColor.brown, UIColor.blue]
+        let color = [UIColor.red, UIColor.black, UIColor.orange, UIColor.darkGray, UIColor.blue]
         chartDataSet.colors = color
         
         pieChart.data = chartData
