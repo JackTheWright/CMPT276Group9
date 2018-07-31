@@ -23,6 +23,8 @@ public class Database {
 
         case UnableToOpen
 
+        case InvalidCommand
+
     }
 
     fileprivate let sqlite: SQLite

@@ -13,37 +13,41 @@ import NetConnect
 /// Main server object.
 class Server {
 
-    let inboundNode: InboundNode
+//    let inboundNode: InboundNode
 
-    let outboundNode: OutboundNode
+//    let outboundNode: OutboundNode
+
+    let networkInterface = ServerNetworkInterface()
 
     let router: Router
 
-    let socket: UDPSocket
+//    let socket: StreamingSocket
 
-    init?() {
+    init() {
         Log.verbose("Initializing Server Instance", event: .info)
-        guard let s = try? UDPSocket() else {
-            return nil
-        }
-        socket = s
-        inboundNode = InboundNode(socket: socket)
-        outboundNode = OutboundNode(socket: socket)
+//        guard let s = StreamingSocket() else {
+//            return nil
+//        }
+//        socket = s
+//        inboundNode = InboundNode(socket: socket)
+//        outboundNode = OutboundNode(socket: socket)
         router = Router()
-        router.inboundQueue = inboundNode.messageQueue
-        router.outboundQueue = outboundNode.messageQueue
+        router.inboundQueue = networkInterface.inboundMessageQueue
+        router.outboundQueue = networkInterface.inboundMessageQueue
     }
 
     func start() {
-        inboundNode.activate()
-        outboundNode.activate()
+//        inboundNode.activate()
+//        outboundNode.activate()
+        networkInterface.activate()
         router.activate()
         router.start()
     }
 
     func stop() {
-        inboundNode.deactivate()
-        outboundNode.deactivate()
+//        inboundNode.deactivate()
+//        outboundNode.deactivate()
+        networkInterface.activate()
     }
 
 }

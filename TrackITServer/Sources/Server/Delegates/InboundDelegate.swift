@@ -14,7 +14,7 @@ import Socket
 
 class InboundDelegate : NodeDelegate {
 
-    weak var socket: UDPSocket!
+    weak var socket: StreamingSocket!
 
     weak var active: Atomic<Bool>!
 
@@ -34,7 +34,7 @@ class InboundDelegate : NodeDelegate {
 
                 DispatchQueue.global().async {
                     let packet = NodePacket(
-                            address: readData.address,
+                            address: readData.sender,
                             message: message,
                             time: Time.now
                     )
