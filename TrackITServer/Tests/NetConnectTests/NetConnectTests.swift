@@ -9,6 +9,7 @@
 
 import XCTest
 import Socket
+import CryptoSwift
 @testable import NetConnect
 
 final class NetConnectTests: XCTestCase {
@@ -57,6 +58,26 @@ final class NetConnectTests: XCTestCase {
     
     func testIFAddress() {
         print(IFAddress.localIP() ?? "nil")
+    }
+
+    func testEncryption() {
+        let key = "12345678901234567890123456789012"
+        let iv = "1234567890123456"
+
+        let s = try! String(contentsOfFile: "/users/jeremy/desktop/test-data.txt")
+        let data = s.data(using: .utf8)!
+
+        do {
+            let crypt = try AESCryptographer(key: key, iv: iv)
+            let encrypted = try crypt.encrypt(data)
+            print("done encrypting")
+            let decrypted = try crypt.decrypt(encrypted)
+            print("done decrypting")
+            let str = String(data: decrypted, encoding: .utf8)
+            print(str == s)
+        } catch let e {
+            print(e)
+        }
     }
 
     static var allTests = [
