@@ -236,7 +236,6 @@ public extension Table {
         }
         jsonString.removeLast() // remove last ","
         jsonString += "}"
-        print(jsonString)
         return JSON(parseJSON: jsonString)
     }
 

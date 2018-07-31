@@ -33,9 +33,9 @@ final class SocketTests: XCTestCase {
 
     /// Local test of `StreamingSocket` class.
     ///
-    /// Runs client and server simultaniously on localhost. Sends ~1MB of data
+    /// Runs client and server simultaneously on localhost. Sends ~1MB of data
     /// from the client to the server and then back. Test is passed if the data
-    /// recieved from the server is exactly the same as the client.
+    /// received from the server is exactly the same as the client.
     ///
     /// This test is meant as a proof of concept for the data splitting and
     /// rebuilding systems and not a sufficient test of the sockets ability to
@@ -98,7 +98,7 @@ final class SocketTests: XCTestCase {
     /// Remote test for the `StreamingSocket` class.
     ///
     /// Connects to secondary dev server, transmits 150kB of textual data
-    /// (Shakespear's play Othello) to the server which will echo back the same
+    /// (Shakespeare's play Othello) to the server which will echo back the same
     /// data. Test is passed if the data received from the server is exactly
     /// the same as the data sent.
     ///

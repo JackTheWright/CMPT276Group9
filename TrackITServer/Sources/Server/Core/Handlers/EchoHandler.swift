@@ -19,9 +19,10 @@ class EchoHandler : Handler {
 
     override func main(packet: NodePacket) throws -> Data? {
         if let msg = packet.message.string {
-            Log.verbose("Echo: \(msg)", event: .server)
+//            Log.verbose("Echo: \(msg)", event: .server)
             return msg.data(using: .utf8)
         } else {
+            Log.verbose("Echo failed: id = \(packet.id)", event: .server)
             return nil
         }
     }

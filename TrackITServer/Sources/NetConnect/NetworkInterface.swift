@@ -83,25 +83,26 @@ open class NetworkInterface {
             }
             
             // Send handshake request
-            let hrbody = createHandshakeRequest()
-            let handshake = Message.handshakeRequest(hrbody)
-            try socket.write(data: handshake.rawData, to: address)
-            let response = try socket.read()
-            guard let hrResponse = Message(from: response.data) else {
-                throw NetworkError.MalformedMessage
-            }
+//            let hrbody = createHandshakeRequest()
+//            let handshake = Message.handshakeRequest(hrbody)
+//            try socket.write(data: handshake.rawData, to: address)
+//            let response = try socket.read()
+//            guard let hrResponse = Message(from: response.data) else {
+//                throw NetworkError.MalformedMessage
+//            }
             
             // Check if request was validated
-            if hrResponse.flags.get(MessageFlags.HSDeny) {
-                guard let reason = hrResponse.string else {
-                    throw NetworkError.UnableToConvertDataToString
-                }
-                throw NetworkErrorEvent.RejectConnection(reason: reason)
-            }
+//            if hrResponse.flags.get(MessageFlags.HSDeny) {
+//                guard let reason = hrResponse.string else {
+//                    throw NetworkError.UnableToConvertDataToString
+//                }
+//                throw NetworkErrorEvent.RejectConnection(reason: reason)
+//            }
             
             // HSRequest has been confirmed; start conversation
-            try didStartConnection(message: hrResponse)
-            let cid = UInt16(hrResponse.id)
+//            try didStartConnection(message: hrResponse)
+//            let cid = UInt16(hrResponse.id)
+            let cid = UInt16(0)
             let host = NetworkHost(socket: socket, address: address, id: cid)
             host.cryptographer = cryptographer
             try convo(host)

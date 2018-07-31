@@ -99,6 +99,14 @@ public extension StreamingSocket {
 
 public extension StreamingSocket {
 
+    /// Writes data to a given address.
+    ///
+    /// - parameters:
+    ///     - data: The data to send.
+    ///
+    ///     - address: The address of the host to write to.
+    ///
+    /// - throws: Throws an error if unable to send the data.
     func write(data: Data, to address: Address) throws {
         defer {
             if let t = timeout {
@@ -132,11 +140,29 @@ public extension StreamingSocket {
         }
     }
 
+    /// Listens of a given port for inbound data.
+    ///
+    /// - parameters:
+    ///     - port: The port to listen on.
+    ///
+    /// - returns: Returns the data that was received along with an address to
+    ///     the sender of said data.
+    ///
+    /// - throws: Throws an error if something went wrong when receiving data or
+    ///     if the listen operation timed out.
     func listen(on port: Int) throws -> (sender: Address, data: Data) {
         self.port = port
         return try recievePackets(using: initialListen)
     }
-    
+
+    /// Reads incoming data. Should be called after `listen` to receive more
+    /// data.
+    ///
+    /// - returns: Returns the data that was received along with an address to
+    ///     the sender of said data.
+    ///
+    /// - throws: Throws an error if something went wrong when receiving data or
+    ///     if the read operation timed out.
     func read() throws -> (sender: Address, data: Data) {
         return try recievePackets(using: initialRead)
     }
@@ -183,7 +209,7 @@ fileprivate extension StreamingSocket {
     ///     packetArray: An array of optional packets which will be constructed
     ///         into a data object. Packets that are `nil` will be omitted from
     ///         the data. `packetArray` should be checked before calling this
-    ///         function to esnure that there are no `nil` packets otherwise
+    ///         function to ensure that there are no `nil` packets otherwise
     ///         there will be holes in the data.
     ///
     /// - returns: A data object made up of the bodies of the packets.
@@ -302,10 +328,10 @@ fileprivate extension StreamingSocket {
     
     /// Performs the initial reading of an inbound packet.
     ///
-    /// - returns: Returns the initial packet allong with an address for the
+    /// - returns: Returns the initial packet along with an address for the
     ///     sender.
     ///
-    /// - throws: Throws an error in unable to recieve an inbound packet or the
+    /// - throws: Throws an error in unable to receive an inbound packet or the
     ///     packet was in an invalid format.
     func initialRead() throws -> (Packet, Address) {
         var data = Data()
@@ -321,19 +347,19 @@ fileprivate extension StreamingSocket {
     
     /// Performs the initial listening for inbound packets.
     ///
-    /// - returns: Returns the initial packet allong with an address for the
+    /// - returns: Returns the initial packet along with an address for the
     ///     sender.
     ///
-    /// - throws: Throws an error in unable to recieve an inbound packet or the
+    /// - throws: Throws an error in unable to receive an inbound packet or the
     ///     packet was in an invalid format.
     func initialListen() throws -> (Packet, Address) {
         var data = Data()
         let readData = try socket.listen(forMessage: &data, on: port)
-        guard let packet = Packet.decoding(from: data) else {
-            throw NetworkError.MalformedMessage
-        }
         guard let addr = readData.address else {
             throw NetworkError.Timeout
+        }
+        guard let packet = Packet.decoding(from: data) else {
+            throw NetworkError.MalformedMessage
         }
         return (packet, Address(addr))
     }
@@ -346,10 +372,10 @@ fileprivate extension StreamingSocket {
     /// - parameters:
     ///     - initialAction: The initial action to take, either read or listen.
     ///
-    /// - returns: The entirity of the data that was transmitted.
+    /// - returns: The entirety of the data that was transmitted.
     ///
     /// - throws: Throws an error if something went wrong or not all of the
-    ///     packets were recieved after a given number of attempts.
+    ///     packets were received after a given number of attempts.
     func recievePackets(using initialAction: () throws -> (Packet, Address))
     throws -> (Address, Data)
     {

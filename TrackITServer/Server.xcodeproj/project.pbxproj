@@ -23,12 +23,14 @@
 /* Begin PBXBuildFile section */
 		3FB89231210CF3F50016E004 /* Array+GetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB89230210CF3F50016E004 /* Array+GetSet.swift */; };
 		3FB89233210CF6B90016E004 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB89232210CF6B90016E004 /* ExtensionTests.swift */; };
+		BAA650201851A2BF0CBA916F /* ServerNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65D946AA57738579D8B1A /* ServerNetworkInterface.swift */; };
 		BAA656BB7B9603A5BADCE6AE /* NutrientFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA658E839CB82DB5D487892 /* NutrientFile.swift */; };
 		BAA659956E5367E5FA8CE941 /* StreamingSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA650F975CD90AB0F98A774 /* StreamingSocket.swift */; };
 		BAA65A9513BD13CEBFA96663 /* Array+Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65B0AB349858CEDD0F4FB /* Array+Count.swift */; };
 		BAA65B7B6CD1DFC92162D26C /* SpecialRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65AC3E73D312D6558653E /* SpecialRequests.swift */; };
 		BAA65CA30E8A4039C44D3354 /* Int+DividingRoundingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65629300C8B5676936484 /* Int+DividingRoundingUp.swift */; };
 		BAA65D54AEB27909BAD76542 /* SocketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65A7BD86C52E0E80E1295 /* SocketTests.swift */; };
+		BAA65FA0888048F7C8EE941A /* ServerLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65F77E0C76B71D44E46E8 /* ServerLite.swift */; };
 		BAA65FD0AE68D81D5B798785 /* FixedWidthInteger+Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65F5019145F3406655AF1 /* FixedWidthInteger+Bytes.swift */; };
 		OBJ_212 /* AEAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* AEAD.swift */; };
 		OBJ_213 /* AEADChaCha20Poly1305.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* AEADChaCha20Poly1305.swift */; };
@@ -215,182 +217,182 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Threading::Threading";
+			remoteGlobalIDString = Threading::Threading;
 			remoteInfo = Threading;
 		};
 		3FDA60AD20FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::NetConnect";
+			remoteGlobalIDString = Server::NetConnect;
 			remoteInfo = NetConnect;
 		};
 		3FDA60AE20FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteGlobalIDString = CryptoSwift::CryptoSwift;
 			remoteInfo = CryptoSwift;
 		};
 		3FDA60AF20FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Socket::Socket";
+			remoteGlobalIDString = Socket::Socket;
 			remoteInfo = Socket;
 		};
 		3FDA60B020FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::Database";
+			remoteGlobalIDString = Server::Database;
 			remoteInfo = Database;
 		};
 		3FDA60B120FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectSQLite::PerfectSQLite";
+			remoteGlobalIDString = PerfectSQLite::PerfectSQLite;
 			remoteInfo = PerfectSQLite;
 		};
 		3FDA60B220FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectCRUD::PerfectCRUD";
+			remoteGlobalIDString = PerfectCRUD::PerfectCRUD;
 			remoteInfo = PerfectCRUD;
 		};
 		3FDA60B320FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectCRUD::PerfectCRUD";
+			remoteGlobalIDString = PerfectCRUD::PerfectCRUD;
 			remoteInfo = PerfectCRUD;
 		};
 		3FDA60B420FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::SwiftyJSON";
+			remoteGlobalIDString = Server::SwiftyJSON;
 			remoteInfo = SwiftyJSON;
 		};
 		3FDA60B520FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectSQLite::PerfectSQLite";
+			remoteGlobalIDString = PerfectSQLite::PerfectSQLite;
 			remoteInfo = PerfectSQLite;
 		};
 		3FDA60B620FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectCRUD::PerfectCRUD";
+			remoteGlobalIDString = PerfectCRUD::PerfectCRUD;
 			remoteInfo = PerfectCRUD;
 		};
 		3FDA60B720FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::SwiftyJSON";
+			remoteGlobalIDString = Server::SwiftyJSON;
 			remoteInfo = SwiftyJSON;
 		};
 		3FDA60B820FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteGlobalIDString = CryptoSwift::CryptoSwift;
 			remoteInfo = CryptoSwift;
 		};
 		3FDA60B920FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Socket::Socket";
+			remoteGlobalIDString = Socket::Socket;
 			remoteInfo = Socket;
 		};
 		3FDA60BA20FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::Database";
+			remoteGlobalIDString = Server::Database;
 			remoteInfo = Database;
 		};
 		3FDA60BB20FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectSQLite::PerfectSQLite";
+			remoteGlobalIDString = PerfectSQLite::PerfectSQLite;
 			remoteInfo = PerfectSQLite;
 		};
 		3FDA60BC20FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectCRUD::PerfectCRUD";
+			remoteGlobalIDString = PerfectCRUD::PerfectCRUD;
 			remoteInfo = PerfectCRUD;
 		};
 		3FDA60BD20FB2F2B002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::SwiftyJSON";
+			remoteGlobalIDString = Server::SwiftyJSON;
 			remoteInfo = SwiftyJSON;
 		};
 		3FDA60BE20FB2F2C002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::NetConnect";
+			remoteGlobalIDString = Server::NetConnect;
 			remoteInfo = NetConnect;
 		};
 		3FDA60BF20FB2F2C002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "CryptoSwift::CryptoSwift";
+			remoteGlobalIDString = CryptoSwift::CryptoSwift;
 			remoteInfo = CryptoSwift;
 		};
 		3FDA60C020FB2F2C002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Socket::Socket";
+			remoteGlobalIDString = Socket::Socket;
 			remoteInfo = Socket;
 		};
 		3FDA60C120FB2F2C002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::Database";
+			remoteGlobalIDString = Server::Database;
 			remoteInfo = Database;
 		};
 		3FDA60C220FB2F2C002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectSQLite::PerfectSQLite";
+			remoteGlobalIDString = PerfectSQLite::PerfectSQLite;
 			remoteInfo = PerfectSQLite;
 		};
 		3FDA60C320FB2F2C002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "PerfectCRUD::PerfectCRUD";
+			remoteGlobalIDString = PerfectCRUD::PerfectCRUD;
 			remoteInfo = PerfectCRUD;
 		};
 		3FDA60C420FB2F2C002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::SwiftyJSON";
+			remoteGlobalIDString = Server::SwiftyJSON;
 			remoteInfo = SwiftyJSON;
 		};
 		3FDA60C520FB2F2D002D030F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Server::NetConnectTests";
+			remoteGlobalIDString = Server::NetConnectTests;
 			remoteInfo = NetConnectTests;
 		};
 /* End PBXContainerItemProxy section */
@@ -407,7 +409,9 @@
 		BAA65A7BD86C52E0E80E1295 /* SocketTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketTests.swift; sourceTree = "<group>"; };
 		BAA65AC3E73D312D6558653E /* SpecialRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialRequests.swift; sourceTree = "<group>"; };
 		BAA65B0AB349858CEDD0F4FB /* Array+Count.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Count.swift"; sourceTree = "<group>"; };
+		BAA65D946AA57738579D8B1A /* ServerNetworkInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerNetworkInterface.swift; sourceTree = "<group>"; };
 		BAA65F5019145F3406655AF1 /* FixedWidthInteger+Bytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixedWidthInteger+Bytes.swift"; sourceTree = "<group>"; };
+		BAA65F77E0C76B71D44E46E8 /* ServerLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerLite.swift; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_103 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
 		OBJ_104 /* AEADChaCha20Poly1305.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEADChaCha20Poly1305.swift; sourceTree = "<group>"; };
@@ -682,6 +686,14 @@
 			path = Workspace;
 			sourceTree = "<group>";
 		};
+		BAA65C25FD621A657547F968 /* Lite */ = {
+			isa = PBXGroup;
+			children = (
+				BAA65F77E0C76B71D44E46E8 /* ServerLite.swift */,
+			);
+			path = Lite;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +705,7 @@
 				OBJ_35 /* Tests */,
 				OBJ_37 /* main.swift */,
 				BAA6567FC3A303785D79BBF9 /* Workspace */,
+				BAA65C25FD621A657547F968 /* Lite */,
 			);
 			name = Server;
 			path = Sources/Server;
@@ -779,6 +792,7 @@
 				OBJ_17 /* NodePacket.swift */,
 				OBJ_19 /* Router.swift */,
 				OBJ_20 /* Server.swift */,
+				BAA65D946AA57738579D8B1A /* ServerNetworkInterface.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1694,6 +1708,8 @@
 				OBJ_435 /* TestManifest.swift in Sources */,
 				OBJ_436 /* main.swift in Sources */,
 				BAA656BB7B9603A5BADCE6AE /* NutrientFile.swift in Sources */,
+				BAA650201851A2BF0CBA916F /* ServerNetworkInterface.swift in Sources */,
+				BAA65FA0888048F7C8EE941A /* ServerLite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,4 @@
 
 import Foundation
 
-//try? Config.load(from: "./srvconf.json")
-//Log.outFile = Config.outFile
-if let server = Server() {
-    server.start()
-} else {
-    print("Unable to construct server")
-}
+ServerLite.start(port: 60011)
