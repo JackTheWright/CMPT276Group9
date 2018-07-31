@@ -1,27 +1,27 @@
 //
-//  DailyViewController.swift
+//  RadarViewController.swift
 //  TrackITClient
 //
-//  Created by user143897 on 7/28/18.
+//  Created by user143897 on 7/30/18.
 //  Copyright © 2018 Group 9. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class DailyViewController: UIViewController {
-
-    @IBOutlet weak var pieChart: PieChartView!
+class RadarViewController: UIViewController {
     
     @IBOutlet weak var todayLbl: UILabel!
     
-    var grp1Data = PieChartDataEntry(value: 0)
-    var grp2DaTa = PieChartDataEntry(value: 0)
-    var grp3Data = PieChartDataEntry(value: 0)
-    var grp4Data = PieChartDataEntry(value: 0)
-    var grp5Data = PieChartDataEntry(value: 0)
+    @IBOutlet weak var radarChart: RadarChartView!
     
-    var dailyMealsEntry = [PieChartDataEntry]()
+    var grp1Data = RadarChartDataEntry(value: 0)
+    var grp2DaTa = RadarChartDataEntry(value: 0)
+    var grp3Data = RadarChartDataEntry(value: 0)
+    var grp4Data = RadarChartDataEntry(value: 0)
+    var grp5Data = RadarChartDataEntry(value: 0)
+    
+    var dailyMealsEntry = [RadarChartDataEntry]()
     var todaysValues = [String]()
     var valuesDic = [String : [String]]()
     var currentDate = String()
@@ -35,15 +35,26 @@ class DailyViewController: UIViewController {
     }
     
     
+    func getCurrentDate() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        let str = formatter.string(from: Date())
+        todayLbl.text?.append(str)
+    }
     
-        
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         // Do any additional setup after loading the view.
+
+        // Do any additional setup after loading the view.
         
         // set chart description
-        pieChart.chartDescription?.text = "Servings of different food groups consumed today :"
+        radarChart.chartDescription?.text = "Servings of different food groups consumed today :"
+        radarChart.chartDescription?.textColor = .white
+        radarChart.legend.textColor = .white
+        
+        
         
         // checking if dailyVals has default value (no foods) or has foods
         if dailyVals !=  ["" : ["" : ["0","0","0","0","0"]]] {
@@ -64,57 +75,54 @@ class DailyViewController: UIViewController {
                 }
             }
         }
-        
+            
         else {
             todaysValues = ["1","2","2","3","4"]
         }
         
         
         grp1Data.value = Double(Int(todaysValues[0])!)
-        grp1Data.label = "Meats"
+
         
         grp2DaTa.value = Double(Int(todaysValues[1])!)
-        grp2DaTa.label = "Vegetables"
+   //     grp2DaTa.label = "Vegetables"
         
         grp3Data.value = Double(Int(todaysValues[2])!)
-        grp3Data.label = "Fruits"
+    //    grp3Data.label = "Fruits"
         
         grp4Data.value = Double(Int(todaysValues[3])!)
-        grp4Data.label = "Dairy"
+    //    grp4Data.label = "Dairy"
         
         grp5Data.value = Double(Int(todaysValues[4])!)
-        grp5Data.label = "Grains"
-       
+     //   grp5Data.label = "Grains"
+        
         dailyMealsEntry = [grp1Data, grp2DaTa, grp3Data, grp4Data, grp5Data]
         updateChart()
+        radarChart.legend.textColor = .white
     }
     
     func updateChart() {
-        let chartDataSet = PieChartDataSet(values: dailyMealsEntry, label: nil)
-        let chartData = PieChartData(dataSet: chartDataSet)
+        let chartDataSet = RadarChartDataSet(values: dailyMealsEntry, label: nil)
+        let chartData = RadarChartData(dataSet: chartDataSet)
         
         let color = [UIColor.red, UIColor.green, UIColor.yellow, UIColor.yellow, UIColor.blue]
         chartDataSet.colors = color
         
-        pieChart.data = chartData
+        radarChart.data = chartData
         
     }
+
     
+
     override func viewDidAppear(_ animated: Bool) {
         getCurrentDate()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func getCurrentDate() {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        let str = formatter.string(from: Date())
-        todayLbl.text?.append(str)
-    }
 
     /*
     // MARK: - Navigation
