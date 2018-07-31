@@ -42,9 +42,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUICK ADD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-HD-nDW">
-                                                <rect key="frame" x="124" y="0.0" width="127" height="29"/>
+                                                <rect key="frame" x="124.5" y="0.0" width="127" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEATS (GOAL: 2-3 SERVINGS)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qa4-9Q-JEf">
@@ -58,12 +57,15 @@
                                             </imageView>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="750" restorationIdentifier="StepperMA" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uiM-q8-8gr">
                                                 <rect key="frame" x="205" y="164" width="94" height="29"/>
+                                                <color key="backgroundColor" red="0.98179394006729126" green="0.31638920307159424" blue="0.011899557895958424" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <action selector="meatStepperChanged:" destination="MWd-ly-L4p" eventType="valueChanged" id="grY-8b-ScI"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="CountMA" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-g0-B3z">
                                                 <rect key="frame" x="205" y="93" width="94" height="42"/>
+                                                <color key="backgroundColor" red="0.98179394006729126" green="0.31638920307159424" blue="0.011899557895958424" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="O5e-5b-JkS"/>
                                                 </constraints>
@@ -82,12 +84,15 @@
                                             </imageView>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="751" restorationIdentifier="StepperV" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="RGK-rg-oij">
                                                 <rect key="frame" x="205" y="328" width="94" height="29"/>
+                                                <color key="backgroundColor" red="0.70573979616165161" green="0.92769640684127808" blue="0.046540744602680206" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <action selector="vegetableStepperChanged:" destination="MWd-ly-L4p" eventType="valueChanged" id="0zi-Fq-KhH"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="CountV" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pm-qx-yhv">
                                                 <rect key="frame" x="205" y="257" width="94" height="42"/>
+                                                <color key="backgroundColor" red="0.70573979616165161" green="0.92769640684127808" blue="0.046540744602680206" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="oC8-jQ-wRU"/>
                                                 </constraints>
@@ -109,15 +114,18 @@
                                             </imageView>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="StepperF" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="hrk-Y3-u8H">
                                                 <rect key="frame" x="205" y="500" width="94" height="29"/>
+                                                <color key="backgroundColor" red="0.92260980606079102" green="0.57505398988723755" blue="0.71006900072097778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="wnx-jS-ydY"/>
                                                 </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <action selector="fruitStepperChanged:" destination="MWd-ly-L4p" eventType="valueChanged" id="sDV-mj-YPd"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="CountF" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRR-jO-bLl">
                                                 <rect key="frame" x="205" y="429" width="94" height="42"/>
+                                                <color key="backgroundColor" red="0.92260980606079102" green="0.57505398988723755" blue="0.71006900072097778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="zse-AG-Qb9"/>
                                                 </constraints>
@@ -139,15 +147,18 @@
                                             </imageView>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" restorationIdentifier="StepperD" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="1f5-Ps-9Xv">
                                                 <rect key="frame" x="205" y="661" width="94" height="29"/>
+                                                <color key="backgroundColor" red="0.43875235319137573" green="0.76320713758468628" blue="0.90916204452514648" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="0bi-d8-yLf"/>
                                                 </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <action selector="dairyStepperChanged:" destination="MWd-ly-L4p" eventType="valueChanged" id="qPy-2v-IdS"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="CountD" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uf-6r-zJl">
                                                 <rect key="frame" x="205" y="590" width="94" height="42"/>
+                                                <color key="backgroundColor" red="0.43875235319137573" green="0.76320713758468628" blue="0.90916204452514648" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="pzv-rk-tcy"/>
                                                 </constraints>
@@ -169,15 +180,18 @@
                                             </imageView>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" restorationIdentifier="StepperG" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Ng1-7W-GZ4">
                                                 <rect key="frame" x="205" y="823" width="94" height="29"/>
+                                                <color key="backgroundColor" red="0.91302871704101562" green="0.76188421249389648" blue="0.31068465113639832" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="2yu-EC-Esl"/>
                                                 </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <action selector="grainsStepperChanged:" destination="MWd-ly-L4p" eventType="valueChanged" id="b2g-0f-MTn"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="CountG" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejM-3b-Ngx">
                                                 <rect key="frame" x="205" y="752" width="94" height="42"/>
+                                                <color key="backgroundColor" red="0.91302871704101562" green="0.76188421249389648" blue="0.31068465113639832" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" id="fdU-SF-3Il"/>
                                                 </constraints>
@@ -200,7 +214,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qin-Sf-dWs">
-                                                <rect key="frame" x="293" y="8" width="57" height="30"/>
+                                                <rect key="frame" x="293.5" y="8" width="56.5" height="30"/>
                                                 <state key="normal" title="Info"/>
                                                 <connections>
                                                     <segue destination="qWB-AD-oaF" kind="show" id="thP-zF-h7f"/>
@@ -365,19 +379,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8j9-TC-siD">
-                                <rect key="frame" x="238" y="221" width="121" height="26"/>
+                                <rect key="frame" x="238" y="204" width="121" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-Vz-fx6">
-                                <rect key="frame" x="286" y="255" width="25" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="cLt-Wn-rI3">
-                                <rect key="frame" x="251" y="311" width="94" height="29"/>
+                                <rect key="frame" x="251" y="287" width="94" height="29"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="anyStepped:" destination="maT-oZ-yWw" eventType="valueChanged" id="rKD-bf-aZO"/>
                                 </connections>
@@ -408,8 +417,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgs-Be-ge6">
-                                <rect key="frame" x="260" y="356" width="77" height="42"/>
+                                <rect key="frame" x="251" y="324" width="94" height="26"/>
+                                <color key="backgroundColor" red="0.43875235319137573" green="0.76320713758468628" blue="0.90916204452514648" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="Ax6-fV-GxK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitIt:" destination="maT-oZ-yWw" eventType="touchUpInside" id="ZnN-ev-OYC"/>
@@ -446,44 +460,55 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFq-GI-mIQ">
-                                <rect key="frame" x="298" y="553" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFq-GI-mIQ">
+                                <rect key="frame" x="276" y="553" width="75" height="30"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="Add3:" destination="maT-oZ-yWw" eventType="touchUpInside" id="Y6x-mz-ExS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVj-W9-FOy">
-                                <rect key="frame" x="172" y="553" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVj-W9-FOy">
+                                <rect key="frame" x="150" y="553" width="75" height="30"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="Add2:" destination="maT-oZ-yWw" eventType="touchUpInside" id="UTE-1N-3Dn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSE-0Y-OA2">
-                                <rect key="frame" x="41" y="553" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSE-0Y-OA2">
+                                <rect key="frame" x="19" y="553" width="75" height="30"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="Add1:" destination="maT-oZ-yWw" eventType="touchUpInside" id="C7W-ea-XtP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommendations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cD-ty-cWe">
-                                <rect key="frame" x="116" y="412" width="143" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recommendations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cD-ty-cWe">
+                                <rect key="frame" x="114" y="412" width="143" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-Vz-fx6">
+                                <rect key="frame" x="286" y="231" width="25" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xgs-Be-ge6" firstAttribute="leading" secondItem="cLt-Wn-rI3" secondAttribute="leading" id="1Nc-Fm-8hI"/>
                             <constraint firstItem="8j9-TC-siD" firstAttribute="centerX" secondItem="aGe-Vz-fx6" secondAttribute="centerX" id="1f7-tG-3UK"/>
                             <constraint firstItem="kTL-89-jBW" firstAttribute="top" secondItem="8cD-ty-cWe" secondAttribute="bottom" constant="8" symbolic="YES" id="1gl-H4-nzq"/>
                             <constraint firstItem="cQw-Qn-plE" firstAttribute="leading" secondItem="kTL-89-jBW" secondAttribute="trailing" constant="51" id="1zs-RJ-sbL"/>
                             <constraint firstItem="ln6-3C-YfS" firstAttribute="top" secondItem="MSE-0Y-OA2" secondAttribute="bottom" constant="8" symbolic="YES" id="38k-81-DpR"/>
                             <constraint firstItem="cQw-Qn-plE" firstAttribute="bottom" secondItem="7Nh-eJ-Svw" secondAttribute="bottom" id="3zX-We-Ogv"/>
                             <constraint firstItem="8j9-TC-siD" firstAttribute="leading" secondItem="6IE-gm-LFr" secondAttribute="trailing" constant="8" symbolic="YES" id="5eL-SK-kSK"/>
+                            <constraint firstItem="xgs-Be-ge6" firstAttribute="top" secondItem="cLt-Wn-rI3" secondAttribute="bottom" constant="8" symbolic="YES" id="6cJ-NW-rGA"/>
                             <constraint firstItem="4UJ-HB-DH3" firstAttribute="leading" secondItem="INi-Us-0nr" secondAttribute="trailing" constant="60" id="7uN-we-mym"/>
-                            <constraint firstItem="8j9-TC-siD" firstAttribute="top" secondItem="eY9-nx-yST" secondAttribute="bottom" constant="25" id="BiJ-bw-9NT"/>
+                            <constraint firstItem="8j9-TC-siD" firstAttribute="top" secondItem="eY9-nx-yST" secondAttribute="bottom" constant="8" id="BiJ-bw-9NT"/>
                             <constraint firstItem="LFq-GI-mIQ" firstAttribute="centerX" secondItem="7hc-1f-CBv" secondAttribute="centerX" id="ChW-c1-LIJ"/>
                             <constraint firstItem="cQw-Qn-plE" firstAttribute="top" secondItem="7Nh-eJ-Svw" secondAttribute="top" id="CyB-vn-eqp"/>
                             <constraint firstItem="6IE-gm-LFr" firstAttribute="top" secondItem="eY9-nx-yST" secondAttribute="bottom" constant="8" symbolic="YES" id="Dse-3d-tip"/>
@@ -503,15 +528,13 @@
                             <constraint firstItem="cQw-Qn-plE" firstAttribute="trailing" secondItem="4UJ-HB-DH3" secondAttribute="trailing" id="Yna-w3-YSj"/>
                             <constraint firstItem="ln6-3C-YfS" firstAttribute="trailing" secondItem="8j9-TC-siD" secondAttribute="trailing" id="Yqr-mI-2H3"/>
                             <constraint firstItem="eY9-nx-yST" firstAttribute="trailing" secondItem="8j9-TC-siD" secondAttribute="trailing" id="ZDl-BK-Gng"/>
-                            <constraint firstItem="xgs-Be-ge6" firstAttribute="top" secondItem="cLt-Wn-rI3" secondAttribute="bottom" constant="16" id="adl-dN-Kid"/>
                             <constraint firstItem="cQw-Qn-plE" firstAttribute="bottom" secondItem="kTL-89-jBW" secondAttribute="bottom" id="bMd-kg-vwP"/>
                             <constraint firstItem="TC1-RJ-RPs" firstAttribute="baseline" secondItem="7hc-1f-CBv" secondAttribute="baseline" id="edM-3b-mq5"/>
                             <constraint firstItem="7Nh-eJ-Svw" firstAttribute="leading" secondItem="0WD-FV-4YR" secondAttribute="leading" constant="19" id="f6O-XC-86m"/>
                             <constraint firstItem="7Nh-eJ-Svw" firstAttribute="top" secondItem="6IE-gm-LFr" secondAttribute="bottom" constant="43" id="gLU-Rj-AZM"/>
-                            <constraint firstItem="cLt-Wn-rI3" firstAttribute="centerX" secondItem="xgs-Be-ge6" secondAttribute="centerX" id="gYh-mk-7yy"/>
                             <constraint firstItem="MSE-0Y-OA2" firstAttribute="centerX" secondItem="HKS-1d-96D" secondAttribute="centerX" id="hcO-tS-5ye"/>
                             <constraint firstItem="8cD-ty-cWe" firstAttribute="centerX" secondItem="kTL-89-jBW" secondAttribute="centerX" id="ki0-mR-wqw"/>
-                            <constraint firstItem="aGe-Vz-fx6" firstAttribute="top" secondItem="8j9-TC-siD" secondAttribute="bottom" constant="8" symbolic="YES" id="lZX-0y-JY9"/>
+                            <constraint firstItem="aGe-Vz-fx6" firstAttribute="top" secondItem="8j9-TC-siD" secondAttribute="bottom" constant="1" id="lZX-0y-JY9"/>
                             <constraint firstItem="rcE-e7-63a" firstAttribute="leading" secondItem="eY9-nx-yST" secondAttribute="leading" id="luq-i9-imy"/>
                             <constraint firstItem="HKS-1d-96D" firstAttribute="baseline" secondItem="TC1-RJ-RPs" secondAttribute="baseline" id="mjO-m9-Gzp"/>
                             <constraint firstItem="rcE-e7-63a" firstAttribute="leading" secondItem="YkH-c6-QuU" secondAttribute="leadingMargin" id="neh-Qz-FBE"/>
@@ -522,6 +545,7 @@
                             <constraint firstItem="LFq-GI-mIQ" firstAttribute="centerX" secondItem="cQw-Qn-plE" secondAttribute="centerX" id="sRV-hk-VOg"/>
                             <constraint firstItem="INi-Us-0nr" firstAttribute="top" secondItem="4UJ-HB-DH3" secondAttribute="top" id="sUM-Gg-R5A"/>
                             <constraint firstItem="eY9-nx-yST" firstAttribute="trailing" secondItem="YkH-c6-QuU" secondAttribute="trailingMargin" id="scG-n6-IqE"/>
+                            <constraint firstItem="xgs-Be-ge6" firstAttribute="trailing" secondItem="cLt-Wn-rI3" secondAttribute="trailing" id="uIg-ZK-HNF"/>
                             <constraint firstItem="cLt-Wn-rI3" firstAttribute="top" secondItem="aGe-Vz-fx6" secondAttribute="bottom" constant="8" symbolic="YES" id="wuy-QW-7yL"/>
                             <constraint firstItem="aGe-Vz-fx6" firstAttribute="centerX" secondItem="cLt-Wn-rI3" secondAttribute="centerX" id="xNR-Xa-1Ba"/>
                             <constraint firstItem="eY9-nx-yST" firstAttribute="leading" secondItem="6IE-gm-LFr" secondAttribute="leading" id="xVX-8y-nib"/>

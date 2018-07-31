@@ -246,6 +246,8 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             label2.text = pick2[0]
             button1.setTitle("Add", for: .normal)
             button2.setTitle("Add", for: .normal)
+            button1.backgroundColor =  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            button2.backgroundColor =  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             image1.image = #imageLiteral(resourceName: "2-0_meat")
             image2.image = #imageLiteral(resourceName: "2-0_meat")
             GlobalStates.foodGroupyBoy1 = "Meat"
@@ -259,6 +261,8 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             image2.image = #imageLiteral(resourceName: "2-0_veget")
             button1.setTitle("Add", for: .normal)
             button2.setTitle("Add", for: .normal)
+            button1.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+            button2.backgroundColor =  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
             GlobalStates.foodGroupyBoy1 = "Vegetables"
             GlobalStates.foodGroupyBoy2 = "Vegetables"
         case "Fruit":
@@ -270,6 +274,8 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             image2.image = #imageLiteral(resourceName: "fruit")
             button1.setTitle("Add", for: .normal)
             button2.setTitle("Add", for: .normal)
+            button1.backgroundColor =  #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+            button2.backgroundColor =  #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
             GlobalStates.foodGroupyBoy1 = "Fruit"
             GlobalStates.foodGroupyBoy2 = "Fruit"
         case "Dairy":
@@ -281,6 +287,8 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             image2.image = #imageLiteral(resourceName: "2-0_milk-eng")
             button1.setTitle("Add", for: .normal)
             button2.setTitle("Add", for: .normal)
+            button1.backgroundColor =  #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+            button2.backgroundColor =  #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
             GlobalStates.foodGroupyBoy1 = "Dairy"
             GlobalStates.foodGroupyBoy2 = "Dairy"
         case "Grain":
@@ -292,6 +300,8 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             image2.image = #imageLiteral(resourceName: "2-0_grains")
             button1.setTitle("Add", for: .normal)
             button2.setTitle("Add", for: .normal)
+            button1.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+            button2.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
             GlobalStates.foodGroupyBoy1 = "Grains"
             GlobalStates.foodGroupyBoy2 = "Grains"
         default:
@@ -305,41 +315,53 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             GlobalStates.foodGroupyBoy2 = pick2[2]
             if GlobalStates.foodGroupyBoy1 == "Meat"{
                 image1.image = #imageLiteral(resourceName: "2-0_meat")
+                button1.backgroundColor =  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+
             }
             else if GlobalStates.foodGroupyBoy1 == "Vegetable" {
                 image1.image = #imageLiteral(resourceName: "2-0_veget")
+                button1.backgroundColor =  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
 
             }
             else if GlobalStates.foodGroupyBoy1 == "Fruit" {
                 image1.image = #imageLiteral(resourceName: "fruit")
+                button1.backgroundColor =  #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
 
             }
             else if GlobalStates.foodGroupyBoy1 == "Dairy" {
                 image1.image = #imageLiteral(resourceName: "2-0_milk-eng")
+                button1.backgroundColor =  #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
 
             }
             else {
                 image1.image = #imageLiteral(resourceName: "2-0_grains")
+                button1.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
 
             }
             
             if GlobalStates.foodGroupyBoy2 == "Meat"{
                 image2.image = #imageLiteral(resourceName: "2-0_meat")
+                button2.backgroundColor =  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             }
             else if GlobalStates.foodGroupyBoy2 == "Vegetable" {
                 image2.image = #imageLiteral(resourceName: "2-0_veget")
+                button2.backgroundColor =  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
                 
             }
             else if GlobalStates.foodGroupyBoy2 == "Fruit" {
                 image2.image = #imageLiteral(resourceName: "fruit")
+                button2.backgroundColor =  #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
                 
             }
             else if GlobalStates.foodGroupyBoy2 == "Dairy" {
                 image2.image = #imageLiteral(resourceName: "2-0_milk-eng")
+                button2.backgroundColor =  #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+
                 
             }
             else {
                 image2.image = #imageLiteral(resourceName: "2-0_grains")
+                button2.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
                 
             }
         }
@@ -348,30 +370,35 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             pick1 = rec.randomPickFrom(foodGroup: "Meat", otherindex: "192837")
             label3.text = pick1[0]
             image3.image = #imageLiteral(resourceName: "2-0_meat")
+            button3.backgroundColor =  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             button3.setTitle("Add", for: .normal)
             GlobalStates.foodGroupyBoy3 = "Meat"
         case "Vegetable":
             pick1 = rec.randomPickFrom(foodGroup: "Vegetable", otherindex: "192837")
             label3.text = pick1[0]
             image3.image = #imageLiteral(resourceName: "2-0_veget")
+            button3.backgroundColor =  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
             button3.setTitle("Add", for: .normal)
             GlobalStates.foodGroupyBoy3 = "Vegetables"
         case "Fruit":
             pick1 = rec.randomPickFrom(foodGroup: "Fruit", otherindex: "192837")
             label3.text = pick1[0]
             image3.image = #imageLiteral(resourceName: "fruit")
+            button3.backgroundColor =  #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
             button3.setTitle("Add", for: .normal)
             GlobalStates.foodGroupyBoy3 = "Fruit"
         case "Dairy":
             pick1 = rec.randomPickFrom(foodGroup: "Dairy", otherindex: "192837")
             label3.text = pick1[0]
             image3.image = #imageLiteral(resourceName: "2-0_milk-eng")
+            button3.backgroundColor =  #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
             button3.setTitle("Add", for: .normal)
             GlobalStates.foodGroupyBoy3 = "Dairy"
         case "Grain":
             pick1 = rec.randomPickFrom(foodGroup: "Grain", otherindex: "192837")
             label3.text = pick1[0]
             image3.image = #imageLiteral(resourceName: "2-0_grains")
+            button3.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
             button3.setTitle("Add", for: .normal)
             GlobalStates.foodGroupyBoy3 = "Grains"
         default:
@@ -381,21 +408,25 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
             GlobalStates.foodGroupyBoy3 = pick1[2]
             if GlobalStates.foodGroupyBoy3 == "Meat"{
                 image3.image = #imageLiteral(resourceName: "2-0_meat")
+                button3.backgroundColor =  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             }
             else if GlobalStates.foodGroupyBoy3 == "Vegetable" {
                 image3.image = #imageLiteral(resourceName: "2-0_veget")
-                
+                button3.backgroundColor =  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+
             }
             else if GlobalStates.foodGroupyBoy3 == "Fruit" {
                 image3.image = #imageLiteral(resourceName: "fruit")
-                
+                button3.backgroundColor =  #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
             }
             else if GlobalStates.foodGroupyBoy3 == "Dairy" {
                 image3.image = #imageLiteral(resourceName: "2-0_milk-eng")
+                button3.backgroundColor =  #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
                 
             }
             else {
                 image3.image = #imageLiteral(resourceName: "2-0_grains")
+                button3.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
                 
             }
         }

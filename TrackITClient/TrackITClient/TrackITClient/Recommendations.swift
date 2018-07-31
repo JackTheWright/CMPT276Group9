@@ -142,19 +142,19 @@ class recommend {
         returnarr[1] = String(rand)
         if (foodarr.count > 15) {
             if (rand < 10) {
-                returnarr[3] = "Meat"
+                returnarr[2] = "Meat"
             }
             else if (rand >= 10) && (rand < 22) {
-                returnarr[3] = "Vegetables"
+                returnarr[2] = "Vegetables"
             }
             else if (rand >= 22) && (rand < 34) {
-                returnarr[3] = "Fruit"
+                returnarr[2] = "Fruit"
             }
             else if (rand >= 34) && (rand < 43) {
-                returnarr[3] = "Dairy"
+                returnarr[2] = "Dairy"
             }
             else {
-                returnarr[3] = "Grains"
+                returnarr[2] = "Grains"
             }
         }
         return returnarr
