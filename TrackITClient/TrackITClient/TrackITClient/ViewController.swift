@@ -15,6 +15,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate{
 
+    @IBOutlet weak var Continue1: UIButton!
+    @IBOutlet weak var Continue2: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

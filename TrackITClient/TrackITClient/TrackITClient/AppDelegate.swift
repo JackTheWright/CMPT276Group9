@@ -34,7 +34,11 @@ struct GlobalStates {
     static var foodForTable = [String: Int]()
     static var arr = Data()
     static var totalNutrientsCount = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-    
+    static var yest = String()
+    static var foodGroupyBoy1 = String()
+    static var foodGroupyBoy2 = String()
+    static var foodGroupyBoy3 = String()
+    static var foodGroupyBoy = String()
 }
 
 @UIApplicationMain
@@ -68,34 +72,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let quickAddRefresh = dateAttributes.isSameDates(date1: yest, date2: today)
         print(quickAddRefresh)
         UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
+        UserDefaults.standard.set(true, forKey: "alertShouldShow")
         
-        
-        let interface = NetworkInterface()!
-        
-        interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
-            var flags = Message.Flags()
-            interface.setTimeout(10)
+        DispatchQueue.global(qos: .background).async{
+            let interface = NetworkInterface()!
             
-            flags.set(MessageFlags.DBQuery)
-            print("sending")
-            do {
-                try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
-                print("sent")
-                let JSONreply = try host.receiveJSON()
-                print("didrecieve")
-                if let fn = JSONreply.array?.compactMap({ element in
-                    return (element.dictionary!["FOODDESCRIPTION"]!.string!,
-                            element.dictionary!["FOODID"]!.int!,
-                            element.dictionary!["FOODGROUPID"]!.int!)
-                }) {
-                    GlobalStates.foodnames = fn
+            interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
+                var flags = Message.Flags()
+                interface.setTimeout(10)
+                
+                flags.set(MessageFlags.DBQuery)
+                print("sending")
+                do {
+                    try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
+                    print("sent")
+                    let JSONreply = try host.receiveJSON()
+                    print("didrecieve")
+                    if let fn = JSONreply.array?.compactMap({ element in
+                        return (element.dictionary!["FOODDESCRIPTION"]!.string!,
+                                element.dictionary!["FOODID"]!.int!,
+                                element.dictionary!["FOODGROUPID"]!.int!)
+                    }) {
+                        GlobalStates.foodnames = fn
+                    }
+                } catch{
+                    UserDefaults.standard.set("nosir", forKey: "didWork")
                 }
-            } catch{
-                UserDefaults.standard.set("nosir", forKey: "didWork")
+                print(GlobalStates.foodnames)
             }
-            print(GlobalStates.foodnames)
         }
-        
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
         if launchedBefore == false {
@@ -138,11 +143,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         
 //  Use Global variable date of when the date goes into the foreground and turn it to a string. Then we create the variable yest and make it equal to the date the app went into the background. We then check if the two dates are the same and save the bool response to the variable quick add refresh and then make that variable a user default to check if the last access date was yesterday or today.
-            let yest = UserDefaults.standard.string(forKey: "backGroundDate") ?? time.currentDateToString()
+            GlobalStates.yest = UserDefaults.standard.string(forKey: "backGroundDate") ?? time.currentDateToString()
             let today = time.currentDateToString()
             print(today)
-            print(yest)
-            let quickAddRefresh = dateAttributes.isSameDates(date1: yest, date2: today)
+            print(GlobalStates.yest)
+            let quickAddRefresh = dateAttributes.isSameDates(date1: GlobalStates.yest, date2: today)
             print(quickAddRefresh)
             UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
     }

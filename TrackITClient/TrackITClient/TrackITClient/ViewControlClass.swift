@@ -62,8 +62,14 @@ class viewControl: UIViewController {
         var dayDic = Dictionary<String,[String]>()
         if quickAddRefresh == false {
              let yesterday = time.getYesterdaysDate()
-            dayDic = package.packageItemsWithDate(date: yesterday, meat: meatCount.text!, vegetable: vegetableCount.text!, fruit: fruitCount.text!, dairy: dairyCount.text!, grains: grainsCount.text!)
-            UserDefaults.standard.set(dayDic, forKey: yesterday)
+            dayDic[yesterday] =  [meatCount.text!, vegetableCount.text!, fruitCount.text!, dairyCount.text!, grainsCount.text!]
+            if let current = UserDefaults.standard.object([String:[String]].self, with: "DailyPackage") {
+                
+                dayDic.update(other: current)
+                
+            }
+            print(dayDic)
+            UserDefaults.standard.set(object: dayDic, forKey: "DailyPackage")
             
             print("hit this bad boy")
             UserDefaults.standard.set(0, forKey: "meatStepped")
@@ -146,4 +152,16 @@ class viewControl: UIViewController {
         UserDefaults.standard.set(grainsStepper.value, forKey: "grainsStepped")
     }
 
+}
+
+extension UserDefaults {
+    func object<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
+        guard let data = self.value(forKey: key) as? Data else { return nil }
+        return try? decoder.decode(type.self, from: data)
+    }
+    
+    func set<T: Codable>(object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
+        let data = try? encoder.encode(object)
+        self.set(data, forKey: key)
+    }
 }
