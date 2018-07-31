@@ -64,18 +64,24 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uxP-P2-Lbe" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="167" width="343" height="332"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="esj-EO-GA8"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Daily View" id="WiD-B0-B7n"/>
                     <connections>
+                        <outlet property="pieChart" destination="uxP-P2-Lbe" id="oTo-bE-n4s"/>
                         <outlet property="todayLbl" destination="dT1-L8-fF8" id="eiF-58-WHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D4V-SX-0qq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-690" y="1010"/>
+            <point key="canvasLocation" x="-690.39999999999998" y="1009.7451274362819"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Dj2-kO-EnO">
@@ -409,6 +415,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="viJ-il-P6x"/>
+        <segue reference="xeD-HB-Uyc"/>
     </inferredMetricsTieBreakers>
 </document>

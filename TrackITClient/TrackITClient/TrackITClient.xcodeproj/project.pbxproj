@@ -26,6 +26,8 @@
 		3F11F00920C4771B007AB096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F00720C4771B007AB096 /* LaunchScreen.storyboard */; };
 		3F11F01420C4771C007AB096 /* TrackITClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11F01320C4771C007AB096 /* TrackITClientTests.swift */; };
 		3F11F02620C4880A007AB096 /* NetConnect in Resources */ = {isa = PBXBuildFile; fileRef = 3F11F02520C4880A007AB096 /* NetConnect */; };
+		717928CF210FE63D003D0813 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 717928CC210FE628003D0813 /* Charts.framework */; };
+		717928D0210FE63D003D0813 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 717928CC210FE628003D0813 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		71FE58B6210D4F0B00EEDCA3 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FE58B5210D4F0B00EEDCA3 /* DailyViewController.swift */; };
 		8B751E4920DF0329003EC7D4 /* split.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B751E4820DF0329003EC7D4 /* split.png */; };
 		8B751E4B20E37661003EC7D4 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B751E4A20E37661003EC7D4 /* ViewController2.swift */; };
@@ -49,6 +51,27 @@
 			remoteGlobalIDString = 3F11EFFA20C4771A007AB096;
 			remoteInfo = TrackITClient;
 		};
+		717928CB210FE628003D0813 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717928C6210FE628003D0813 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		717928CD210FE628003D0813 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717928C6210FE628003D0813 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
+		717928D1210FE63D003D0813 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717928C6210FE628003D0813 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A58A4ED274A941CA248EA921;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +82,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				102B781C20FAA480006FFF01 /* NetConnect.framework in Embed Frameworks */,
+				717928D0210FE63D003D0813 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +113,7 @@
 		3F11F01320C4771C007AB096 /* TrackITClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackITClientTests.swift; sourceTree = "<group>"; };
 		3F11F01520C4771C007AB096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F11F02520C4880A007AB096 /* NetConnect */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NetConnect; path = ../../../TrackITServer/Sources/NetConnect; sourceTree = "<group>"; };
+		717928C6210FE628003D0813 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		71FE58B5210D4F0B00EEDCA3 /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
 		8B751E4820DF0329003EC7D4 /* split.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = split.png; path = TrackITClient/split.png; sourceTree = "<group>"; };
 		8B751E4A20E37661003EC7D4 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
@@ -109,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				102B781B20FAA480006FFF01 /* NetConnect.framework in Frameworks */,
+				717928CF210FE63D003D0813 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +151,7 @@
 		3F11EFF220C4771A007AB096 = {
 			isa = PBXGroup;
 			children = (
+				717928C6210FE628003D0813 /* Charts.xcodeproj */,
 				102B781A20FAA480006FFF01 /* NetConnect.framework */,
 				8B751E4820DF0329003EC7D4 /* split.png */,
 				3F11EFFD20C4771A007AB096 /* TrackITClient */,
@@ -187,6 +214,15 @@
 			path = TrackITClientTests;
 			sourceTree = "<group>";
 		};
+		717928C7210FE628003D0813 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				717928CC210FE628003D0813 /* Charts.framework */,
+				717928CE210FE628003D0813 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,6 +238,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				717928D2210FE63D003D0813 /* PBXTargetDependency */,
 			);
 			name = TrackITClient;
 			productName = TrackITClient;
@@ -256,6 +293,12 @@
 			mainGroup = 3F11EFF220C4771A007AB096;
 			productRefGroup = 3F11EFFC20C4771A007AB096 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 717928C7210FE628003D0813 /* Products */;
+					ProjectRef = 717928C6210FE628003D0813 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3F11EFFA20C4771A007AB096 /* TrackITClient */,
@@ -263,6 +306,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		717928CC210FE628003D0813 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 717928CB210FE628003D0813 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		717928CE210FE628003D0813 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 717928CD210FE628003D0813 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3F11EFF920C4771A007AB096 /* Resources */ = {
@@ -333,6 +393,11 @@
 			isa = PBXTargetDependency;
 			target = 3F11EFFA20C4771A007AB096 /* TrackITClient */;
 			targetProxy = 3F11F01020C4771C007AB096 /* PBXContainerItemProxy */;
+		};
+		717928D2210FE63D003D0813 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 717928D1210FE63D003D0813 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -489,6 +554,7 @@
 		3F11F01920C4771C007AB096 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -508,6 +574,7 @@
 		3F11F01A20C4771C007AB096 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
