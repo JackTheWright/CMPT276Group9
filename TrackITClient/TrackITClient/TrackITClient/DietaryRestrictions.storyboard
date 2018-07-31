@@ -26,8 +26,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVN-2D-Wyl">
-                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
-                                <color key="backgroundColor" red="0.56078431370000004" green="0.65098039220000004" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="187" y="597" width="188" height="70"/>
+                                <color key="backgroundColor" red="0.58066489399999999" green="0.59353272830000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="JCd-GX-mMv"/>
                                 </constraints>
@@ -46,6 +46,18 @@
                                     <segue destination="wPJ-KA-ko7" kind="show" id="zkg-Tn-buP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ht-bN-adc">
+                                <rect key="frame" x="0.0" y="597" width="191" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58066489399999999" green="0.59353272830000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="unG-Cm-hlK" kind="show" id="BOe-0T-np3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -55,7 +67,7 @@
                             <constraint firstItem="Co3-MR-hRr" firstAttribute="top" secondItem="cAB-jV-AUe" secondAttribute="top" id="dnX-25-lXY"/>
                             <constraint firstAttribute="trailing" secondItem="Co3-MR-hRr" secondAttribute="trailing" id="uAK-HZ-T2d"/>
                             <constraint firstAttribute="trailing" secondItem="EVN-2D-Wyl" secondAttribute="trailing" id="xej-LC-ZIS"/>
-                            <constraint firstItem="EVN-2D-Wyl" firstAttribute="leading" secondItem="cAB-jV-AUe" secondAttribute="leading" id="xuk-sH-yXl"/>
+                            <constraint firstItem="EVN-2D-Wyl" firstAttribute="leading" secondItem="cAB-jV-AUe" secondAttribute="leading" constant="187" id="xuk-sH-yXl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="afX-rd-XGf"/>
@@ -93,6 +105,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtj-gg-OTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1012" y="125.4872563718141"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="uvI-dv-Uza">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="unG-Cm-hlK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1fE-Cg-ePU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="575"/>
         </scene>
     </scenes>
 </document>

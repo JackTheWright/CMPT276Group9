@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import CryptoSwift
 
 /// Protocol for network transmission encryption delegates.
 public protocol Cryptographer {

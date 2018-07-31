@@ -24,6 +24,7 @@
 		3FB89231210CF3F50016E004 /* Array+GetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB89230210CF3F50016E004 /* Array+GetSet.swift */; };
 		3FB89233210CF6B90016E004 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB89232210CF6B90016E004 /* ExtensionTests.swift */; };
 		BAA650201851A2BF0CBA916F /* ServerNetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65D946AA57738579D8B1A /* ServerNetworkInterface.swift */; };
+		BAA651CA05CD52078E6D0F1F /* AESCryptographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65D419B7BF91A6CFBD8F1 /* AESCryptographer.swift */; };
 		BAA656BB7B9603A5BADCE6AE /* NutrientFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA658E839CB82DB5D487892 /* NutrientFile.swift */; };
 		BAA659956E5367E5FA8CE941 /* StreamingSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA650F975CD90AB0F98A774 /* StreamingSocket.swift */; };
 		BAA65A9513BD13CEBFA96663 /* Array+Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA65B0AB349858CEDD0F4FB /* Array+Count.swift */; };
@@ -412,6 +413,7 @@
 		BAA65D946AA57738579D8B1A /* ServerNetworkInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerNetworkInterface.swift; sourceTree = "<group>"; };
 		BAA65F5019145F3406655AF1 /* FixedWidthInteger+Bytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixedWidthInteger+Bytes.swift"; sourceTree = "<group>"; };
 		BAA65F77E0C76B71D44E46E8 /* ServerLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerLite.swift; sourceTree = "<group>"; };
+		BAA65D419B7BF91A6CFBD8F1 /* AESCryptographer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESCryptographer.swift; sourceTree = "<group>"; };
 		"CryptoSwift::CryptoSwift::Product" /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_103 /* AEAD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAD.swift; sourceTree = "<group>"; };
 		OBJ_104 /* AEADChaCha20Poly1305.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEADChaCha20Poly1305.swift; sourceTree = "<group>"; };
@@ -1015,6 +1017,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_48 /* Cryptographer.swift */,
+				BAA65D419B7BF91A6CFBD8F1 /* AESCryptographer.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -1612,6 +1615,7 @@
 				BAA65CA30E8A4039C44D3354 /* Int+DividingRoundingUp.swift in Sources */,
 				BAA65A9513BD13CEBFA96663 /* Array+Count.swift in Sources */,
 				BAA659956E5367E5FA8CE941 /* StreamingSocket.swift in Sources */,
+				BAA651CA05CD52078E6D0F1F /* AESCryptographer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
