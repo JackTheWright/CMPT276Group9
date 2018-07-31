@@ -64,6 +64,7 @@ class UIOverviewControl: UIViewController {
             print("hit it n quit it")
             
             UserDefaults.standard.set(true, forKey: "checkToSeeIfLastAccessWasYesterday")
+            UserDefaults.standard.set(true, forKey: "alertShouldShow")
             GlobalStates.yest = time.currentDateToString()
         }
         
@@ -76,14 +77,16 @@ class UIOverviewControl: UIViewController {
         let fruit = UserDefaults.standard.string(forKey: "fruitTotal")
         let dairy = UserDefaults.standard.string(forKey: "dairyTotal")
         let grains = UserDefaults.standard.string(forKey: "grainsTotal")
-        
-        if (Int(meat ?? "0")! >= 3 && Int(vegetable ?? "0")! >= 5 && Int(fruit ?? "0")! >= 5 && Int(dairy ?? "0")! >= 3 && Int(grains ?? "0")! >= 8) {
+        let alertShouldShow = UserDefaults.standard.bool(forKey: "alertShouldShow")
+        if (Int(meat ?? "0")! >= 3 && Int(vegetable ?? "0")! >= 5 && Int(fruit ?? "0")! >= 5 && Int(dairy ?? "0")! >= 3 && Int(grains ?? "0")! >= 8) && (alertShouldShow == true) {
             print("gohere")
             let alert = UIAlertController(title: "CONGRATULATIONS!", message: "You've reached your goals for the day! Keep on doing your best!", preferredStyle: .alert)
-            
             alert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: nil))
             
             self.present(alert, animated: true)
+            
+            UserDefaults.standard.set(false, forKey: "alertShouldShow")
+
         }
     }
     

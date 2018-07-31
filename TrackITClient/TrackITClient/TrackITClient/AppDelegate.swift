@@ -79,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let quickAddRefresh = dateAttributes.isSameDates(date1: yest, date2: today)
         print(quickAddRefresh)
         UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
+        UserDefaults.standard.set(true, forKey: "alertShouldShow")
         
         DispatchQueue.global(qos: .background).async{
             let interface = NetworkInterface()!
