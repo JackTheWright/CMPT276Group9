@@ -15,7 +15,7 @@ open class NetworkInterface {
     /// Type definition for a conversation closure.
     public typealias ConvoClosure = (NetworkHost) throws -> Void
     
-    private var socket: UDPSocket
+    private var socket: StreamingSocket
     
     /// The network interface's encryption delegate.
     ///
@@ -27,7 +27,7 @@ open class NetworkInterface {
     ///
     /// Returns `nil` if unable to create the internal socket.
     public init?() {
-        if let s = try? UDPSocket() {
+        if let s = StreamingSocket() {
             self.socket = s
         } else {
             return nil
@@ -38,7 +38,7 @@ open class NetworkInterface {
     ///
     /// Returns `nil` if unable to create the internal socket.
     public init?(cryptographer: Cryptographer) {
-        if let s = try? UDPSocket() {
+        if let s = StreamingSocket() {
             self.socket = s
             self.cryptographer = cryptographer
         } else {
@@ -52,11 +52,9 @@ open class NetworkInterface {
     ///     - seconds: The number of seconds to set the timeout to.
     public func setTimeout(_ seconds: UInt?) {
         if let s = seconds {
-            socket.setReadTimeout(s)
-            socket.setWriteTimeout(s)
+            socket.timeout = s * 1000
         } else {
-            socket.removeReadTimeout()
-            socket.removeWriteTimeout()
+            socket.timeout = nil
         }
     }
     
@@ -131,7 +129,7 @@ open class NetworkInterface {
         do {
             // Wait for handshake request
             let request = try socket.listen(on: port)
-            let address = request.address
+            let address = request.sender
             guard let hrRequest = Message(from: request.data) else {
                 throw NetworkError.MalformedMessage
             }

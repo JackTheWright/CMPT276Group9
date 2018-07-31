@@ -15,7 +15,7 @@ protocol NodeDelegate {
 
     init()
 
-    var socket: UDPSocket! { get set }
+    var socket: StreamingSocket! { get set }
 
     var active: Atomic<Bool>! { get set }
 

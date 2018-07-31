@@ -149,5 +149,23 @@ final class SocketTests: XCTestCase {
         }
         socket.close()
     }
+    
+    /// Integration test of `StreamingSocket` in the `NetworkInterface` class.
+    func testStreamingInterface() {
+        var endedGood = false
+        let netif = NetworkInterface()!
+        netif.setTimeout(1)
+        let str = try! String(
+            contentsOfFile: "/users/jeremy/desktop/test-data.txt"
+        )
+        let transmissionData = str.data(using: .utf8)!
+        netif.connect(to: "192.168.10.25", on: 60011) { host in
+            try host.send(transmissionData)
+            let echo = try host.receiveData()
+            XCTAssertEqual(transmissionData, echo)
+            endedGood = true
+        }
+        XCTAssertTrue(endedGood)
+    }
 
 }

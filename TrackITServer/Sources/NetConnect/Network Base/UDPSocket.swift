@@ -15,6 +15,7 @@
 import Foundation
 import Socket
 
+@available(*, deprecated, message: "Use StreamingSocket instead")
 public class UDPSocket {
 
     public typealias ReadData = (address: Address, bytesRead: Int, data: Data)
@@ -56,6 +57,7 @@ public class UDPSocket {
 
 // MARK: Read & Write Methods
 
+@available(*, deprecated, message: "Use StreamingSocket instead")
 public extension UDPSocket {
 
     func write(data: Data, to address: Address) throws {
@@ -144,7 +146,7 @@ public extension UDPSocket {
 
 
 // MARK: Internals
-
+@available(*, deprecated, message: "Use StreamingSocket instead")
 fileprivate extension UDPSocket {
 
     /// The read timeout to set when reading a packet stream.
@@ -262,7 +264,7 @@ fileprivate extension UDPSocket {
 }
 
 // MARK: Legacy Methods
-
+@available(*, deprecated, message: "Use StreamingSocket instead")
 public extension UDPSocket {
 
     /// Sets the socket's read timeout to a given number of seconds.

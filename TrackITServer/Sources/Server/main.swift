@@ -9,8 +9,8 @@
 
 import Foundation
 
-try? Config.load(from: "./srvconf.json")
-Log.outFile = Config.outFile
+//try? Config.load(from: "./srvconf.json")
+//Log.outFile = Config.outFile
 if let server = Server() {
     server.start()
 } else {

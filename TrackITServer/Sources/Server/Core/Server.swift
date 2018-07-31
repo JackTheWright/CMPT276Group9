@@ -19,11 +19,11 @@ class Server {
 
     let router: Router
 
-    let socket: UDPSocket
+    let socket: StreamingSocket
 
     init?() {
         Log.verbose("Initializing Server Instance", event: .info)
-        guard let s = try? UDPSocket() else {
+        guard let s = StreamingSocket() else {
             return nil
         }
         socket = s

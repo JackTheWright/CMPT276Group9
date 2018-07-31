@@ -16,7 +16,7 @@ class NetworkNode<Delegate> where Delegate : NodeDelegate {
     var delegate = Delegate()
 
     /// Network socket used by the node.
-    let socket: UDPSocket
+    let socket: StreamingSocket
 
     /// Atomic flag, denoting the active state of the node.
     let active = Atomic<Bool>(false)
@@ -35,7 +35,7 @@ class NetworkNode<Delegate> where Delegate : NodeDelegate {
     fileprivate let dispatchGroup = DispatchGroup()
 
     /// Initializes the network node.
-    init(socket: UDPSocket) {
+    init(socket: StreamingSocket) {
         self.socket = socket
         delegate.socket = self.socket
         delegate.active = self.active
