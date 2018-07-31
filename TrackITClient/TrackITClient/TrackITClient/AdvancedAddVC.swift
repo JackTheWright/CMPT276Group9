@@ -318,7 +318,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
                 button1.backgroundColor =  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
 
             }
-            else if GlobalStates.foodGroupyBoy1 == "Vegetable" {
+            else if GlobalStates.foodGroupyBoy1 == "Vegetables" {
                 image1.image = #imageLiteral(resourceName: "2-0_veget")
                 button1.backgroundColor =  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
 
@@ -343,7 +343,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
                 image2.image = #imageLiteral(resourceName: "2-0_meat")
                 button2.backgroundColor =  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             }
-            else if GlobalStates.foodGroupyBoy2 == "Vegetable" {
+            else if GlobalStates.foodGroupyBoy2 == "Vegetables" {
                 image2.image = #imageLiteral(resourceName: "2-0_veget")
                 button2.backgroundColor =  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
                 

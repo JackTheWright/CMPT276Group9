@@ -21,7 +21,7 @@ class UIOverviewControl: UIViewController {
     
     
     
-    
+  
     
     
     
@@ -67,7 +67,24 @@ class UIOverviewControl: UIViewController {
             GlobalStates.yest = time.currentDateToString()
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
+        let meat = UserDefaults.standard.string(forKey: "meatTotal")
+        let vegetable = UserDefaults.standard.string(forKey: "vegetableTotal")
+        let fruit = UserDefaults.standard.string(forKey: "fruitTotal")
+        let dairy = UserDefaults.standard.string(forKey: "dairyTotal")
+        let grains = UserDefaults.standard.string(forKey: "grainsTotal")
+        
+        if (Int(meat ?? "0")! >= 3 && Int(vegetable ?? "0")! >= 5 && Int(fruit ?? "0")! >= 5 && Int(dairy ?? "0")! >= 3 && Int(grains ?? "0")! >= 8) {
+            print("gohere")
+            let alert = UIAlertController(title: "CONGRATULATIONS!", message: "You've reached your goals for the day! Keep on doing your best!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Okay!", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+        }
     }
     
     // Initialize Notification Button, FoodAdd Button and the Barchart label
