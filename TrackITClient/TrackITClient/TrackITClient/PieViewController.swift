@@ -49,7 +49,7 @@ class PieViewController: UIViewController {
         
         todaysValues.append(UserDefaults.standard.string(forKey: "meatTotal") ?? "0")
         todaysValues.append(UserDefaults.standard.string(forKey: "vegetableTotal") ?? "0")
-        todaysValues.append(UserDefaults.standard.string(forKey: "fuitTotal") ?? "0")
+        todaysValues.append(UserDefaults.standard.string(forKey: "fruitTotal") ?? "0")
         todaysValues.append(UserDefaults.standard.string(forKey: "dairyTotal") ?? "0")
         todaysValues.append(UserDefaults.standard.string(forKey: "grainsTotal") ?? "0")
         // checking if dailyVals has default value (no foods) or has foods

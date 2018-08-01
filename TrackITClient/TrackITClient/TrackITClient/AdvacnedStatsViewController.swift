@@ -123,7 +123,7 @@ func foodToFoodID( food: [String: Int]) -> [Int] {
    return foodIDArray
 }
 
-
+// empty table celldata array
 var tableViewData = [cellData]()
 
 class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
@@ -139,8 +139,7 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var sodiumAmt: UILabel!
     
     
-    //var tableViewData = [cellData]()
-    
+    // setting table methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableViewData.count > 0 && tableViewData[section].opened == false {
             return tableViewData[section].data.count + 1
@@ -229,12 +228,14 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    // displaying alerts
     func createAlert (title : String, message:String){
         let alert = UIAlertController (title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in }))
         self.present(alert, animated:true, completion:nil)
     }
     
+    //Count amount of food
     func countFood() -> Int {
         if let foood = UserDefaults.standard.dictionary(forKey: "foodForTable"){
             return foood.count
@@ -248,23 +249,26 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-       // poulating tableViewData
+       
+        // poulating tableViewData
         if let foood = UserDefaults.standard.dictionary(forKey: "foodForTable") as? [String : Int] {
-           // var foOD = food
-           // var foood = [String : Int]()
-           // foood = foOD.remove(at: foOD.index(forKey: "foodForTable")!).value
+           
+            // get foodnames in an array from server
             let foodname = foodIDToName(food: foood )
             var nutrientArrArray = [[Double]]()
             if !foodname.isEmpty {
                 //set table cells
                 
                 var celldataArr = [cellData]()
+                // get foodID array for getting nutrients
                 let foodIDArray = foodToFoodID(food: foood )
                 for each in foodIDArray {
+                    // get nutrients for each foodID stored
                     nutrientArrArray.append(getNutrients(foodID: each))
                 }
-               // if foodname.count == nutrientArrArray.count {
+               
                     let lastIndex = foodname.count - 1
+                    // Adding data to cellData array for table
                     for i in 0...lastIndex {
                         celldataArr.append(cellData(opened: false, title: foodname[i], data: nutrientArrArray[i]))
                     }
@@ -272,9 +276,10 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
                     for each in celldataArr {
                         tableViewData.append(each)
                     }
-                //}
+                
             }
             
+            // getting nutrients with accordance to servings
             func getservedNutrients(food: [String : Int]) -> [Double] {
                 var totalInFood = [Double]()
                 for each in food {
