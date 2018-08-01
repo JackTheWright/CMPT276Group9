@@ -23,14 +23,12 @@ class PieViewController: UIViewController {
     
     var dailyMealsEntry = [PieChartDataEntry]()
     var todaysValues = [String]()
-   // var valuesDic = [String : [String]]()
     var currentDate = String()
-    var dailyVals = UserDefaults.standard.dictionary(forKey: "dailyEntries") as? [String : [String]] ??  ["" : ["0","0","0","0","0"]]
     
     func currDateFormatter() -> String {
         let date = Date()
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd"
+        dateformatter.dateFormat = "dd-MM-yyyy"
         return dateformatter.string(from: date)
     }
     
@@ -49,30 +47,13 @@ class PieViewController: UIViewController {
         pieChart.holeColor = .white
     
         
-        
+        todaysValues.append(UserDefaults.standard.string(forKey: "meatTotal") ?? "0")
+        todaysValues.append(UserDefaults.standard.string(forKey: "vegetableTotal") ?? "0")
+        todaysValues.append(UserDefaults.standard.string(forKey: "fuitTotal") ?? "0")
+        todaysValues.append(UserDefaults.standard.string(forKey: "dairyTotal") ?? "0")
+        todaysValues.append(UserDefaults.standard.string(forKey: "grainsTotal") ?? "0")
         // checking if dailyVals has default value (no foods) or has foods
-        if dailyVals !=  ["" : ["0","0","0","0","0"]] {
-            // extract the dictionaries
-          //  for each in dailyVals {
-           //     valuesDic.update(other: each.value)
-          //  }
-          //
-            // get current date in appropiate string format
-            currentDate = currDateFormatter()
-            
-            // check which entry is for current date
-            for each in dailyVals {
-                if each.key == currentDate {
-                    // assign the values for servings of each foodgroup
-                    todaysValues = each.value
-                    break
-                }
-            }
-        }
         
-        else {
-            todaysValues = ["3","2","4","2","1"]
-        }
         
         
         grp1Data.value = Double(Int(todaysValues[0])!)

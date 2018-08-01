@@ -109,7 +109,7 @@ func stringToInt(str: String?) -> Int {
 func foodIDToName(food:[String: Int]) -> [String] {
     var nameArray = [String]()
     for elem in food {
-            nameArray.append(getFoodDescription(foodID: elem.value))
+        nameArray.append(getFoodDescription(foodID: Int(elem.key)!))
     }
     return nameArray
 }
