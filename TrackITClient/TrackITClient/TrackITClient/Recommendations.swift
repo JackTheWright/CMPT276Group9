@@ -124,13 +124,13 @@ class recommend {
             foodarr = ["Apple","Orange","Pear","Berries","Banana","Mango","Plum","Pineapple","Peach","Watermelon","GrapeFruit"]
         }
         else if foodGroup == "Dairy" {
-            foodarr = ["Yogurt","Milk","Cheddar Cheese","Blue Cheese","Goat Cheese","Mozarella Cheese","Havarti Cheese","Chocolate Milk"]
+            foodarr = ["Yogurt","Milk","Cheddar","Blue Cheese","Goat Cheese","Mozarella","Havarti","Chocolate Milk"]
         }
         else if foodGroup == "Grain" {
-            foodarr = ["Spaghetti Noodles","Rice","Whole Wheat Bread","Linguini","White Bread","Breakfast Cereal","Bagel","Muffin","Bun","Baguette"]
+            foodarr = ["Spaghetti","Rice","Whole Wheat Bread","Linguini","White Bread"," Cereal","Bagel","Muffin","Bun","Baguette"]
         }
         else {
-            foodarr = [ "Pork", "Chicken", "Turkey", "Lean Beef", "Eggs", "Salmon", "Tuna, Ahi", "Halibut", "Shrimp", "Turkey Bacon","Carrots","Asparagus","Spinach","Broccoli","Brussel Sprouts","Peas","Corn","Peppers","Mushroom","Cabbage","Beans","Cauliflower","Apple","Orange","Pear","Berries","Banana","Mango","Plum","Pineapple","Peach","Watermelon","GrapeFruit","Yogurt","Milk","Cheddar Cheese","Blue Cheese","Goat Cheese","Mozarella Cheese","Havarti Cheese","Chocolate Milk","Spaghetti Noodles","Rice","Whole wheat bread","Linguini","White Bread","Breakfast Cereal","Bagel","Muffin","Bun","Baguette"]
+            foodarr = [ "Pork", "Chicken", "Turkey", "Lean Beef", "Eggs", "Salmon", "Tuna, Ahi", "Halibut", "Shrimp", "Turkey Bacon","Carrots","Asparagus","Spinach","Broccoli","Brussel Sprouts","Peas","Corn","Peppers","Mushroom","Cabbage","Beans","Cauliflower","Apple","Orange","Pear","Berries","Banana","Mango","Plum","Pineapple","Peach","Watermelon","GrapeFruit","Yogurt","Milk","Cheddar","Blue Cheese","Goat Cheese","Mozarella","Havarti","Chocolate Milk","Spaghetti","Rice","Whole wheat bread","Linguini","White Bread","Cereal","Bagel","Muffin","Bun","Baguette"]
         }
         var rand = Int(arc4random_uniform(UInt32(foodarr.count)))
 
