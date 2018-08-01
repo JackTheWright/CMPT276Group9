@@ -14,11 +14,13 @@
 
 import Foundation
 
+
 class DateAttributes {
     
     
     public var enterForegroundDate = String()
     public var enterBackgroundDate = String()
+    
     
     
 // This function converts the current date to a string in the form year-month-day, this is the main function used to convert the date to a usable string.

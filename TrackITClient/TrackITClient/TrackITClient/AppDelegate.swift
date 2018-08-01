@@ -21,14 +21,6 @@ import SwiftyJSON
 
 typealias foodTuple = (foodname: String, foodid: Int, foodgroup: Int)
 
-struct FoodNutrition: Codable {
-    var foodname = String()
-    var foodID = Int()
-    var Multiplier = Int()
-    
-}
-
-
 struct GlobalStates {
     
     static var currentDayDictionary = [String: [String]]()
@@ -41,7 +33,12 @@ struct GlobalStates {
     static var port = 60011
     static var foodForTable = [String: Int]()
     static var arr = Data()
-    
+    static var totalNutrientsCount = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+    static var yest = String()
+    static var foodGroupyBoy1 = String()
+    static var foodGroupyBoy2 = String()
+    static var foodGroupyBoy3 = String()
+    static var foodGroupyBoy = String()
 }
 
 @UIApplicationMain
@@ -75,37 +72,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let quickAddRefresh = dateAttributes.isSameDates(date1: yest, date2: today)
         print(quickAddRefresh)
         UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
+        UserDefaults.standard.set(true, forKey: "alertShouldShow")
         
-        
-        let interface = NetworkInterface()!
-        
-        interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
-            var flags = Message.Flags()
-            interface.setTimeout(10)
+        DispatchQueue.global(qos: .background).async{
+            let interface = NetworkInterface()!
             
-            flags.set(MessageFlags.DBQuery)
-            print("sending")
-            do {
-                try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
-                print("sent")
-                let JSONreply = try host.receiveJSON()
-                print("didrecieve")
-                if let fn = JSONreply.array?.compactMap({ element in
-                    return (element.dictionary!["FOODDESCRIPTION"]!.string!,
-                            element.dictionary!["FOODID"]!.int!,
-                            element.dictionary!["FOODGROUPID"]!.int!)
-                }) {
-                    GlobalStates.foodnames = fn
+            interface.connect(to: "app.trackitdiet.com", on: GlobalStates.port) { host in
+                var flags = Message.Flags()
+                interface.setTimeout(10)
+                
+                flags.set(MessageFlags.DBQuery)
+                print("sending")
+                do {
+                    try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
+                    print("sent")
+                    let JSONreply = try host.receiveJSON()
+                    print("didrecieve")
+                    if let fn = JSONreply.array?.compactMap({ element in
+                        return (element.dictionary!["FOODDESCRIPTION"]!.string!,
+                                element.dictionary!["FOODID"]!.int!,
+                                element.dictionary!["FOODGROUPID"]!.int!)
+                    }) {
+                        GlobalStates.foodnames = fn
+                    }
+                } catch{
+                    UserDefaults.standard.set("nosir", forKey: "didWork")
                 }
-            } catch{
-                UserDefaults.standard.set("nosir", forKey: "didWork")
+                print(GlobalStates.foodnames)
             }
-            print(GlobalStates.foodnames)
         }
-        
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
         if launchedBefore == false {
+            
             
             print("wb this bad boy")
             UserDefaults.standard.set("0", forKey: "meatTotal")
@@ -130,6 +129,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window.rootViewController = rootController
             }
         }
+        let shortcutItem1 = UIMutableApplicationShortcutItem(type: "Dynamic01", localizedTitle: NSLocalizedString("Quick Add", comment: ""), localizedSubtitle: nil, icon: nil, userInfo: nil)
+        
+        let shortcutItem2 = UIMutableApplicationShortcutItem(type: "Dynamic02", localizedTitle: NSLocalizedString("Advanced Stats", comment: ""), localizedSubtitle: nil, icon: nil, userInfo: nil)
+        
+        UIApplication.shared.shortcutItems = [shortcutItem1,shortcutItem2]
+        
+        
         return true
     }
 
@@ -145,11 +151,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         
 //  Use Global variable date of when the date goes into the foreground and turn it to a string. Then we create the variable yest and make it equal to the date the app went into the background. We then check if the two dates are the same and save the bool response to the variable quick add refresh and then make that variable a user default to check if the last access date was yesterday or today.
-            let yest = UserDefaults.standard.string(forKey: "backGroundDate") ?? time.currentDateToString()
+            GlobalStates.yest = UserDefaults.standard.string(forKey: "backGroundDate") ?? time.currentDateToString()
             let today = time.currentDateToString()
             print(today)
-            print(yest)
-            let quickAddRefresh = dateAttributes.isSameDates(date1: yest, date2: today)
+            print(GlobalStates.yest)
+            let quickAddRefresh = dateAttributes.isSameDates(date1: GlobalStates.yest, date2: today)
             print(quickAddRefresh)
             UserDefaults.standard.set(quickAddRefresh, forKey: "checkToSeeIfLastAccessWasYesterday")
     }
@@ -163,6 +169,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        switch shortcutItem.type{
+        case "Dynamic01" :
+            storyboard = UIStoryboard(name: "FoodAdd", bundle: nil)
+            let rootController = storyboard!.instantiateViewController(withIdentifier: "QuickAdd")
+            window?.rootViewController = rootController
+        
+        case "Dynamic02" :
+            storyboard = UIStoryboard(name: "AdvancedStats", bundle: nil)
+            let rootController = storyboard!.instantiateViewController(withIdentifier: "AdvancedStats")
+            window?.rootViewController = rootController
+        default:
+        break
+    }
+    completionHandler(true)
+}
 
 
 }
