@@ -164,6 +164,9 @@ class ServerLite {
                         event: .warning)
                 return nil
             }
+            guard id > 0 else {
+                return nil
+            }
             let table = try cnf.getNutrientValues(for: id)
             return try table.columnsAsJSON().rawData()
         }
