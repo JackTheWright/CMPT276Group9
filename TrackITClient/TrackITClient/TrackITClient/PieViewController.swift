@@ -23,20 +23,19 @@ class PieViewController: UIViewController {
     
     var dailyMealsEntry = [PieChartDataEntry]()
     var todaysValues = [String]()
-    var valuesDic = [String : [String]]()
+   // var valuesDic = [String : [String]]()
     var currentDate = String()
-    var dailyVals = UserDefaults.standard.dictionary(forKey: "dailyEntries") as? [String : [String : [String]]] ?? ["" : ["" : ["0","0","0","0","0"]]]
+    var dailyVals = UserDefaults.standard.dictionary(forKey: "dailyEntries") as? [String : [String]] ??  ["" : ["0","0","0","0","0"]]
     
     func currDateFormatter() -> String {
         let date = Date()
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "dd-mm-yyyy"
+        dateformatter.dateFormat = "yyyy-MM-dd"
         return dateformatter.string(from: date)
     }
     
     
-    
-        
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,7 @@ class PieViewController: UIViewController {
         
         // set chart description
         pieChart.chartDescription?.text = "Servings of food groups consumed today"
-        pieChart.chartDescription?.font = .boldSystemFont(ofSize: 16)
+        pieChart.chartDescription?.font = .systemFont(ofSize: 16)
         pieChart.legend.font = .systemFont(ofSize: 20)
         pieChart.legend.textColor = .black
         pieChart.holeColor = .white
@@ -52,17 +51,17 @@ class PieViewController: UIViewController {
         
         
         // checking if dailyVals has default value (no foods) or has foods
-        if dailyVals !=  ["" : ["" : ["0","0","0","0","0"]]] {
+        if dailyVals !=  ["" : ["0","0","0","0","0"]] {
             // extract the dictionaries
-            for each in dailyVals {
-                valuesDic.update(other: each.value)
-            }
-            
+          //  for each in dailyVals {
+           //     valuesDic.update(other: each.value)
+          //  }
+          //
             // get current date in appropiate string format
             currentDate = currDateFormatter()
             
             // check which entry is for current date
-            for each in valuesDic {
+            for each in dailyVals {
                 if each.key == currentDate {
                     // assign the values for servings of each foodgroup
                     todaysValues = each.value
@@ -72,7 +71,7 @@ class PieViewController: UIViewController {
         }
         
         else {
-            todaysValues = ["2","5","2","3","4"]
+            todaysValues = ["3","2","4","2","1"]
         }
         
         
@@ -99,7 +98,7 @@ class PieViewController: UIViewController {
         let chartDataSet = PieChartDataSet(values: dailyMealsEntry, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
-        let color = [UIColor.red, UIColor.black, UIColor.orange, UIColor.darkGray, UIColor.blue]
+        let color = [#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)]
         chartDataSet.colors = color
         
         pieChart.data = chartData
