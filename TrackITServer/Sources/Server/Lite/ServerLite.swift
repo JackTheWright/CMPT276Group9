@@ -115,6 +115,7 @@ class ServerLite {
     ///
     /// - returns: The resulting table encoded in JSON.
     static func databaseHandler(query: String) throws -> Data? {
+        Log.verbose("Handling SQL query: \(query)", event: .server)
         let table = try database.query(query)
         return try table.rowsAsJSON().rawData()
     }
@@ -127,6 +128,7 @@ class ServerLite {
     ///
     /// - returns: The result of the request encoded in JSON.
     static func specialDBRequest(requestString: String) throws -> Data? {
+        Log.verbose("Handling special request \(requestString)", event: .server)
         let splitString = requestString.split(separator: ":")
         guard splitString.count > 0 else {
             throw NetworkError.MalformedMessage
