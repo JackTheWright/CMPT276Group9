@@ -109,7 +109,7 @@ func stringToInt(str: String?) -> Int {
 func foodIDToName(food:[String: Int]) -> [String] {
     var nameArray = [String]()
     for elem in food {
-            nameArray.append(getFoodDescription(foodID: elem.value))
+        nameArray.append(getFoodDescription(foodID: Int(elem.key)!))
     }
     return nameArray
 }
@@ -263,7 +263,7 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
                 for each in foodIDArray {
                     nutrientArrArray.append(getNutrients(foodID: each))
                 }
-                if foodname.count == nutrientArrArray.count {
+               // if foodname.count == nutrientArrArray.count {
                     let lastIndex = foodname.count - 1
                     for i in 0...lastIndex {
                         celldataArr.append(cellData(opened: false, title: foodname[i], data: nutrientArrArray[i]))
@@ -272,7 +272,7 @@ class AdvacnedStatsViewController: UIViewController, UITableViewDataSource, UITa
                     for each in celldataArr {
                         tableViewData.append(each)
                     }
-                }
+                //}
             }
             
             func getservedNutrients(food: [String : Int]) -> [Double] {
