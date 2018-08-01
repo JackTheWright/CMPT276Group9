@@ -55,22 +55,25 @@ class PieViewController: UIViewController {
         // checking if dailyVals has default value (no foods) or has foods
         
         
+        func checkVals(data: PieChartDataEntry, val: String, group: String) {
+            if val == "0" {
+                data.label = nil
+                data.value = 0
+            }
+            else {
+                data.label = group
+                data.value = Double(val)!
+            }
+        }
         
-        grp1Data.value = Double(Int(todaysValues[0])!)
-        grp1Data.label = "Meats"
+        // populate according to values (if zero or not)
+        checkVals(data: grp1Data, val: todaysValues[0], group: "Meats")
+        checkVals(data: grp2DaTa, val: todaysValues[1], group: "Vegetables")
+        checkVals(data: grp3Data, val: todaysValues[2], group: "Fruits")
+        checkVals(data: grp4Data, val: todaysValues[3], group: "Dairy")
+        checkVals(data: grp4Data, val: todaysValues[4], group: "Grains")
         
-        grp2DaTa.value = Double(Int(todaysValues[1])!)
-        grp2DaTa.label = "Vegetables"
-        
-        grp3Data.value = Double(Int(todaysValues[2])!)
-        grp3Data.label = "Fruits"
-        
-        grp4Data.value = Double(Int(todaysValues[3])!)
-        grp4Data.label = "Dairy"
-        
-        grp5Data.value = Double(Int(todaysValues[4])!)
-        grp5Data.label = "Grains"
-       
+       // save in array
         dailyMealsEntry = [grp1Data, grp2DaTa, grp3Data, grp4Data, grp5Data]
         updateChart()
     }
