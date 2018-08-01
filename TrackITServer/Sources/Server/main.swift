@@ -15,4 +15,4 @@ import NetConnect
 //let initializationVector = "ZW5kIG1lIHBseg=="
 //
 //let crypt = try! AESCryptographer(key: encryptionKey, iv: initializationVector)
-ServerLite.start(port: 60011, /* cryptographer: crypt */)
+ServerLite.start(port: 60011 /*, cryptographer: crypt */)
