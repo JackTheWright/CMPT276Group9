@@ -100,7 +100,13 @@ public extension NetworkHost {
 //            try socket!.write(data: message.rawData, to: address)
 //        }
         let message = Message(data, flags: flags, id: convoId)
-        try socket!.write(data: message.rawData, to: address)
+        let d: Data
+        if let crypt = cryptographer {
+            d = try crypt.encrypt(message.rawData)
+        } else {
+            d = message.rawData
+        }
+        try socket!.write(data: d, to: address)
     }
 
     /// Sends a string to the host with given message flags.
@@ -146,14 +152,20 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to receive data.
     func receiveData() throws -> Data {
-        guard let message = Message(from: try socket!.read().data) else {
+        let inData = try socket!.read().data
+        let data: Data
+        if let crypt = cryptographer {
+            data = try crypt.decrypt(inData)
+        } else {
+            data = inData
+        }
+        guard let message = Message(from: data) else {
             throw NetworkError.MalformedMessage
         }
-        let data = message.body
         if message.flags.get(MessageFlags.MultiMessageStream) {
-            return try data + receiveData()
+            return try message.body + receiveData()
         } else {
-            return data
+            return message.body
         }
     }
     

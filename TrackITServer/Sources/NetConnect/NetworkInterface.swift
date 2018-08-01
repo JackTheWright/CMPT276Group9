@@ -32,6 +32,12 @@ open class NetworkInterface {
         } else {
             return nil
         }
+        
+        let encryptionKey = "f171fed4cc458f2a1ed13a9f9f176b61"
+        let initializationVector = "ZW5kIG1lIHBseg=="
+        
+        cryptographer =
+            try! AESCryptographer(key: encryptionKey, iv: initializationVector)
     }
     
     /// Initializes from a cryptographer delegate.
@@ -317,7 +323,7 @@ extension NetworkInterface {
         } else if let netevent = error as? NetworkErrorEvent {
             print(netevent.message)
         } else {
-            print(error.localizedDescription)
+            print(String(describing: error))
         }
     }
     

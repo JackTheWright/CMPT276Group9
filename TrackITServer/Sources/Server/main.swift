@@ -8,5 +8,11 @@
 //
 
 import Foundation
+import NetConnect
 
-ServerLite.start(port: 60011)
+
+let encryptionKey = "f171fed4cc458f2a1ed13a9f9f176b61"
+let initializationVector = "ZW5kIG1lIHBseg=="
+
+let crypt = try! AESCryptographer(key: encryptionKey, iv: initializationVector)
+ServerLite.start(port: 60011, cryptographer: crypt)

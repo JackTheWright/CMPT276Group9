@@ -75,16 +75,19 @@ class ServerLite {
 
                 // Send Reply
                 if var od = outData {
-                    if let crypt = cryptographer {
-                        od = try crypt.encrypt(od)
-                    }
                     let outMessage = Message(od, flags: Message.Flags(), id: 0)
+                    let d: Data
+                    if let crypt = cryptographer {
+                        d = try crypt.encrypt(outMessage.rawData)
+                    } else {
+                        d = outMessage.rawData
+                    }
                     Log.verbose(
                             "Writing \(od.count) bytes to sender",
                             event: .server
                     )
                     try socket.write(
-                            data: outMessage.rawData,
+                            data: d,
                             to: readData.sender
                     )
                 }
