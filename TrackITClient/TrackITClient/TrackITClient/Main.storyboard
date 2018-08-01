@@ -19,14 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDC-MX-Kmj">
-                                <rect key="frame" x="21" y="186" width="373" height="479"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">trackIT is an application that helps track DASH diet. DASH stands for Dietary Approaches to Stopping Hypertension. Research has shown that following a plan for healthy eating can reduce the risk of developing high blood pressure and lower already elevated blood pressure.   The DASH Diet is based on two studies, DASH and DASH-Sodium, that looked at ways of reducing blood pressure through changes in diet. In the DASH study, people were given one of three eating plans: a plan similar in nutrients to what most North Americans eat; the same plan but with extra vegetables and fruit; or the DASH diet, which is rich in vegetables, fruit and low-fat dairy foods and lower in saturated fat, total fat and cholesterol.</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKU-Pk-y6K">
                                 <rect key="frame" x="0.0" y="673" width="414" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -53,8 +45,8 @@
                                     <segue destination="4Km-Iq-6Kh" kind="show" id="5Qc-bV-oNB"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDC-MX-Kmj">
-                                <rect key="frame" x="21" y="117" width="373" height="479"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDC-MX-Kmj">
+                                <rect key="frame" x="21" y="117" width="373" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="479" id="7AM-QS-oNe"/>
@@ -124,13 +116,13 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PfX-Y6-7C8" firstAttribute="centerX" secondItem="cwk-hz-8jn" secondAttribute="centerX" id="1Ys-JO-RtJ"/>
+                            <constraint firstAttribute="centerX" secondItem="cwk-hz-8jn" secondAttribute="centerX" id="1Ys-JO-RtJ"/>
                             <constraint firstItem="cwk-hz-8jn" firstAttribute="leading" secondItem="zbe-cu-eAk" secondAttribute="leadingMargin" id="7RU-Qe-2Xl"/>
                             <constraint firstItem="cwk-hz-8jn" firstAttribute="centerX" secondItem="H86-HL-0Ak" secondAttribute="centerX" id="Yen-Ks-Ubz"/>
                             <constraint firstItem="H86-HL-0Ak" firstAttribute="centerX" secondItem="zbe-cu-eAk" secondAttribute="centerX" id="amP-Zh-EQh"/>
                             <constraint firstItem="H86-HL-0Ak" firstAttribute="top" secondItem="eno-5p-bxP" secondAttribute="top" constant="39" id="att-yI-tcW"/>
                             <constraint firstItem="cwk-hz-8jn" firstAttribute="top" secondItem="H86-HL-0Ak" secondAttribute="bottom" constant="8" symbolic="YES" id="cFw-ls-Qee"/>
-                            <constraint firstItem="PfX-Y6-7C8" firstAttribute="top" secondItem="cwk-hz-8jn" secondAttribute="bottom" constant="75" id="nrE-GX-FrE"/>
+                            <constraint firstAttribute="top" secondItem="cwk-hz-8jn" secondAttribute="bottom" constant="75" id="nrE-GX-FrE"/>
                             <constraint firstItem="H86-HL-0Ak" firstAttribute="leading" secondItem="eno-5p-bxP" secondAttribute="leading" constant="71" id="pUb-xT-agR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eno-5p-bxP"/>
@@ -211,7 +203,7 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czf-fR-tkX">
-                                <rect key="frame" x="75" y="403" width="264" height="30"/>
+                                <rect key="frame" x="75" y="-122" width="264" height="30"/>
                                 <state key="normal" title="Please indicate any dietary restrictions"/>
                                 <connections>
                                     <segue destination="3F9-xo-Q03" kind="show" id="SJW-T8-nIX"/>
@@ -236,14 +228,14 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                             <constraint firstItem="fF2-Ng-zgq" firstAttribute="top" secondItem="0df-RT-J5I" secondAttribute="top" constant="17" id="6nR-dJ-Oui"/>
                             <constraint firstItem="0df-RT-J5I" firstAttribute="trailing" secondItem="J2j-qx-pG3" secondAttribute="trailing" constant="241" id="9dE-tX-UiQ"/>
                             <constraint firstItem="vI6-0l-gCU" firstAttribute="centerY" secondItem="7hg-2E-dsE" secondAttribute="centerY" id="NCK-pg-gW3"/>
-                            <constraint firstItem="gvk-lf-oBO" firstAttribute="centerX" secondItem="fF2-Ng-zgq" secondAttribute="centerX" id="QrP-zL-0HC"/>
+                            <constraint firstAttribute="centerX" secondItem="fF2-Ng-zgq" secondAttribute="centerX" id="QrP-zL-0HC"/>
                             <constraint firstItem="Mms-6L-CNd" firstAttribute="leading" secondItem="dCC-cV-Xfd" secondAttribute="trailing" constant="33" id="R1b-Xj-D2c"/>
                             <constraint firstItem="vI6-0l-gCU" firstAttribute="top" secondItem="J2j-qx-pG3" secondAttribute="bottom" constant="17" id="TVL-Hi-pN5"/>
                             <constraint firstItem="vI6-0l-gCU" firstAttribute="leading" secondItem="Mms-6L-CNd" secondAttribute="leading" id="UHG-TN-ulc"/>
                             <constraint firstItem="7hg-2E-dsE" firstAttribute="leading" secondItem="GlH-RS-bKK" secondAttribute="leading" id="VhT-We-Ita"/>
                             <constraint firstItem="vI6-0l-gCU" firstAttribute="leading" secondItem="J2j-qx-pG3" secondAttribute="leading" id="VkR-Uz-qw2"/>
-                            <constraint firstItem="gvk-lf-oBO" firstAttribute="top" secondItem="czf-fR-tkX" secondAttribute="bottom" constant="92" id="ZCV-4a-tEC"/>
-                            <constraint firstItem="gvk-lf-oBO" firstAttribute="centerX" secondItem="czf-fR-tkX" secondAttribute="centerX" id="aLA-qm-7YB"/>
+                            <constraint firstAttribute="top" secondItem="czf-fR-tkX" secondAttribute="bottom" constant="92" id="ZCV-4a-tEC"/>
+                            <constraint firstAttribute="centerX" secondItem="czf-fR-tkX" secondAttribute="centerX" id="aLA-qm-7YB"/>
                             <constraint firstItem="Mms-6L-CNd" firstAttribute="top" secondItem="fF2-Ng-zgq" secondAttribute="bottom" constant="52" id="gqr-Hd-JiI"/>
                             <constraint firstItem="dCC-cV-Xfd" firstAttribute="leading" secondItem="0df-RT-J5I" secondAttribute="leading" constant="23" id="jY5-mb-nmA"/>
                             <constraint firstItem="J2j-qx-pG3" firstAttribute="top" secondItem="GlH-RS-bKK" secondAttribute="top" id="t6G-Jl-tBl"/>
@@ -272,4 +264,7 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
             <point key="canvasLocation" x="2235" y="75"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5Qc-bV-oNB"/>
+    </inferredMetricsTieBreakers>
 </document>
