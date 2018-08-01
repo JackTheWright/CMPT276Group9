@@ -21,14 +21,6 @@ import SwiftyJSON
 
 typealias foodTuple = (foodname: String, foodid: Int, foodgroup: Int)
 
-struct FoodNutrition: Codable {
-    var foodname = String()
-    var foodID = Int()
-    var Multiplier = Int()
-    
-}
-
-
 struct GlobalStates {
     
     static var currentDayDictionary = [String: [String]]()
@@ -41,6 +33,7 @@ struct GlobalStates {
     static var port = 60011
     static var foodForTable = [String: Int]()
     static var arr = Data()
+    static var totalNutrientsCount = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     static var yest = String()
     static var foodGroupyBoy1 = String()
     static var foodGroupyBoy2 = String()
