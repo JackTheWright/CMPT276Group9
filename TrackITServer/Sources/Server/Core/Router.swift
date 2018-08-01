@@ -145,14 +145,20 @@ extension Router {
     /// Generates and returns a handler based on the flags of a message.
     func generateHandler(flags: Message.Flags, id: Message.ID) -> Handler? {
         if flags.get(MessageFlags.DBQuery) || flags.get(MessageFlags.DBAction) {
+            Log.verbose("Creating Database Handler", event: .server)
             return DBHandler(id: id)
         }
 
         else if flags.get(MessageFlags.Echo) {
+            Log.verbose("Creating Echo Handler", event: .server)
             return EchoHandler(id: id)
         }
 
         else {
+            Log.verbose(
+                    "Unable to create handler for: id = \(id)  flags = \(flags.rawValue)",
+                    event: .server
+            )
             return nil
         }
     }

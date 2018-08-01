@@ -14,7 +14,7 @@ import Socket
 
 class OutboundDelegate : NodeDelegate {
 
-    weak var socket: UDPSocket!
+    weak var socket: StreamingSocket!
 
     weak var active: Atomic<Bool>!
 

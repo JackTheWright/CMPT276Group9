@@ -12,12 +12,12 @@ import SwiftyJSON
 
 public class NetworkHost {
     
-    internal weak var socket: UDPSocket?
+    internal weak var socket: StreamingSocket?
     internal var cryptographer: Cryptographer?
     internal var address: Address
     internal var convoId: UInt16
     
-    internal init(socket: UDPSocket, address: Address, id: UInt16) {
+    internal init(socket: StreamingSocket, address: Address, id: UInt16) {
         self.socket = socket
         self.address = address
         self.convoId = id
@@ -30,11 +30,9 @@ public class NetworkHost {
     ///         then timeout is set to infinity.
     public func setTimeout(_ seconds: UInt?) {
         if let s = seconds {
-            socket!.setReadTimeout(s)
-            socket!.setWriteTimeout(s)
+            socket!.timeout = s * 1000
         } else {
-            socket!.removeReadTimeout()
-            socket!.removeWriteTimeout()
+            socket!.timeout = nil
         }
     }
     
@@ -90,17 +88,19 @@ public extension NetworkHost {
     ///
     /// - throws: Throws an error if unable to send.
     func send(_ data: Data, flags: Message.Flags) throws {
-        if data.count > Message.maxBodySize {
-            // If data is too big, send multiple messages recursively.
-            let cutoff = Message.maxBodySize
-            let dataToSend = data.subdata(in: 0..<cutoff)
-            let f = flags.setting(MessageFlags.MultiMessageStream)
-            try send(dataToSend, flags: f)
-            try send(data.subdata(in: cutoff..<data.count), flags: flags)
-        } else {
-            let message = Message(data, flags: flags, id: convoId)
-            try socket!.write(data: message.rawData, to: address)
-        }
+//        if data.count > Message.maxBodySize {
+//            // If data is too big, send multiple messages recursively.
+//            let cutoff = Message.maxBodySize
+//            let dataToSend = data.subdata(in: 0..<cutoff)
+//            let f = flags.setting(MessageFlags.MultiMessageStream)
+//            try send(dataToSend, flags: f)
+//            try send(data.subdata(in: cutoff..<data.count), flags: flags)
+//        } else {
+//            let message = Message(data, flags: flags, id: convoId)
+//            try socket!.write(data: message.rawData, to: address)
+//        }
+        let message = Message(data, flags: flags, id: convoId)
+        try socket!.write(data: message.rawData, to: address)
     }
 
     /// Sends a string to the host with given message flags.

@@ -22,12 +22,12 @@ public struct FlagComplex<SetType : FlagSet> : RawRepresentable {
     public private(set) var rawValue: RawValue
     
     /// Construct this complex with a value of 0.
-    public init () {
+    public init() {
         self.rawValue = 0
     }
     
     /// Construct this complex from a given value.
-    public init (rawValue value: RawValue) {
+    public init(rawValue value: RawValue) {
         self.rawValue = value
     }
     

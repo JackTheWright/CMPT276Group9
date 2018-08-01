@@ -52,7 +52,6 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         self.present(alert, animated:true, completion:nil)
     }
     
-    
     @IBAction func nameAction(_ sender: AnyObject) {
         if (nameTextField?.text != ""){
             UserDefaults.standard.set(nameTextField?.text, forKey: "userName")
