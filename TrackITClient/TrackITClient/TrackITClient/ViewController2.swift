@@ -23,6 +23,9 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     
+    @IBOutlet weak var startButton: UIButton!
+    
+    
     let Gender = [" ","Male","Female"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -40,6 +43,7 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         gender = Gender[row]
         genderTextField.text = gender
+        UserDefaults.standard.set(genderTextField.text, forKey: "userGender")
     }
     
     func createAlert (title : String, message:String){
@@ -48,18 +52,25 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         self.present(alert, animated:true, completion:nil)
     }
     
-//    
-//    @IBAction func nameAction(_ sender: AnyObject) {
-//        if (nameTextField.text != ""){
-//            nameTextField.text = name
-//        }
-//    }
-//    @IBAction func ageAction(_ sender: AnyObject) {
-//        if (ageTextField.text != ""){
-//            ageTextField.text = age
-//        }
-//    }
+    @IBAction func nameAction(_ sender: AnyObject) {
+        if (nameTextField?.text != ""){
+            UserDefaults.standard.set(nameTextField?.text, forKey: "userName")
+            startButton.isEnabled = true
+        }
+        
+    }
+    @IBAction func ageAction(_ sender: AnyObject) {
+        if (ageTextField?.text != ""){
+            UserDefaults.standard.set(ageTextField?.text, forKey: "userAge")
+        }
+    }
     
+//    @IBAction func startButton(_ sender: Any) {
+  //      if nameTextField?.text != ""{
+    //        startButton.isEnabled = true
+      //  }
+    //}
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,6 +82,7 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         nameTextField?.delegate = self
         ageTextField?.delegate = self
         // Do any additional setup after loading the view.
+        startButton.isEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
