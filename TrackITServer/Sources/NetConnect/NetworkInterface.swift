@@ -317,7 +317,7 @@ extension NetworkInterface {
         } else if let netevent = error as? NetworkErrorEvent {
             print(netevent.message)
         } else {
-            print(error.localizedDescription)
+            print(String(describing: error))
         }
     }
     
