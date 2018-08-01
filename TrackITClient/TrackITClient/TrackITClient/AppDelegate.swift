@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 flags.set(MessageFlags.DBQuery)
                 print("sending")
                 do {
-                    try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
+                    try host.send("select foodId, foodDescription, foodGroupId from 'food name';", flags: flags)
                     print("sent")
                     let JSONreply = try host.receiveJSON()
                     print("didrecieve")
@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         else {
-            storyboard = UIStoryboard(name: "Main", bundle: nil)
+            storyboard = UIStoryboard(name: "OverviewPage", bundle: nil)
             let rootController = storyboard!.instantiateViewController(withIdentifier: "Overview")
             
             if let window = self.window {
