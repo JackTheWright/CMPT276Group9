@@ -194,6 +194,7 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
         anyCount.text = "0"
         anyStepper.value = 0
         advancedTextField.text = ""
+        anyLabel.text = "Food Group"
         
     }
     

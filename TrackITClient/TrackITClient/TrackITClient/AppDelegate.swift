@@ -105,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if launchedBefore == false {
             
+            
             print("wb this bad boy")
             UserDefaults.standard.set("0", forKey: "meatTotal")
             UserDefaults.standard.set("0", forKey: "vegetableTotal")
@@ -128,6 +129,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window.rootViewController = rootController
             }
         }
+        let shortcutItem1 = UIMutableApplicationShortcutItem(type: "Dynamic01", localizedTitle: NSLocalizedString("Quick Add", comment: ""), localizedSubtitle: nil, icon: nil, userInfo: nil)
+        
+        let shortcutItem2 = UIMutableApplicationShortcutItem(type: "Dynamic02", localizedTitle: NSLocalizedString("Advanced Stats", comment: ""), localizedSubtitle: nil, icon: nil, userInfo: nil)
+        
+        UIApplication.shared.shortcutItems = [shortcutItem1,shortcutItem2]
+        
+        
         return true
     }
 
@@ -161,6 +169,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        switch shortcutItem.type{
+        case "Dynamic01" :
+            storyboard = UIStoryboard(name: "FoodAdd", bundle: nil)
+            let rootController = storyboard!.instantiateViewController(withIdentifier: "QuickAdd")
+            window?.rootViewController = rootController
+        
+        case "Dynamic02" :
+            storyboard = UIStoryboard(name: "AdvancedStats", bundle: nil)
+            let rootController = storyboard!.instantiateViewController(withIdentifier: "AdvancedStats")
+            window?.rootViewController = rootController
+        default:
+        break
+    }
+    completionHandler(true)
+}
 
 
 }
