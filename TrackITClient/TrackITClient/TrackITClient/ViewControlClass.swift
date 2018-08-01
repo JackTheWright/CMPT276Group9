@@ -63,13 +63,13 @@ class viewControl: UIViewController {
         if quickAddRefresh == false {
              let yesterday = time.getYesterdaysDate()
             dayDic[yesterday] =  [meatCount.text!, vegetableCount.text!, fruitCount.text!, dairyCount.text!, grainsCount.text!]
-            if let current = UserDefaults.standard.object([String:[String]].self, with: "DailyPackage") {
+            if let current = UserDefaults.standard.object([String:[String]].self, with: "DailyEntries") {
                 
                 dayDic.update(other: current)
                 
             }
             print(dayDic)
-            UserDefaults.standard.set(object: dayDic, forKey: "DailyPackage")
+            UserDefaults.standard.set(object: dayDic, forKey: "dailyEntries")
             
             print("hit this bad boy")
             UserDefaults.standard.set(0, forKey: "meatStepped")
