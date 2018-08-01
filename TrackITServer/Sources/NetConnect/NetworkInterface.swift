@@ -33,11 +33,11 @@ open class NetworkInterface {
             return nil
         }
         
-        let encryptionKey = "f171fed4cc458f2a1ed13a9f9f176b61"
-        let initializationVector = "ZW5kIG1lIHBseg=="
-        
-        cryptographer =
-            try! AESCryptographer(key: encryptionKey, iv: initializationVector)
+//        let encryptionKey = "f171fed4cc458f2a1ed13a9f9f176b61"
+//        let initializationVector = "ZW5kIG1lIHBseg=="
+//
+//        cryptographer =
+//            try! AESCryptographer(key: encryptionKey, iv: initializationVector)
     }
     
     /// Initializes from a cryptographer delegate.
