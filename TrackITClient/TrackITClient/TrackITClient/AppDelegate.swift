@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 flags.set(MessageFlags.DBQuery)
                 print("sending")
                 do {
-                    try host.send("select foodId, foodDescription, foodGroupId from 'food name' limit 1000;", flags: flags)
+                    try host.send("select foodId, foodDescription, foodGroupId from 'food name';", flags: flags)
                     print("sent")
                     let JSONreply = try host.receiveJSON()
                     print("didrecieve")
@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         else {
-            storyboard = UIStoryboard(name: "Main", bundle: nil)
+            storyboard = UIStoryboard(name: "OverviewPage", bundle: nil)
             let rootController = storyboard!.instantiateViewController(withIdentifier: "Overview")
             
             if let window = self.window {
@@ -133,7 +133,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let shortcutItem2 = UIMutableApplicationShortcutItem(type: "Dynamic02", localizedTitle: NSLocalizedString("Advanced Stats", comment: ""), localizedSubtitle: nil, icon: nil, userInfo: nil)
         
-        UIApplication.shared.shortcutItems = [shortcutItem1,shortcutItem2]
+      
+        
+        UIApplication.shared.shortcutItems = [shortcutItem1, shortcutItem2]
         
         
         return true
@@ -175,7 +177,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             storyboard = UIStoryboard(name: "FoodAdd", bundle: nil)
             let rootController = storyboard!.instantiateViewController(withIdentifier: "QuickAdd")
             window?.rootViewController = rootController
-        
         case "Dynamic02" :
             storyboard = UIStoryboard(name: "AdvancedStats", bundle: nil)
             let rootController = storyboard!.instantiateViewController(withIdentifier: "AdvancedStats")

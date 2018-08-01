@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uxP-P2-Lbe" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="113" width="343" height="443"/>
+                                <rect key="frame" x="8" y="113" width="362" height="443"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -421,6 +421,6 @@
         <image name="summary" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="viJ-il-P6x"/>
+        <segue reference="xeD-HB-Uyc"/>
     </inferredMetricsTieBreakers>
 </document>
