@@ -179,18 +179,20 @@ class AdvancedAddVC: UIViewController, UITextFieldDelegate, UITableViewDelegate,
                 AdvancedAddVC.viewController.grainsCount.text = UserDefaults.standard.string(forKey: "grainsTotal")
                 AdvancedAddVC.viewController.grainsStepper.value = UserDefaults.standard.double(forKey: "grainsStepped")
             }
-        }
+        
         //set the foodID var to the foodID from the database array entry
-        let foodID = autoCompletionPossibilities.first{ $0.foodname.lowercased() == foodText.lowercased()}?.foodid ?? 0
-        //assign foodfortable to the array entry that is being accessed for the food being added
-        GlobalStates.foodForTable[String(foodID)] = Int(anyCount.text!) ?? 0
-        print(GlobalStates.foodForTable)
-        //getting whats in user defaults out so that we can append to the array
-        if let current = UserDefaults.standard.dictionary(forKey: "foodForTable") {
-            GlobalStates.foodForTable.update(other: current as! Dictionary<String, Int>)
+        
+            let foodID = autoCompletionPossibilities.first{ $0.foodname.lowercased() == foodText.lowercased()}?.foodid ?? 0
+            //assign foodfortable to the array entry that is being accessed for the food being added
+            GlobalStates.foodForTable[String(foodID)] = Int(anyCount.text!) ?? 0
+            print(GlobalStates.foodForTable)
+            //getting whats in user defaults out so that we can append to the array
+            if let current = UserDefaults.standard.dictionary(forKey: "foodForTable") {
+                GlobalStates.foodForTable.update(other: current as! Dictionary<String, Int>)
+            }
+            //set the foodForTable to the newly appended array
+            UserDefaults.standard.set(GlobalStates.foodForTable, forKey: "foodForTable")
         }
-        //set the foodForTable to the newly appended array
-        UserDefaults.standard.set(GlobalStates.foodForTable, forKey: "foodForTable")
         anyCount.text = "0"
         anyStepper.value = 0
         advancedTextField.text = ""

@@ -74,6 +74,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H86-HL-0Ak">
                                 <rect key="frame" x="71" y="59" width="272" height="56"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="aPv-bY-FZF"/>
                                 </constraints>
@@ -100,7 +101,7 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
                             <constraint firstItem="bum-ej-9W4" firstAttribute="top" secondItem="cwk-hz-8jn" secondAttribute="bottom" constant="8" symbolic="YES" id="Hl7-6w-NwV"/>
                             <constraint firstItem="bum-ej-9W4" firstAttribute="centerX" secondItem="cwk-hz-8jn" secondAttribute="centerX" id="InC-jT-PRW"/>
@@ -176,16 +177,6 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="h2D-61-hbi"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czf-fR-tkX">
-                                <rect key="frame" x="77" y="439" width="261" height="81"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="bMp-hV-0X7"/>
-                                </constraints>
-                                <state key="normal" title="Please indicate any dietary restrictions"/>
-                                <connections>
-                                    <segue destination="3F9-xo-Q03" kind="show" id="SJW-T8-nIX"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfq-Gt-2Q7">
                                 <rect key="frame" x="0.0" y="570" width="414" height="64"/>
                                 <constraints>
@@ -221,11 +212,8 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                             <constraint firstItem="Mms-6L-CNd" firstAttribute="trailing" secondItem="J2j-qx-pG3" secondAttribute="trailing" id="Ilw-TM-vDb"/>
                             <constraint firstItem="dCC-cV-Xfd" firstAttribute="top" secondItem="0df-RT-J5I" secondAttribute="top" constant="98" id="IvS-mi-Cfn"/>
                             <constraint firstItem="Mms-6L-CNd" firstAttribute="leading" secondItem="J2j-qx-pG3" secondAttribute="leading" id="M6I-Dq-p16"/>
-                            <constraint firstItem="czf-fR-tkX" firstAttribute="centerX" secondItem="Bfq-Gt-2Q7" secondAttribute="centerX" id="PKy-O4-eTw"/>
                             <constraint firstItem="J2j-qx-pG3" firstAttribute="trailing" secondItem="vI6-0l-gCU" secondAttribute="trailing" id="WBF-iA-5rS"/>
-                            <constraint firstItem="Bfq-Gt-2Q7" firstAttribute="top" secondItem="czf-fR-tkX" secondAttribute="bottom" constant="50" id="YWu-Pk-kca"/>
                             <constraint firstItem="dCC-cV-Xfd" firstAttribute="leading" secondItem="GlH-RS-bKK" secondAttribute="leading" id="YgC-cL-cc8"/>
-                            <constraint firstItem="czf-fR-tkX" firstAttribute="leading" secondItem="0df-RT-J5I" secondAttribute="leading" constant="77" id="daM-vq-MZY"/>
                             <constraint firstItem="J2j-qx-pG3" firstAttribute="leading" secondItem="GlH-RS-bKK" secondAttribute="trailing" constant="43" id="ecr-ds-GKI"/>
                             <constraint firstItem="fF2-Ng-zgq" firstAttribute="centerX" secondItem="Mms-6L-CNd" secondAttribute="centerX" id="fSR-oo-dnO"/>
                             <constraint firstItem="GlH-RS-bKK" firstAttribute="centerY" secondItem="J2j-qx-pG3" secondAttribute="centerY" id="kcb-kQ-Yes"/>

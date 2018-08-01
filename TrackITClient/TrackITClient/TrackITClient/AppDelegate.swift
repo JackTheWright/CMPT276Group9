@@ -131,9 +131,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         let shortcutItem1 = UIMutableApplicationShortcutItem(type: "Dynamic01", localizedTitle: NSLocalizedString("Quick Add", comment: ""), localizedSubtitle: nil, icon: nil, userInfo: nil)
         
+        let shortcutItem2 = UIMutableApplicationShortcutItem(type: "Dynamic02", localizedTitle: NSLocalizedString("Advanced Stats", comment: ""), localizedSubtitle: nil, icon: nil, userInfo: nil)
+        
       
         
-        UIApplication.shared.shortcutItems = [shortcutItem1]
+        UIApplication.shared.shortcutItems = [shortcutItem1, shortcutItem2]
         
         
         return true
@@ -174,6 +176,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case "Dynamic01" :
             storyboard = UIStoryboard(name: "FoodAdd", bundle: nil)
             let rootController = storyboard!.instantiateViewController(withIdentifier: "QuickAdd")
+            window?.rootViewController = rootController
+        case "Dynamic02" :
+            storyboard = UIStoryboard(name: "AdvancedStats", bundle: nil)
+            let rootController = storyboard!.instantiateViewController(withIdentifier: "AdvancedStats")
             window?.rootViewController = rootController
         default:
         break
