@@ -94,10 +94,10 @@ class ViewController2: UIViewController, UITextFieldDelegate, UIPickerViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
- //func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-   //     textField.resignFirstResponder()
-     //   return true
-    //}
+ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
  
     func createToolbar(){
         let toolBar = UIToolbar()

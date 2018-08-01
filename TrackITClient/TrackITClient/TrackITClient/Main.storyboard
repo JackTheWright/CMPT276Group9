@@ -14,21 +14,11 @@
         <!--start-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="start" title="start" id="BYZ-38-t0r" customClass="ViewController" customModule="TrackITClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="start" title="start" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="TrackITClient" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKU-Pk-y6K">
-                                <rect key="frame" x="0.0" y="673" width="414" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58066489399999999" green="0.59353272830000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Continue"/>
-                                <connections>
-                                    <segue destination="4Km-Iq-6Kh" kind="show" id="4w6-kK-edK"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to trackIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mm0-1Q-ZLc">
                                 <rect key="frame" x="21" y="46" width="373" height="63"/>
                                 <constraints>
@@ -38,8 +28,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxa-d0-jTf">
-                                <rect key="frame" x="176" y="604" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxa-d0-jTf">
+                                <rect key="frame" x="0.0" y="604" width="414" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
                                     <segue destination="4Km-Iq-6Kh" kind="show" id="5Qc-bV-oNB"/>
@@ -91,38 +83,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-dd-Dtg">
-                                <rect key="frame" x="0.0" y="674" width="414" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58066489399999999" green="0.59353272830000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cwk-hz-8jn">
+                                <rect key="frame" x="20" y="145" width="374" height="417"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">The results were compelling. The diet higher in vegetables and fruit and the DASH diet both reduced blood pressure. The DASH diet had the greatest effect on blood pressure.  
+In the DASH-Sodium study, participants were given one of three sodium plans: the DASH diet with a normal amount for many North Americans; a moderately restricted amount; or a more restricted amount, about 2/3 of a teaspoon of salt. Blood pressure was lower for everyone on the DASH diet. However, the less salt people consumed, the greater the decrease in blood pressure. </mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-dd-Dtg">
+                                <rect key="frame" x="0.0" y="626" width="414" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
                                     <segue destination="F6g-dV-Fkc" kind="show" id="0zE-bL-HHq"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cwk-hz-8jn">
-                                <rect key="frame" x="20" y="123" width="374" height="412"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="412" id="huN-gi-S9K"/>
-                                </constraints>
-                                <string key="text">The results were compelling. The diet higher in vegetables and fruit and the DASH diet both reduced blood pressure. The DASH diet had the greatest effect on blood pressure, lowering levels within two weeks of starting the plan. Not only was blood pressure reduced, but total cholesterol and low-density lipoprotein (LDL) or "bad cholesterol" were lower, too.
-
-In the DASH-Sodium study, participants were given one of three sodium plans: the DASH diet with 3,300 mg of sodium per day (a normal amount for many North Americans); 2,300 mg of sodium (a moderately restricted amount); or 1,500 mg of sodium (a more restricted amount, about 2/3 of a teaspoon of salt). Blood pressure was lower for everyone on the DASH diet. However, the less salt people consumed, the greater the decrease in blood pressure. People who already had high blood pressure had the largest decrease in blood pressure.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="cwk-hz-8jn" secondAttribute="centerX" id="1Ys-JO-RtJ"/>
-                            <constraint firstItem="cwk-hz-8jn" firstAttribute="leading" secondItem="zbe-cu-eAk" secondAttribute="leadingMargin" id="7RU-Qe-2Xl"/>
-                            <constraint firstItem="cwk-hz-8jn" firstAttribute="centerX" secondItem="H86-HL-0Ak" secondAttribute="centerX" id="Yen-Ks-Ubz"/>
+                            <constraint firstItem="eno-5p-bxP" firstAttribute="bottom" secondItem="p4c-dd-Dtg" secondAttribute="bottom" constant="106" id="0Cq-XM-b17"/>
+                            <constraint firstItem="cwk-hz-8jn" firstAttribute="top" secondItem="H86-HL-0Ak" secondAttribute="bottom" constant="30" id="7pO-gy-Uol"/>
+                            <constraint firstItem="p4c-dd-Dtg" firstAttribute="leading" secondItem="eno-5p-bxP" secondAttribute="leading" id="QpV-SB-Hwk"/>
+                            <constraint firstItem="p4c-dd-Dtg" firstAttribute="top" secondItem="cwk-hz-8jn" secondAttribute="bottom" constant="33" id="WGh-bA-x3U"/>
+                            <constraint firstItem="eno-5p-bxP" firstAttribute="trailing" secondItem="cwk-hz-8jn" secondAttribute="trailing" constant="20" id="aPi-Nt-B11"/>
                             <constraint firstItem="H86-HL-0Ak" firstAttribute="centerX" secondItem="zbe-cu-eAk" secondAttribute="centerX" id="amP-Zh-EQh"/>
                             <constraint firstItem="H86-HL-0Ak" firstAttribute="top" secondItem="eno-5p-bxP" secondAttribute="top" constant="39" id="att-yI-tcW"/>
-                            <constraint firstItem="cwk-hz-8jn" firstAttribute="top" secondItem="H86-HL-0Ak" secondAttribute="bottom" constant="8" symbolic="YES" id="cFw-ls-Qee"/>
-                            <constraint firstAttribute="top" secondItem="cwk-hz-8jn" secondAttribute="bottom" constant="75" id="nrE-GX-FrE"/>
+                            <constraint firstItem="cwk-hz-8jn" firstAttribute="leading" secondItem="eno-5p-bxP" secondAttribute="leading" constant="20" id="exD-Xi-rhd"/>
+                            <constraint firstItem="p4c-dd-Dtg" firstAttribute="trailing" secondItem="eno-5p-bxP" secondAttribute="trailing" id="nmM-4F-mhF"/>
                             <constraint firstItem="H86-HL-0Ak" firstAttribute="leading" secondItem="eno-5p-bxP" secondAttribute="leading" constant="71" id="pUb-xT-agR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eno-5p-bxP"/>
@@ -144,33 +132,34 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
         <scene sceneID="TIf-Eo-oZG">
             <objects>
                 <viewController id="F6g-dV-Fkc" customClass="ViewController2" customModule="TrackITClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uWZ-M3-NfU">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="uWZ-M3-NfU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-cV-Xfd">
-                                <rect key="frame" x="23" y="119" width="64" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="iZF-ci-A2J"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-cV-Xfd">
+                                <rect key="frame" x="43" y="118" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hg-2E-dsE">
-                                <rect key="frame" x="23" y="216" width="28" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hg-2E-dsE">
+                                <rect key="frame" x="43" y="216" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlH-RS-bKK">
-                                <rect key="frame" x="23" y="164" width="30" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlH-RS-bKK">
+                                <rect key="frame" x="43" y="164" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J2j-qx-pG3">
-                                <rect key="frame" x="120" y="164" width="53" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J2j-qx-pG3">
+                                <rect key="frame" x="120" y="164" width="183" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
@@ -178,8 +167,9 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="dVC-VZ-cgZ"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-6L-CNd">
-                                <rect key="frame" x="120" y="115" width="111" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-6L-CNd">
+                                <rect key="frame" x="120" y="115" width="183" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -187,14 +177,16 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="TTd-Ae-lCD"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF2-Ng-zgq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF2-Ng-zgq">
                                 <rect key="frame" x="132" y="37" width="151" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-0l-gCU">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-0l-gCU">
                                 <rect key="frame" x="120" y="211" width="183" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -202,17 +194,16 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="h2D-61-hbi"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czf-fR-tkX">
-                                <rect key="frame" x="75" y="-122" width="264" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czf-fR-tkX">
+                                <rect key="frame" x="75" y="437" width="261" height="81"/>
                                 <state key="normal" title="Please indicate any dietary restrictions"/>
                                 <connections>
                                     <segue destination="3F9-xo-Q03" kind="show" id="SJW-T8-nIX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfq-Gt-2Q7">
-                                <rect key="frame" x="0.0" y="672" width="414" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfq-Gt-2Q7">
+                                <rect key="frame" x="-20" y="572" width="414" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58066489399999999" green="0.59353272830000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Start Tracking"/>
                                 <connections>
@@ -222,26 +213,9 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0df-RT-J5I" firstAttribute="trailing" secondItem="vI6-0l-gCU" secondAttribute="trailing" constant="111" id="4Bt-M5-q1S"/>
-                            <constraint firstItem="J2j-qx-pG3" firstAttribute="top" secondItem="Mms-6L-CNd" secondAttribute="bottom" constant="19" id="4Mo-Fd-gyx"/>
                             <constraint firstAttribute="bottom" secondItem="czf-fR-tkX" secondAttribute="bottom" constant="303" id="5g4-GM-E90"/>
-                            <constraint firstItem="fF2-Ng-zgq" firstAttribute="top" secondItem="0df-RT-J5I" secondAttribute="top" constant="17" id="6nR-dJ-Oui"/>
-                            <constraint firstItem="0df-RT-J5I" firstAttribute="trailing" secondItem="J2j-qx-pG3" secondAttribute="trailing" constant="241" id="9dE-tX-UiQ"/>
-                            <constraint firstItem="vI6-0l-gCU" firstAttribute="centerY" secondItem="7hg-2E-dsE" secondAttribute="centerY" id="NCK-pg-gW3"/>
-                            <constraint firstAttribute="centerX" secondItem="fF2-Ng-zgq" secondAttribute="centerX" id="QrP-zL-0HC"/>
-                            <constraint firstItem="Mms-6L-CNd" firstAttribute="leading" secondItem="dCC-cV-Xfd" secondAttribute="trailing" constant="33" id="R1b-Xj-D2c"/>
-                            <constraint firstItem="vI6-0l-gCU" firstAttribute="top" secondItem="J2j-qx-pG3" secondAttribute="bottom" constant="17" id="TVL-Hi-pN5"/>
-                            <constraint firstItem="vI6-0l-gCU" firstAttribute="leading" secondItem="Mms-6L-CNd" secondAttribute="leading" id="UHG-TN-ulc"/>
-                            <constraint firstItem="7hg-2E-dsE" firstAttribute="leading" secondItem="GlH-RS-bKK" secondAttribute="leading" id="VhT-We-Ita"/>
-                            <constraint firstItem="vI6-0l-gCU" firstAttribute="leading" secondItem="J2j-qx-pG3" secondAttribute="leading" id="VkR-Uz-qw2"/>
                             <constraint firstAttribute="top" secondItem="czf-fR-tkX" secondAttribute="bottom" constant="92" id="ZCV-4a-tEC"/>
                             <constraint firstAttribute="centerX" secondItem="czf-fR-tkX" secondAttribute="centerX" id="aLA-qm-7YB"/>
-                            <constraint firstItem="Mms-6L-CNd" firstAttribute="top" secondItem="fF2-Ng-zgq" secondAttribute="bottom" constant="52" id="gqr-Hd-JiI"/>
-                            <constraint firstItem="dCC-cV-Xfd" firstAttribute="leading" secondItem="0df-RT-J5I" secondAttribute="leading" constant="23" id="jY5-mb-nmA"/>
-                            <constraint firstItem="J2j-qx-pG3" firstAttribute="top" secondItem="GlH-RS-bKK" secondAttribute="top" id="t6G-Jl-tBl"/>
-                            <constraint firstItem="Mms-6L-CNd" firstAttribute="centerY" secondItem="dCC-cV-Xfd" secondAttribute="centerY" id="vhb-Ix-A9J"/>
-                            <constraint firstItem="GlH-RS-bKK" firstAttribute="leading" secondItem="dCC-cV-Xfd" secondAttribute="leading" id="xbk-eY-rYr"/>
-                            <constraint firstItem="fF2-Ng-zgq" firstAttribute="centerX" secondItem="uWZ-M3-NfU" secondAttribute="centerX" id="ySs-El-fNL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0df-RT-J5I"/>
                     </view>
@@ -264,7 +238,4 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
             <point key="canvasLocation" x="2235" y="75"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5Qc-bV-oNB"/>
-    </inferredMetricsTieBreakers>
 </document>
