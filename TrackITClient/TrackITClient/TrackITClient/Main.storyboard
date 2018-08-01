@@ -101,7 +101,6 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
                             <constraint firstItem="bum-ej-9W4" firstAttribute="top" secondItem="cwk-hz-8jn" secondAttribute="bottom" constant="8" symbolic="YES" id="Hl7-6w-NwV"/>
                             <constraint firstItem="bum-ej-9W4" firstAttribute="centerX" secondItem="cwk-hz-8jn" secondAttribute="centerX" id="InC-jT-PRW"/>
@@ -136,25 +135,25 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCC-cV-Xfd">
-                                <rect key="frame" x="43" y="118" width="50" height="21"/>
+                                <rect key="frame" x="43" y="118" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hg-2E-dsE">
-                                <rect key="frame" x="43" y="216" width="34" height="21"/>
+                                <rect key="frame" x="43" y="216" width="30" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlH-RS-bKK">
-                                <rect key="frame" x="43" y="164" width="34" height="21"/>
+                                <rect key="frame" x="43" y="164" width="30" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-6L-CNd">
-                                <rect key="frame" x="120" y="113" width="183" height="30"/>
+                                <rect key="frame" x="116" y="113" width="187" height="30"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -162,14 +161,14 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                     <outlet property="delegate" destination="F6g-dV-Fkc" id="TTd-Ae-lCD"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF2-Ng-zgq">
-                                <rect key="frame" x="136" y="20" width="151" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="User Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF2-Ng-zgq">
+                                <rect key="frame" x="100" y="20" width="213" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vI6-0l-gCU">
-                                <rect key="frame" x="120" y="211" width="183" height="30"/>
+                                <rect key="frame" x="116" y="211" width="187" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -189,7 +188,7 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J2j-qx-pG3">
-                                <rect key="frame" x="120" y="160" width="183" height="30"/>
+                                <rect key="frame" x="116" y="160" width="187" height="30"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
@@ -210,19 +209,19 @@ In the DASH-Sodium study, participants were given one of three sodium plans: the
                             <constraint firstItem="GlH-RS-bKK" firstAttribute="leading" secondItem="7hg-2E-dsE" secondAttribute="leading" id="GQJ-4f-Ysz"/>
                             <constraint firstItem="0df-RT-J5I" firstAttribute="bottom" secondItem="Bfq-Gt-2Q7" secondAttribute="bottom" constant="102" id="HSw-vF-4vV"/>
                             <constraint firstItem="Mms-6L-CNd" firstAttribute="trailing" secondItem="J2j-qx-pG3" secondAttribute="trailing" id="Ilw-TM-vDb"/>
+                            <constraint firstItem="fF2-Ng-zgq" firstAttribute="leading" secondItem="0df-RT-J5I" secondAttribute="leading" constant="100" id="Iox-mF-JZF"/>
                             <constraint firstItem="dCC-cV-Xfd" firstAttribute="top" secondItem="0df-RT-J5I" secondAttribute="top" constant="98" id="IvS-mi-Cfn"/>
                             <constraint firstItem="Mms-6L-CNd" firstAttribute="leading" secondItem="J2j-qx-pG3" secondAttribute="leading" id="M6I-Dq-p16"/>
                             <constraint firstItem="J2j-qx-pG3" firstAttribute="trailing" secondItem="vI6-0l-gCU" secondAttribute="trailing" id="WBF-iA-5rS"/>
                             <constraint firstItem="dCC-cV-Xfd" firstAttribute="leading" secondItem="GlH-RS-bKK" secondAttribute="leading" id="YgC-cL-cc8"/>
+                            <constraint firstItem="fF2-Ng-zgq" firstAttribute="centerX" secondItem="Mms-6L-CNd" secondAttribute="centerX" constant="-5" id="aoK-zC-zdE"/>
                             <constraint firstItem="J2j-qx-pG3" firstAttribute="leading" secondItem="GlH-RS-bKK" secondAttribute="trailing" constant="43" id="ecr-ds-GKI"/>
-                            <constraint firstItem="fF2-Ng-zgq" firstAttribute="centerX" secondItem="Mms-6L-CNd" secondAttribute="centerX" id="fSR-oo-dnO"/>
                             <constraint firstItem="GlH-RS-bKK" firstAttribute="centerY" secondItem="J2j-qx-pG3" secondAttribute="centerY" id="kcb-kQ-Yes"/>
                             <constraint firstItem="dCC-cV-Xfd" firstAttribute="leading" secondItem="0df-RT-J5I" secondAttribute="leading" constant="43" id="qs2-gW-Qpd"/>
-                            <constraint firstItem="fF2-Ng-zgq" firstAttribute="leading" secondItem="0df-RT-J5I" secondAttribute="leading" constant="136" id="rx9-p6-BD9"/>
                             <constraint firstItem="vI6-0l-gCU" firstAttribute="top" secondItem="J2j-qx-pG3" secondAttribute="bottom" constant="21" id="ttT-GV-CZI"/>
                             <constraint firstItem="J2j-qx-pG3" firstAttribute="leading" secondItem="vI6-0l-gCU" secondAttribute="leading" id="ulH-vr-iK6"/>
+                            <constraint firstItem="fF2-Ng-zgq" firstAttribute="top" secondItem="0df-RT-J5I" secondAttribute="top" id="uyY-f7-E0G"/>
                             <constraint firstItem="0df-RT-J5I" firstAttribute="trailing" secondItem="Mms-6L-CNd" secondAttribute="trailing" constant="111" id="w1g-YU-yfa"/>
-                            <constraint firstItem="fF2-Ng-zgq" firstAttribute="top" secondItem="0df-RT-J5I" secondAttribute="top" id="zhX-v6-RJU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0df-RT-J5I"/>
                     </view>
