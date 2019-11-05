@@ -28,9 +28,9 @@ The *TrackIT* project is divided into 3 smaller, isolated projects:
   - [TrackIT Client](#trackit-client)
   - [TrackIT Server](#trackit-server)
   
-All of these projects are accessable from the `TrackIT.xcworkspace` Xcode workspace file. Work on any aspect of the project (except when working on NetConnect/TrackITServer from Linux) should be done from within this workspace file.
+All of these projects are accessible from the `TrackIT.xcworkspace` Xcode workspace file. Work on any aspect of the project (except when working on NetConnect/TrackITServer from Linux) should be done from within this workspace file.
 
-When building a project, ensure that the correct project is selected in the build drop down menu as seen below. This will also ensure that error checking and syntax highlighting are working correctly for the that project you are working in.
+When building a project, ensure that the correct project is selected in the build drop down menu as seen below. This will also ensure that error checking and syntax highlighting are working correctly for the that project you are working on.
 
 ![build menu](https://github.com/JackTheWright/CMPT276Group9/blob/master/common/img/Screen%20Shot%202018-06-03%20at%2014.29.43.png)
 
