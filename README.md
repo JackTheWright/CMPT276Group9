@@ -1,6 +1,6 @@
 # TrackIT
 
-TrackIT is a client/server iOS application desigend and built by Group 9 for CMPT 276 (Summer) at SFU.
+TrackIT is a client/server iOS application designed and built by Group 9 for CMPT 276 (Summer) at SFU.
 
 Project website: [trackitdiet.com](https://www.trackitdiet.com)
 
@@ -28,15 +28,15 @@ The *TrackIT* project is divided into 3 smaller, isolated projects:
   - [TrackIT Client](#trackit-client)
   - [TrackIT Server](#trackit-server)
   
-All of these projects are accessable from the `TrackIT.xcworkspace` Xcode workspace file. Work on any aspect of the project (except when working on NetConnect/TrackITServer from Linux) should be done from within this workspace file.
+All of these projects are accessible from the `TrackIT.xcworkspace` Xcode workspace file. Work on any aspect of the project (except when working on NetConnect/TrackITServer from Linux) should be done from within this workspace file.
 
-When going to build a project, ensure that correct project is selected in the build drop down menu as seen below. This will also ensure that error checking and syntax highlighting are working correctly for the project you are trying to work in.
+When building a project, ensure that the correct project is selected in the build drop down menu as seen below. This will also ensure that error checking and syntax highlighting are working correctly for the project that you are working on.
 
 ![build menu](https://github.com/JackTheWright/CMPT276Group9/blob/master/common/img/Screen%20Shot%202018-06-03%20at%2014.29.43.png)
 
-Remember that before building either TrackITClient or Server, the NetConnect library must be built. This can be done in Xcode by selecting the 'NetConnect' from the drop down menu and pressing `⌘ b` or pressing the play icon at the top left. This only needs to be done once after any changes are made to the NetConnect library. Though to be safe, this should be done after every pull from the repository.
+Before building either TrackITClient or Server, the NetConnect library must be built. This can be done in Xcode by selecting the 'NetConnect' from the drop down menu and pressing `⌘ b` or by pressing the play icon at the top left. This should be done after every pull from the repository.
 
-When working in `TrackIT.xcworkspace` the project menu will look something like this:
+While working in `TrackIT.xcworkspace` the project menu will look something like this:
 
 ![proj menu](https://github.com/JackTheWright/CMPT276Group9/blob/master/common/img/Screen%20Shot%202018-06-03%20at%2014.30.40.png)
 
